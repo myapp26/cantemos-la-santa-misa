@@ -1,0 +1,14 @@
+{
+  "name": "Cantemos para la Santa Misa",
+  "short_name": "Cantemos",
+  "description": "Cancionero litúrgico con notas, acordes e índice por temas.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4ecd8",
+  "theme_color": "#2b2118",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

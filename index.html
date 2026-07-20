@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#2b2118">
+<title>Cantemos para la Santa Misa</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<style>
+  :root{
+    --paper:#f4ecd8; --paper-deep:#ece0c4; --ink:#2b2118; --ink-soft:#6b5a44;
+    --accent:#9c3b1b; --accent-deep:#7a2c12; --chord:#9c3b1b; --rule:#cdbf9e; --line:#d8cba8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--paper);color:var(--ink);
+    font-family:Georgia,"Times New Roman",serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:radial-gradient(circle at 20% 30%, rgba(0,0,0,.025) 0, transparent 40%),
+                     radial-gradient(circle at 80% 70%, rgba(0,0,0,.02) 0, transparent 40%);
+    mix-blend-mode:multiply}
+  #app{position:relative;z-index:1;max-width:760px;margin:0 auto;min-height:100%}
+
+  /* ---------- Cabecera ---------- */
+  header{padding:22px 22px 16px;border-bottom:2px solid var(--ink);
+    position:sticky;top:0;background:var(--paper);z-index:10}
+  .eyebrow{font-family:"Courier New",monospace;font-size:11px;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+  h1.brand{font-size:25px;font-weight:700;letter-spacing:-.01em;line-height:1.05}
+  h1.brand .swash{color:var(--accent);font-style:italic}
+  .search{margin-top:14px;position:relative}
+  .search input{width:100%;padding:12px 14px 12px 40px;font-family:Georgia,serif;font-size:16px;
+    background:var(--paper-deep);border:1px solid var(--rule);border-radius:2px;color:var(--ink);outline:none}
+  .search input:focus{border-color:var(--accent)}
+  .search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);
+    width:17px;height:17px;stroke:var(--ink-soft);fill:none;stroke-width:2}
+  .admin-dot{position:absolute;right:0;top:0;width:30px;height:30px;border:none;background:none;
+    cursor:pointer;opacity:.25;font-size:18px;color:var(--ink)}
+  .admin-dot.on{opacity:1;color:var(--accent)}
+  .toolbar{display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .sortbtn{font-family:"Courier New",monospace;font-size:12px;letter-spacing:.04em;
+    background:var(--paper-deep);border:1px solid var(--rule);color:var(--ink);
+    padding:8px 14px;border-radius:20px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+  .sortbtn::before{content:"⇅";color:var(--accent);font-size:13px}
+  .sortbtn:active{background:var(--rule)}
+  .installbtn{font-family:"Courier New",monospace;font-size:12px;letter-spacing:.04em;
+    background:var(--accent);border:1px solid var(--accent);color:#fff;
+    padding:8px 14px;border-radius:20px;cursor:pointer;margin-left:auto}
+  .installbtn:active{background:var(--accent-deep)}
+
+  /* ---------- Índice ---------- */
+  main{padding:8px 22px 90px}
+  .recientes{margin-top:18px;padding:14px 16px;background:var(--paper-deep);
+    border:1px solid var(--rule);border-radius:3px}
+  .recientes h3{font-family:"Courier New",monospace;font-size:11px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent-deep);margin-bottom:8px}
+  .recientes .chip{display:inline-block;font-size:14px;padding:5px 10px;margin:3px 4px 3px 0;
+    background:var(--paper);border:1px solid var(--rule);border-radius:14px;cursor:pointer}
+  .cat{margin-top:24px}
+  .cat-head{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+  .cat-head h2{font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+    font-family:"Courier New",monospace;color:var(--accent-deep);font-weight:700}
+  .cat-head .rule{flex:1;height:1px;background:var(--rule)}
+  .cat-head .count{font-family:"Courier New",monospace;font-size:11px;color:var(--ink-soft)}
+  ul.songs{list-style:none}
+  li.song{display:flex;align-items:baseline;gap:10px;padding:11px 4px;
+    border-bottom:1px solid var(--line);cursor:pointer}
+  li.song:active{background:var(--paper-deep)}
+  li.song .num{font-family:"Courier New",monospace;font-size:12px;color:var(--ink-soft);min-width:26px}
+  li.song .t{flex:1;font-size:18px}
+  li.song .a{font-size:12px;color:var(--ink-soft);font-style:italic}
+  li.song .tono{font-family:"Courier New",monospace;font-size:12px;color:var(--accent);
+    border:1px solid var(--rule);border-radius:2px;padding:1px 6px}
+  .empty{padding:40px 10px;text-align:center;color:var(--ink-soft);font-style:italic}
+
+  /* ---------- Vista canción ---------- */
+  #song-view{position:fixed;inset:0;z-index:50;background:var(--paper);display:none;flex-direction:column}
+  #song-view.open{display:flex}
+  .sv-bar{display:flex;align-items:center;gap:8px;padding:14px 16px;
+    border-bottom:2px solid var(--ink);background:var(--paper)}
+  .sv-bar button{font-family:"Courier New",monospace;font-size:13px;background:none;
+    border:1px solid var(--rule);color:var(--ink);padding:7px 12px;border-radius:2px;cursor:pointer;letter-spacing:.04em}
+  .sv-bar button:active{background:var(--paper-deep)}
+  .sv-bar .back{border-color:var(--ink)}
+  .sv-bar .spacer{flex:1}
+  .sv-bar .present{border-color:var(--accent);color:var(--accent)}
+  .sv-bar .edit{border-color:var(--accent-deep);color:var(--accent-deep)}
+  .sv-scroll{flex:1;overflow-y:auto;padding:22px 22px 60px;-webkit-overflow-scrolling:touch}
+  .sv-title{font-size:26px;font-weight:700;line-height:1.1}
+  .sv-meta{font-size:13px;color:var(--ink-soft);font-style:italic;margin:6px 0 4px}
+  .sv-tono-row{display:flex;align-items:center;gap:10px;margin:14px 0 18px;
+    padding-bottom:14px;border-bottom:1px solid var(--rule)}
+  .sv-tono-row .lbl{font-family:"Courier New",monospace;font-size:12px;
+    letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft)}
+  .transpose{display:flex;align-items:center;gap:6px}
+  .transpose button{width:32px;height:32px;border:1px solid var(--ink);background:none;
+    color:var(--ink);font-size:18px;border-radius:2px;cursor:pointer;line-height:1}
+  .transpose .val{font-family:"Courier New",monospace;font-size:15px;color:var(--accent);
+    min-width:42px;text-align:center;font-weight:700}
+
+  /* ---------- Letra con acordes ENCIMA ---------- */
+  .lyrics{font-family:"Courier New",monospace;font-size:15px}
+  .lyrics .section{color:var(--accent-deep);font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;font-size:12px;display:block;margin:18px 0 4px}
+  .lyrics .lyric-line{display:block;margin:2px 0}
+  .lyrics .chord-row{display:block;height:1.15em;position:relative;white-space:pre}
+  .lyrics .chord-row .chord{position:absolute;color:var(--chord);font-weight:700;white-space:nowrap}
+  .lyrics .text-row{display:block;white-space:pre-wrap;word-break:break-word;line-height:1.3}
+  .lyrics .plain{display:block;white-space:pre-wrap;word-break:break-word;line-height:1.7}
+
+  /* ---------- Modo presentación ---------- */
+  body.presenting{overflow:hidden}
+  #present{position:fixed;inset:0;z-index:100;background:var(--ink);color:var(--paper);
+    display:none;flex-direction:column}
+  #present.open{display:flex}
+  #present .p-bar{display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid #4a3c2c}
+  #present .p-bar button{background:none;border:1px solid #5a4a36;color:var(--paper);
+    font-family:"Courier New",monospace;font-size:13px;padding:7px 12px;border-radius:2px;cursor:pointer}
+  #present .p-title{flex:1;font-size:15px;font-style:italic;color:#cdbf9e}
+  #present .p-scroll{flex:1;overflow-y:auto;padding:30px 26px 80px;-webkit-overflow-scrolling:touch}
+  #present .lyrics{font-size:var(--present-size,30px);color:var(--paper)}
+  #present .lyrics .section{color:#e8a23b;font-size:calc(var(--present-size,30px)*.55)}
+  #present .lyrics .chord{color:#e8a23b}
+  #present .size-ctl{display:flex;gap:6px;align-items:center}
+  #present .size-ctl button{width:34px;height:34px;font-size:18px;padding:0}
+
+  /* ---------- Panel admin / editor ---------- */
+  .modal{position:fixed;inset:0;z-index:200;background:rgba(43,33,24,.55);
+    display:none;align-items:flex-end;justify-content:center}
+  .modal.open{display:flex}
+  .sheet{background:var(--paper);width:100%;max-width:760px;max-height:92vh;overflow-y:auto;
+    border-radius:14px 14px 0 0;padding:22px 20px 40px;border-top:3px solid var(--accent)}
+  .sheet h2{font-size:20px;margin-bottom:4px}
+  .sheet .sub{font-size:13px;color:var(--ink-soft);margin-bottom:18px;font-style:italic}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-family:"Courier New",monospace;font-size:11px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px}
+  .field input,.field select,.field textarea{width:100%;padding:11px 12px;font-size:15px;
+    font-family:Georgia,serif;background:var(--paper-deep);border:1px solid var(--rule);
+    border-radius:3px;color:var(--ink);outline:none}
+  .field textarea{font-family:"Courier New",monospace;font-size:14px;line-height:1.6;min-height:220px;resize:vertical}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent)}
+  .field .hint{font-size:12px;color:var(--ink-soft);margin-top:5px;line-height:1.4}
+  .btn-row{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
+  .btn{padding:12px 18px;font-family:"Courier New",monospace;font-size:13px;letter-spacing:.05em;
+    border-radius:3px;cursor:pointer;border:1px solid var(--ink);background:none;color:var(--ink)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.danger{border-color:var(--accent-deep);color:var(--accent-deep)}
+  .btn:active{transform:translateY(1px)}
+  .btn.full{flex:1}
+  .cat-editor{margin:10px 0;padding:12px;background:var(--paper-deep);border-radius:4px}
+  .cat-line{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+  .cat-line input{flex:1}
+  .cat-line button{width:38px;height:38px;border:1px solid var(--rule);background:var(--paper);
+    border-radius:3px;cursor:pointer;font-size:16px;color:var(--accent-deep)}
+  .preview{margin-top:8px;padding:14px;background:var(--paper-deep);border-radius:4px;
+    border:1px dashed var(--rule)}
+  .preview .ttl{font-family:"Courier New",monospace;font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+  .admin-actions{display:flex;flex-direction:column;gap:10px}
+  .admin-actions .btn{text-align:left}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:300;
+    background:var(--ink);color:var(--paper);padding:12px 20px;border-radius:24px;
+    font-size:14px;opacity:0;transition:opacity .25s;pointer-events:none}
+  .toast.show{opacity:1}
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="eyebrow">Cancionero litúrgico · Notas y acordes</div>
+    <h1 class="brand">Cantemos para la <span class="swash">Santa Misa</span></h1>
+    <div class="search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+      <input id="q" type="search" placeholder="Buscar por título, autor o categoría…" autocomplete="off">
+      <button class="admin-dot" id="adminDot" title="Administrador" onclick="adminTap()">⚙</button>
+    </div>
+    <div class="toolbar">
+      <button class="sortbtn" id="sortBtn" onclick="toggleSort()">
+        <span id="sortLabel">Por categoría</span>
+      </button>
+      <button class="installbtn" id="installBtn" style="display:none" onclick="installApp()">⬇ Instalar app</button>
+    </div>
+  </header>
+  <main id="index"></main>
+</div>
+
+<!-- Vista de una canción -->
+<div id="song-view">
+  <div class="sv-bar">
+    <button class="back" onclick="closeSong()">‹ Índice</button>
+    <div class="spacer"></div>
+    <button class="edit" id="editBtn" style="display:none" onclick="editCurrent()">Editar</button>
+    <button class="present" onclick="openPresent()">Presentación</button>
+  </div>
+  <div class="sv-scroll">
+    <div class="sv-title" id="sv-title"></div>
+    <div class="sv-meta" id="sv-meta"></div>
+    <div class="sv-tono-row">
+      <span class="lbl">Tono</span>
+      <div class="transpose">
+        <button onclick="transpose(-1)">−</button>
+        <span class="val" id="sv-tono"></span>
+        <button onclick="transpose(1)">+</button>
+      </div>
+    </div>
+    <div id="sv-youtube"></div>
+    <div class="lyrics" id="sv-lyrics"></div>
+  </div>
+</div>
+
+<!-- Modo presentación -->
+<div id="present">
+  <div class="p-bar">
+    <button onclick="closePresent()">‹ Volver</button>
+    <span class="p-title" id="p-title"></span>
+    <div class="size-ctl">
+      <button onclick="presentSize(-3)">A−</button>
+      <button onclick="presentSize(3)">A+</button>
+    </div>
+  </div>
+  <div class="p-scroll"><div class="lyrics" id="p-lyrics"></div></div>
+</div>
+
+<!-- Modal login admin -->
+<div class="modal" id="loginModal">
+  <div class="sheet">
+    <h2>Acceso de administrador</h2>
+    <div class="sub">Ingresa tu clave para gestionar los cantos.</div>
+    <div class="field">
+      <label>Clave</label>
+      <input id="loginKey" type="password" placeholder="••••••" autocomplete="off">
+    </div>
+    <div class="btn-row">
+      <button class="btn" onclick="closeModal('loginModal')">Cancelar</button>
+      <button class="btn primary full" onclick="doLogin()">Entrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal menú admin -->
+<div class="modal" id="adminModal">
+  <div class="sheet">
+    <h2>Panel de administrador</h2>
+    <div class="sub">Gestiona cantos y categorías. Los datos se guardan en este dispositivo.</div>
+    <div class="admin-actions">
+      <button class="btn primary" onclick="newSong()">＋ Nuevo canto</button>
+      <button class="btn" onclick="openCatEditor()">Gestionar categorías</button>
+      <button class="btn" onclick="exportData()">Exportar repertorio (respaldo)</button>
+      <button class="btn" onclick="document.getElementById('importFile').click()">Importar repertorio</button>
+      <input id="importFile" type="file" accept="application/json" style="display:none" onchange="importData(event)">
+      <button class="btn" style="border-color:var(--accent-deep);color:var(--accent-deep)" onclick="publishFile()">Generar archivo para publicar (Netlify)</button>
+      <button class="btn danger" onclick="logout()">Cerrar sesión de admin</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal editor de canto -->
+<div class="modal" id="songEditor">
+  <div class="sheet">
+    <h2 id="se-h">Nuevo canto</h2>
+    <div class="sub">Escribe los acordes entre corchetes justo donde caen: <b>[Do]</b>. La app los coloca encima de la sílaba.</div>
+    <div class="field">
+      <label>Título</label>
+      <input id="se-titulo" placeholder="Ej: Pescador de Hombres">
+    </div>
+    <div class="field">
+      <label>Autor (opcional)</label>
+      <input id="se-autor" placeholder="Ej: Cesáreo Gabaráin">
+    </div>
+    <div class="field">
+      <label>Categoría</label>
+      <select id="se-categoria"></select>
+    </div>
+    <div class="field">
+      <label>Tono base</label>
+      <input id="se-tono" placeholder="Ej: Do, Sol, Lam">
+    </div>
+    <div class="field">
+      <label>Link de YouTube (opcional)</label>
+      <input id="se-youtube" placeholder="Ej: https://youtube.com/watch?v=...">
+    </div>
+    <div class="field">
+      <label>Letra con acordes</label>
+      <textarea id="se-letra" placeholder="# Coro&#10;[Do]Alaba a [Sol]Dios, herma[Lam]no"></textarea>
+      <div class="hint">Usa <b>#</b> al inicio de una línea para nombrar secciones (Coro, Estrofa 1…). Pon los acordes entre <b>[ ]</b>.</div>
+    </div>
+    <div class="preview">
+      <div class="ttl">Vista previa</div>
+      <div class="lyrics" id="se-preview"></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn" onclick="closeModal('songEditor')">Cancelar</button>
+      <button class="btn danger" id="se-del" style="display:none" onclick="deleteSong()">Eliminar</button>
+      <button class="btn primary full" onclick="saveSong()">Guardar canto</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal editor de categorías -->
+<div class="modal" id="catEditor">
+  <div class="sheet">
+    <h2>Categorías</h2>
+    <div class="sub">Crea, renombra o reordena. Al renombrar, los cantos se actualizan solos.</div>
+    <div class="cat-editor" id="catList"></div>
+    <div class="btn-row">
+      <button class="btn" onclick="addCatLine()">＋ Agregar categoría</button>
+    </div>
+    <div class="btn-row">
+      <button class="btn" onclick="closeModal('catEditor')">Cancelar</button>
+      <button class="btn primary full" onclick="saveCats()">Guardar categorías</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="canciones.js"></script>
+<script>
+// ===================== Almacenamiento =====================
+const LS_DATA="cantemos_data_v1", LS_KEY="cantemos_admin_key";
+let DATA = load();
+let isAdmin=false, current=null, semis=0, presentFontSize=30, editingId=null;
+
+function load(){
+  try{
+    const raw=localStorage.getItem(LS_DATA);
+    if(raw) return JSON.parse(raw);
+  }catch(e){}
+  return {
+    categorias:[...CATEGORIAS],
+    canciones:CANCIONES.map((c,i)=>({...c, creado:Date.now()-(CANCIONES.length-i)*1000}))
+  };
+}
+function save(){localStorage.setItem(LS_DATA,JSON.stringify(DATA));}
+
+// ===================== Transposición =====================
+const NOTAS=["Do","Do#","Re","Re#","Mi","Fa","Fa#","Sol","Sol#","La","La#","Si"];
+const ALIAS={"Reb":"Do#","Mib":"Re#","Solb":"Fa#","Lab":"Sol#","Sib":"La#","Dob":"Si","Fab":"Mi"};
+function parseChord(ch){
+  let m=ch.match(/^(Do|Re|Mi|Fa|Sol|La|Si)([#b]?)(.*)$/i);
+  if(!m) return null;
+  let root=m[1].charAt(0).toUpperCase()+m[1].slice(1).toLowerCase();
+  if(m[2]) root+=m[2];
+  if(ALIAS[root]) root=ALIAS[root];
+  let idx=NOTAS.indexOf(root);
+  if(idx<0) return null;
+  return {idx,suffix:m[3]};
+}
+function shiftChord(ch,s){const p=parseChord(ch);if(!p)return ch;return NOTAS[(p.idx+s+1200)%12]+p.suffix;}
+
+// ===================== Render letra: acordes ENCIMA =====================
+function renderLine(line, semis){
+  const parts=[]; let re=/\[([^\]]+)\]/g, last=0, m;
+  while((m=re.exec(line))){
+    if(m.index>last) parts.push({chord:null,text:line.slice(last,m.index)});
+    parts.push({chord:m[1],text:""});
+    last=re.lastIndex;
+  }
+  if(last<line.length) parts.push({chord:null,text:line.slice(last)});
+  if(!parts.some(p=>p.chord))
+    return `<span class="lyric-line"><span class="text-row">${esc(line)||" "}</span></span>`;
+
+  let text="", chords=[];
+  parts.forEach(p=>{
+    if(p.chord){ chords.push({pos:text.length, ch: semis?shiftChord(p.chord,semis):p.chord}); }
+    text+=p.text;
+  });
+  let chordRow=chords.map(c=>
+    `<span class="chord" style="left:${c.pos}ch">${esc(c.ch)}</span>`).join("");
+  return `<span class="lyric-line">`+
+         `<span class="chord-row">${chordRow}</span>`+
+         `<span class="text-row">${esc(text)||" "}</span></span>`;
+}
+function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function lyricsHTML(letra, semis){
+  return letra.split("\n").map(line=>{
+    if(line.startsWith("#"))
+      return `<span class="section">${esc(line.replace(/^#\s*/,""))}</span>`;
+    return renderLine(line, semis);
+  }).join("");
+}
+
+// ===================== Render índice =====================
+let sortMode = "categoria"; // "categoria" | "alfabetico"
+
+function toggleSort(){
+  sortMode = (sortMode==="categoria") ? "alfabetico" : "categoria";
+  document.getElementById("sortLabel").textContent =
+    sortMode==="categoria" ? "Por categoría" : "Alfabético A–Z";
+  render(document.getElementById("q").value);
+}
+
+function songLi(c, n){
+  const li=document.createElement("li");li.className="song";
+  li.innerHTML=`<span class="num">${n}</span>
+    <span class="t">${esc(c.titulo)}${c.autor?` <span class="a">· ${esc(c.autor)}</span>`:""}</span>
+    <span class="tono">${esc(c.tono)}</span>`;
+  li.onclick=()=>openSong(c.id);
+  return li;
+}
+
+function render(filter=""){
+  const cont=document.getElementById("index");
+  const f=filter.trim().toLowerCase();
+  cont.innerHTML="";
+
+  if(!f){
+    const recientes=[...DATA.canciones].sort((a,b)=>(b.creado||0)-(a.creado||0)).slice(0,5);
+    if(recientes.length){
+      const box=document.createElement("div");box.className="recientes";
+      box.innerHTML=`<h3>Últimos cantos subidos</h3>`+
+        recientes.map(c=>`<span class="chip" onclick="openSong('${c.id}')">${esc(c.titulo)}</span>`).join("");
+      cont.appendChild(box);
+    }
+  }
+
+  const coincide=c=>!f||(c.titulo+" "+(c.autor||"")+" "+c.categoria).toLowerCase().includes(f);
+  let total=0;
+
+  if(sortMode==="alfabetico"){
+    // Una sola lista, ordenada A–Z, con separadores por letra inicial.
+    const list=DATA.canciones.filter(coincide)
+      .sort((a,b)=>a.titulo.localeCompare(b.titulo,"es",{sensitivity:"base"}));
+    total=list.length;
+    let letraActual="";
+    let sec, ul;
+    list.forEach(c=>{
+      const inicial=c.titulo.trim().charAt(0).toUpperCase();
+      if(inicial!==letraActual){
+        letraActual=inicial;
+        sec=document.createElement("section");sec.className="cat";
+        sec.innerHTML=`<div class="cat-head"><h2>${esc(inicial)}</h2><span class="rule"></span></div>`;
+        ul=document.createElement("ul");ul.className="songs";
+        sec.appendChild(ul);cont.appendChild(sec);
+      }
+      ul.appendChild(songLi(c, "•"));
+    });
+  } else {
+    // Agrupado por categoría (orden definido por el admin).
+    DATA.categorias.forEach(cat=>{
+      let list=DATA.canciones.filter(c=>c.categoria===cat && coincide(c));
+      if(!list.length) return;
+      total+=list.length;
+      const sec=document.createElement("section");sec.className="cat";
+      sec.innerHTML=`<div class="cat-head"><h2>${esc(cat)}</h2><span class="rule"></span>
+        <span class="count">${list.length}</span></div>`;
+      const ul=document.createElement("ul");ul.className="songs";
+      list.forEach((c,i)=>ul.appendChild(songLi(c, String(i+1).padStart(2,"0"))));
+      sec.appendChild(ul);cont.appendChild(sec);
+    });
+  }
+  if(!total) cont.innerHTML+=`<div class="empty">No se encontraron cantos${f?` para “${esc(filter)}”`:""}.</div>`;
+}
+
+// ===================== Vista canción =====================
+function openSong(id){
+  current=DATA.canciones.find(c=>c.id===id);semis=0;
+  document.getElementById("sv-title").textContent=current.titulo;
+  document.getElementById("sv-meta").textContent=
+    [current.autor,current.categoria].filter(Boolean).join("  ·  ");
+  document.getElementById("editBtn").style.display=isAdmin?"":"none";
+  document.getElementById("sv-youtube").innerHTML=current.youtube
+    ?`<a class="btn" href="${esc(current.youtube)}" target="_blank" rel="noopener">▶ Ver en YouTube</a>`:"";
+  updateSong();
+  document.getElementById("song-view").classList.add("open");
+  document.querySelector(".sv-scroll").scrollTop=0;
+}
+function updateSong(){
+  document.getElementById("sv-tono").textContent=semis?shiftChord(current.tono,semis):current.tono;
+  document.getElementById("sv-lyrics").innerHTML=lyricsHTML(current.letra,semis);
+}
+function transpose(d){semis=((semis+d)%12+12)%12;if(semis>6)semis-=12;updateSong();}
+function closeSong(){document.getElementById("song-view").classList.remove("open");}
+
+// ===================== Presentación =====================
+function openPresent(){
+  document.getElementById("p-title").textContent=current.titulo;
+  document.getElementById("p-lyrics").innerHTML=lyricsHTML(current.letra,semis);
+  document.getElementById("present").style.setProperty("--present-size",presentFontSize+"px");
+  document.body.classList.add("presenting");
+  document.getElementById("present").classList.add("open");
+  document.querySelector(".p-scroll").scrollTop=0;
+}
+function closePresent(){
+  document.getElementById("present").classList.remove("open");
+  document.body.classList.remove("presenting");
+}
+function presentSize(d){
+  presentFontSize=Math.max(18,Math.min(64,presentFontSize+d));
+  document.getElementById("present").style.setProperty("--present-size",presentFontSize+"px");
+}
+
+// ===================== Admin: acceso =====================
+function adminTap(){
+  if(isAdmin){ openModal("adminModal"); return; }
+  openModal("loginModal");
+  setTimeout(()=>document.getElementById("loginKey").focus(),100);
+}
+function doLogin(){
+  const key=document.getElementById("loginKey").value;
+  let saved=localStorage.getItem(LS_KEY);
+  if(!saved){
+    if(key.length<4){ toast("Crea una clave de al menos 4 caracteres"); return; }
+    localStorage.setItem(LS_KEY,key); saved=key;
+    toast("Clave de administrador creada");
+  }
+  if(key===saved){
+    isAdmin=true; document.getElementById("adminDot").classList.add("on");
+    document.getElementById("loginKey").value="";
+    closeModal("loginModal"); openModal("adminModal");
+  }else toast("Clave incorrecta");
+}
+function logout(){isAdmin=false;document.getElementById("adminDot").classList.remove("on");
+  closeModal("adminModal");toast("Sesión de admin cerrada");render(document.getElementById("q").value);}
+
+// ===================== Admin: editor de canto =====================
+function fillCatSelect(sel){
+  sel.innerHTML=DATA.categorias.map(c=>`<option>${esc(c)}</option>`).join("");
+}
+function newSong(){
+  editingId=null;
+  document.getElementById("se-h").textContent="Nuevo canto";
+  document.getElementById("se-del").style.display="none";
+  document.getElementById("se-titulo").value="";
+  document.getElementById("se-autor").value="";
+  document.getElementById("se-tono").value="";
+  document.getElementById("se-youtube").value="";
+  document.getElementById("se-letra").value="";
+  fillCatSelect(document.getElementById("se-categoria"));
+  updatePreview();
+  closeModal("adminModal");openModal("songEditor");
+}
+function editCurrent(){ editSong(current.id); }
+function editSong(id){
+  const c=DATA.canciones.find(x=>x.id===id); if(!c) return;
+  editingId=id;
+  document.getElementById("se-h").textContent="Editar canto";
+  document.getElementById("se-del").style.display="";
+  document.getElementById("se-titulo").value=c.titulo;
+  document.getElementById("se-autor").value=c.autor||"";
+  document.getElementById("se-tono").value=c.tono;
+  document.getElementById("se-youtube").value=c.youtube||"";
+  fillCatSelect(document.getElementById("se-categoria"));
+  document.getElementById("se-categoria").value=c.categoria;
+  document.getElementById("se-letra").value=c.letra;
+  updatePreview();
+  closeSong();openModal("songEditor");
+}
+function slugify(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+  .replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"").slice(0,50)||("canto-"+Date.now());}
+function saveSong(){
+  const titulo=document.getElementById("se-titulo").value.trim();
+  const tono=document.getElementById("se-tono").value.trim();
+  const letra=document.getElementById("se-letra").value;
+  if(!titulo){toast("Falta el título");return;}
+  if(!tono){toast("Falta el tono");return;}
+  const obj={
+    titulo, autor:document.getElementById("se-autor").value.trim(),
+    categoria:document.getElementById("se-categoria").value, tono, letra,
+    youtube:document.getElementById("se-youtube").value.trim()
+  };
+  if(editingId){
+    const c=DATA.canciones.find(x=>x.id===editingId);
+    Object.assign(c,obj);
+  }else{
+    let id=slugify(titulo);
+    while(DATA.canciones.some(c=>c.id===id)) id+="-"+Math.floor(Math.random()*99);
+    DATA.canciones.push({id,...obj,creado:Date.now()});
+  }
+  save();closeModal("songEditor");render(document.getElementById("q").value);
+  toast(editingId?"Canto actualizado":"Canto agregado");
+}
+function deleteSong(){
+  if(!editingId) return;
+  if(!confirm("¿Eliminar este canto definitivamente?")) return;
+  DATA.canciones=DATA.canciones.filter(c=>c.id!==editingId);
+  save();closeModal("songEditor");render(document.getElementById("q").value);toast("Canto eliminado");
+}
+function updatePreview(){
+  const letra=document.getElementById("se-letra").value;
+  document.getElementById("se-preview").innerHTML=letra.trim()?lyricsHTML(letra,0)
+    :`<span style="color:var(--ink-soft);font-style:italic">La vista previa aparecerá aquí…</span>`;
+}
+
+// ===================== Admin: categorías =====================
+function openCatEditor(){
+  const box=document.getElementById("catList");box.innerHTML="";
+  DATA.categorias.forEach(c=>addCatLine(c));
+  closeModal("adminModal");openModal("catEditor");
+}
+function addCatLine(val=""){
+  const box=document.getElementById("catList");
+  const v=(typeof val==="string")?val:"";
+  const row=document.createElement("div");row.className="cat-line";
+  row.innerHTML=`<input value="${esc(v)}" placeholder="Nombre de categoría">
+    <button title="Subir" onclick="moveCat(this,-1)">↑</button>
+    <button title="Bajar" onclick="moveCat(this,1)">↓</button>
+    <button title="Quitar" onclick="this.parentElement.remove()">✕</button>`;
+  box.appendChild(row);
+}
+function moveCat(btn,dir){
+  const row=btn.parentElement, box=row.parentElement;
+  if(dir<0 && row.previousElementSibling) box.insertBefore(row,row.previousElementSibling);
+  if(dir>0 && row.nextElementSibling) box.insertBefore(row.nextElementSibling,row);
+}
+function saveCats(){
+  const inputs=[...document.querySelectorAll("#catList .cat-line input")];
+  const nuevas=inputs.map(i=>i.value.trim()).filter(Boolean);
+  if(!nuevas.length){toast("Debe haber al menos una categoría");return;}
+  const viejas=DATA.categorias;
+  DATA.canciones.forEach(c=>{
+    if(!nuevas.includes(c.categoria)){
+      const idx=viejas.indexOf(c.categoria);
+      c.categoria = (idx>=0 && nuevas[idx]) ? nuevas[idx] : nuevas[0];
+    }
+  });
+  DATA.categorias=nuevas;
+  save();closeModal("catEditor");render(document.getElementById("q").value);toast("Categorías guardadas");
+}
+
+// ===================== Exportar / Importar =====================
+function exportData(){
+  const blob=new Blob([JSON.stringify(DATA,null,2)],{type:"application/json"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="cantemos-repertorio-"+new Date().toISOString().slice(0,10)+".json";
+  a.click();URL.revokeObjectURL(a.href);
+  toast("Repertorio exportado");
+}
+function importData(ev){
+  const file=ev.target.files[0]; if(!file) return;
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      const d=JSON.parse(r.result);
+      if(!d.categorias||!d.canciones) throw 0;
+      if(!confirm("Esto reemplazará el repertorio actual en este dispositivo. ¿Continuar?")){ev.target.value="";return;}
+      DATA=d;save();render();closeModal("adminModal");toast("Repertorio importado");
+    }catch(e){toast("Archivo no válido");}
+    ev.target.value="";
+  };
+  r.readAsText(file);
+}
+
+// Genera el archivo canciones.js con el repertorio actual,
+// listo para reemplazar en la carpeta y subir a Netlify.
+function publishFile(){
+  const cats=JSON.stringify(DATA.categorias);
+  const cancionesLimpias=DATA.canciones.map(c=>({
+    id:c.id, titulo:c.titulo, autor:c.autor||"", categoria:c.categoria,
+    tono:c.tono, letra:c.letra, youtube:c.youtube||""
+  }));
+  const body=
+`// ============================================================
+//  CANCIONES — Generado automáticamente desde la app.
+//  Este archivo es la "semilla" que reciben todos los que
+//  instalan la app desde tu enlace de Netlify.
+//  Generado: ${new Date().toLocaleString()}
+// ============================================================
+
+const CATEGORIAS = ${cats};
+
+const CANCIONES = ${JSON.stringify(cancionesLimpias,null,2)};
+`;
+  const blob=new Blob([body],{type:"text/javascript"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="canciones.js";
+  a.click();URL.revokeObjectURL(a.href);
+  toast("Archivo canciones.js generado");
+}
+
+// ===================== Utilidades UI =====================
+function openModal(id){document.getElementById(id).classList.add("open");}
+function closeModal(id){document.getElementById(id).classList.remove("open");}
+let toastT;
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");
+  clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("show"),2200);}
+document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{
+  if(e.target===m) m.classList.remove("open");
+}));
+document.getElementById("loginKey").addEventListener("keydown",e=>{if(e.key==="Enter")doLogin();});
+document.getElementById("q").addEventListener("input",e=>render(e.target.value));
+document.getElementById("se-letra").addEventListener("input",updatePreview);
+
+// ===================== Instalar app (PWA) =====================
+let deferredPrompt=null;
+const installBtn=document.getElementById("installBtn");
+
+// ¿Ya está instalada / abierta como app? entonces no mostrar el botón.
+function yaInstalada(){
+  return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone===true;
+}
+function esIOS(){
+  return /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
+}
+
+// Android/Chrome: el navegador avisa cuando se puede instalar.
+window.addEventListener("beforeinstallprompt",e=>{
+  e.preventDefault();
+  deferredPrompt=e;
+  if(!yaInstalada()) installBtn.style.display="";
+});
+
+// iPhone (Safari) no dispara ese evento: mostramos el botón con instrucciones.
+if(esIOS() && !yaInstalada()){
+  installBtn.style.display="";
+}
+
+function installApp(){
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.finally(()=>{ deferredPrompt=null; installBtn.style.display="none"; });
+  } else if(esIOS()){
+    alert("Para instalar en iPhone:\n\n1. Toca el botón Compartir (el cuadro con la flecha hacia arriba), abajo en Safari.\n2. Elige “Agregar a pantalla de inicio”.\n3. Confirma con “Agregar”.");
+  } else {
+    alert("Para instalar:\n\nAbre el menú de tu navegador (⋮) y elige “Instalar aplicación” o “Agregar a pantalla de inicio”.");
+  }
+}
+
+// Si se instala, ocultamos el botón.
+window.addEventListener("appinstalled",()=>{ installBtn.style.display="none"; deferredPrompt=null; });
+
+// ===================== Init =====================
+render();
+if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
+</script>
+</body>
+</html>
