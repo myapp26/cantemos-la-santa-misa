@@ -2,7 +2,7 @@
 //  CANCIONES — Generado automáticamente desde la app.
 //  Este archivo es la "semilla" que reciben todos los que
 //  instalan la app desde tu enlace de Netlify.
-//  Generado: 19/7/2026, 3:14:24 p. m.
+//  Generado: 19/7/2026, 10:19:14 p. m.
 // ============================================================
 
 const CATEGORIAS = ["Entrada","Piedad","Evangelio - Aleluya","Ofertorio","Santo","Cordero","Comunión","Salida","Marianos","Vocacionales y Mision","Evangelio - sin Aleluya","Adoración","Alabanzas"];
@@ -51,7 +51,7 @@ const CANCIONES = [
     "categoria": "Entrada",
     "tono": "Do",
     "letra": "# Coro\n[Do]Juntos como her[Fa]manos\nmiembros de una i[Sol]glesia\nvamos cami[Lam]nando\nal en[Fa]cuentro del Se[Sol]ñor[Do]\n\n# Estrofa 1\n[Do]Un largo ca[Fa]minar\npor el de[Sol]sierto bajo el [Lam]sol\nno podemos a[Fa]vanzar\nsin la a[Sol]yuda del Se[Do]ñor",
-    "youtube": ""
+    "youtube": "https://youtu.be/3cET3XIP-4Q?si=8DYcDP26cFuY7jzZ"
   },
   {
     "id": "santa-maria-del-camino",
