@@ -11,7 +11,11 @@
   :root{
     --paper:#f4ecd8; --paper-deep:#ece0c4; --ink:#2b2118; --ink-soft:#6b5a44;
     --accent:#9c3b1b; --accent-deep:#7a2c12; --chord:#9c3b1b; --rule:#cdbf9e; --line:#d8cba8;
+    --tscale:1;
   }
+  body.txt-sm{--tscale:0.85}
+  body.txt-md{--tscale:1}
+  body.txt-lg{--tscale:1.25}
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
   body{background:var(--paper);color:var(--ink);
@@ -68,7 +72,7 @@
     border-bottom:1px solid var(--line);cursor:pointer}
   li.song:active{background:var(--paper-deep)}
   li.song .num{font-family:"Courier New",monospace;font-size:12px;color:var(--ink-soft);min-width:26px}
-  li.song .t{flex:1;font-size:18px}
+  li.song .t{flex:1;font-size:calc(18px*var(--tscale,1))}
   li.song .a{font-size:12px;color:var(--ink-soft);font-style:italic}
   li.song .tono{font-family:"Courier New",monospace;font-size:12px;color:var(--accent);
     border:1px solid var(--rule);border-radius:2px;padding:1px 6px}
@@ -87,7 +91,7 @@
   .sv-bar .present{border-color:var(--accent);color:var(--accent)}
   .sv-bar .edit{border-color:var(--accent-deep);color:var(--accent-deep)}
   .sv-scroll{flex:1;overflow-y:auto;padding:22px 22px 60px;-webkit-overflow-scrolling:touch}
-  .sv-title{font-size:26px;font-weight:700;line-height:1.1}
+  .sv-title{font-size:calc(26px*var(--tscale,1));font-weight:700;line-height:1.1}
   .sv-meta{font-size:13px;color:var(--ink-soft);font-style:italic;margin:6px 0 4px}
   .sv-tono-row{display:flex;align-items:center;gap:10px;margin:14px 0 18px;
     padding-bottom:14px;border-bottom:1px solid var(--rule)}
@@ -100,14 +104,32 @@
     min-width:42px;text-align:center;font-weight:700}
 
   /* ---------- Letra con acordes ENCIMA ---------- */
-  .lyrics{font-family:"Courier New",monospace;font-size:15px}
+  .lyrics{font-family:"Courier New",monospace;font-size:calc(15px*var(--tscale,1))}
   .lyrics .section{color:var(--accent-deep);font-weight:700;letter-spacing:.1em;
-    text-transform:uppercase;font-size:12px;display:block;margin:18px 0 4px}
+    text-transform:uppercase;font-size:calc(12px*var(--tscale,1));display:block;margin:18px 0 4px}
   .lyrics .lyric-line{display:block;margin:2px 0}
   .lyrics .chord-row{display:block;height:1.15em;position:relative;white-space:pre}
   .lyrics .chord-row .chord{position:absolute;color:var(--chord);font-weight:700;white-space:nowrap}
   .lyrics .text-row{display:block;white-space:pre-wrap;word-break:break-word;line-height:1.3}
   .lyrics .plain{display:block;white-space:pre-wrap;word-break:break-word;line-height:1.7}
+
+  /* ---------- Control de tamaño de texto (inline) ---------- */
+  .textsize-ctl{display:flex;gap:4px;align-items:center}
+  .textsize-ctl button{width:27px;height:27px;font-family:"Courier New",monospace;font-size:11px;
+    border:1px solid var(--rule);background:var(--paper-deep);color:var(--ink-soft);
+    border-radius:2px;cursor:pointer;padding:0;line-height:1}
+  .textsize-ctl button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  .sv-bar .textsize-ctl button{background:none;border-color:var(--rule)}
+  .sv-bar .textsize-ctl button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+
+  /* ---------- Diagramas de acordes ---------- */
+  .chords-row{margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+  .chords-row .lbl{font-family:"Courier New",monospace;font-size:12px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;display:block}
+  .chord-diagrams{display:flex;flex-wrap:wrap;gap:16px 18px}
+  .chord-diagram{text-align:center}
+  .chord-diagram .name{font-family:"Courier New",monospace;font-weight:700;
+    color:var(--accent);font-size:13px;margin-bottom:2px}
 
   /* ---------- Modo presentación ---------- */
   body.presenting{overflow:hidden}
@@ -180,6 +202,11 @@
       <button class="sortbtn" id="sortBtn" onclick="toggleSort()">
         <span id="sortLabel">Por categoría</span>
       </button>
+      <div class="textsize-ctl">
+        <button data-size="sm" onclick="setTextSize('sm')" title="Texto pequeño" style="font-size:11px">A</button>
+        <button data-size="md" onclick="setTextSize('md')" title="Texto mediano" style="font-size:15px">A</button>
+        <button data-size="lg" onclick="setTextSize('lg')" title="Texto grande" style="font-size:19px">A</button>
+      </div>
       <button class="installbtn" id="installBtn" style="display:none" onclick="installApp()">⬇ Instalar app</button>
     </div>
   </header>
@@ -191,6 +218,11 @@
   <div class="sv-bar">
     <button class="back" onclick="closeSong()">‹ Índice</button>
     <div class="spacer"></div>
+    <div class="textsize-ctl">
+      <button data-size="sm" onclick="setTextSize('sm')" title="Texto pequeño" style="font-size:11px">A</button>
+      <button data-size="md" onclick="setTextSize('md')" title="Texto mediano" style="font-size:15px">A</button>
+      <button data-size="lg" onclick="setTextSize('lg')" title="Texto grande" style="font-size:19px">A</button>
+    </div>
     <button class="edit" id="editBtn" style="display:none" onclick="editCurrent()">Editar</button>
     <button class="present" onclick="openPresent()">Presentación</button>
   </div>
@@ -205,6 +237,7 @@
         <button onclick="transpose(1)">+</button>
       </div>
     </div>
+    <div id="sv-chords"></div>
     <div id="sv-youtube"></div>
     <div class="lyrics" id="sv-lyrics"></div>
   </div>
@@ -350,6 +383,105 @@ function parseChord(ch){
 }
 function shiftChord(ch,s){const p=parseChord(ch);if(!p)return ch;return NOTAS[(p.idx+s+1200)%12]+p.suffix;}
 
+// ===================== Tamaño de texto =====================
+const LS_TEXTSIZE="cantemos_textsize";
+function applyTextSize(size){
+  document.body.classList.remove("txt-sm","txt-md","txt-lg");
+  document.body.classList.add("txt-"+size);
+  document.querySelectorAll(".textsize-ctl button").forEach(b=>{
+    b.classList.toggle("active", b.dataset.size===size);
+  });
+}
+function setTextSize(size){
+  localStorage.setItem(LS_TEXTSIZE,size);
+  applyTextSize(size);
+}
+applyTextSize(localStorage.getItem(LS_TEXTSIZE)||"md");
+
+// ===================== Diagramas de acordes de guitarra =====================
+// Posiciones por cuerda, de la 6ª (Mi grave) a la 1ª (Mi agudo): -1=silenciada, 0=al aire.
+// "barre" indica el traste donde se hace la ceja (o null si es acorde abierto).
+const CHORDS_BY_ROOT=[
+  {maj:{frets:[-1,3,2,0,1,0],barre:null}, min:{frets:[-1,3,5,5,4,3],barre:3}},   // Do
+  {maj:{frets:[-1,4,6,6,6,4],barre:4},    min:{frets:[-1,4,6,6,5,4],barre:4}},  // Do#
+  {maj:{frets:[-1,-1,0,2,3,2],barre:null},min:{frets:[-1,-1,0,2,3,1],barre:null}}, // Re
+  {maj:{frets:[-1,6,8,8,8,6],barre:6},    min:{frets:[-1,6,8,8,7,6],barre:6}},  // Re#
+  {maj:{frets:[0,2,2,1,0,0],barre:null},  min:{frets:[0,2,2,0,0,0],barre:null}}, // Mi
+  {maj:{frets:[1,3,3,2,1,1],barre:1},     min:{frets:[1,3,3,1,1,1],barre:1}},   // Fa
+  {maj:{frets:[2,4,4,3,2,2],barre:2},     min:{frets:[2,4,4,2,2,2],barre:2}},   // Fa#
+  {maj:{frets:[3,2,0,0,0,3],barre:null},  min:{frets:[3,5,5,3,3,3],barre:3}},   // Sol
+  {maj:{frets:[4,6,6,5,4,4],barre:4},     min:{frets:[4,6,6,4,4,4],barre:4}},   // Sol#
+  {maj:{frets:[-1,0,2,2,2,0],barre:null}, min:{frets:[-1,0,2,2,1,0],barre:null}}, // La
+  {maj:{frets:[-1,1,3,3,3,1],barre:1},    min:{frets:[-1,1,3,3,2,1],barre:1}},  // La#
+  {maj:{frets:[-1,2,4,4,4,2],barre:2},    min:{frets:[-1,2,4,4,3,2],barre:2}},  // Si
+];
+function chordSVG(shape){
+  const frets=shape.frets;
+  const used=frets.filter(f=>f>0);
+  const maxF=used.length?Math.max(...used):0;
+  const minF=used.length?Math.min(...used):0;
+  const startFret=(maxF>4)?minF:1;
+  const W=76,H=92,left=12,right=W-8,top=20,bottom=H-6;
+  const sg=(right-left)/5, fg=(bottom-top)/4;
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="66" height="80">`;
+  if(startFret===1){
+    svg+=`<rect x="${left}" y="${top-2.5}" width="${right-left}" height="2.5" fill="var(--ink)"/>`;
+  }else{
+    svg+=`<text x="${right+3}" y="${top+7}" font-size="8" fill="var(--ink-soft)">${startFret}f</text>`;
+  }
+  for(let i=0;i<=4;i++){
+    const y=top+i*fg;
+    svg+=`<line x1="${left}" y1="${y}" x2="${right}" y2="${y}" stroke="var(--rule)" stroke-width="1"/>`;
+  }
+  for(let i=0;i<6;i++){
+    const x=left+i*sg;
+    svg+=`<line x1="${x}" y1="${top}" x2="${x}" y2="${bottom}" stroke="var(--ink-soft)" stroke-width="1"/>`;
+  }
+  if(shape.barre){
+    const rel=shape.barre-startFret+1;
+    if(rel>=1&&rel<=4){
+      const y=top+(rel-0.5)*fg;
+      svg+=`<line x1="${left}" y1="${y}" x2="${right}" y2="${y}" stroke="var(--accent)" stroke-width="5" stroke-linecap="round" opacity=".55"/>`;
+    }
+  }
+  frets.forEach((f,i)=>{
+    const x=left+i*sg;
+    if(f===-1){
+      svg+=`<text x="${x}" y="${top-6}" font-size="8" text-anchor="middle" fill="var(--ink-soft)">×</text>`;
+    }else if(f===0){
+      svg+=`<circle cx="${x}" cy="${top-7}" r="2.6" fill="none" stroke="var(--ink-soft)" stroke-width="1.2"/>`;
+    }else{
+      const rel=f-startFret+1;
+      const y=top+(rel-0.5)*fg;
+      svg+=`<circle cx="${x}" cy="${y}" r="4" fill="var(--accent)"/>`;
+    }
+  });
+  svg+="</svg>";
+  return svg;
+}
+function getSongChords(letra,semis){
+  const list=[], seen={};
+  const re=/\[([^\]]+)\]/g; let m;
+  while((m=re.exec(letra))){
+    let ch=m[1]; if(semis) ch=shiftChord(ch,semis);
+    if(!seen[ch]){seen[ch]=1; list.push(ch);}
+  }
+  return list;
+}
+function chordDiagramsHTML(letra,semis){
+  const chords=getSongChords(letra,semis);
+  if(!chords.length) return "";
+  const cards=chords.map(ch=>{
+    const p=parseChord(ch); if(!p) return "";
+    const isMin=/^m/.test(p.suffix)&&!/^maj/i.test(p.suffix);
+    const root=CHORDS_BY_ROOT[p.idx]; if(!root) return "";
+    const shape=isMin?root.min:root.maj;
+    return `<div class="chord-diagram"><div class="name">${esc(ch)}</div>${chordSVG(shape)}</div>`;
+  }).join("");
+  return `<div class="chords-row"><span class="lbl">Acordes de este tema</span>`+
+         `<div class="chord-diagrams">${cards}</div></div>`;
+}
+
 // ===================== Render letra: acordes ENCIMA =====================
 function renderLine(line, semis){
   const parts=[]; let re=/\[([^\]]+)\]/g, last=0, m;
@@ -469,6 +601,7 @@ function openSong(id){
 }
 function updateSong(){
   document.getElementById("sv-tono").textContent=semis?shiftChord(current.tono,semis):current.tono;
+  document.getElementById("sv-chords").innerHTML=chordDiagramsHTML(current.letra,semis);
   document.getElementById("sv-lyrics").innerHTML=lyricsHTML(current.letra,semis);
 }
 function transpose(d){semis=((semis+d)%12+12)%12;if(semis>6)semis-=12;updateSong();}
