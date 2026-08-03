@@ -127,6 +127,13 @@
   .chords-row .lbl{font-family:"Courier New",monospace;font-size:12px;letter-spacing:.15em;
     text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;display:block}
   .chord-diagrams{display:flex;flex-wrap:wrap;gap:16px 18px}
+  .chords-row .head{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+  .chords-row .head .lbl{margin-bottom:0}
+  .inst-toggle{margin-left:auto;display:inline-flex;border:1px solid var(--rule);
+    border-radius:20px;overflow:hidden;background:var(--paper-deep)}
+  .inst-toggle button{font-family:"Courier New",monospace;font-size:11px;letter-spacing:.06em;
+    padding:6px 12px;border:none;background:none;color:var(--ink-soft);cursor:pointer}
+  .inst-toggle button.on{background:var(--accent);color:#fff}
   .chord-diagram{text-align:center}
   .chord-diagram .name{font-family:"Courier New",monospace;font-weight:700;
     color:var(--accent);font-size:13px;margin-bottom:2px}
@@ -468,17 +475,72 @@ function getSongChords(letra,semis){
   }
   return list;
 }
+// ---------- Diagrama de piano ----------
+// Notas del acorde, en semitonos desde la fundamental.
+function chordIntervals(suffix){
+  const s=(suffix||"").toLowerCase();
+  const isMin=/^m/.test(s)&&!/^maj/.test(s);
+  let iv = isMin ? [0,3,7] : [0,4,7];
+  if(/dim/.test(s)) iv=[0,3,6];
+  else if(/aug|\+/.test(s)) iv=[0,4,8];
+  else if(/sus2/.test(s)) iv=[0,2,7];
+  else if(/sus4|sus/.test(s)) iv=[0,5,7];
+  if(/maj7/.test(s)) iv=iv.concat(11);
+  else if(/7/.test(s)) iv=iv.concat(10);
+  else if(/6/.test(s)) iv=iv.concat(9);
+  return iv.slice(0,4);   // posición fundamental, máximo 4 notas
+}
+// Teclado compacto que empieza en la fundamental del acorde.
+// Semitonos de cada tecla blanca respecto a la tónica (escala mayor + octava).
+const WHITE_SEMI=[0,2,4,5,7,9,11,12,14];
+function pianoSVG(rootIdx,suffix){
+  const set=new Set(chordIntervals(suffix));
+  const nW=9, ww=11, wh=46, bw=6.6, bh=29;
+  const W=nW*ww+2, H=wh+14;
+  const blackIdx=[0,1,3,4,5,7];   // blancas que llevan negra a su derecha
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">`;
+  for(let i=0;i<nW;i++){
+    const semi=WHITE_SEMI[i], on=set.has(semi), x=1+i*ww;
+    svg+=`<rect x="${x}" y="8" width="${ww}" height="${wh}" fill="${on?'var(--accent)':'#fffdf7'}" stroke="var(--ink-soft)" stroke-width="0.7"/>`;
+    if(on) svg+=`<text x="${x+ww/2}" y="${8+wh-4}" font-size="5.4" text-anchor="middle" fill="#fff" font-family="monospace">${NOTAS[(rootIdx+semi)%12]}</text>`;
+  }
+  blackIdx.forEach(i=>{
+    if(i>=nW-1) return;
+    const semi=WHITE_SEMI[i]+1, on=set.has(semi);
+    const x=1+(i+1)*ww-bw/2;
+    svg+=`<rect x="${x}" y="8" width="${bw}" height="${bh}" fill="${on?'var(--accent)':'var(--ink)'}" stroke="var(--ink)" stroke-width="0.5"/>`;
+    if(on) svg+=`<circle cx="${x+bw/2}" cy="${8+bh-4.5}" r="1.9" fill="#fff"/>`;
+  });
+  svg+="</svg>";
+  return svg;
+}
+
+// ---------- Selector guitarra / piano ----------
+let instMode = localStorage.getItem("cantemos_inst") || "guitarra";
+function setInst(mode){
+  instMode = mode;
+  localStorage.setItem("cantemos_inst", mode);
+  if(current) updateSong();
+}
+
 function chordDiagramsHTML(letra,semis){
   const chords=getSongChords(letra,semis);
   if(!chords.length) return "";
   const cards=chords.map(ch=>{
     const p=parseChord(ch); if(!p) return "";
+    if(instMode==="piano"){
+      return `<div class="chord-diagram piano"><div class="name">${esc(ch)}</div>${pianoSVG(p.idx,p.suffix)}</div>`;
+    }
     const isMin=/^m/.test(p.suffix)&&!/^maj/i.test(p.suffix);
     const root=CHORDS_BY_ROOT[p.idx]; if(!root) return "";
     const shape=isMin?root.min:root.maj;
     return `<div class="chord-diagram"><div class="name">${esc(ch)}</div>${chordSVG(shape)}</div>`;
   }).join("");
-  return `<div class="chords-row"><span class="lbl">Acordes de este tema</span>`+
+  const toggle=`<div class="inst-toggle">`+
+    `<button class="${instMode==="guitarra"?"on":""}" onclick="setInst('guitarra')">Guitarra</button>`+
+    `<button class="${instMode==="piano"?"on":""}" onclick="setInst('piano')">Piano</button>`+
+    `</div>`;
+  return `<div class="chords-row"><div class="head"><span class="lbl">Acordes de este tema</span>${toggle}</div>`+
          `<div class="chord-diagrams">${cards}</div></div>`;
 }
 
@@ -499,6 +561,14 @@ function renderLine(line, semis){
     if(p.chord){ chords.push({pos:text.length, ch: semis?shiftChord(p.chord,semis):p.chord}); }
     text+=p.text;
   });
+  // La posición de cada acorde se calculó sobre el texto original, pero al
+  // transponer el nombre puede alargarse (ej. "Do" -> "Do#m7") e invadir el
+  // espacio del siguiente. Se empuja cada acorde para que nunca se superponga
+  // con el anterior, usando el nombre YA transpuesto (nunca el original).
+  for(let i=1;i<chords.length;i++){
+    const prevEnd=chords[i-1].pos+chords[i-1].ch.length;
+    if(chords[i].pos<prevEnd) chords[i].pos=prevEnd;
+  }
   let chordRow=chords.map(c=>
     `<span class="chord" style="left:${c.pos}ch">${esc(c.ch)}</span>`).join("");
   return `<span class="lyric-line">`+

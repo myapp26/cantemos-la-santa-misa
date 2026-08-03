@@ -2,7 +2,7 @@
 //  CANCIONES — Generado automáticamente desde la app.
 //  Este archivo es la "semilla" que reciben todos los que
 //  instalan la app desde tu enlace de Netlify.
-//  Generado: 21/7/2026, 5:04:40 p. m.
+//  Generado: 24/7/2026, 9:47:54 p. m.
 // ============================================================
 
 const CATEGORIAS = ["Entrada","Piedad","Aclamación del Evangelio","Ofertorio","Santo","Cordero de Dios","Cantos de Comunión","Cantos a la Virgen María","Evangelio - sin Aleluya","Vocacionales y Mision","Alabanzas","De Adoración","Fiestas/ Solemnidades","Temas Biblicos","Adviento","Cuaresma","Semana Santa","Pascua y Resurrección","Pentecostés","Cantos para Niños"];
@@ -50,7 +50,7 @@ const CANCIONES = [
     "autor": "Música Católica",
     "categoria": "Vocacionales y Mision",
     "tono": "Lam",
-    "letra": "#Estrofa 1\nAm              C\nAntes que te formaras\n              C       G     C\nDentro del vientre de tu madre\nDm               Am\nAntes que tu nacieras\n       E7             Am\nTe conocía y te consagré\nAm             C                          \nPara ser mi profeta de las naciones yo te \nG     C\nescogí\nDm               Am\nIrás donde te envíe\n            E7             Am\nY lo que te mande proclamarás\n\n#Coro\n(B)\nAm\nTengo que andar\nC\nTengo que hablar\n\n      G           C\nAy de mi sí no lo hago\nG         Am\nCómo escapar de ti\nG         Am\nComo no hablar\n        E7          Am\nSi tu voz me quema dentro\n\nAm\nTengo que andar\nContinúa después del anuncio\nC\nTengo que luchar\n\n      G           C\nAy de mi sí no lo hago\nG         Am\nCómo escapar de ti\nG         Am\nComo no hablar\n        E7          Am\nSi tu voz me quema dentro\n\n#Estrofa2\nAm              C\nNo temas arriesgarte\n            C       G  C\nPorque contigo yo estaré\nDm               Am\nNo temas anunciarme\n               E7       Am\nPorque en tu boca yo hablaré\nAm                C\nTe encargo hoy mi pueblo\n           C        G  C\nPara arrancar y derribar\nDm         Am\nPara edificar\n        E7          Am\nDestruirás y plantarás\n\nAm               C\nDeja a tus hermanos\n            C          G   C\nDeja a tu padre y a tu madre\nDm            Am\nAbandona tu casa\n             E7             Am\nPorque la tierra gritando está\n\nAm                C\nNada traigas contigo\n              C       G  C\nPorque a tu lado yo estaré\nDm             Am\nEs hora de luchar\n              E7\nPorque mi pueblo\n           Am\nSufriendo está\n\n#coro\nAm\nTengo que andar\nC\nTengo que luchar\n\n      G           C\nAy de mi sí no lo hago\nG         Am\nCómo escapar de ti\nG         Am\nComo no hablar\n        E7          Am\nSi tu voz me quema dentro\n",
+    "letra": "[Lam]Antes que te [Do]formaras\ndentro del [Do]vientre de [Sol]tu [Do]madre\n[Rem]antes que tu [Lam]nacieras\nte [Mi7]conocía y te [Lam]consagré.\nPara ser mi profeta de las naciones yo te escogí.\nirás donde te envíe\ny lo que te mande proclamarás\n\n(B)\n[Lam]Tengo que andar,\n[Do]tengo que hablar,\n\nay de [Sol]mi sí no lo [Do]hago.\n[Sol]Cómo [Lam]escapar de ti,\n[Sol]como no [Lam]hablar,\nsi tu [Mi7]voz me quema [Lam]dentro.\n\nTengo que andar,\ntengo que luchar,\nay de mi si no lo hago.\nCómo escapar de ti,\ncomo no hablar,\nsi tu voz me quema dentro.\n\n(A)\nNo temas arriesgarte\nporque contigo yo estaré\nno temas anunciarme\nporque en tu boca yo hablaré.\nTe encargo hoy mi pueblo\npara arrancar y derribar\npara edificar destruirás y plantarás\n\nDeja a tus hermanos\ndeja a tu padre y a tu madre\nabandona tu casa\nporque la tierra gritando está.\nNada traigas contigo\nporque a tu lado yo estaré\nes hora de luchar\nporque mi pueblo\nsufriendo está.",
     "youtube": ""
   },
   {
@@ -59,7 +59,7 @@ const CANCIONES = [
     "autor": "Música Católica",
     "categoria": "Vocacionales y Mision",
     "tono": "Do",
-    "letra": "#1\nC       G         Am\nSoís la semilla que ha de crecer\n      Dm                 G\nSois estrella que ha de brillar\nC      G         Am       F\nSois levadura sois grano de sal\n C         G         C\nAntorcha que debe alumbrar\n         G         Am\nSois la mañana que vuelve a nacer\n      Dm                   G\nSois espiga que empieza a granar\nC      G       Am         F\nSois aguijón y caricia a la vez\n  C        G        C\nTestigos que voy a enviar\n\n#coro\nG         C\nId amigos por el mundo\nF             C\nAnunciando el amor\nDm                Am\nMensajeros de la vida\nG                C\nDe la paz y el perdón\nG           C\nSed amigos, los testigos\nF             C\nDe mi resurrección\nDm                Am\nId llevando mi presencia\nG            C\nCon vosotros estoy\n\n#2\nSois una llama que ha de encender\nResplandores de fe y caridad\nSois los pastores que han de guiar\nAl mundo por sendas de paz\nSois los amigos que quise escoger\nSois palabra que intento gritar\nSois reino nuevo que empieza\nA engendrar justicia, amor y verdad",
+    "letra": "#1\n[Do]Soís la [Sol]semilla [Lam]que ha de crecer\nSois [Rem]estrella que ha de [Sol]brillar\n[Do]Sois [Sol]levadura [Lam]sois grano [Fa]de sal\n[Do]Antorcha [Sol]que debe [Do]alumbrar\nSois la [Sol]mañana que [Lam]vuelve a nacer\nSois [Rem]espiga que empieza a [Sol]granar\n[Do]Sois [Sol]aguijón y [Lam]caricia a [Fa]la vez\n[Do]Testigos [Sol]que voy a [Do]enviar\n\n#coro\n[Sol]Id amigos [Do]por el mundo\n[Fa]Anunciando el [Do]amor\n[Rem]Mensajeros de la [Lam]vida\n[Sol]De la paz y el [Do]perdón\n[Sol]Sed amigos, [Do]los testigos\n[Fa]De mi [Do]resurrección\n[Rem]Id llevando mi [Lam]presencia\n[Sol]Con vosotros [Do]estoy\n\n#2\nSois una llama que ha de encender\nResplandores de fe y caridad\nSois los pastores que han de guiar\nAl mundo por sendas de paz\nSois los amigos que quise escoger\nSois palabra que intento gritar\nSois reino nuevo que empieza\nA engendrar justicia, amor y verdad",
     "youtube": ""
   },
   {
@@ -68,7 +68,7 @@ const CANCIONES = [
     "autor": "Coro Cantaré",
     "categoria": "Piedad",
     "tono": "Lam",
-    "letra": "Am          Dm           Am\nTen piedad, Señor, ten piedad\n        F     E      Am\nSoy pecador, ten piedad\nAm           Dm            Am\nTen piedad, Señor, ten piedad\n       F      E     Am  E7\nSoy pecador, ten piedad\n\n      F\nY de mí, Cristo apiádate\n        G        C  E7\nContra ti, yo pequé\n     F\nY de mí, Cristo apiádate\n        G        C  E\nContra ti, yo pequé\n\nAm            Dm          Am\nTen piedad, Señor, ten piedad\n       F      E     Am\nSoy pecador, ten piedad\nAm           Dm           Am\nTen piedad, Señor, ten piedad\n       F      E     Am\nSoy pecador, ten piedad",
+    "letra": "[Lam]Ten piedad, [Rem]Señor, ten [Lam]piedad\nSoy [Fa]pecador, [Mi]ten [Lam]piedad\n[Lam]Ten piedad, [Rem]Señor, ten [Lam]piedad\nSoy [Fa]pecador, [Mi]ten [Lam]piedad [Mi7]\n\nY de [Fa]mí, Cristo apiádate\nContra [Sol]ti, yo [Do]pequé [Mi7]\nY de [Fa]mí, Cristo apiádate\nContra [Sol]ti, yo [Do]pequé [Mi]\n\n[Lam]Ten piedad, [Rem]Señor, ten [Lam]piedad\nSoy [Fa]pecador, [Mi]ten [Lam]piedad\n[Lam]Ten piedad, [Rem]Señor, ten [Lam]piedad\nSoy [Fa]pecador, [Mi]ten [Lam]piedad",
     "youtube": ""
   },
   {
@@ -77,7 +77,7 @@ const CANCIONES = [
     "autor": "Música Católica",
     "categoria": "Aclamación del Evangelio",
     "tono": "La",
-    "letra": "#coro \n A         E       E7       A\n/Aleluya, aleluya, aleluya, aleluya,\n   A7       D          A    E7   A\naleluya, aleluya, el Señor resucitó./\n\n          A         E     E7            A\n1. /El Señor resucitó, cantemos con alegría,\nContinúa después del anuncio\n        F#m          D6   A   E7   A\ndemos gracias al Señor, alelu--ya./\n\n2. /El pecado redimió, Cristo Dios resucitó:\nnueva vida nos donó, alelu-ya./\n\nPara la Ascensión\n3. /Cristo al cielo ya subió: en el mundo \nnos envía,\na ser testigos de su amor, aleluya.",
+    "letra": "#coro \n[La]/Aleluya, [Mi]aleluya, [Mi7]aleluya, [La]aleluya,\n[La7]aleluya, [Re]aleluya, el [La]Señor [Mi7]resucitó./[La]\n\n1. /El [La]Señor [Mi]resucitó, [Mi7]cantemos con [La]alegría,\nContinúa después del anuncio\ndemos [Fa#m]gracias al [Re6]Señor, [La]alelu--ya./[Mi7]   [La]\n\n2. /El pecado redimió, Cristo Dios resucitó:\nnueva vida nos donó, alelu-ya./\n\nPara la Ascensión\n3. /Cristo al cielo ya subió: en el mundo \nnos envía,\na ser testigos de su amor, aleluya.",
     "youtube": ""
   },
   {
@@ -121,7 +121,7 @@ const CANCIONES = [
     "titulo": "Alabaré",
     "autor": "",
     "categoria": "Entrada",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Coro\nAlabare, alabare\nAlabare a mi Señor (2)\n\n# Estrofa 1\nJuan vio el numero\nDe los redimidos\nY todos alababan al Señor,\nUnos cantaban, otros oraban\nY todos alababan al Señor.\n\n# Estrofa 2\nSomos tus hijos Dios Padre eterno,\nTu nos haz creado por tu amor,\nTe alabamos, te bendecimos\nY todos cantamos en tu honor.\n\n# Estrofa 3\nTodos unidos alegres cantamos,\nGloria y alabanzas al Señor.\nGloria al Padre, gloria al hijo,\nGloria al Espíritu de amor.",
     "youtube": ""
   },
@@ -319,7 +319,7 @@ const CANCIONES = [
     "titulo": "Jesús es Señor",
     "autor": "",
     "categoria": "Aclamación del Evangelio",
-    "tono": "",
+    "tono": "Sim",
     "letra": "# Estrofa 1\nJesús es Señor\nJesús es, Jesús es Señor, (3).\nAleluya, aleluya (3).\nGloria a Dios, gloria, gloria a Dios.",
     "youtube": ""
   },
