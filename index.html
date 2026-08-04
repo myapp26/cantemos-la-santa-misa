@@ -387,6 +387,20 @@ function load(){
 }
 function save(){localStorage.setItem(LS_DATA,JSON.stringify(DATA));}
 
+// Si otra pestaña/ventana guarda cambios, recargamos DATA en esta para
+// no terminar sobreescribiendo lo nuevo con una copia vieja en memoria.
+window.addEventListener("storage", e=>{
+  if(e.key===LS_DATA){
+    DATA=load();
+    render(document.getElementById("q").value);
+    if(current){
+      const actualizado=DATA.canciones.find(c=>c.id===current.id);
+      if(actualizado){ current=actualizado; updateSong(); }
+      else{ closeSong(); if(document.body.classList.contains("presenting")) closePresent(); current=null; }
+    }
+  }
+});
+
 // ===================== Freemium: diagramas de acordes =====================
 function isUnlocked(){
   return localStorage.getItem("cantemos_premium")==="true";
