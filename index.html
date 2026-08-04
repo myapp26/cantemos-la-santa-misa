@@ -137,6 +137,12 @@
   .chord-diagram{text-align:center}
   .chord-diagram .name{font-family:"Courier New",monospace;font-weight:700;
     color:var(--accent);font-size:13px;margin-bottom:2px}
+  .chords-locked{font-size:13px;color:var(--ink-soft);font-style:italic;padding:10px 0}
+  .chk-label{display:flex;align-items:center;gap:8px;font-family:inherit;font-size:14px;
+    text-transform:none;letter-spacing:0;color:var(--ink);cursor:pointer}
+  .chk-label input{width:16px;height:16px;cursor:pointer}
+  .locked-msg{text-align:center;padding:60px 20px;color:var(--ink-soft);font-size:17px;font-style:italic}
+  .lock-ico{margin-right:4px;font-size:12px}
 
   /* ---------- Modo presentación ---------- */
   body.presenting{overflow:hidden}
@@ -322,6 +328,12 @@
       <input id="se-youtube" placeholder="Ej: https://youtube.com/watch?v=...">
     </div>
     <div class="field">
+      <label class="chk-label"><input type="checkbox" id="se-premium"> 🔒 Diagramas premium</label>
+    </div>
+    <div class="field">
+      <label class="chk-label"><input type="checkbox" id="se-bloqueada"> 🔒 Canción bloqueada (versión avanzada — próximamente)</label>
+    </div>
+    <div class="field">
       <label>Letra con acordes</label>
       <textarea id="se-letra" placeholder="# Coro&#10;[Do]Alaba a [Sol]Dios, herma[Lam]no"></textarea>
       <div class="hint">Usa <b>#</b> al inicio de una línea para nombrar secciones (Coro, Estrofa 1…). Pon los acordes entre <b>[ ]</b>.</div>
@@ -374,6 +386,11 @@ function load(){
   };
 }
 function save(){localStorage.setItem(LS_DATA,JSON.stringify(DATA));}
+
+// ===================== Freemium: diagramas de acordes =====================
+function isUnlocked(){
+  return localStorage.getItem("cantemos_premium")==="true";
+}
 
 // ===================== Transposición =====================
 const NOTAS=["Do","Do#","Re","Re#","Mi","Fa","Fa#","Sol","Sol#","La","La#","Si"];
@@ -523,9 +540,13 @@ function setInst(mode){
   if(current) updateSong();
 }
 
-function chordDiagramsHTML(letra,semis){
-  const chords=getSongChords(letra,semis);
+function chordDiagramsHTML(cancion,semis){
+  const chords=getSongChords(cancion.letra,semis);
   if(!chords.length) return "";
+  if(cancion.premium===true && !isUnlocked()){
+    return `<div class="chords-row"><div class="head"><span class="lbl">Acordes de este tema</span></div>`+
+           `<div class="chords-locked">🔒 Diagramas disponibles en la versión premium</div></div>`;
+  }
   const cards=chords.map(ch=>{
     const p=parseChord(ch); if(!p) return "";
     if(instMode==="piano"){
@@ -597,7 +618,7 @@ function toggleSort(){
 function songLi(c, n){
   const li=document.createElement("li");li.className="song";
   li.innerHTML=`<span class="num">${n}</span>
-    <span class="t">${esc(c.titulo)}${c.autor?` <span class="a">· ${esc(c.autor)}</span>`:""}</span>
+    <span class="t">${c.bloqueada===true?'<span class="lock-ico">🔒</span>':""}${esc(c.titulo)}${c.autor?` <span class="a">· ${esc(c.autor)}</span>`:""}</span>
     <span class="tono">${esc(c.tono)}</span>`;
   li.onclick=()=>openSong(c.id);
   return li;
@@ -663,15 +684,21 @@ function openSong(id){
   document.getElementById("sv-meta").textContent=
     [current.autor,current.categoria].filter(Boolean).join("  ·  ");
   document.getElementById("editBtn").style.display=isAdmin?"":"none";
-  document.getElementById("sv-youtube").innerHTML=current.youtube
+  document.querySelector(".sv-tono-row").style.display=current.bloqueada===true?"none":"";
+  document.getElementById("sv-youtube").innerHTML=(current.youtube && current.bloqueada!==true)
     ?`<a class="btn" href="${esc(current.youtube)}" target="_blank" rel="noopener">▶ Ver en YouTube</a>`:"";
   updateSong();
   document.getElementById("song-view").classList.add("open");
   document.querySelector(".sv-scroll").scrollTop=0;
 }
 function updateSong(){
+  if(current.bloqueada===true){
+    document.getElementById("sv-chords").innerHTML="";
+    document.getElementById("sv-lyrics").innerHTML=`<div class="locked-msg">🔒 Versión premium próximamente</div>`;
+    return;
+  }
   document.getElementById("sv-tono").textContent=semis?shiftChord(current.tono,semis):current.tono;
-  document.getElementById("sv-chords").innerHTML=chordDiagramsHTML(current.letra,semis);
+  document.getElementById("sv-chords").innerHTML=chordDiagramsHTML(current,semis);
   document.getElementById("sv-lyrics").innerHTML=lyricsHTML(current.letra,semis);
 }
 function transpose(d){semis=((semis+d)%12+12)%12;if(semis>6)semis-=12;updateSong();}
@@ -730,6 +757,8 @@ function newSong(){
   document.getElementById("se-autor").value="";
   document.getElementById("se-tono").value="";
   document.getElementById("se-youtube").value="";
+  document.getElementById("se-premium").checked=false;
+  document.getElementById("se-bloqueada").checked=false;
   document.getElementById("se-letra").value="";
   fillCatSelect(document.getElementById("se-categoria"));
   updatePreview();
@@ -745,6 +774,8 @@ function editSong(id){
   document.getElementById("se-autor").value=c.autor||"";
   document.getElementById("se-tono").value=c.tono;
   document.getElementById("se-youtube").value=c.youtube||"";
+  document.getElementById("se-premium").checked=!!c.premium;
+  document.getElementById("se-bloqueada").checked=!!c.bloqueada;
   fillCatSelect(document.getElementById("se-categoria"));
   document.getElementById("se-categoria").value=c.categoria;
   document.getElementById("se-letra").value=c.letra;
@@ -762,7 +793,9 @@ function saveSong(){
   const obj={
     titulo, autor:document.getElementById("se-autor").value.trim(),
     categoria:document.getElementById("se-categoria").value, tono, letra,
-    youtube:document.getElementById("se-youtube").value.trim()
+    youtube:document.getElementById("se-youtube").value.trim(),
+    premium:document.getElementById("se-premium").checked,
+    bloqueada:document.getElementById("se-bloqueada").checked
   };
   if(editingId){
     const c=DATA.canciones.find(x=>x.id===editingId);
