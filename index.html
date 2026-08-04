@@ -853,7 +853,7 @@ function publishFile(){
   const cats=JSON.stringify(DATA.categorias);
   const cancionesLimpias=DATA.canciones.map(c=>({
     id:c.id, titulo:c.titulo, autor:c.autor||"", categoria:c.categoria,
-    tono:c.tono, letra:c.letra, youtube:c.youtube||""
+    tono:c.tono, letra:c.letra, youtube:c.youtube||"", premium:c.premium===true, bloqueada:c.bloqueada===true
   }));
   const body=
 `// ============================================================
