@@ -199,9 +199,29 @@
     background:var(--ink);color:var(--paper);padding:12px 20px;border-radius:24px;
     font-size:14px;opacity:0;transition:opacity .25s;pointer-events:none}
   .toast.show{opacity:1}
+
+  /* ---------- Gate de acceso por clave ---------- */
+  .gate-overlay{position:fixed;inset:0;z-index:500;background:var(--paper);
+    display:flex;align-items:center;justify-content:center;padding:20px}
+  .gate-overlay.hidden{display:none}
+  .gate-overlay .sheet{max-width:420px;border-radius:14px;width:100%}
+  #gate-key{text-transform:uppercase;letter-spacing:.04em}
 </style>
 </head>
 <body>
+<div class="gate-overlay" id="gate">
+  <div class="sheet">
+    <h2>Acceso</h2>
+    <div class="sub" id="gate-sub">Ingresá la clave de acceso que te compartieron para activar la app en este celular.</div>
+    <div class="field">
+      <label>Clave de acceso</label>
+      <input id="gate-key" type="text" placeholder="CSM-XXXX-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false">
+    </div>
+    <div class="btn-row">
+      <button class="btn primary full" id="gate-btn" onclick="submitGateKey()">Activar</button>
+    </div>
+  </div>
+</div>
 <div id="app">
   <header>
     <div class="eyebrow">Cancionero litúrgico · Notas y acordes</div>
@@ -400,6 +420,102 @@ window.addEventListener("storage", e=>{
     }
   }
 });
+
+// ===================== Acceso por clave (activación vinculada a dispositivo) =====================
+const VALIDATE_URL = "https://zhxtoublmvrghmnpwxoj.supabase.co/functions/v1/validate-key";
+const LS_ACCESS = "cantemos_access";
+
+async function fingerprintHash(){
+  const parts = [
+    navigator.userAgent,
+    screen.width+"x"+screen.height,
+    navigator.hardwareConcurrency||"",
+    (Intl.DateTimeFormat().resolvedOptions().timeZone||"")
+  ].join("|");
+  const data = new TextEncoder().encode(parts);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(digest)).map(b=>b.toString(16).padStart(2,"0")).join("");
+}
+
+function loadAccess(){
+  try{ return JSON.parse(localStorage.getItem(LS_ACCESS)||"null"); }catch(e){ return null; }
+}
+function saveAccess(obj){ localStorage.setItem(LS_ACCESS, JSON.stringify(obj)); }
+function clearAccess(){ localStorage.removeItem(LS_ACCESS); }
+
+async function callValidate(key, token){
+  const fingerprint = await fingerprintHash();
+  const res = await fetch(VALIDATE_URL, {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({key, fingerprint, token})
+  });
+  return res.json();
+}
+
+const GATE_MESSAGES = {
+  invalid: "Esa clave no existe. Revisá que esté bien escrita.",
+  revoked: "Esta clave fue desactivada. Contactá a quien te la compartió.",
+  in_use: "Esta clave ya está activada en otro dispositivo.",
+  desktop_blocked: "Esta app solo se puede activar desde un celular.",
+  bad_request: "Faltan datos. Volvé a intentar.",
+  server_error: "No pudimos validar la clave. Probá de nuevo en un momento."
+};
+
+function showGate(message){
+  if(message) document.getElementById("gate-sub").textContent = message;
+  document.getElementById("gate").classList.remove("hidden");
+}
+function hideGate(){ document.getElementById("gate").classList.add("hidden"); }
+
+async function submitGateKey(){
+  const input = document.getElementById("gate-key");
+  const key = input.value.trim().toUpperCase();
+  if(!key){ toast("Ingresá una clave"); return; }
+  const btn = document.getElementById("gate-btn");
+  btn.disabled=true; btn.textContent="Verificando…";
+  try{
+    const result = await callValidate(key, null);
+    if(result.ok){
+      saveAccess({key, token: result.token});
+      hideGate();
+      toast("¡Acceso activado!");
+    } else {
+      showGate(GATE_MESSAGES[result.reason] || "No se pudo activar la clave.");
+    }
+  }catch(e){
+    showGate("Sin conexión. Conectate a internet para activar la clave por primera vez.");
+  }
+  btn.disabled=false; btn.textContent="Activar";
+}
+
+async function initAccessGate(){
+  const params = new URLSearchParams(location.search);
+  const prefill = params.get("key");
+  if(prefill) document.getElementById("gate-key").value = prefill.trim().toUpperCase();
+
+  const access = loadAccess();
+  if(!access){ showGate(); return; }
+
+  // Ya se había activado antes: mostramos la app enseguida (para que siga
+  // funcionando offline) y revalidamos en paralelo. Solo un rechazo explícito
+  // del servidor bloquea la app; si no hay conexión, seguimos confiando en
+  // el último estado válido conocido.
+  hideGate();
+  try{
+    const result = await callValidate(access.key, access.token);
+    if(!result.ok){
+      clearAccess();
+      showGate(GATE_MESSAGES[result.reason] || "Se perdió el acceso. Ingresá tu clave de nuevo.");
+    } else if(result.token){
+      saveAccess({key: access.key, token: result.token});
+    }
+  }catch(e){
+    // Sin conexión: no bloqueamos, seguimos con el último estado válido.
+  }
+}
+document.getElementById("gate-key").addEventListener("keydown", e=>{ if(e.key==="Enter") submitGateKey(); });
+initAccessGate();
 
 // ===================== Freemium: diagramas de acordes =====================
 function isUnlocked(){

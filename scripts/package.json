@@ -1,0 +1,12 @@
+{
+  "name": "cantemos-keys-cli",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "keys": "node keys.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "dotenv": "^16.4.5"
+  }
+}
