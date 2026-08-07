@@ -1,0 +1,37 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://zhxtoublmvrghmnpwxoj.supabase.co; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+
+# La app real usa scripts inline y atributos onclick en todo el HTML, por eso
+# script-src necesita 'unsafe-inline' (ver seguridad/05-cabeceras-http.md,
+# seccion "Nota sobre CSP y unsafe-inline"). connect-src incluye el dominio
+# de la funcion validate-key en Supabase porque si no, el CSP bloquearia el
+# login.
+
+# Oculta documentacion interna de /seguridad/ (no son parte de la app que se
+# sirve al usuario, solo quedarian publicas por estar en la misma carpeta).
+[[redirects]]
+  from = "/seguridad/*.md"
+  to = "/index.html"
+  status = 404
+
+[[redirects]]
+  from = "/seguridad/06-build/*"
+  to = "/index.html"
+  status = 404
+
+[[redirects]]
+  from = "/seguridad/08-clave-acceso-serverless/*"
+  to = "/index.html"
+  status = 404
+
+[[redirects]]
+  from = "/seguridad/04-service-worker-integridad.js"
+  to = "/index.html"
+  status = 404
