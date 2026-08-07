@@ -56,14 +56,16 @@
     "/canciones.js",
     "/manifest.json",
   ];
-  // Calculados el 2026-08-06 sobre el Deploy Preview del PR #1
-  // (deploy-preview-1--cantemos-la-santa-misa.netlify.app), que ya incluye
-  // la integración de seguridad. Si vuelves a tocar alguno de estos 4
-  // archivos, recalcula su hash (con generarHashes() en consola, o
-  // "curl -s <url-del-archivo> | sha256sum") y actualiza el valor acá,
-  // o vas a ver el warning de "integridad alterada" en cada carga.
+  // Calculados el 2026-08-06 a partir del contenido real del repo (lo que
+  // efectivamente se publica en producción). OJO con /index.html: NO lo
+  // calcules haciendo fetch a un deploy preview — Netlify le inyecta un
+  // script propio ahí (ver comentario en verificarIntegridad()) que
+  // cambia el contenido y arruina el hash. Usá siempre el archivo fuente
+  // (o la producción ya publicada) como referencia. Si vuelves a tocar
+  // alguno de estos 4 archivos, recalcula su hash y actualizá el valor
+  // acá, o vas a ver el warning de "integridad alterada" en cada carga.
   const HASHES_ESPERADOS = {
-    "/index.html": "f7428ed8b2be2a7f5b58afce306bdc7f0fff84cad1546957baecfeeea6666592",
+    "/index.html": "d37bbaaf5adb8dd07f3be83f3f1b90487e0798ce7f44c704068cab84b4a7f2e1",
     "/sw.js": "e2f9aea6c3088bbcebe232d7878927f5da8e1e7acbdf14df89700988e481cb6d",
     "/canciones.js": "0e19ead9451cfb0ae32a5403ceff73bb6e7f7335ef9a8b5835faa9b16a7a4d61",
     "/manifest.json": "a411899f669401c90b1e89aa58b292b4865bcebaf2fd8fab8268a699502409d9",
@@ -140,6 +142,13 @@
   }
 
   async function verificarIntegridad() {
+    // Netlify inyecta un script propio de su barra de comparación
+    // (data-netlify-deploy-id, /.netlify/scripts/cdp) dentro del HTML en
+    // deploy previews y branch deploys, no en producción. Eso cambia el
+    // contenido de /index.html en cada preview y haría fallar el chequeo
+    // siempre ahí, sin que sea una alteración real. Se salta la
+    // verificación en esos dominios; en producción sigue corriendo normal.
+    if (window.location.hostname.endsWith(SUFIJO_PREVIEWS_NETLIFY)) return;
     for (const ruta of ARCHIVOS_CRITICOS) {
       try {
         const resp = await fetch(ruta, { cache: "no-store" });
