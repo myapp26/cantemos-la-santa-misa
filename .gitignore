@@ -3,3 +3,4 @@ scripts/.env
 .env
 .supabase-token
 supabase/.temp/
+seguridad/06-build/dist/
