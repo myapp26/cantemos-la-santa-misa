@@ -39,6 +39,12 @@
     // añádelo aquí también antes de apuntar el DNS a Netlify.
   ];
 
+  // Deploy previews y branch deploys de Netlify para ESTE sitio siguen el
+  // patrón "<algo>--cantemos-la-santa-misa.netlify.app" (ej. deploy-preview-1--,
+  // nombre-de-rama--). Se aceptan por sufijo en vez de sumarlos uno a uno,
+  // pero solo ese sufijo exacto: no habilita otros sitios de Netlify.
+  const SUFIJO_PREVIEWS_NETLIFY = "--cantemos-la-santa-misa.netlify.app";
+
   // Archivos críticos a verificar por integridad (rutas relativas
   // desde la raíz del sitio). Añade aquí tu manifest, tu JS
   // principal, etc. Los hashes se calculan la primera vez que
@@ -58,6 +64,7 @@
   function dominioAutorizado() {
     const host = window.location.hostname;
     if (!DOMINIOS_AUTORIZADOS.length) return true; // sin configurar aún
+    if (host.endsWith(SUFIJO_PREVIEWS_NETLIFY)) return true;
     return DOMINIOS_AUTORIZADOS.some(
       (d) => host === d || host.endsWith("." + d)
     );
