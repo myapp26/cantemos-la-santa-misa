@@ -65,7 +65,7 @@
   // alguno de estos 4 archivos, recalcula su hash y actualizá el valor
   // acá, o vas a ver el warning de "integridad alterada" en cada carga.
   const HASHES_ESPERADOS = {
-    "/index.html": "d37bbaaf5adb8dd07f3be83f3f1b90487e0798ce7f44c704068cab84b4a7f2e1",
+    "/index.html": "1a424f2441eaa9fba299c03af5d32fe1a1af78de9d742dc9b1b371a62e4698fb",
     "/sw.js": "e2f9aea6c3088bbcebe232d7878927f5da8e1e7acbdf14df89700988e481cb6d",
     "/canciones.js": "0e19ead9451cfb0ae32a5403ceff73bb6e7f7335ef9a8b5835faa9b16a7a4d61",
     "/manifest.json": "a411899f669401c90b1e89aa58b292b4865bcebaf2fd8fab8268a699502409d9",
