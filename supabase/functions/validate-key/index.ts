@@ -8,15 +8,32 @@ const DEFAULT_ALLOWED_ORIGINS = [
   "https://cantemos-la-santa-misa.netlify.app",
 ];
 
+// Deploy previews y branch deploys de Netlify para ESTE sitio siguen el
+// patron "https://<algo>--cantemos-la-santa-misa.netlify.app" (ej.
+// deploy-preview-3--, nombre-de-rama--). Se aceptan por sufijo de host en
+// vez de sumarlos uno a uno a ALLOWED_ORIGINS, igual que en el domain-lock
+// del cliente (seguridad/02-anti-clonacion.js). Solo ese sufijo exacto: no
+// habilita otros sitios de Netlify.
+const PREVIEW_ORIGIN_HOST_SUFFIX = "--cantemos-la-santa-misa.netlify.app";
+
 function allowedOrigins(): string[] {
   const extra = Deno.env.get("ALLOWED_ORIGINS");
   const fromEnv = extra ? extra.split(",").map((s) => s.trim()).filter(Boolean) : [];
   return [...DEFAULT_ALLOWED_ORIGINS, ...fromEnv];
 }
 
+function origenAutorizado(origin: string): boolean {
+  if (allowedOrigins().includes(origin)) return true;
+  try {
+    const url = new URL(origin);
+    return url.protocol === "https:" && url.hostname.endsWith(PREVIEW_ORIGIN_HOST_SUFFIX);
+  } catch {
+    return false;
+  }
+}
+
 function corsHeaders(origin: string | null): Record<string, string> {
-  const allowed = allowedOrigins();
-  const matched = origin && allowed.includes(origin) ? origin : allowed[0];
+  const matched = origin && origenAutorizado(origin) ? origin : allowedOrigins()[0];
   return {
     "Access-Control-Allow-Origin": matched,
     "Access-Control-Allow-Headers": "content-type",
