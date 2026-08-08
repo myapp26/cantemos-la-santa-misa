@@ -231,7 +231,7 @@
     <div class="search">
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
       <input id="q" type="search" placeholder="Buscar por título, autor o categoría…" autocomplete="off">
-      <button class="admin-dot" id="adminDot" title="Administrador" onclick="adminTap()">⚙</button>
+      <button class="admin-dot" id="adminDot" title="Administrador" onclick="adminTap()" style="display:none">⚙</button>
     </div>
     <div class="toolbar">
       <button class="sortbtn" id="sortBtn" onclick="toggleSort()">
@@ -295,22 +295,6 @@
   <div class="p-scroll"><div class="lyrics" id="p-lyrics"></div></div>
 </div>
 
-<!-- Modal login admin -->
-<div class="modal" id="loginModal">
-  <div class="sheet">
-    <h2>Acceso de administrador</h2>
-    <div class="sub">Ingresa tu clave para gestionar los cantos.</div>
-    <div class="field">
-      <label>Clave</label>
-      <input id="loginKey" type="password" placeholder="••••••" autocomplete="off">
-    </div>
-    <div class="btn-row">
-      <button class="btn" onclick="closeModal('loginModal')">Cancelar</button>
-      <button class="btn primary full" onclick="doLogin()">Entrar</button>
-    </div>
-  </div>
-</div>
-
 <!-- Modal menú admin -->
 <div class="modal" id="adminModal">
   <div class="sheet">
@@ -323,7 +307,7 @@
       <button class="btn" onclick="document.getElementById('importFile').click()">Importar repertorio</button>
       <input id="importFile" type="file" accept="application/json" style="display:none" onchange="importData(event)">
       <button class="btn" style="border-color:var(--accent-deep);color:var(--accent-deep)" onclick="publishFile()">Generar archivo para publicar (Netlify)</button>
-      <button class="btn danger" onclick="logout()">Cerrar sesión de admin</button>
+      <button class="btn" onclick="closeModal('adminModal')">Cerrar</button>
     </div>
   </div>
 </div>
@@ -447,7 +431,7 @@
 <script src="canciones.js"></script>
 <script>
 // ===================== Almacenamiento =====================
-const LS_DATA="cantemos_data_v1", LS_KEY="cantemos_admin_key";
+const LS_DATA="cantemos_data_v1";
 let DATA = load();
 let isAdmin=false, current=null, semis=0, presentFontSize=30, editingId=null;
 
@@ -499,6 +483,20 @@ function loadAccess(){
 function saveAccess(obj){ localStorage.setItem(LS_ACCESS, JSON.stringify(obj)); }
 function clearAccess(){ localStorage.removeItem(LS_ACCESS); }
 
+// El rol de administrador no es una sesión local: sale directo de la clave
+// de acceso validada contra Supabase (columna is_admin de access_keys).
+function esAdmin(){
+  const access = loadAccess();
+  return !!(access && access.is_admin === true);
+}
+function aplicarRolAdmin(){
+  isAdmin = esAdmin();
+  const dot = document.getElementById("adminDot");
+  dot.style.display = isAdmin ? "" : "none";
+  dot.classList.toggle("on", isAdmin); // visible = admin, así que siempre va "encendido"
+  if(current) document.getElementById("editBtn").style.display = isAdmin ? "" : "none";
+}
+
 async function callValidate(key, token){
   const fingerprint = await fingerprintHash();
   const res = await fetch(VALIDATE_URL, {
@@ -533,7 +531,8 @@ async function submitGateKey(){
   try{
     const result = await callValidate(key, null);
     if(result.ok){
-      saveAccess({key, token: result.token});
+      saveAccess({key, token: result.token, is_admin: result.is_admin===true});
+      aplicarRolAdmin();
       hideGate();
       toast("¡Acceso activado!");
     } else {
@@ -556,15 +555,20 @@ async function initAccessGate(){
   // Ya se había activado antes: mostramos la app enseguida (para que siga
   // funcionando offline) y revalidamos en paralelo. Solo un rechazo explícito
   // del servidor bloquea la app; si no hay conexión, seguimos confiando en
-  // el último estado válido conocido.
+  // el último estado válido conocido (incluido el rol de admin cacheado).
   hideGate();
+  aplicarRolAdmin();
   try{
     const result = await callValidate(access.key, access.token);
     if(!result.ok){
       clearAccess();
+      aplicarRolAdmin();
       showGate(GATE_MESSAGES[result.reason] || "Se perdió el acceso. Ingresá tu clave de nuevo.");
-    } else if(result.token){
-      saveAccess({key: access.key, token: result.token});
+    } else {
+      // El servidor solo manda token nuevo en la primera activación; si no
+      // vino, conservamos el que ya teníamos guardado.
+      saveAccess({key: access.key, token: result.token || access.token, is_admin: result.is_admin===true});
+      aplicarRolAdmin();
     }
   }catch(e){
     // Sin conexión: no bloqueamos, seguimos con el último estado válido.
@@ -909,27 +913,13 @@ function presentSize(d){
 }
 
 // ===================== Admin: acceso =====================
+// El rol sale de esAdmin()/aplicarRolAdmin() (ver sección de acceso por
+// clave más arriba). No hay contraseña local propia del editor: si tu
+// clave de acceso tiene is_admin en Supabase, el ícono ya aparece solo.
 function adminTap(){
-  if(isAdmin){ openModal("adminModal"); return; }
-  openModal("loginModal");
-  setTimeout(()=>document.getElementById("loginKey").focus(),100);
+  if(!isAdmin) return; // el ícono está oculto para no-admins; esto es solo por las dudas.
+  openModal("adminModal");
 }
-function doLogin(){
-  const key=document.getElementById("loginKey").value;
-  let saved=localStorage.getItem(LS_KEY);
-  if(!saved){
-    if(key.length<4){ toast("Crea una clave de al menos 4 caracteres"); return; }
-    localStorage.setItem(LS_KEY,key); saved=key;
-    toast("Clave de administrador creada");
-  }
-  if(key===saved){
-    isAdmin=true; document.getElementById("adminDot").classList.add("on");
-    document.getElementById("loginKey").value="";
-    closeModal("loginModal"); openModal("adminModal");
-  }else toast("Clave incorrecta");
-}
-function logout(){isAdmin=false;document.getElementById("adminDot").classList.remove("on");
-  closeModal("adminModal");toast("Sesión de admin cerrada");render(document.getElementById("q").value);}
 
 // ===================== Admin: editor de canto =====================
 function fillCatSelect(sel){
@@ -1103,7 +1093,6 @@ function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t
 document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{
   if(e.target===m) m.classList.remove("open");
 }));
-document.getElementById("loginKey").addEventListener("keydown",e=>{if(e.key==="Enter")doLogin();});
 document.getElementById("q").addEventListener("input",e=>render(e.target.value));
 document.getElementById("se-letra").addEventListener("input",updatePreview);
 
