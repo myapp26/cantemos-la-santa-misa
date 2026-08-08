@@ -45,31 +45,32 @@
   // pero solo ese sufijo exacto: no habilita otros sitios de Netlify.
   const SUFIJO_PREVIEWS_NETLIFY = "--cantemos-la-santa-misa.netlify.app";
 
-  // Archivos críticos a verificar por integridad (rutas relativas
-  // desde la raíz del sitio). Añade aquí tu manifest, tu JS
-  // principal, etc. Los hashes se calculan la primera vez que
-  // ejecutes verificarIntegridadInicial() en consola y luego los
-  // pegas en HASHES_ESPERADOS antes de publicar.
+  // Archivos críticos a verificar por integridad (rutas relativas desde la
+  // raíz del sitio). Esta lista es la única fuente de verdad: el script
+  // 06-build/generar-hashes.js la lee de acá y calcula los hashes solo.
+  // Para agregar o sacar un archivo, editá únicamente esta lista.
   const ARCHIVOS_CRITICOS = [
     "/index.html",
     "/sw.js",
     "/canciones.js",
     "/manifest.json",
   ];
-  // Calculados el 2026-08-06 a partir del contenido real del repo (lo que
-  // efectivamente se publica en producción). OJO con /index.html: NO lo
-  // calcules haciendo fetch a un deploy preview — Netlify le inyecta un
-  // script propio ahí (ver comentario en verificarIntegridad()) que
-  // cambia el contenido y arruina el hash. Usá siempre el archivo fuente
-  // (o la producción ya publicada) como referencia. Si vuelves a tocar
-  // alguno de estos 4 archivos, recalcula su hash y actualizá el valor
-  // acá, o vas a ver el warning de "integridad alterada" en cada carga.
+  // Los hashes de abajo se regeneran en cada deploy (06-build/generar-hashes.js,
+  // enganchado en el [build] command de ../netlify.toml, antes de la
+  // ofuscación). Antes se mantenían a mano y quedaban viejos apenas se tocaba
+  // alguno de los 4 archivos, y ahí todo usuario real veía un falso
+  // "integridad alterada" en consola. Los valores versionados en git son solo
+  // el último snapshot conocido; el build los pisa con los reales.
+  /* HASHES-AUTOGENERADOS:INICIO */
+  // Generado automaticamente por 06-build/generar-hashes.js en cada
+  // deploy. NO editar a mano: lo que pongas aca se pisa en el build.
   const HASHES_ESPERADOS = {
     "/index.html": "1a424f2441eaa9fba299c03af5d32fe1a1af78de9d742dc9b1b371a62e4698fb",
     "/sw.js": "e2f9aea6c3088bbcebe232d7878927f5da8e1e7acbdf14df89700988e481cb6d",
     "/canciones.js": "0e19ead9451cfb0ae32a5403ceff73bb6e7f7335ef9a8b5835faa9b16a7a4d61",
     "/manifest.json": "a411899f669401c90b1e89aa58b292b4865bcebaf2fd8fab8268a699502409d9",
   };
+  /* HASHES-AUTOGENERADOS:FIN */
 
   // -----------------------------------------------------------
   // Domain lock
@@ -170,9 +171,11 @@
     }
   }
 
-  // Utilidad para generar los hashes esperados la primera vez.
-  // Ejecuta esto en consola (window.CantemosAntiClon.generarHashes())
-  // y copia el resultado dentro de HASHES_ESPERADOS antes de publicar.
+  // Utilidad de diagnóstico: devuelve los hashes que el navegador ve ahora
+  // mismo para cada archivo crítico (window.CantemosAntiClon.generarHashes()
+  // en consola). Sirve para comparar contra HASHES_ESPERADOS cuando algo no
+  // cuadra; ya NO hay que copiar el resultado a mano a ningún lado, de eso se
+  // encarga 06-build/generar-hashes.js en cada deploy.
   async function generarHashes() {
     const resultado = {};
     for (const ruta of ARCHIVOS_CRITICOS) {

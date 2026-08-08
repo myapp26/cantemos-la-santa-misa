@@ -1,9 +1,13 @@
 [build]
-  # Ofusca los 3 scripts de la capa de seguridad (sello, anti-clonacion,
-  # anti-manipulacion) antes de publicar, sin tocar el resto del sitio.
-  # El codigo fuente legible queda en git; solo lo que se sirve al usuario
-  # sale ofuscado. Ver seguridad/06-build/.
-  command = "cd seguridad/06-build && npm install && npm run ofuscar && cp dist/01-sello-marca-agua.js ../01-sello-marca-agua.js && cp dist/02-anti-clonacion.js ../02-anti-clonacion.js && cp dist/03-anti-manipulacion.js ../03-anti-manipulacion.js"
+  # 1) "hashes" recalcula HASHES_ESPERADOS en 02-anti-clonacion.js con el
+  #    contenido real de index.html/sw.js/canciones.js/manifest.json de este
+  #    mismo build, asi nunca quedan viejos (antes se mantenian a mano).
+  # 2) "ofuscar" ofusca los 3 scripts de la capa de seguridad (sello,
+  #    anti-clonacion, anti-manipulacion), sin tocar el resto del sitio.
+  # El orden importa: la ofuscacion lee 02-anti-clonacion.js, asi que los
+  # hashes tienen que estar inyectados antes. El codigo fuente legible queda
+  # en git; solo lo que se sirve al usuario sale ofuscado. Ver seguridad/06-build/.
+  command = "cd seguridad/06-build && npm install && npm run hashes && npm run ofuscar && cp dist/01-sello-marca-agua.js ../01-sello-marca-agua.js && cp dist/02-anti-clonacion.js ../02-anti-clonacion.js && cp dist/03-anti-manipulacion.js ../03-anti-manipulacion.js"
   publish = "."
 
 [[headers]]
