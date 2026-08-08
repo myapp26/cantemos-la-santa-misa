@@ -4,6 +4,7 @@
   "private": true,
   "description": "Ofusca y minifica los archivos de la capa de seguridad (y opcionalmente el resto del app) antes de publicar, para dificultar la copia/clonación del código fuente.",
   "scripts": {
+    "hashes": "node generar-hashes.js",
     "ofuscar": "javascript-obfuscator ../01-sello-marca-agua.js --output ./dist/01-sello-marca-agua.js --config ./obfuscator.config.json && javascript-obfuscator ../02-anti-clonacion.js --output ./dist/02-anti-clonacion.js --config ./obfuscator.config.json && javascript-obfuscator ../03-anti-manipulacion.js --output ./dist/03-anti-manipulacion.js --config ./obfuscator.config.json",
     "ofuscar:archivo": "javascript-obfuscator",
     "verificar": "node --check ../01-sello-marca-agua.js && node --check ../02-anti-clonacion.js && node --check ../03-anti-manipulacion.js"
