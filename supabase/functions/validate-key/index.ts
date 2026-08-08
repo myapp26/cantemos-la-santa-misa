@@ -124,8 +124,10 @@ Deno.serve(async (req) => {
   }
 
   // row.status === "unused" -> intento de activacion (primer uso).
+  // Las claves admin pueden activarse desde cualquier dispositivo; las
+  // claves normales de cliente siguen restringidas a celular.
   const userAgent = req.headers.get("user-agent") || "";
-  if (!looksLikeMobile(userAgent)) {
+  if (!row.is_admin && !looksLikeMobile(userAgent)) {
     return json({ ok: false, reason: "desktop_blocked" }, 403, origin);
   }
 
