@@ -2,9 +2,14 @@
 // Generar, listar y revocar claves de acceso.
 //
 // Uso:
-//   node keys.js generate [--note "Parroquia San Jose"] [--n 1]
+//   node keys.js generate [--note "Parroquia San Jose"] [--n 1] [--admin]
 //   node keys.js list
 //   node keys.js revoke CSM-XXXX-XXXX-XXXX
+//
+// --admin marca la clave como administradora: se puede activar desde
+// cualquier dispositivo (compu incluida). Sin ese flag, la clave solo
+// se puede activar la primera vez desde un celular (comportamiento normal
+// de cliente).
 //
 // Requiere scripts/.env con SUPABASE_URL y SUPABASE_SERVICE_ROLE_KEY
 // (copiar scripts/.env.example). La service role key nunca debe subirse
@@ -60,6 +65,7 @@ function parseArgs(argv) {
 async function cmdGenerate(args) {
   const n = parseInt(args.n || "1", 10);
   const note = args.note || null;
+  const isAdmin = !!args.admin;
   const created = [];
   for (let i = 0; i < n; i++) {
     let keyCode;
@@ -75,14 +81,14 @@ async function cmdGenerate(args) {
     }
     const { error } = await supabase
       .from("access_keys")
-      .insert({ key_code: keyCode, note });
+      .insert({ key_code: keyCode, note, is_admin: isAdmin });
     if (error) {
       console.error("Error creando clave:", error.message);
       process.exit(1);
     }
     created.push(keyCode);
   }
-  console.log("Clave(s) generada(s):");
+  console.log(isAdmin ? "Clave(s) admin generada(s) (activable desde cualquier dispositivo):" : "Clave(s) generada(s):");
   created.forEach((k) => console.log(" ", k));
   if (created.length === 1) {
     console.log("\nLink para compartir:");
@@ -145,7 +151,7 @@ async function cmdUnbind(args) {
 async function cmdList() {
   const { data, error } = await supabase
     .from("access_keys")
-    .select("key_code, status, note, created_at, bound_at, revoked_at")
+    .select("key_code, status, is_admin, note, created_at, bound_at, revoked_at")
     .order("created_at", { ascending: false });
   if (error) {
     console.error("Error listando:", error.message);
@@ -156,7 +162,8 @@ async function cmdList() {
     return;
   }
   for (const k of data) {
-    console.log(`${k.key_code}  [${k.status}]  ${k.note || ""}`.trim());
+    const tag = k.is_admin ? "[admin]" : "";
+    console.log(`${k.key_code}  [${k.status}] ${tag}  ${k.note || ""}`.trim());
   }
 }
 
@@ -167,7 +174,7 @@ async function main() {
   if (cmd === "revoke") return cmdRevoke(args);
   if (cmd === "unbind") return cmdUnbind(args);
   if (cmd === "list") return cmdList();
-  console.log("Comandos: generate [--note '...'] [--n N] | list | revoke <CLAVE> | unbind <CLAVE>");
+  console.log("Comandos: generate [--note '...'] [--n N] [--admin] | list | revoke <CLAVE> | unbind <CLAVE>");
 }
 
 main();
