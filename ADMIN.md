@@ -62,6 +62,29 @@ huella del dispositivo — dos celulares del mismo modelo pueden generar una
 huella idéntica, así que confiar solo en eso debilitaría el bloqueo. Por
 eso la recuperación pasa por vos.
 
+## Claves de administrador (acceso al editor de cantos)
+
+Una clave normal solo deja *ver* el cancionero. Para que además aparezca el
+ícono del editor de cantos (agregar/editar/borrar canciones y categorías),
+la clave tiene que generarse con `--admin`:
+
+```
+node keys.js generate --note "Admin - [dispositivo, ej: PC Gloria]" --admin
+```
+
+Diferencias con una clave normal:
+
+- **Se puede activar desde cualquier dispositivo**, computadora incluida
+  (una clave normal solo se puede activar la primera vez desde un celular).
+- **Muestra el ícono del editor** apenas se activa — ya no hace falta
+  ninguna contraseña local aparte, el rol sale directo de esta clave.
+
+Igual que las claves normales, **cada clave admin se vincula a un solo
+dispositivo a la vez**. Si querés editar desde tu celular *y* tu compu,
+generá una clave admin para cada uno (con notas claras para no confundirlas
+después). Revocar (`node keys.js revoke`) y liberar (`node keys.js unbind`)
+funcionan exactamente igual que con las claves normales.
+
 ## Ver todas las claves
 
 ```
