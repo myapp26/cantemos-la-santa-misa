@@ -2,7 +2,7 @@
 //  CANCIONES — Generado automáticamente desde la app.
 //  Este archivo es la "semilla" que reciben todos los que
 //  instalan la app desde tu enlace de Netlify.
-//  Generado: 24/7/2026, 9:47:54 p. m.
+//  Actualizado: 14/8/2026 (fusión con Actualizacion1.pdf — 19 canciones nuevas)
 // ============================================================
 
 const CATEGORIAS = ["Entrada","Piedad","Aclamación del Evangelio","Ofertorio","Santo","Cordero de Dios","Cantos de Comunión","Cantos a la Virgen María","Evangelio - sin Aleluya","Vocacionales y Mision","Alabanzas","De Adoración","Fiestas/ Solemnidades","Temas Biblicos","Adviento","Cuaresma","Semana Santa","Pascua y Resurrección","Pentecostés","Cantos para Niños"];
@@ -1973,6 +1973,215 @@ const CANCIONES = [
     "categoria": "Fiestas/ Solemnidades",
     "tono": "",
     "letra": "# Estrofa 1\nEl Señor es mi Pastor\nsu vida ha dado por mí\nyo su voz he de escuchar\ny suyo siempre seré.\n\n# Estrofa 2\nYo soy el buen Pastor\ndoy la vida a mis ovejas\npor su nombre Yo las llamo\ny con gran amor me siguen.\n\n# Estrofa 3\nYo no soy el mercenario\nque abandona las ovejas\ncuando ve venir al lobo\nque las mata y las dispersa.\n\n# Estrofa 4\nYo conozco mis ovejas\ny ellas también me conocen\ncomo el Padre me conoce\ny también conozco al Padre.\n\n# Estrofa 5\nTengo otras ovejas lejos\ny es preciso que las traiga\nmi llamada escucharán\ny se hará solo un rebaño.\n\n# Estrofa 6\nMis ovejas mi voz oyen\ny me siguen por doquiera\nYo les doy la vida eterna\nellas no verán la muerte.",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "iglesia-peregrina",
+    "titulo": "Iglesia peregrina",
+    "autor": "P. Cesáreo Gabaráin",
+    "categoria": "Entrada",
+    "tono": "Re",
+    "letra": "# Estrofa 1\nRE          RE7      SOL           RE\nTodos unidos, formando un solo cuerpo\n     SIm             MIm      LA\nun cuerpo que en la Pascua nació;\nRE              RE7    SOL         RE\nmiembros de Cristo, en sangre redimidos,\n   SOL         LA       RE\nIglesia peregrina de Dios.\nVive en nosotros la fuerza del Espíritu\nque el Hijo desde el Padre envió,\nÉl nos conduce, nos guía y alimenta,\nIglesia peregrina de Dios.\n\n# Estrofa 2\n SOL                            RE          SIm\nSomos en la tierra, semillas de otro reino\nSOL         LA            RE RE7\nsomos testimonio de amor.\nSOL               RE\nPaz para las guerras\n  SIm             MIm\ny luz entre las sombras,\n   SOL         LA     RE\nIglesia peregrina de Dios.\n\n# Estrofa 3\nRugen tormentas y a veces nuestra barca\nparece que ha perdido el timón.\nMiras con miedo y no tienes confianza,\nIglesia peregrina de Dios.\nUna esperanza nos llena de alegría\npresencia que el Señor prometió.\nVamos cantando, Él viene con nosotros,\nIglesia peregrina de Dios.\n\n# Estrofa 4\nTodos nacidos en un solo bautismo,\nunidos en la misma comunión.\nTodos viviendo en una misma casa\nIglesia peregrina de Dios.\nTodos prendidos en una misma suerte\nligados a la misma salvación.\nSomos un cuerpo y Cristo es la cabeza,\nIglesia peregrina de Dios.",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "nueva-creacion",
+    "titulo": "Nueva creación",
+    "autor": "P. Cesáreo Gabaráin",
+    "categoria": "Pascua y Resurrección",
+    "tono": "Mim",
+    "letra": "# Estrofa 1\nMIm           DO\nCamina, Pueblo de Dios.\n   RE              MIm\nCamina, Pueblo de Dios.\n     SOL         SIm\nNueva Ley, nueva Alianza\n         DO      SI7\nen la Nueva Creación.\n   LAm             MIm\nCamina, Pueblo de Dios.\n   RE              MIm\nCamina, Pueblo de Dios.\n\n# Estrofa 2\n                        LAm\nMira allá, en el Calvario:\n         RE            MIm\nen la roca hay una Cruz,\n   DO               SOL\nmuerte que engendra la vida,\n           DO       SI7\nnuevos hombres, nueva luz.\nMIm             LAm\nCristo nos ha salvado\n              RE          MIm\ncon su muerte y resurrección.\nSOL             SIm\nTodas las cosas renacen\n         DO      SI7\nen la Nueva Creación.\n\n# Estrofa 3\nCristo toma en su cuerpo\nel pecado, la esclavitud.\nAl destruirlos, nos trae\nuna nueva plenitud.\nPone en paz a los hombres,\na las cosas y al Creador.\nTodo renace a la vida\nen la Nueva Creación.\n\n# Estrofa 4\nCielo y tierra se abrazan,\nnuestra alma halla el perdón.\nVuelven a abrirse los cielos\npara el hombre pecador.\nIsrael peregrino,\nvive y canta tu redención.\nHay nuevos mundos abiertos\nen la Nueva Creación.",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "pueblo-de-reyes",
+    "titulo": "Pueblo de Reyes",
+    "autor": "P. Lucien Deiss",
+    "categoria": "Entrada",
+    "tono": "Sol",
+    "letra": "# Estrofa 1\nSOL         SIm    SOL    DO\nPueblo de reyes, asamblea Santa,\nRE               MIm\n pueblo sacerdotal,\nSOL         LAm     RE     RE7     SOL\npueblo de Dios, bendice a tu Señor.\n\n# Estrofa 2\n        SOL                                           DO\nTe cantamos, Oh Hijo amado del Padre,\n        RE       DO      SOL    DO RE      MIm\nte alabamos, eterna Palabra sali-da de Dios.\nTe cantamos, Oh Hijo de la Virgen María,\nte alabamos, Oh Cristo nuestro hermano,\nnuestro Salvador.\n\n# Estrofa 3\nTe cantamos a ti, esplendor de la Gloria,\nte alabamos Estrella radiante que anuncias el día.\nTe cantamos, oh Luz\nque iluminas nuestras sombras,\nte alabamos, Antorcha de la nueva Jerusalén.\n\n# Estrofa 4\nTe cantamos, Mesías que anunciaron los profetas,\nte alabamos, oh Hijo de Abraham e hijo de David.\nTe cantamos, Mesías esperado por los pobres,\nte alabamos, oh Cristo nuestro Rey\nde humilde corazón.\n\n# Estrofa 5\nTe cantamos, Mediador entre Dios y los hombres,\nte alabamos, oh Ruta viviente, camino del cielo.\nTe cantamos, Sacerdote de la Nueva Alianza,\nte alabamos; Tú eres nuestra paz\npor la sangre de la Cruz.\n\n# Estrofa 6\nTe cantamos; Cordero de la Pascua eterna,\nte alabamos, oh Víctima que borras\nnuestros pecados.\nTe cantamos, oh Templo de la Nueva Alianza,\nte alabamos, oh Piedra angular y Roca de Israel.\n\n# Estrofa 7\nTe cantamos, Pastor que nos conduces al Reino,\nte alabamos; reúne a tus ovejas en un redil.\nTe cantamos, oh Cristo, manantial de la gracia,\nte alabamos, oh Fuente de agua viva\nque apaga nuestra sed.\n\n# Estrofa 8\nTe cantamos, oh Viña plantada por el Padre,\nte alabamos, oh Viña fecunda\nen nosotros tus sarmientos.\nTe cantamos, oh Cristo, maná verdadero,\nte alabamos, oh Pan de la vida que el Padre nos da.\n\n# Estrofa 9\nTe cantamos, Imagen del Dios invisible,\nte alabamos, oh Rey de justicia y Rey de paz.\nTe cantamos, Primicias de aquellos que duermen,\nte alabamos a ti, el viviente, principio y fin.",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "vine-a-alabar-a-dios",
+    "titulo": "Vine a alabar a Dios",
+    "autor": "",
+    "categoria": "Alabanzas",
+    "tono": "La",
+    "letra": "# Estrofa 1\nLA          MI      FA#m\nVine a alabar a Dios.\nRE          SI7    MI MI7\nVine a alabar a Dios.\nLA          MI      FA#m\nVine a alabar su nombre.\nRE          MI7    LA LA7\nVine a alabar a Dios.\n\n# Estrofa 2\nRE     MI          LA      FA#m\nEl llegó a mi vida en un día muy especial,\n    RE          MI      LA      LA7\ncambió mi corazón por un nuevo corazón.\n  RE          MI      LA      FA#m\nY esa es la razón por la que digo que\nRE          MI      LA\nvine a alabar a Dios.",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "mira-nuestra-ofrenda",
+    "titulo": "Mira nuestra ofrenda",
+    "autor": "",
+    "categoria": "Ofertorio",
+    "tono": "Lam",
+    "letra": "# Estrofa 1\nLAm  MI7      LAm  REm MI7  LAm\nMira nuestra ofrenda, mírala, Señor.\n            REm    SOL          DO\nTodo te ofrecemos para unirnos más.\n\n# Coro\nLAm LA7  REm SOL          DO\nPorque tu Misa es nuestra Misa\nLAm         REm    MI7      LAm\nporque tu vida es nuestra vida. (bis)\n\n# Estrofa 2\n¿Qué podemos darte, nuestro Creador?\nSólo nuestra nada, tómala, Señor.",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "recibe-oh-dios",
+    "titulo": "Recibe, oh Dios",
+    "autor": "",
+    "categoria": "Ofertorio",
+    "tono": "Do",
+    "letra": "# Estrofa 1\nDO                  FA              SOL LAm\nRecibe, oh Dios, el pan que te ofrecemos,\n           DO      FA          SOL  SOL7\nluego será el cuerpo de Jesús.\n             DO      FA          SOL LAm\nTambién acepta nuestro sacrificio,\n                DO      FA  SOL  DO\nnuestra oración, y nuestro corazón.\n\n# Estrofa 2\nRecibe, oh Dios, el vino que ofrecemos,\nluego será la sangre de Jesús.\nTambién acepta nuestro sacrificio,\nnuestra oración y nuestro corazón.\n\n# Estrofa 3\nRecíbelos, Señor, por nuestras faltas,\npor los que están aquí junto al altar,\npor los cristianos vivos y difuntos,\npor todo el mundo, por su salvación.",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "saber-que-vendras",
+    "titulo": "Saber que vendrás",
+    "autor": "",
+    "categoria": "Ofertorio",
+    "tono": "Do",
+    "letra": "# Estrofa 1\nDO      FA          DO      LAm\nEn este mundo que Cristo nos da,\n   DO          FA      SOL\nhacemos la ofrenda del pan.\nDel pan de nuestro trabajo sin fin,\ny el vino de nuestro cantar.\nTraigo ante Ti nuestra justa inquietud:\namar la justicia y la paz.\n\n# Coro\n    FA          SOL      DO          LAm\nSaber que vendrás, saber que estarás,\n      FA          SOL      DO\npartiendo a los hombres Tu pan. (bis)\n\n# Estrofa 2\nLa sed de todos los hombres sin luz,\nla pena y el triste llorar.\nEl odio de los que mueren sin fe,\ncansados de tanto luchar.\nEn la patena de nuestra oblación\nacepta la vida Señor.",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "santo-i",
+    "titulo": "Santo I",
+    "autor": "",
+    "categoria": "Santo",
+    "tono": "Mim",
+    "letra": "# Estrofa 1\nMIm             RE          DO          SI7\nSanto es el Señor mi Dios, digno de alabanza.\n¡A Él el poder, el honor y la gloria! (bis)\n\n# Coro\n   MIm                 RE\n¡Hosanna (hosanna), hosanna (hosanna),\n   DO          SI7\nhosanna, ¡oh Señor! (bis)\n\nBendito el que viene en nombre del Señor,\ncon todos los santos cantamos para Él. (bis)",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "santo-iii",
+    "titulo": "Santo III",
+    "autor": "",
+    "categoria": "Santo",
+    "tono": "Lam",
+    "letra": "# Estrofa 1\nLAm  LA7      REm      SOL          DO\nSanto, Santo, Santo, Santo es el Señor.\n  REm          LAm      MI7                LAm\nDios del universo, Santo es el Señor. (bis)\n\n# Coro\n   LAm LA7      REm      SOL              DO\n¡Hosanna en el cielo! ¡Hosanna en las alturas!\n   REm          LAm      MI7          LAm\nBendito el que viene en Nombre del Señor. (bis)",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "si-yo-no-tengo-amor",
+    "titulo": "Si yo no tengo amor",
+    "autor": "",
+    "categoria": "Temas Biblicos",
+    "tono": "Re",
+    "letra": "# Estrofa 1\nRE              SIm\nSi yo no tengo amor,\n      SOL MIm  LA\nyo nada soy, Señor.\n   RE              SIm\nSi yo no tengo amor,\n      SOL LA  RE\nyo nada soy, Señor.\n\n# Estrofa 2\nRE\nEl amor es compasivo,\nSIm\nel amor es servicial,\nSOL              MIm\nel amor no tiene envidia\n              LA\nel amor no busca el mal.\n\n# Estrofa 3\nEl amor nunca se irrita,\nel amor no es descortés\nel amor no es egoísta,\nel amor nunca es doblez.\n\n# Estrofa 4\nEl amor disculpa todo,\nel amor es caridad,\nno se alegra de lo injusto\nsólo goza en la verdad.\n\n# Estrofa 5\nEl amor soporta todo,\nel amor todo lo cree,\nel amor todo lo espera,\nel amor es siempre fiel.\n\n# Estrofa 6\nNuestra fe, nuestra esperanza\nfrente a Dios terminarán\nel amor es algo eterno\nnunca, nunca pasar.",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "yo-soy-el-camino",
+    "titulo": "Yo soy el camino",
+    "autor": "B.Aguilera / L.González",
+    "categoria": "Temas Biblicos",
+    "tono": "Lam",
+    "letra": "# Estrofa 1\nLAm      REm      LAm\nYo soy la luz del mundo,\nREm          LAm      MI  LAm SOL7\nno hay tinieblas junto a mí.\n      DO      FA          DO\nTendrán la luz de la vida\n  FA          LAm REm MI\npor la palabra que les di.\n\n# Coro\n      LAm  LA7      REm\n/Yo soy el camino firme,\n            SOL7          DO\nyo soy la vida y la verdad.\n      REm              SOL7\nPor mí llegarán al Padre\n                  MI      LAm\ny al Santo Espíritu tendrán./\n\n# Estrofa 2\nYo soy el pan de vida\ny con ustedes me quedé;\nme entrego como alimento\nsoy el misterio de la fe.\n\n# Estrofa 3\nYo soy el buen pastor\ny por amor mi vida doy;\nyo quiero un solo rebaño,\nsoy para todos salvador.\n\n# Estrofa 4\nYo soy la Vid verdadera\nmi Padre Dios, el Viñador\nproduzcan fruto abundante\npermaneciendo en mi amor.\n\n# Estrofa 5\nYo soy Señor y Maestro\ny un mandamiento nuevo doy:\nque se amen unos a otros\ncomo los he amado Yo.",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "alma-misionera",
+    "titulo": "Alma misionera",
+    "autor": "",
+    "categoria": "Vocacionales y Mision",
+    "tono": "Sol",
+    "letra": "# Estrofa 1\nSOL RE              MIm\nSeñor toma mi vida nueva\nDO                  SOL\nantes de que la espera\nDO              RE\ndesgaste años en mí.\nEstoy dispuesto a los que quieras\nno importa lo que sea\nDO      RE      SOL RE\nTú llámame a servir.\n\n# Coro\nSOL              RE\nLlévame donde los hombres\n    MIm          DO              SOL\nnecesiten tus palabras, necesiten\nLA              RE\nmis ganas de vivir.\nDonde falte la esperanza,\ndonde todo sea triste, simplemente\nDO      RE      SOL RE\npor no saber de Ti.\n\n# Estrofa 2\nTe doy mi corazón sincero,\npara gritar sin miedo\nlo hermoso que es tu amor.\nSeñor, tengo alma misionera,\ncondúceme a la tierra\nque tenga sed de vos.\n\n# Estrofa 3\nY así, en marcha iré cantando\npor pueblos, predicando\ntu grandeza, Señor.\nTendré mis manos sin cansancio,\ntu historia entre mis labios,\ntu fuerza en la oración.",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "alabado-sea-el-santisimo",
+    "titulo": "Alabado sea el Santísimo",
+    "autor": "",
+    "categoria": "De Adoración",
+    "tono": "Re",
+    "letra": "# Estrofa 1\nRE                  LA7\nAlabado sea el Santísimo\nRE      SOL      RE      RE7\nSacramento del altar.\n      SOL      LA      RE\n//Y la Virgen concebida\nSIm MIm      LA7 RE\nsin pecado original.// (bis)\n\n# Estrofa 2\nEl manjar más regalado\nde este suelo terrenal,\n//es Jesús Sacramentado,\nDios Eterno e Inmortal.// (bis)\n\n# Estrofa 3\nCelebremos con Fe viva\neste pan angelical\n//y la Virgen concebida\nsin pecado original.// (bis)\n\n# Estrofa 4\nEs el Dios que da la vida\ny que nació en un portal,\n//de la Virgen concebida\nsin pecado original.// (bis)",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "cantemos-al-amor-de-los-amores",
+    "titulo": "Cantemos al amor de los amores",
+    "autor": "",
+    "categoria": "Alabanzas",
+    "tono": "Do",
+    "letra": "# Estrofa 1\nDO          SOL      LAm\nCantemos al Amor de los amores,\n   REm          SOL\ncantemos al Señor.\n   DO      LAm  REm\n¡Dios está aquí:\nFA          SOL      LAm MIm\nvenid, adoradores, adoremos\nSI7      MIm\na Cristo Redentor!\n\n# Coro\nDO      LA      REm\n¡Gloria a Cristo Jesús!\n            DO      LAm                  SOL\nCielos y tierra, bendecid al Señor.\n      FA      SOL      DO MI7          FA\n¡Honor y gloria a Ti,  Rey de la gloria;\n            DO      LAm      REm DO SOL DO\namor por siempre a Ti, Dios del Amor!\n\n# Estrofa 2\nUnamos nuestra voz a los cantares\ndel coro celestial.\n¡Dios está aquí:\nal Dios de los altares alabemos,\ncon gozo angelical!\n\n# Estrofa 3\nCantemos al amor de los amores,\ncantemos sin cesar.\n¡Dios está aquí:\nvenid, adoradores, adoremos\na Cristo en el altar!",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "digno-de-alabar",
+    "titulo": "Digno de alabar",
+    "autor": "Athenas",
+    "categoria": "Alabanzas",
+    "tono": "Do",
+    "letra": "# Estrofa 1\nDO\nLevanto mis manos,\n   SOL      LAm\ncierro mis ojos,\n      FA          SOL\npara proclamar tu nombre,\n         DO\nDios de poder. (Bis)\n\n# Coro\n            FA      SOL\nDigno de alabar, Señor.\n      LAm SOL          DO\nGloria y majestad,  sean a Ti.\n         FA\nRey de la creación,\n      SOL LAm SOL DO\npor siempre. Ameeeeeeen.\nFA      SOL\nDigno de alabar, Señor.\n      LAm SOL          DO\nGloria y majestad,  sean a Ti.\n         FA\nRey de la creación,\nSOL DO FA DO\npor siempre. Amén.\n\n# Estrofa 2\nDO\nLevanto mis manos\n  SOL      LAm\nCierro mis ojos,\n      FA          SOL\nPara proclamar tu nombre,\n         DO FA DO\nDios de poder.\n\n# Coro (repetición)\nFA      SOL\nDigno de alabar, Señor.\n      LAm SOL          DO\nGloria y majestad,  sean a Ti.\n         FA\nRey de la creación,\n      SOL LAm SOL DO\npor siempre. Ameeeeeeen.\nFA      SOL\nDigno de alabar, Señor.\n      LAm SOL          DO\nGloria y majestad,  sean a Ti.\n         FA\nRey de la creación,\n      SOL MIm FA\npor siempre. Amén.\nREm\nRey de la creación\n      SOL DO FA DO\npor siempre. Ameeeeeeen.",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "gloria-martin-valverde",
+    "titulo": "Gloria",
+    "autor": "Martín Valverde",
+    "categoria": "Alabanzas",
+    "tono": "Rem",
+    "letra": "# Estrofa 1\nREm          SIb LA7\nGloria... Gloria...\n  REm          SIb LA7\nGloria... Gloria...\n\n# Estrofa 2\n   SOLm          DO\na Jesús el Señor,\n      FA          SIb\nal Cordero de Dios.\n   SOLm          LA REm      RE7\nAl nombre sobre todo nombre.\n   SOLm          DO\na Jesús el Señor,\n      FA          SIb\nal Cordero de Dios.\n   SOLm          LA REm\nAl nombre sobre todo nombre.",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "vive-jesus",
+    "titulo": "Vive Jesús",
+    "autor": "",
+    "categoria": "Pascua y Resurrección",
+    "tono": "Sol",
+    "letra": "# Estrofa 1\nSOL      MIm      LAm\nVive Jesús el Señor,\nDO      RE      SOL\nvive Jesús el Señor. (Bis)\n\n# Coro\nRE          SOL\nÉl vive, Él vive, Él vive,\n MIm  DO      RE      SOL\nvive, vive Jesús el Señor. (Bis)",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "maria-musica-de-dios",
+    "titulo": "María, música de Dios",
+    "autor": "Kairoi",
+    "categoria": "Cantos a la Virgen María",
+    "tono": "Mi",
+    "letra": "# Estrofa 1\nMI                  SI7\nMe quedé sin voz,\nLA      SI7  MI  SOL# DO#m\n  con que cantar.\n            FA#m                  SI7\nY mi alma vacía, dormida se quedaba.\nY pensé para mí:\n\"me pondré en sus manos,\nmanos de madre,\n                  RE7\nme dejaré en tu amor\".\n\n# Coro\nSOL      MIm\n Y tu María,\nDO      RE          SOL\n hazme música de Dios.\n      MIm\nY tu, María,\nDO RE          SOL          MIm\n anima Tú las cuerdas de mi alma,\nDO      RE  DO DOm SOL\nAaaaleluya, Aaaaaamén.\n\n# Estrofa 2\nMaría acompaña\ntú mi caminar\nyo sólo no puedo,\nayúdame a andar.\nY pensé para mí...\n\"me pondré en sus manos,\nmanos de madre,\nme dejaré en tu amor\".",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "alma-de-cristo",
+    "titulo": "Alma de Cristo",
+    "autor": "Fernando Moser",
+    "categoria": "Cantos de Comunión",
+    "tono": "Do",
+    "letra": "# Estrofa 1\nDO                  SIb FA DO\nAlma de Cristo, santifícame.\n                  SIb FA DO\nCuerpo de Cristo, sálvame.\nSangre de Cristo, embriágame.\nAgua de su Costado, lávame.\n\nDO SIb FA DO\nDO SIb FA DO\n\nPasión de Cristo, confórtame\nOh, buen Jesús, óyeme\n   LAm                  FA          DO SOL\n//Dentro de tus llagas, escóndeme.\nNo permitas que me aparte de Ti.\nDel maligno enemigo, defiéndeme.\nY en la hora de mi muerte, llámame\n    REm\ny mándame ir a Ti\nFA                  DO          SOL\npara que con tus santos te alabe\n            REm                        DO\nPor los siglos de los siglos. Amén.// (x2)",
     "youtube": "",
     "premium": false,
     "bloqueada": false
