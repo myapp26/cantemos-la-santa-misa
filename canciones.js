@@ -85,7 +85,7 @@ const CANCIONES = [
     "autor": "Música Católica",
     "categoria": "Aclamación del Evangelio",
     "tono": "La",
-    "letra": "#coro \n[La]/Aleluya, [Mi]aleluya, [Mi7]aleluya, [La]aleluya,\n[La7]aleluya, [Re]aleluya, el [La]Señor [Mi7]resucitó./[La]\n\n1. /El [La]Señor [Mi]resucitó, [Mi7]cantemos con [La]alegría,\nContinúa después del anuncio\ndemos [Fa#m]gracias al [Re6]Señor, [La]alelu--ya./[Mi7]   [La]\n\n2. /El pecado redimió, Cristo Dios resucitó:\nnueva vida nos donó, alelu-ya./\n\nPara la Ascensión\n3. /Cristo al cielo ya subió: en el mundo \nnos envía,\na ser testigos de su amor, aleluya.",
+    "letra": "# Coro\n[La]Aleluya, [Mi]aleluya, [Mi7]aleluya, [La]aleluya,\n[La7]aleluya, [Re]aleluya, el [La]Señor [Mi7]resucitó. [La]\n\n# Estrofa 1\nEl [La]Señor [Mi]resucitó, [Mi7]cantemos con [La]alegría,\ndemos [Fa#m]gracias al [Re6]Señor, [La]alelu--ya. [Mi7] [La]\n\n# Estrofa 2\nEl pecado redimió, Cristo Dios resucitó:\nnueva vida nos donó, alelu-ya.\n\n# Estrofa 3\nCristo al cielo ya subió: en el mundo\nnos envía,\na ser testigos de su amor, aleluya.",
     "youtube": "",
     "premium": false,
     "bloqueada": false
