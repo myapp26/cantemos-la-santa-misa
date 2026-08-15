@@ -435,14 +435,30 @@ const LS_DATA="cantemos_data_v1";
 let DATA = load();
 let isAdmin=false, current=null, semis=0, presentFontSize=30, editingId=null;
 
+// Checksum liviano del repertorio publicado en canciones.js. Se guarda junto
+// a la copia local en localStorage: si al cargar no coincide con el checksum
+// actual, significa que canciones.js cambió (nuevo deploy) desde la última
+// vez que este navegador guardó su copia, así que se descarta la copia vieja
+// en vez de taparle el repertorio nuevo para siempre (ver bug de acordes que
+// no aparecían: el navegador seguía sirviendo un canciones.js viejo cacheado).
+function cancionesChecksum(){
+  const s=JSON.stringify(CANCIONES)+JSON.stringify(CATEGORIAS);
+  let h=0;
+  for(let i=0;i<s.length;i++) h=(h*31+s.charCodeAt(i))|0;
+  return h;
+}
 function load(){
   try{
     const raw=localStorage.getItem(LS_DATA);
-    if(raw) return JSON.parse(raw);
+    if(raw){
+      const data=JSON.parse(raw);
+      if(data.origenChecksum===cancionesChecksum()) return data;
+    }
   }catch(e){}
   return {
     categorias:[...CATEGORIAS],
-    canciones:CANCIONES.map((c,i)=>({...c, creado:Date.now()-(CANCIONES.length-i)*1000}))
+    canciones:CANCIONES.map((c,i)=>({...c, creado:Date.now()-(CANCIONES.length-i)*1000})),
+    origenChecksum:cancionesChecksum()
   };
 }
 function save(){localStorage.setItem(LS_DATA,JSON.stringify(DATA));}
@@ -892,7 +908,11 @@ function updateSong(){
   document.getElementById("sv-lyrics").innerHTML=lyricsHTML(current.letra,semis);
 }
 function transpose(d){semis=((semis+d)%12+12)%12;if(semis>6)semis-=12;updateSong();}
-function closeSong(){document.getElementById("song-view").classList.remove("open");}
+function closeSong(){
+  document.getElementById("song-view").classList.remove("open");
+  document.getElementById("q").value="";
+  render();
+}
 
 // ===================== Presentación =====================
 function openPresent(){
