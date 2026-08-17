@@ -584,7 +584,11 @@ async function initAccessGate(){
   aplicarRolAdmin();
   try{
     const result = await callValidate(access.key, access.token);
-    if(!result.ok){
+    if(!result.ok && result.reason==="server_error"){
+      // Error transitorio del servidor (ej. hiccup de la base de datos):
+      // no es un rechazo real de la clave, así que no desactivamos el
+      // acceso local. Seguimos con el último estado válido conocido.
+    } else if(!result.ok){
       clearAccess();
       aplicarRolAdmin();
       showGate(GATE_MESSAGES[result.reason] || "Se perdió el acceso. Ingresá tu clave de nuevo.");
