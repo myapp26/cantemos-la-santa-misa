@@ -516,6 +516,22 @@ function clearAccess(){ localStorage.removeItem(LS_ACCESS); }
 
 // El rol de administrador no es una sesión local: sale directo de la clave
 // de acceso validada contra Supabase (columna is_admin de access_keys).
+//
+// RIESGO CONOCIDO (documentado, sin implementar corrección todavía): una vez
+// validado, is_admin queda cacheado tal cual en localStorage (LS_ACCESS) y
+// esAdmin() lo lee directo, sin volver a preguntarle a Supabase. Como no hay
+// backend que verifique el rol en cada acción, cualquiera puede abrir DevTools
+// y forzar localStorage.cantemos_access con is_admin:true para desbloquear la
+// UI de edición local — no hay forma de evitar esto sin re-validar contra el
+// servidor. El impacto real es acotado: DATA (canciones/categorías) también
+// vive solo en localStorage de ESE dispositivo, así que lo máximo que se logra
+// es editar la copia local propia, no el repertorio de otros usuarios ni nada
+// publicado. Posibles mejoras futuras si se agrega backend para el repertorio:
+//   1) Re-validar is_admin contra Supabase (llamando callValidate) cada vez que
+//      se abre el editor, no solo confiar en el valor cacheado.
+//   2) Mover la edición del repertorio a un endpoint server-side que verifique
+//      el rol con el token guardado, en vez de mutar DATA localmente.
+//   3) Firmar/expirar el flag is_admin (JWT corto) en vez de un booleano plano.
 function esAdmin(){
   const access = loadAccess();
   return !!(access && access.is_admin === true);
