@@ -1047,6 +1047,9 @@ function addCatLine(val=""){
   const box=document.getElementById("catList");
   const v=(typeof val==="string")?val:"";
   const row=document.createElement("div");row.className="cat-line";
+  // dataset.orig identifica la categoría original de esta fila (para el renombrado
+  // en saveCats). Va en el elemento, así que reordenar filas con moveCat() no lo altera.
+  row.dataset.orig=v;
   row.innerHTML=`<input value="${esc(v)}" placeholder="Nombre de categoría">
     <button title="Subir" onclick="moveCat(this,-1)">↑</button>
     <button title="Bajar" onclick="moveCat(this,1)">↓</button>
@@ -1059,14 +1062,22 @@ function moveCat(btn,dir){
   if(dir>0 && row.nextElementSibling) box.insertBefore(row.nextElementSibling,row);
 }
 function saveCats(){
-  const inputs=[...document.querySelectorAll("#catList .cat-line input")];
-  const nuevas=inputs.map(i=>i.value.trim()).filter(Boolean);
+  const rows=[...document.querySelectorAll("#catList .cat-line")];
+  // Mapeo explícito nombre-viejo -> nombre-nuevo por fila (via dataset.orig), no por
+  // posición en el array: así reordenar y renombrar en la misma sesión no cruza canciones
+  // a la categoría equivocada.
+  const nuevas=[], mapa={};
+  rows.forEach(row=>{
+    const nuevo=row.querySelector("input").value.trim();
+    if(!nuevo) return;
+    nuevas.push(nuevo);
+    const orig=row.dataset.orig||"";
+    if(orig) mapa[orig]=nuevo;
+  });
   if(!nuevas.length){toast("Debe haber al menos una categoría");return;}
-  const viejas=DATA.categorias;
   DATA.canciones.forEach(c=>{
     if(!nuevas.includes(c.categoria)){
-      const idx=viejas.indexOf(c.categoria);
-      c.categoria = (idx>=0 && nuevas[idx]) ? nuevas[idx] : nuevas[0];
+      c.categoria = mapa[c.categoria] || nuevas[0];
     }
   });
   DATA.categorias=nuevas;
