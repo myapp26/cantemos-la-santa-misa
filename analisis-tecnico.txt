@@ -1,0 +1,57 @@
+---
+name: analisis-tecnico-cancionero
+description: Inventario de funcionalidades actuales de la PWA "Cantemos para la Santa Misa" y recomendaciones técnicas (backend/frontend) para profesionalizarla. Basado en revisión de index.html y canciones.js (ago 2026).
+---
+
+# Estado actual de la app
+
+## Frontend / UX
+- SPA de un solo archivo (index.html + canciones.js), sin frameworks, vanilla JS.
+- Buscador en vivo (título, autor, categoría).
+- Orden por categoría o alfabético (A–Z con separadores).
+- Control de tamaño de texto (P/M/G) persistido en localStorage.
+- Vista de canción: transposición de tono (+/-) con lógica de teoría musical (12 notas, alias de bemoles).
+- Diagramas de acordes de guitarra generados en SVG (mayor/menor, 12 tónicas, con cejilla).
+- Modo presentación (pantalla completa oscura, tamaño de fuente ajustable) para proyectar en misa.
+- Enlace a YouTube por canción (opcional).
+- Botón de instalación PWA (Android/Chrome vía beforeinstallprompt; instrucciones manuales en iOS).
+
+## Panel de administrador
+- Acceso por clave única, guardada en localStorage (primer uso la crea).
+- CRUD de canciones con vista previa en vivo del render de acordes.
+- Gestión de categorías (crear/renombrar/reordenar/eliminar, con reasignación automática).
+- Exportar/importar repertorio como JSON (respaldo manual).
+- "Generar archivo para publicar": regenera canciones.js para subir manualmente a Netlify.
+
+## Datos
+- ~180 canciones embebidas en canciones.js, 26 categorías.
+- Cada canción: id, título, autor, categoría, tono, letra (formato `[Acorde]texto` + `# Sección`), link YouTube.
+- Persistencia 100% client-side (localStorage) — sin backend ni base de datos.
+
+# Recomendaciones para profesionalizar
+
+## Backend (prioridad alta)
+1. Reemplazar localStorage por un backend real (Firebase/Supabase/API + Postgres) — hoy los cambios de un admin NO se sincronizan entre dispositivos ni usuarios hasta exportar/importar/republicar manualmente. Es el gap estructural más importante.
+2. Autenticación real por roles — la clave de admin se compara en el cliente (localStorage), es trivialmente evadible desde DevTools.
+3. API CRUD en vez del flujo manual "editar → generar canciones.js → subir a Netlify".
+4. Validación/sanitización de datos en servidor (auditar XSS: el escape actual es básico).
+5. Respaldos automáticos y versionado/historial de ediciones (poder revertir cambios).
+6. Analítica de uso (canciones más vistas/buscadas) para priorizar contenido.
+
+## Frontend (prioridad media-alta)
+1. Accesibilidad: falta ARIA, navegación por teclado en modales, contraste verificado.
+2. Enrutamiento por canción (URL/hash por id) para poder compartir el link directo a un canto — hoy es imposible.
+3. Seguridad: mover la verificación de admin fuera del cliente.
+4. Manejo de errores/estados de carga (el registro del service worker falla en silencio).
+5. Función de "lista de misa" / favoritos para armar el repertorio de un día.
+6. Exportar/imprimir canción en PDF para uso físico.
+7. Pruebas automatizadas (unit/e2e) para la lógica de transposición — es lógica crítica sin cobertura.
+8. Acordes extendidos (7, sus, dim) solo se muestran como texto, sin diagrama.
+
+## Calidad de datos (prioridad media)
+- Categorías redundantes/solapadas: "Cordero" vs "Cordero de Dios", "Cantos de Comunión" vs "Comunión", "Adoración" vs "De Adoración" vs "Alabanza y Adoración", "Evangelio - Aleluya" vs "Aclamación del Evangelio". Conviene unificar taxonomía.
+- Canciones duplicadas: "Una Espiga", "Vienen con Alegría", "Jesús está Vivo" (x3), "En su Mesa hay Amor" (x2).
+- Restos de scraping en la letra de "El Profeta" ("Continúa después del anuncio").
+- Varias canciones sin tono asignado.
+
+Documento generado a partir de revisión directa del código fuente del proyecto (index.html, canciones.js) el 18 de agosto de 2026.
