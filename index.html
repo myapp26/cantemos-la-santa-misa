@@ -1099,10 +1099,12 @@ function importData(ev){
   r.onload=()=>{
     try{
       const d=JSON.parse(r.result);
-      if(!d.categorias||!d.canciones) throw 0;
+      if(!Array.isArray(d.categorias)||!Array.isArray(d.canciones)) throw new Error("El archivo no tiene categorías/canciones válidas");
+      const invalida=d.canciones.find(c=>!c||!String(c.id||"").trim()||!String(c.titulo||"").trim()||!String(c.categoria||"").trim());
+      if(invalida) throw new Error("Hay canciones sin id, título o categoría");
       if(!confirm("Esto reemplazará el repertorio actual en este dispositivo. ¿Continuar?")){ev.target.value="";return;}
       DATA=d;save();render();closeModal("adminModal");toast("Repertorio importado");
-    }catch(e){toast("Archivo no válido");}
+    }catch(e){toast(e.message||"Archivo no válido");}
     ev.target.value="";
   };
   r.readAsText(file);
