@@ -1206,7 +1206,7 @@ window.addEventListener("appinstalled",()=>{ installBtn.style.display="none"; de
 
 // ===================== Init =====================
 render();
-if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
+if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(err=>console.warn("SW register falló:",err));
 </script>
 <script src="/seguridad/01-sello-marca-agua.js"></script>
 <script src="/seguridad/02-anti-clonacion.js"></script>
