@@ -120,6 +120,32 @@ Deno.serve(async (req) => {
     // que la huella nunca alcanza sola para probar que es el mismo aparato).
     // Si el dueno legitimo perdio sus datos locales, el admin puede liberar
     // la clave con `node keys.js unbind` y reactivarla desde el celular.
+    //
+    // Excepcion: las claves is_admin son de la propia dueña de la app, no
+    // de un cliente final. Ella sí necesita usarlas desde varios contextos
+    // (perfiles de Chrome, ventanas de incognito, otra compu) sin depender
+    // de correr `keys.js unbind` a mano cada vez. Como ya se confía en estas
+    // claves para saltar el bloqueo desktop_blocked, re-vincularlas solas
+    // (rotando el token) no abre una puerta nueva de riesgo distinta a la
+    // que ya existe si la clave admin se filtra.
+    if (row.is_admin) {
+      const freshToken = newToken();
+      const freshHash = await sha256Hex(freshToken);
+      const { data: rebound, error: rebindError } = await supabase
+        .from("access_keys")
+        .update({
+          device_fingerprint: fingerprint,
+          device_token_hash: freshHash,
+          bound_at: new Date().toISOString(),
+        })
+        .eq("id", row.id)
+        .select()
+        .maybeSingle();
+      if (rebindError || !rebound) {
+        return json({ ok: false, reason: "server_error" }, 500, origin);
+      }
+      return json({ ok: true, token: freshToken, is_admin: true }, 200, origin);
+    }
     return json({ ok: false, reason: "in_use" }, 403, origin);
   }
 
