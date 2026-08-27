@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#2b2118">
-<title>Cantemos la Santa Misa</title>
+<title>Cantemos para la Santa Misa</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png">
 <style>
@@ -13,9 +13,6 @@
     --accent:#9c3b1b; --accent-deep:#7a2c12; --chord:#9c3b1b; --rule:#cdbf9e; --line:#d8cba8;
     --tscale:1;
   }
-  body.txt-sm{--tscale:0.9}
-  body.txt-md{--tscale:1.15}
-  body.txt-lg{--tscale:1.6}
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
   body{background:var(--paper);color:var(--ink);
@@ -77,8 +74,6 @@
   li.song .tono{font-family:"Courier New",monospace;font-size:12px;color:var(--accent);
     border:1px solid var(--rule);border-radius:2px;padding:1px 6px}
   .empty{padding:40px 10px;text-align:center;color:var(--ink-soft);font-style:italic}
-  .app-footer{margin-top:28px;padding:18px 4px 30px;border-top:1px solid var(--rule);
-    font-size:12px;line-height:1.6;color:var(--ink-soft);font-style:italic;text-align:center}
 
   /* ---------- Vista canción ---------- */
   #song-view{position:fixed;inset:0;z-index:50;background:var(--paper);display:none;flex-direction:column}
@@ -92,7 +87,7 @@
   .sv-bar .spacer{flex:1}
   .sv-bar .present{border-color:var(--accent);color:var(--accent)}
   .sv-bar .edit{border-color:var(--accent-deep);color:var(--accent-deep)}
-  .sv-scroll{flex:1;min-height:0;overflow-y:auto;padding:22px 22px 60px;-webkit-overflow-scrolling:touch}
+  .sv-scroll{flex:1;overflow-y:auto;padding:22px 22px 60px;-webkit-overflow-scrolling:touch}
   .sv-title{font-size:calc(26px*var(--tscale,1));font-weight:700;line-height:1.1}
   .sv-meta{font-size:13px;color:var(--ink-soft);font-style:italic;margin:6px 0 4px}
   .sv-tono-row{display:flex;align-items:center;gap:10px;margin:14px 0 18px;
@@ -106,45 +101,40 @@
     min-width:42px;text-align:center;font-weight:700}
 
   /* ---------- Letra con acordes ENCIMA ---------- */
-  .lyrics{font-family:"Courier New",monospace;font-size:calc(15px*var(--tscale,1))}
+  .lyrics{font-family:"Courier New",monospace;font-size:calc(17px*var(--tscale,1));
+    text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
   .lyrics .section{color:var(--accent-deep);font-weight:700;letter-spacing:.1em;
-    text-transform:uppercase;font-size:calc(12px*var(--tscale,1));display:block;margin:18px 0 4px}
+    text-transform:uppercase;font-size:calc(13px*var(--tscale,1));display:block;margin:18px 0 4px}
   .lyrics .lyric-line{display:block;margin:2px 0}
   .lyrics .chord-row{display:block;height:1.15em;position:relative;white-space:pre}
   .lyrics .chord-row .chord{position:absolute;color:var(--chord);font-weight:700;white-space:nowrap}
-  .lyrics .text-row{display:block;white-space:pre-wrap;word-break:break-word;line-height:1.3}
+  .lyrics .text-row{display:block;white-space:pre-wrap;word-break:break-word;
+    line-height:1.45;font-weight:600;color:var(--ink);letter-spacing:.005em}
   .lyrics .plain{display:block;white-space:pre-wrap;word-break:break-word;line-height:1.7}
 
-  /* ---------- Control de tamaño de texto (inline) ---------- */
-  .textsize-ctl{display:flex;gap:4px;align-items:center}
-  .textsize-ctl button{width:27px;height:27px;font-family:"Courier New",monospace;font-size:11px;
-    border:1px solid var(--rule);background:var(--paper-deep);color:var(--ink-soft);
-    border-radius:2px;cursor:pointer;padding:0;line-height:1}
-  .textsize-ctl button.active{background:var(--accent);border-color:var(--accent);color:#fff}
-  .sv-bar .textsize-ctl button{background:none;border-color:var(--rule)}
-  .sv-bar .textsize-ctl button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  /* ---------- Control de tamaño de texto (deslizante) ---------- */
+  .textsize-ctl{display:flex;gap:7px;align-items:center}
+  .textsize-ctl .a-sm,.textsize-ctl .a-lg{font-family:"Courier New",monospace;color:var(--ink-soft);
+    line-height:1;user-select:none}
+  .textsize-ctl .a-sm{font-size:11px}
+  .textsize-ctl .a-lg{font-size:17px;font-weight:700}
+  .textsize-ctl input[type=range]{-webkit-appearance:none;appearance:none;width:88px;height:4px;
+    background:var(--rule);border-radius:2px;outline:none;cursor:pointer;margin:0}
+  .textsize-ctl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
+    width:17px;height:17px;border-radius:50%;background:var(--accent);cursor:pointer;
+    border:2px solid var(--paper);box-shadow:0 0 0 1px var(--rule)}
+  .textsize-ctl input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;
+    background:var(--accent);cursor:pointer;border:2px solid var(--paper);box-shadow:0 0 0 1px var(--rule)}
+  .textsize-ctl input[type=range]::-moz-range-track{background:var(--rule);height:4px;border-radius:2px}
 
   /* ---------- Diagramas de acordes ---------- */
   .chords-row{margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
   .chords-row .lbl{font-family:"Courier New",monospace;font-size:12px;letter-spacing:.15em;
     text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;display:block}
   .chord-diagrams{display:flex;flex-wrap:wrap;gap:16px 18px}
-  .chords-row .head{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
-  .chords-row .head .lbl{margin-bottom:0}
-  .inst-toggle{margin-left:auto;display:inline-flex;border:1px solid var(--rule);
-    border-radius:20px;overflow:hidden;background:var(--paper-deep)}
-  .inst-toggle button{font-family:"Courier New",monospace;font-size:11px;letter-spacing:.06em;
-    padding:6px 12px;border:none;background:none;color:var(--ink-soft);cursor:pointer}
-  .inst-toggle button.on{background:var(--accent);color:#fff}
   .chord-diagram{text-align:center}
   .chord-diagram .name{font-family:"Courier New",monospace;font-weight:700;
     color:var(--accent);font-size:13px;margin-bottom:2px}
-  .chords-locked{font-size:13px;color:var(--ink-soft);font-style:italic;padding:10px 0}
-  .chk-label{display:flex;align-items:center;gap:8px;font-family:inherit;font-size:14px;
-    text-transform:none;letter-spacing:0;color:var(--ink);cursor:pointer}
-  .chk-label input{width:16px;height:16px;cursor:pointer}
-  .locked-msg{text-align:center;padding:60px 20px;color:var(--ink-soft);font-size:17px;font-style:italic}
-  .lock-ico{margin-right:4px;font-size:12px}
 
   /* ---------- Modo presentación ---------- */
   body.presenting{overflow:hidden}
@@ -155,7 +145,7 @@
   #present .p-bar button{background:none;border:1px solid #5a4a36;color:var(--paper);
     font-family:"Courier New",monospace;font-size:13px;padding:7px 12px;border-radius:2px;cursor:pointer}
   #present .p-title{flex:1;font-size:15px;font-style:italic;color:#cdbf9e}
-  #present .p-scroll{flex:1;min-height:0;overflow-y:auto;padding:30px 26px 80px;-webkit-overflow-scrolling:touch}
+  #present .p-scroll{flex:1;overflow-y:auto;padding:30px 26px 80px;-webkit-overflow-scrolling:touch}
   #present .lyrics{font-size:var(--present-size,30px);color:var(--paper)}
   #present .lyrics .section{color:#e8a23b;font-size:calc(var(--present-size,30px)*.55)}
   #present .lyrics .chord{color:#e8a23b}
@@ -180,13 +170,6 @@
   .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent)}
   .field .hint{font-size:12px;color:var(--ink-soft);margin-top:5px;line-height:1.4}
   .btn-row{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
-  /* En formularios largos (ej. editar un canto con muchas estrofas), la fila
-     de botones final queda pegada al fondo de .sheet en vez de perderse al
-     final del scroll: se nota que hay que guardar/cancelar sin tener que
-     llegar al final del todo. */
-  .sheet .btn-row:last-child{position:sticky;bottom:-40px;z-index:1;
-    margin:16px -20px -40px;padding:14px 20px 40px;
-    background:var(--paper);border-top:1px solid var(--rule)}
   .btn{padding:12px 18px;font-family:"Courier New",monospace;font-size:13px;letter-spacing:.05em;
     border-radius:3px;cursor:pointer;border:1px solid var(--ink);background:none;color:var(--ink)}
   .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
@@ -208,55 +191,32 @@
     background:var(--ink);color:var(--paper);padding:12px 20px;border-radius:24px;
     font-size:14px;opacity:0;transition:opacity .25s;pointer-events:none}
   .toast.show{opacity:1}
-
-  /* ---------- Gate de acceso por clave ---------- */
-  .gate-overlay{position:fixed;inset:0;z-index:500;background:var(--paper);
-    display:flex;align-items:center;justify-content:center;padding:20px}
-  .gate-overlay.hidden{display:none}
-  .gate-overlay .sheet{max-width:420px;border-radius:14px;width:100%}
-  #gate-key{text-transform:uppercase;letter-spacing:.04em}
 </style>
 </head>
 <body>
-<div class="gate-overlay" id="gate">
-  <div class="sheet">
-    <h2>Acceso</h2>
-    <div class="sub" id="gate-sub">Ingresá la clave de acceso que te compartieron para activar la app en este celular.</div>
-    <div class="field">
-      <label>Clave de acceso</label>
-      <input id="gate-key" type="text" placeholder="CSM-XXXX-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false">
-    </div>
-    <div class="btn-row">
-      <button class="btn primary full" id="gate-btn" onclick="submitGateKey()">Activar</button>
-    </div>
-  </div>
-</div>
 <div id="app">
   <header>
     <div class="eyebrow">Cancionero litúrgico · Notas y acordes</div>
-    <h1 class="brand">Cantemos la <span class="swash">Santa Misa</span></h1>
+    <h1 class="brand">Cantemos para la <span class="swash">Santa Misa</span></h1>
     <div class="search">
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
       <input id="q" type="search" placeholder="Buscar por título, autor o categoría…" autocomplete="off">
-      <button class="admin-dot" id="adminDot" title="Administrador" onclick="adminTap()" style="display:none">⚙</button>
+      <button class="admin-dot" id="adminDot" title="Administrador" onclick="adminTap()">⚙</button>
     </div>
     <div class="toolbar">
       <button class="sortbtn" id="sortBtn" onclick="toggleSort()">
         <span id="sortLabel">Por categoría</span>
       </button>
-      <div class="textsize-ctl">
-        <button data-size="sm" onclick="setTextSize('sm')" title="Texto pequeño" style="font-size:11px">A</button>
-        <button data-size="md" onclick="setTextSize('md')" title="Texto mediano" style="font-size:15px">A</button>
-        <button data-size="lg" onclick="setTextSize('lg')" title="Texto grande" style="font-size:19px">A</button>
+      <div class="textsize-ctl" title="Tamaño de letra">
+        <span class="a-sm">A</span>
+        <input type="range" class="textsize-slider" min="70" max="200" step="5" value="100"
+          oninput="setTextScale(this.value)" aria-label="Tamaño de letra">
+        <span class="a-lg">A</span>
       </div>
       <button class="installbtn" id="installBtn" style="display:none" onclick="installApp()">⬇ Instalar app</button>
     </div>
   </header>
   <main id="index"></main>
-  <footer class="app-footer">
-    © 2026 Gloria. Todos los derechos reservados.<br>
-    "cantemos-la-santa-misa" es el nombre/sello distintivo de esta aplicación y su contenido (código, diseño, compilación del cancionero). Queda prohibida su reproducción, distribución, comunicación pública o transformación total o parcial sin autorización expresa de la autora.
-  </footer>
 </div>
 
 <!-- Vista de una canción -->
@@ -264,10 +224,11 @@
   <div class="sv-bar">
     <button class="back" onclick="closeSong()">‹ Índice</button>
     <div class="spacer"></div>
-    <div class="textsize-ctl">
-      <button data-size="sm" onclick="setTextSize('sm')" title="Texto pequeño" style="font-size:11px">A</button>
-      <button data-size="md" onclick="setTextSize('md')" title="Texto mediano" style="font-size:15px">A</button>
-      <button data-size="lg" onclick="setTextSize('lg')" title="Texto grande" style="font-size:19px">A</button>
+    <div class="textsize-ctl" title="Tamaño de letra">
+      <span class="a-sm">A</span>
+      <input type="range" class="textsize-slider" min="70" max="200" step="5" value="100"
+        oninput="setTextScale(this.value)" aria-label="Tamaño de letra">
+      <span class="a-lg">A</span>
     </div>
     <button class="edit" id="editBtn" style="display:none" onclick="editCurrent()">Editar</button>
     <button class="present" onclick="openPresent()">Presentación</button>
@@ -302,6 +263,22 @@
   <div class="p-scroll"><div class="lyrics" id="p-lyrics"></div></div>
 </div>
 
+<!-- Modal login admin -->
+<div class="modal" id="loginModal">
+  <div class="sheet">
+    <h2>Acceso de administrador</h2>
+    <div class="sub">Ingresa tu clave para gestionar los cantos.</div>
+    <div class="field">
+      <label>Clave</label>
+      <input id="loginKey" type="password" placeholder="••••••" autocomplete="off">
+    </div>
+    <div class="btn-row">
+      <button class="btn" onclick="closeModal('loginModal')">Cancelar</button>
+      <button class="btn primary full" onclick="doLogin()">Entrar</button>
+    </div>
+  </div>
+</div>
+
 <!-- Modal menú admin -->
 <div class="modal" id="adminModal">
   <div class="sheet">
@@ -314,7 +291,7 @@
       <button class="btn" onclick="document.getElementById('importFile').click()">Importar repertorio</button>
       <input id="importFile" type="file" accept="application/json" style="display:none" onchange="importData(event)">
       <button class="btn" style="border-color:var(--accent-deep);color:var(--accent-deep)" onclick="publishFile()">Generar archivo para publicar (Netlify)</button>
-      <button class="btn" onclick="closeModal('adminModal')">Cerrar</button>
+      <button class="btn danger" onclick="logout()">Cerrar sesión de admin</button>
     </div>
   </div>
 </div>
@@ -343,12 +320,6 @@
     <div class="field">
       <label>Link de YouTube (opcional)</label>
       <input id="se-youtube" placeholder="Ej: https://youtube.com/watch?v=...">
-    </div>
-    <div class="field">
-      <label class="chk-label"><input type="checkbox" id="se-premium"> 🔒 Diagramas premium</label>
-    </div>
-    <div class="field">
-      <label class="chk-label"><input type="checkbox" id="se-bloqueada"> 🔒 Canción bloqueada (versión avanzada — próximamente)</label>
     </div>
     <div class="field">
       <label>Letra con acordes</label>
@@ -383,255 +354,26 @@
   </div>
 </div>
 
-<!-- Modal instrucciones instalación en iOS/Safari -->
-<div class="modal" id="iosInstallModal">
-  <div class="sheet">
-    <h2>📲 Instalar app</h2>
-    <div class="sub">Safari en iPhone/iPad no permite instalar con un solo botón. Seguí estos pasos:</div>
-    <div class="cat-editor">
-      <div class="cat-line" style="align-items:flex-start">
-        <span style="font-family:'Courier New',monospace;color:var(--accent);font-weight:700">1.</span>
-        <span>Tocá el botón <strong>Compartir</strong> (el cuadro con la flecha hacia arriba ⬆️) en la barra de Safari.</span>
-      </div>
-      <div class="cat-line" style="align-items:flex-start">
-        <span style="font-family:'Courier New',monospace;color:var(--accent);font-weight:700">2.</span>
-        <span>Elegí <strong>“Agregar a pantalla de inicio”</strong>.</span>
-      </div>
-      <div class="cat-line" style="align-items:flex-start">
-        <span style="font-family:'Courier New',monospace;color:var(--accent);font-weight:700">3.</span>
-        <span>Confirmá tocando <strong>“Agregar”</strong>.</span>
-      </div>
-    </div>
-    <div class="btn-row">
-      <button class="btn primary full" onclick="closeModal('iosInstallModal')">Entendido</button>
-    </div>
-  </div>
-</div>
-
-<!-- Modal instrucciones instalación genérica (navegador sin beforeinstallprompt) -->
-<div class="modal" id="desktopInstallModal">
-  <div class="sheet">
-    <h2>📲 Instalar app</h2>
-    <div class="sub">Tu navegador no ofreció instalar automáticamente. Podés hacerlo manualmente:</div>
-    <div class="cat-editor">
-      <div class="cat-line" style="align-items:flex-start">
-        <span style="font-family:'Courier New',monospace;color:var(--accent);font-weight:700">1.</span>
-        <span>Abrí el menú del navegador (generalmente <strong>⋮</strong> arriba a la derecha).</span>
-      </div>
-      <div class="cat-line" style="align-items:flex-start">
-        <span style="font-family:'Courier New',monospace;color:var(--accent);font-weight:700">2.</span>
-        <span>Elegí <strong>“Instalar aplicación”</strong> o <strong>“Agregar a pantalla de inicio”</strong>.</span>
-      </div>
-      <div class="cat-line" style="align-items:flex-start">
-        <span style="font-family:'Courier New',monospace;color:var(--accent);font-weight:700">3.</span>
-        <span>Confirmá la instalación.</span>
-      </div>
-    </div>
-    <div class="btn-row">
-      <button class="btn primary full" onclick="closeModal('desktopInstallModal')">Entendido</button>
-    </div>
-  </div>
-</div>
-
 <div class="toast" id="toast"></div>
 
 <script src="canciones.js"></script>
 <script>
 // ===================== Almacenamiento =====================
-const LS_DATA="cantemos_data_v1";
+const LS_DATA="cantemos_data_v1", LS_KEY="cantemos_admin_key";
 let DATA = load();
 let isAdmin=false, current=null, semis=0, presentFontSize=30, editingId=null;
 
-// Checksum liviano del repertorio publicado en canciones.js. Se guarda junto
-// a la copia local en localStorage: si al cargar no coincide con el checksum
-// actual, significa que canciones.js cambió (nuevo deploy) desde la última
-// vez que este navegador guardó su copia, así que se descarta la copia vieja
-// en vez de taparle el repertorio nuevo para siempre (ver bug de acordes que
-// no aparecían: el navegador seguía sirviendo un canciones.js viejo cacheado).
-function cancionesChecksum(){
-  const s=JSON.stringify(CANCIONES)+JSON.stringify(CATEGORIAS);
-  let h=0;
-  for(let i=0;i<s.length;i++) h=(h*31+s.charCodeAt(i))|0;
-  return h;
-}
 function load(){
   try{
     const raw=localStorage.getItem(LS_DATA);
-    if(raw){
-      const data=JSON.parse(raw);
-      if(data.origenChecksum===cancionesChecksum()) return data;
-    }
+    if(raw) return JSON.parse(raw);
   }catch(e){}
   return {
     categorias:[...CATEGORIAS],
-    canciones:CANCIONES.map((c,i)=>({...c, creado:Date.now()-(CANCIONES.length-i)*1000})),
-    origenChecksum:cancionesChecksum()
+    canciones:CANCIONES.map((c,i)=>({...c, creado:Date.now()-(CANCIONES.length-i)*1000}))
   };
 }
-function save(){
-  try{
-    localStorage.setItem(LS_DATA,JSON.stringify(DATA));
-    return true;
-  }catch(e){
-    console.error("No se pudo guardar en localStorage:",e);
-    return false;
-  }
-}
-
-// Si otra pestaña/ventana guarda cambios, recargamos DATA en esta para
-// no terminar sobreescribiendo lo nuevo con una copia vieja en memoria.
-window.addEventListener("storage", e=>{
-  if(e.key===LS_DATA){
-    DATA=load();
-    render(document.getElementById("q").value);
-    if(current){
-      const actualizado=DATA.canciones.find(c=>c.id===current.id);
-      if(actualizado){ current=actualizado; updateSong(); }
-      else{ closeSong(); if(document.body.classList.contains("presenting")) closePresent(); current=null; }
-    }
-  }
-});
-
-// ===================== Acceso por clave (activación vinculada a dispositivo) =====================
-const VALIDATE_URL = "https://zhxtoublmvrghmnpwxoj.supabase.co/functions/v1/validate-key";
-const LS_ACCESS = "cantemos_access";
-
-async function fingerprintHash(){
-  const parts = [
-    navigator.userAgent,
-    screen.width+"x"+screen.height,
-    navigator.hardwareConcurrency||"",
-    (Intl.DateTimeFormat().resolvedOptions().timeZone||"")
-  ].join("|");
-  const data = new TextEncoder().encode(parts);
-  const digest = await crypto.subtle.digest("SHA-256", data);
-  return Array.from(new Uint8Array(digest)).map(b=>b.toString(16).padStart(2,"0")).join("");
-}
-
-function loadAccess(){
-  try{ return JSON.parse(localStorage.getItem(LS_ACCESS)||"null"); }catch(e){ return null; }
-}
-function saveAccess(obj){ localStorage.setItem(LS_ACCESS, JSON.stringify(obj)); }
-function clearAccess(){ localStorage.removeItem(LS_ACCESS); }
-
-// El rol de administrador no es una sesión local: sale directo de la clave
-// de acceso validada contra Supabase (columna is_admin de access_keys).
-//
-// RIESGO CONOCIDO (documentado, sin implementar corrección todavía): una vez
-// validado, is_admin queda cacheado tal cual en localStorage (LS_ACCESS) y
-// esAdmin() lo lee directo, sin volver a preguntarle a Supabase. Como no hay
-// backend que verifique el rol en cada acción, cualquiera puede abrir DevTools
-// y forzar localStorage.cantemos_access con is_admin:true para desbloquear la
-// UI de edición local — no hay forma de evitar esto sin re-validar contra el
-// servidor. El impacto real es acotado: DATA (canciones/categorías) también
-// vive solo en localStorage de ESE dispositivo, así que lo máximo que se logra
-// es editar la copia local propia, no el repertorio de otros usuarios ni nada
-// publicado. Posibles mejoras futuras si se agrega backend para el repertorio:
-//   1) Re-validar is_admin contra Supabase (llamando callValidate) cada vez que
-//      se abre el editor, no solo confiar en el valor cacheado.
-//   2) Mover la edición del repertorio a un endpoint server-side que verifique
-//      el rol con el token guardado, en vez de mutar DATA localmente.
-//   3) Firmar/expirar el flag is_admin (JWT corto) en vez de un booleano plano.
-function esAdmin(){
-  const access = loadAccess();
-  return !!(access && access.is_admin === true);
-}
-function aplicarRolAdmin(){
-  isAdmin = esAdmin();
-  const dot = document.getElementById("adminDot");
-  dot.style.display = isAdmin ? "" : "none";
-  dot.classList.toggle("on", isAdmin); // visible = admin, así que siempre va "encendido"
-  if(current) document.getElementById("editBtn").style.display = isAdmin ? "" : "none";
-}
-
-async function callValidate(key, token){
-  const fingerprint = await fingerprintHash();
-  const res = await fetch(VALIDATE_URL, {
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body: JSON.stringify({key, fingerprint, token})
-  });
-  return res.json();
-}
-
-const GATE_MESSAGES = {
-  invalid: "Esa clave no existe. Revisá que esté bien escrita.",
-  revoked: "Esta clave fue desactivada. Contactá a quien te la compartió.",
-  in_use: "Esta clave ya está activada en otro dispositivo.",
-  desktop_blocked: "Esta app solo se puede activar desde un celular.",
-  bad_request: "Faltan datos. Volvé a intentar.",
-  server_error: "No pudimos validar la clave. Probá de nuevo en un momento."
-};
-
-function showGate(message){
-  if(message) document.getElementById("gate-sub").textContent = message;
-  document.getElementById("gate").classList.remove("hidden");
-}
-function hideGate(){ document.getElementById("gate").classList.add("hidden"); }
-
-async function submitGateKey(){
-  const input = document.getElementById("gate-key");
-  const key = input.value.trim().toUpperCase();
-  if(!key){ toast("Ingresá una clave"); return; }
-  const btn = document.getElementById("gate-btn");
-  btn.disabled=true; btn.textContent="Verificando…";
-  try{
-    const result = await callValidate(key, null);
-    if(result.ok){
-      saveAccess({key, token: result.token, is_admin: result.is_admin===true});
-      aplicarRolAdmin();
-      hideGate();
-      toast("¡Acceso activado!");
-    } else {
-      showGate(GATE_MESSAGES[result.reason] || "No se pudo activar la clave.");
-    }
-  }catch(e){
-    showGate("Sin conexión. Conectate a internet para activar la clave por primera vez.");
-  }
-  btn.disabled=false; btn.textContent="Activar";
-}
-
-async function initAccessGate(){
-  const params = new URLSearchParams(location.search);
-  const prefill = params.get("key");
-  if(prefill) document.getElementById("gate-key").value = prefill.trim().toUpperCase();
-
-  const access = loadAccess();
-  if(!access){ showGate(); return; }
-
-  // Ya se había activado antes: mostramos la app enseguida (para que siga
-  // funcionando offline) y revalidamos en paralelo. Solo un rechazo explícito
-  // del servidor bloquea la app; si no hay conexión, seguimos confiando en
-  // el último estado válido conocido (incluido el rol de admin cacheado).
-  hideGate();
-  aplicarRolAdmin();
-  try{
-    const result = await callValidate(access.key, access.token);
-    if(!result.ok && result.reason==="server_error"){
-      // Error transitorio del servidor (ej. hiccup de la base de datos):
-      // no es un rechazo real de la clave, así que no desactivamos el
-      // acceso local. Seguimos con el último estado válido conocido.
-    } else if(!result.ok){
-      clearAccess();
-      aplicarRolAdmin();
-      showGate(GATE_MESSAGES[result.reason] || "Se perdió el acceso. Ingresá tu clave de nuevo.");
-    } else {
-      // El servidor solo manda token nuevo en la primera activación; si no
-      // vino, conservamos el que ya teníamos guardado.
-      saveAccess({key: access.key, token: result.token || access.token, is_admin: result.is_admin===true});
-      aplicarRolAdmin();
-    }
-  }catch(e){
-    // Sin conexión: no bloqueamos, seguimos con el último estado válido.
-  }
-}
-document.getElementById("gate-key").addEventListener("keydown", e=>{ if(e.key==="Enter") submitGateKey(); });
-initAccessGate();
-
-// ===================== Freemium: diagramas de acordes =====================
-function isUnlocked(){
-  return localStorage.getItem("cantemos_premium")==="true";
-}
+function save(){localStorage.setItem(LS_DATA,JSON.stringify(DATA));}
 
 // ===================== Transposición =====================
 const NOTAS=["Do","Do#","Re","Re#","Mi","Fa","Fa#","Sol","Sol#","La","La#","Si"];
@@ -648,20 +390,20 @@ function parseChord(ch){
 }
 function shiftChord(ch,s){const p=parseChord(ch);if(!p)return ch;return NOTAS[(p.idx+s+1200)%12]+p.suffix;}
 
-// ===================== Tamaño de texto =====================
-const LS_TEXTSIZE="cantemos_textsize";
-function applyTextSize(size){
-  document.body.classList.remove("txt-sm","txt-md","txt-lg");
-  document.body.classList.add("txt-"+size);
-  document.querySelectorAll(".textsize-ctl button").forEach(b=>{
-    b.classList.toggle("active", b.dataset.size===size);
-  });
+// ===================== Tamaño de texto (deslizante) =====================
+const LS_TEXTSCALE="cantemos_textscale";
+const TEXTSCALE_MIN=70, TEXTSCALE_MAX=200;
+function applyTextScale(val){
+  val=Math.max(TEXTSCALE_MIN,Math.min(TEXTSCALE_MAX,Number(val)||100));
+  document.documentElement.style.setProperty("--tscale", val/100);
+  document.querySelectorAll(".textsize-slider").forEach(s=>{ if(Number(s.value)!==val) s.value=val; });
+  return val;
 }
-function setTextSize(size){
-  localStorage.setItem(LS_TEXTSIZE,size);
-  applyTextSize(size);
+function setTextScale(val){
+  const applied=applyTextScale(val);
+  localStorage.setItem(LS_TEXTSCALE,applied);
 }
-applyTextSize(localStorage.getItem(LS_TEXTSIZE)||"md");
+applyTextScale(localStorage.getItem(LS_TEXTSCALE)||100);
 
 // ===================== Diagramas de acordes de guitarra =====================
 // Posiciones por cuerda, de la 6ª (Mi grave) a la 1ª (Mi agudo): -1=silenciada, 0=al aire.
@@ -733,76 +475,17 @@ function getSongChords(letra,semis){
   }
   return list;
 }
-// ---------- Diagrama de piano ----------
-// Notas del acorde, en semitonos desde la fundamental.
-function chordIntervals(suffix){
-  const s=(suffix||"").toLowerCase();
-  const isMin=/^m/.test(s)&&!/^maj/.test(s);
-  let iv = isMin ? [0,3,7] : [0,4,7];
-  if(/dim/.test(s)) iv=[0,3,6];
-  else if(/aug|\+/.test(s)) iv=[0,4,8];
-  else if(/sus2/.test(s)) iv=[0,2,7];
-  else if(/sus4|sus/.test(s)) iv=[0,5,7];
-  if(/maj7/.test(s)) iv=iv.concat(11);
-  else if(/7/.test(s)) iv=iv.concat(10);
-  else if(/6/.test(s)) iv=iv.concat(9);
-  return iv.slice(0,4);   // posición fundamental, máximo 4 notas
-}
-// Teclado compacto que empieza en la fundamental del acorde.
-// Semitonos de cada tecla blanca respecto a la tónica (escala mayor + octava).
-const WHITE_SEMI=[0,2,4,5,7,9,11,12,14];
-function pianoSVG(rootIdx,suffix){
-  const set=new Set(chordIntervals(suffix));
-  const nW=9, ww=11, wh=46, bw=6.6, bh=29;
-  const W=nW*ww+2, H=wh+14;
-  const blackIdx=[0,1,3,4,5,7];   // blancas que llevan negra a su derecha
-  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">`;
-  for(let i=0;i<nW;i++){
-    const semi=WHITE_SEMI[i], on=set.has(semi), x=1+i*ww;
-    svg+=`<rect x="${x}" y="8" width="${ww}" height="${wh}" fill="${on?'var(--accent)':'#fffdf7'}" stroke="var(--ink-soft)" stroke-width="0.7"/>`;
-    if(on) svg+=`<text x="${x+ww/2}" y="${8+wh-4}" font-size="5.4" text-anchor="middle" fill="#fff" font-family="monospace">${NOTAS[(rootIdx+semi)%12]}</text>`;
-  }
-  blackIdx.forEach(i=>{
-    if(i>=nW-1) return;
-    const semi=WHITE_SEMI[i]+1, on=set.has(semi);
-    const x=1+(i+1)*ww-bw/2;
-    svg+=`<rect x="${x}" y="8" width="${bw}" height="${bh}" fill="${on?'var(--accent)':'var(--ink)'}" stroke="var(--ink)" stroke-width="0.5"/>`;
-    if(on) svg+=`<circle cx="${x+bw/2}" cy="${8+bh-4.5}" r="1.9" fill="#fff"/>`;
-  });
-  svg+="</svg>";
-  return svg;
-}
-
-// ---------- Selector guitarra / piano ----------
-let instMode = localStorage.getItem("cantemos_inst") || "guitarra";
-function setInst(mode){
-  instMode = mode;
-  localStorage.setItem("cantemos_inst", mode);
-  if(current) updateSong();
-}
-
-function chordDiagramsHTML(cancion,semis){
-  const chords=getSongChords(cancion.letra,semis);
+function chordDiagramsHTML(letra,semis){
+  const chords=getSongChords(letra,semis);
   if(!chords.length) return "";
-  if(cancion.premium===true && !isUnlocked()){
-    return `<div class="chords-row"><div class="head"><span class="lbl">Acordes de este tema</span></div>`+
-           `<div class="chords-locked">🔒 Diagramas disponibles en la versión premium</div></div>`;
-  }
   const cards=chords.map(ch=>{
     const p=parseChord(ch); if(!p) return "";
-    if(instMode==="piano"){
-      return `<div class="chord-diagram piano"><div class="name">${esc(ch)}</div>${pianoSVG(p.idx,p.suffix)}</div>`;
-    }
     const isMin=/^m/.test(p.suffix)&&!/^maj/i.test(p.suffix);
     const root=CHORDS_BY_ROOT[p.idx]; if(!root) return "";
     const shape=isMin?root.min:root.maj;
     return `<div class="chord-diagram"><div class="name">${esc(ch)}</div>${chordSVG(shape)}</div>`;
   }).join("");
-  const toggle=`<div class="inst-toggle">`+
-    `<button class="${instMode==="guitarra"?"on":""}" onclick="setInst('guitarra')">Guitarra</button>`+
-    `<button class="${instMode==="piano"?"on":""}" onclick="setInst('piano')">Piano</button>`+
-    `</div>`;
-  return `<div class="chords-row"><div class="head"><span class="lbl">Acordes de este tema</span>${toggle}</div>`+
+  return `<div class="chords-row"><span class="lbl">Acordes de este tema</span>`+
          `<div class="chord-diagrams">${cards}</div></div>`;
 }
 
@@ -823,14 +506,6 @@ function renderLine(line, semis){
     if(p.chord){ chords.push({pos:text.length, ch: semis?shiftChord(p.chord,semis):p.chord}); }
     text+=p.text;
   });
-  // La posición de cada acorde se calculó sobre el texto original, pero al
-  // transponer el nombre puede alargarse (ej. "Do" -> "Do#m7") e invadir el
-  // espacio del siguiente. Se empuja cada acorde para que nunca se superponga
-  // con el anterior, usando el nombre YA transpuesto (nunca el original).
-  for(let i=1;i<chords.length;i++){
-    const prevEnd=chords[i-1].pos+chords[i-1].ch.length;
-    if(chords[i].pos<prevEnd) chords[i].pos=prevEnd;
-  }
   let chordRow=chords.map(c=>
     `<span class="chord" style="left:${c.pos}ch">${esc(c.ch)}</span>`).join("");
   return `<span class="lyric-line">`+
@@ -859,7 +534,7 @@ function toggleSort(){
 function songLi(c, n){
   const li=document.createElement("li");li.className="song";
   li.innerHTML=`<span class="num">${n}</span>
-    <span class="t">${c.bloqueada===true?'<span class="lock-ico">🔒</span>':""}${esc(c.titulo)}${c.autor?` <span class="a">· ${esc(c.autor)}</span>`:""}</span>
+    <span class="t">${esc(c.titulo)}${c.autor?` <span class="a">· ${esc(c.autor)}</span>`:""}</span>
     <span class="tono">${esc(c.tono)}</span>`;
   li.onclick=()=>openSong(c.id);
   return li;
@@ -925,29 +600,19 @@ function openSong(id){
   document.getElementById("sv-meta").textContent=
     [current.autor,current.categoria].filter(Boolean).join("  ·  ");
   document.getElementById("editBtn").style.display=isAdmin?"":"none";
-  document.querySelector(".sv-tono-row").style.display=current.bloqueada===true?"none":"";
-  document.getElementById("sv-youtube").innerHTML=(current.youtube && current.bloqueada!==true)
+  document.getElementById("sv-youtube").innerHTML=current.youtube
     ?`<a class="btn" href="${esc(current.youtube)}" target="_blank" rel="noopener">▶ Ver en YouTube</a>`:"";
   updateSong();
   document.getElementById("song-view").classList.add("open");
   document.querySelector(".sv-scroll").scrollTop=0;
 }
 function updateSong(){
-  if(current.bloqueada===true){
-    document.getElementById("sv-chords").innerHTML="";
-    document.getElementById("sv-lyrics").innerHTML=`<div class="locked-msg">🔒 Versión premium próximamente</div>`;
-    return;
-  }
   document.getElementById("sv-tono").textContent=semis?shiftChord(current.tono,semis):current.tono;
-  document.getElementById("sv-chords").innerHTML=chordDiagramsHTML(current,semis);
+  document.getElementById("sv-chords").innerHTML=chordDiagramsHTML(current.letra,semis);
   document.getElementById("sv-lyrics").innerHTML=lyricsHTML(current.letra,semis);
 }
 function transpose(d){semis=((semis+d)%12+12)%12;if(semis>6)semis-=12;updateSong();}
-function closeSong(){
-  document.getElementById("song-view").classList.remove("open");
-  document.getElementById("q").value="";
-  render();
-}
+function closeSong(){document.getElementById("song-view").classList.remove("open");}
 
 // ===================== Presentación =====================
 function openPresent(){
@@ -968,13 +633,27 @@ function presentSize(d){
 }
 
 // ===================== Admin: acceso =====================
-// El rol sale de esAdmin()/aplicarRolAdmin() (ver sección de acceso por
-// clave más arriba). No hay contraseña local propia del editor: si tu
-// clave de acceso tiene is_admin en Supabase, el ícono ya aparece solo.
 function adminTap(){
-  if(!isAdmin) return; // el ícono está oculto para no-admins; esto es solo por las dudas.
-  openModal("adminModal");
+  if(isAdmin){ openModal("adminModal"); return; }
+  openModal("loginModal");
+  setTimeout(()=>document.getElementById("loginKey").focus(),100);
 }
+function doLogin(){
+  const key=document.getElementById("loginKey").value;
+  let saved=localStorage.getItem(LS_KEY);
+  if(!saved){
+    if(key.length<4){ toast("Crea una clave de al menos 4 caracteres"); return; }
+    localStorage.setItem(LS_KEY,key); saved=key;
+    toast("Clave de administrador creada");
+  }
+  if(key===saved){
+    isAdmin=true; document.getElementById("adminDot").classList.add("on");
+    document.getElementById("loginKey").value="";
+    closeModal("loginModal"); openModal("adminModal");
+  }else toast("Clave incorrecta");
+}
+function logout(){isAdmin=false;document.getElementById("adminDot").classList.remove("on");
+  closeModal("adminModal");toast("Sesión de admin cerrada");render(document.getElementById("q").value);}
 
 // ===================== Admin: editor de canto =====================
 function fillCatSelect(sel){
@@ -988,8 +667,6 @@ function newSong(){
   document.getElementById("se-autor").value="";
   document.getElementById("se-tono").value="";
   document.getElementById("se-youtube").value="";
-  document.getElementById("se-premium").checked=false;
-  document.getElementById("se-bloqueada").checked=false;
   document.getElementById("se-letra").value="";
   fillCatSelect(document.getElementById("se-categoria"));
   updatePreview();
@@ -1005,8 +682,6 @@ function editSong(id){
   document.getElementById("se-autor").value=c.autor||"";
   document.getElementById("se-tono").value=c.tono;
   document.getElementById("se-youtube").value=c.youtube||"";
-  document.getElementById("se-premium").checked=!!c.premium;
-  document.getElementById("se-bloqueada").checked=!!c.bloqueada;
   fillCatSelect(document.getElementById("se-categoria"));
   document.getElementById("se-categoria").value=c.categoria;
   document.getElementById("se-letra").value=c.letra;
@@ -1024,9 +699,7 @@ function saveSong(){
   const obj={
     titulo, autor:document.getElementById("se-autor").value.trim(),
     categoria:document.getElementById("se-categoria").value, tono, letra,
-    youtube:document.getElementById("se-youtube").value.trim(),
-    premium:document.getElementById("se-premium").checked,
-    bloqueada:document.getElementById("se-bloqueada").checked
+    youtube:document.getElementById("se-youtube").value.trim()
   };
   if(editingId){
     const c=DATA.canciones.find(x=>x.id===editingId);
@@ -1036,16 +709,14 @@ function saveSong(){
     while(DATA.canciones.some(c=>c.id===id)) id+="-"+Math.floor(Math.random()*99);
     DATA.canciones.push({id,...obj,creado:Date.now()});
   }
-  if(!save()){toast("No se pudo guardar: el navegador bloqueó el almacenamiento local");return;}
-  closeModal("songEditor");render(document.getElementById("q").value);
+  save();closeModal("songEditor");render(document.getElementById("q").value);
   toast(editingId?"Canto actualizado":"Canto agregado");
 }
 function deleteSong(){
   if(!editingId) return;
   if(!confirm("¿Eliminar este canto definitivamente?")) return;
   DATA.canciones=DATA.canciones.filter(c=>c.id!==editingId);
-  if(!save()){toast("No se pudo eliminar: el navegador bloqueó el almacenamiento local");return;}
-  closeModal("songEditor");render(document.getElementById("q").value);toast("Canto eliminado");
+  save();closeModal("songEditor");render(document.getElementById("q").value);toast("Canto eliminado");
 }
 function updatePreview(){
   const letra=document.getElementById("se-letra").value;
@@ -1063,9 +734,6 @@ function addCatLine(val=""){
   const box=document.getElementById("catList");
   const v=(typeof val==="string")?val:"";
   const row=document.createElement("div");row.className="cat-line";
-  // dataset.orig identifica la categoría original de esta fila (para el renombrado
-  // en saveCats). Va en el elemento, así que reordenar filas con moveCat() no lo altera.
-  row.dataset.orig=v;
   row.innerHTML=`<input value="${esc(v)}" placeholder="Nombre de categoría">
     <button title="Subir" onclick="moveCat(this,-1)">↑</button>
     <button title="Bajar" onclick="moveCat(this,1)">↓</button>
@@ -1078,22 +746,14 @@ function moveCat(btn,dir){
   if(dir>0 && row.nextElementSibling) box.insertBefore(row.nextElementSibling,row);
 }
 function saveCats(){
-  const rows=[...document.querySelectorAll("#catList .cat-line")];
-  // Mapeo explícito nombre-viejo -> nombre-nuevo por fila (via dataset.orig), no por
-  // posición en el array: así reordenar y renombrar en la misma sesión no cruza canciones
-  // a la categoría equivocada.
-  const nuevas=[], mapa={};
-  rows.forEach(row=>{
-    const nuevo=row.querySelector("input").value.trim();
-    if(!nuevo) return;
-    nuevas.push(nuevo);
-    const orig=row.dataset.orig||"";
-    if(orig) mapa[orig]=nuevo;
-  });
+  const inputs=[...document.querySelectorAll("#catList .cat-line input")];
+  const nuevas=inputs.map(i=>i.value.trim()).filter(Boolean);
   if(!nuevas.length){toast("Debe haber al menos una categoría");return;}
+  const viejas=DATA.categorias;
   DATA.canciones.forEach(c=>{
     if(!nuevas.includes(c.categoria)){
-      c.categoria = mapa[c.categoria] || nuevas[0];
+      const idx=viejas.indexOf(c.categoria);
+      c.categoria = (idx>=0 && nuevas[idx]) ? nuevas[idx] : nuevas[0];
     }
   });
   DATA.categorias=nuevas;
@@ -1115,12 +775,10 @@ function importData(ev){
   r.onload=()=>{
     try{
       const d=JSON.parse(r.result);
-      if(!Array.isArray(d.categorias)||!Array.isArray(d.canciones)) throw new Error("El archivo no tiene categorías/canciones válidas");
-      const invalida=d.canciones.find(c=>!c||!String(c.id||"").trim()||!String(c.titulo||"").trim()||!String(c.categoria||"").trim());
-      if(invalida) throw new Error("Hay canciones sin id, título o categoría");
+      if(!d.categorias||!d.canciones) throw 0;
       if(!confirm("Esto reemplazará el repertorio actual en este dispositivo. ¿Continuar?")){ev.target.value="";return;}
       DATA=d;save();render();closeModal("adminModal");toast("Repertorio importado");
-    }catch(e){toast(e.message||"Archivo no válido");}
+    }catch(e){toast("Archivo no válido");}
     ev.target.value="";
   };
   r.readAsText(file);
@@ -1132,7 +790,7 @@ function publishFile(){
   const cats=JSON.stringify(DATA.categorias);
   const cancionesLimpias=DATA.canciones.map(c=>({
     id:c.id, titulo:c.titulo, autor:c.autor||"", categoria:c.categoria,
-    tono:c.tono, letra:c.letra, youtube:c.youtube||"", premium:c.premium===true, bloqueada:c.bloqueada===true
+    tono:c.tono, letra:c.letra, youtube:c.youtube||""
   }));
   const body=
 `// ============================================================
@@ -1163,6 +821,7 @@ function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t
 document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{
   if(e.target===m) m.classList.remove("open");
 }));
+document.getElementById("loginKey").addEventListener("keydown",e=>{if(e.key==="Enter")doLogin();});
 document.getElementById("q").addEventListener("input",e=>render(e.target.value));
 document.getElementById("se-letra").addEventListener("input",updatePreview);
 
@@ -1195,9 +854,9 @@ function installApp(){
     deferredPrompt.prompt();
     deferredPrompt.userChoice.finally(()=>{ deferredPrompt=null; installBtn.style.display="none"; });
   } else if(esIOS()){
-    openModal("iosInstallModal");
+    alert("Para instalar en iPhone:\n\n1. Toca el botón Compartir (el cuadro con la flecha hacia arriba), abajo en Safari.\n2. Elige “Agregar a pantalla de inicio”.\n3. Confirma con “Agregar”.");
   } else {
-    openModal("desktopInstallModal");
+    alert("Para instalar:\n\nAbre el menú de tu navegador (⋮) y elige “Instalar aplicación” o “Agregar a pantalla de inicio”.");
   }
 }
 
@@ -1206,10 +865,7 @@ window.addEventListener("appinstalled",()=>{ installBtn.style.display="none"; de
 
 // ===================== Init =====================
 render();
-if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(err=>console.warn("SW register falló:",err));
+if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
-<script src="/seguridad/01-sello-marca-agua.js"></script>
-<script src="/seguridad/02-anti-clonacion.js"></script>
-<script src="/seguridad/03-anti-manipulacion.js"></script>
 </body>
 </html>
