@@ -2087,7 +2087,7 @@ const CANCIONES = [
     "autor": "Fernando Moser",
     "categoria": "Cantos de Comunión",
     "tono": "Do",
-    "letra": "# Estrofa 1\n[Do]Alma de Cristo, sant[Sib]ifíc[Fa]ame[Do].\nCuerpo de Cristo, [Sib]sálv[Fa]ame[Do].\nSangre de Cristo, embriágame.\nAgua de su Costado, lávame.\n\n[Do] [Sib] [Fa] [Do]\n[Do] [Sib] [Fa] [Do]\n\nPasión de Cristo, confórtame\nOh, buen Jesús, óyeme\n//D[Lam]entro de tus llagas, [Fa]escóndeme.[Do][Sol]\nNo permitas que me aparte de Ti.\nDel maligno enemigo, defiéndeme.\nY en la hora de mi muerte, llámame\ny má[Rem]ndame ir a Ti\n[Fa]para que con tus san[Do]tos te alabe[Sol]\nPor los sigl[Rem]os de los siglos. Amén.// ([Do]x2)",
+    "letra": "# Estrofa 1\n[Do]Alma de Cristo, sant[Sib]ifíc[Fa]ame[Do].\nCuerpo de Cristo, [Sib]sálv[Fa]ame[Do].\nSangre de Cristo, embriágame.\nAgua de su Costado, lávame.\n\n[Do]   [Sib]    [Fa]   [Do]\n[Do]   [Sib]    [Fa]   [Do]\n\nPasión de Cristo, confórtame\nOh, buen Jesús, óyeme\n//D[Lam]entro de tus llagas, [Fa]escóndeme.[Do][Sol]\nNo permitas que me aparte de Ti.\nDel maligno enemigo, defiéndeme.\nY en la hora de mi muerte, llámame\ny má[Rem]ndame ir a Ti\n[Fa]para que con tus san[Do]tos te alabe[Sol]\nPor los sigl[Rem]os de los siglos. Amén.// ([Do]x2)",
     "youtube": "",
     "premium": false,
     "bloqueada": false

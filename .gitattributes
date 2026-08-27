@@ -1,0 +1,8 @@
+# Normaliza a LF en el repo; git convierte a CRLF al hacer checkout en Windows
+# si core.autocrlf=true. Evita que "git status" marque casi todo el árbol como
+# modificado por diferencias de fin de línea entre el índice y el filesystem.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.ico binary
