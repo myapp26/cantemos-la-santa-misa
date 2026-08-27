@@ -111,6 +111,7 @@
   .sv-meta{font-size:13px;color:var(--ink-soft);font-style:italic;margin:6px 0 4px}
   .sv-tono-row{display:flex;align-items:center;gap:10px;margin:14px 0 18px;
     padding-bottom:14px;border-bottom:1px solid var(--rule)}
+  .sv-tono-row .textsize-ctl{margin-left:auto}
   .sv-tono-row .lbl{font-family:"Courier New",monospace;font-size:12px;
     letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft)}
   .transpose{display:flex;align-items:center;gap:6px}
@@ -137,7 +138,7 @@
     line-height:1;user-select:none}
   .textsize-ctl .a-sm{font-size:11px}
   .textsize-ctl .a-lg{font-size:17px;font-weight:700}
-  .textsize-ctl input[type=range]{-webkit-appearance:none;appearance:none;width:88px;height:4px;
+  .textsize-ctl input[type=range]{-webkit-appearance:none;appearance:none;width:140px;height:4px;
     background:var(--rule);border-radius:2px;outline:none;cursor:pointer;margin:0}
   .textsize-ctl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
     width:17px;height:17px;border-radius:50%;background:var(--accent);cursor:pointer;
@@ -145,6 +146,12 @@
   .textsize-ctl input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;
     background:var(--accent);cursor:pointer;border:2px solid var(--paper);box-shadow:0 0 0 1px var(--rule)}
   .textsize-ctl input[type=range]::-moz-range-track{background:var(--rule);height:4px;border-radius:2px}
+
+  /* ---------- Variante vertical (junto al Tono, dentro de cada canción) ---------- */
+  .textsize-ctl--vertical{flex-direction:column;gap:6px}
+  .textsize-ctl--vertical .vslider-box{position:relative;width:28px;height:130px}
+  .textsize-ctl--vertical .vslider-box input[type=range]{position:absolute;top:50%;left:50%;
+    width:130px;height:4px;transform:translate(-50%,-50%) rotate(-90deg)}
 
   /* ---------- Diagramas de acordes ---------- */
   .chords-row{margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
@@ -243,12 +250,6 @@
   <div class="sv-bar">
     <button class="back" onclick="closeSong()">‹ Índice</button>
     <div class="spacer"></div>
-    <div class="textsize-ctl" title="Tamaño de letra">
-      <span class="a-sm">A</span>
-      <input type="range" class="textsize-slider" min="70" max="200" step="5" value="100"
-        oninput="setTextScale(this.value)" aria-label="Tamaño de letra">
-      <span class="a-lg">A</span>
-    </div>
     <button class="edit" id="editBtn" style="display:none" onclick="editCurrent()">Editar</button>
     <button class="present" onclick="openPresent()">Presentación</button>
   </div>
@@ -261,6 +262,14 @@
         <button onclick="transpose(-1)">−</button>
         <span class="val" id="sv-tono"></span>
         <button onclick="transpose(1)">+</button>
+      </div>
+      <div class="textsize-ctl textsize-ctl--vertical" title="Tamaño de letra">
+        <span class="a-lg">A</span>
+        <div class="vslider-box">
+          <input type="range" class="textsize-slider" min="70" max="200" step="5" value="100"
+            oninput="setTextScale(this.value)" aria-label="Tamaño de letra">
+        </div>
+        <span class="a-sm">A</span>
       </div>
     </div>
     <div id="sv-chords"></div>
