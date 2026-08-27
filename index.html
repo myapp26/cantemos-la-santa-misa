@@ -315,6 +315,9 @@
       <button class="btn" onclick="closeModal('loginModal')">Cancelar</button>
       <button class="btn primary full" onclick="doLogin()">Entrar</button>
     </div>
+    <div class="sub" style="margin-top:10px;text-align:center">
+      <a href="#" onclick="resetAdminKey();return false;" style="color:var(--accent-deep);cursor:pointer;text-decoration:underline">¿Olvidaste tu clave? Reiniciarla en este navegador</a>
+    </div>
   </div>
 </div>
 
@@ -705,6 +708,13 @@ function adminTap(){
   if(isAdmin){ openModal("adminModal"); return; }
   openModal("loginModal");
   setTimeout(()=>document.getElementById("loginKey").focus(),100);
+}
+function resetAdminKey(){
+  if(!confirm("Esto borra la clave de administrador guardada en este navegador. La próxima clave que escribas quedará como la nueva. ¿Continuar?")) return;
+  localStorage.removeItem(LS_KEY);
+  document.getElementById("loginKey").value="";
+  toast("Clave reiniciada. Escribe tu nueva clave y entra.");
+  document.getElementById("loginKey").focus();
 }
 function doLogin(){
   const key=document.getElementById("loginKey").value;
