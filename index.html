@@ -198,6 +198,10 @@
     font-size:14px;text-transform:none;letter-spacing:normal;color:var(--ink);
     margin-bottom:8px;cursor:pointer}
   .field input[type=checkbox]{width:18px;height:18px;padding:0;flex:none;cursor:pointer;accent-color:var(--accent)}
+  .lock-box{background:var(--paper-deep);border:2px dashed var(--accent);border-radius:6px;padding:14px 14px 6px}
+  .lock-box .lock-title{font-family:"Courier New",monospace;font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--accent-deep);margin-bottom:10px;font-weight:700}
+  .lock-box label.check-line{margin-bottom:10px}
   .premium-msg{padding:36px 16px;text-align:center;font-family:"Courier New",monospace;
     font-size:15px;color:var(--accent-deep);background:var(--paper-deep);border-radius:6px;
     border:1px dashed var(--rule)}
@@ -358,8 +362,11 @@
     </div>
     <div class="field">
       <label>Restricciones de acceso</label>
-      <label class="check-line"><input type="checkbox" id="se-premium"> Canto completo solo premium (oculta letra y acordes, muestra aviso)</label>
-      <label class="check-line"><input type="checkbox" id="se-bloqueada"> Bloquear solo los diagramas de acordes (la letra se sigue viendo)</label>
+      <div class="lock-box">
+        <div class="lock-title">🔒 Bloqueos de esta canción</div>
+        <label class="check-line"><input type="checkbox" id="se-premium"> Canto completo solo premium (oculta letra y acordes, muestra aviso)</label>
+        <label class="check-line"><input type="checkbox" id="se-bloqueada"> Bloquear solo los diagramas de acordes (la letra se sigue viendo)</label>
+      </div>
     </div>
     <div class="field">
       <label>Letra con acordes</label>
@@ -648,16 +655,23 @@ function openSong(id){
 }
 function updateSong(){
   const premiumEl=document.getElementById("sv-premium");
-  if(current.premium){
+  const locked=!isAdmin;
+  if(current.premium && locked){
     premiumEl.style.display="";
+    premiumEl.textContent="⭐ Canción disponible en modo premium";
     document.getElementById("sv-tono").textContent=semis?shiftChord(current.tono,semis):current.tono;
     document.getElementById("sv-chords").innerHTML="";
     document.getElementById("sv-lyrics").innerHTML="";
     return;
   }
-  premiumEl.style.display="none";
+  if(current.premium && isAdmin){
+    premiumEl.style.display="";
+    premiumEl.textContent="⭐ Marcada como premium (solo tú la ves completa)";
+  } else {
+    premiumEl.style.display="none";
+  }
   document.getElementById("sv-tono").textContent=semis?shiftChord(current.tono,semis):current.tono;
-  document.getElementById("sv-chords").innerHTML = current.bloqueada
+  document.getElementById("sv-chords").innerHTML = (current.bloqueada && locked)
     ? `<div class="chords-row"><span class="lbl">Acordes de este tema</span>`+
       `<div class="chords-lock">🔒 Diagramas disponibles en modo premium</div></div>`
     : chordDiagramsHTML(current.letra,semis);
@@ -669,7 +683,7 @@ function closeSong(){document.getElementById("song-view").classList.remove("open
 // ===================== Presentación =====================
 function openPresent(){
   document.getElementById("p-title").textContent=current.titulo;
-  document.getElementById("p-lyrics").innerHTML=current.premium
+  document.getElementById("p-lyrics").innerHTML=(current.premium && !isAdmin)
     ? `<div class="premium-msg">Disponible en modo premium</div>`
     : lyricsHTML(current.letra,semis);
   document.getElementById("present").style.setProperty("--present-size",presentFontSize+"px");
@@ -704,10 +718,12 @@ function doLogin(){
     isAdmin=true; document.getElementById("adminDot").classList.add("on");
     document.getElementById("loginKey").value="";
     closeModal("loginModal"); openModal("adminModal");
+    if(current) updateSong();
   }else toast("Clave incorrecta");
 }
 function logout(){isAdmin=false;document.getElementById("adminDot").classList.remove("on");
-  closeModal("adminModal");toast("Sesión de admin cerrada");render(document.getElementById("q").value);}
+  closeModal("adminModal");toast("Sesión de admin cerrada");render(document.getElementById("q").value);
+  if(current) updateSong();}
 
 // ===================== Admin: editor de canto =====================
 function fillCatSelect(sel){
