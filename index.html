@@ -111,14 +111,15 @@
   .sv-meta{font-size:13px;color:var(--ink-soft);font-style:italic;margin:6px 0 4px}
   .sv-tono-row{display:flex;align-items:center;gap:10px;margin:14px 0 18px;
     padding-bottom:14px;border-bottom:1px solid var(--rule)}
-  .sv-tono-row .textsize-ctl{margin-left:auto}
+  .sv-tono-row .textsize-ctl{flex:1;min-width:0}
+  .sv-tono-row .textsize-ctl input[type=range]{width:100%}
   .sv-tono-row .lbl{font-family:"Courier New",monospace;font-size:12px;
     letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft)}
-  .transpose{display:flex;align-items:center;gap:6px}
-  .transpose button{width:32px;height:32px;border:none;background:var(--paper-deep);
-    color:var(--ink);font-size:18px;border-radius:2px;cursor:pointer;line-height:1}
+  .transpose{display:flex;align-items:center;gap:3px}
+  .transpose button{width:28px;height:28px;border:none;background:var(--paper-deep);
+    color:var(--ink);font-size:16px;border-radius:2px;cursor:pointer;line-height:1}
   .transpose .val{font-family:"Courier New",monospace;font-size:15px;color:var(--accent);
-    min-width:42px;text-align:center;font-weight:700}
+    min-width:34px;text-align:center;font-weight:700}
 
   /* ---------- Letra con acordes ENCIMA ---------- */
   .lyrics{font-family:"Courier New",monospace;font-size:calc(17px*var(--tscale,1));
@@ -146,12 +147,6 @@
   .textsize-ctl input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;
     background:var(--accent);cursor:pointer;border:2px solid var(--paper);box-shadow:0 0 0 1px var(--rule)}
   .textsize-ctl input[type=range]::-moz-range-track{background:var(--rule);height:4px;border-radius:2px}
-
-  /* ---------- Variante vertical (junto al Tono, dentro de cada canción) ---------- */
-  .textsize-ctl--vertical{flex-direction:column;gap:6px}
-  .textsize-ctl--vertical .vslider-box{position:relative;width:28px;height:130px}
-  .textsize-ctl--vertical .vslider-box input[type=range]{position:absolute;top:50%;left:50%;
-    width:130px;height:4px;transform:translate(-50%,-50%) rotate(-90deg)}
 
   /* ---------- Diagramas de acordes ---------- */
   .chords-row{margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
@@ -263,13 +258,11 @@
         <span class="val" id="sv-tono"></span>
         <button onclick="transpose(1)">+</button>
       </div>
-      <div class="textsize-ctl textsize-ctl--vertical" title="Tamaño de letra">
-        <span class="a-lg">A</span>
-        <div class="vslider-box">
-          <input type="range" class="textsize-slider" min="70" max="200" step="5" value="100"
-            oninput="setTextScale(this.value)" aria-label="Tamaño de letra">
-        </div>
+      <div class="textsize-ctl" title="Tamaño de letra">
         <span class="a-sm">A</span>
+        <input type="range" class="textsize-slider" min="70" max="200" step="5" value="100"
+          oninput="setTextScale(this.value)" aria-label="Tamaño de letra">
+        <span class="a-lg">A</span>
       </div>
     </div>
     <div id="sv-chords"></div>
