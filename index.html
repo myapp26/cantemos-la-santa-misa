@@ -109,6 +109,8 @@
   .sv-scroll{flex:1;overflow-y:auto;padding:22px 22px 60px;-webkit-overflow-scrolling:touch}
   .sv-title{font-size:26px;font-weight:700;line-height:1.1}
   .sv-meta{font-size:13px;color:var(--ink-soft);font-style:italic;margin:6px 0 4px}
+  .premium-badge{font-family:Georgia,serif;font-style:italic;font-size:12px;
+    color:var(--accent-deep);margin:2px 0 8px}
   .sv-tono-row{display:flex;align-items:center;gap:10px;margin:14px 0 18px;
     padding-bottom:14px;border-bottom:1px solid var(--rule)}
   .sv-tono-row .textsize-ctl{flex:1;min-width:0;max-width:200px}
@@ -192,6 +194,16 @@
   .field textarea{font-family:"Courier New",monospace;font-size:14px;line-height:1.6;min-height:220px;resize:vertical}
   .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent)}
   .field .hint{font-size:12px;color:var(--ink-soft);margin-top:5px;line-height:1.4}
+  .field label.check-line{display:flex;align-items:center;gap:8px;font-family:Georgia,serif;
+    font-size:14px;text-transform:none;letter-spacing:normal;color:var(--ink);
+    margin-bottom:8px;cursor:pointer}
+  .field input[type=checkbox]{width:18px;height:18px;padding:0;flex:none;cursor:pointer;accent-color:var(--accent)}
+  .premium-msg{padding:36px 16px;text-align:center;font-family:"Courier New",monospace;
+    font-size:15px;color:var(--accent-deep);background:var(--paper-deep);border-radius:6px;
+    border:1px dashed var(--rule)}
+  .chords-lock{padding:18px;text-align:center;font-family:"Courier New",monospace;
+    font-size:13px;color:var(--ink-soft);background:var(--paper-deep);border-radius:4px;
+    border:1px dashed var(--rule)}
   .btn-row{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
   .btn{padding:12px 18px;font-family:"Courier New",monospace;font-size:13px;letter-spacing:.05em;
     border-radius:3px;cursor:pointer;border:none;background:var(--paper-deep);color:var(--ink)}
@@ -252,6 +264,7 @@
   <div class="sv-scroll">
     <div class="sv-title" id="sv-title"></div>
     <div class="sv-meta" id="sv-meta"></div>
+    <div class="premium-badge" id="sv-premium" style="display:none">⭐ Canción disponible en modo premium</div>
     <div class="sv-tono-row">
       <span class="lbl">Tono</span>
       <div class="transpose">
@@ -342,6 +355,11 @@
     <div class="field">
       <label>Link de YouTube (opcional)</label>
       <input id="se-youtube" placeholder="Ej: https://youtube.com/watch?v=...">
+    </div>
+    <div class="field">
+      <label>Restricciones de acceso</label>
+      <label class="check-line"><input type="checkbox" id="se-premium"> Canto completo solo premium (oculta letra y acordes, muestra aviso)</label>
+      <label class="check-line"><input type="checkbox" id="se-bloqueada"> Bloquear solo los diagramas de acordes (la letra se sigue viendo)</label>
     </div>
     <div class="field">
       <label>Letra con acordes</label>
@@ -629,8 +647,20 @@ function openSong(id){
   document.querySelector(".sv-scroll").scrollTop=0;
 }
 function updateSong(){
+  const premiumEl=document.getElementById("sv-premium");
+  if(current.premium){
+    premiumEl.style.display="";
+    document.getElementById("sv-tono").textContent=semis?shiftChord(current.tono,semis):current.tono;
+    document.getElementById("sv-chords").innerHTML="";
+    document.getElementById("sv-lyrics").innerHTML="";
+    return;
+  }
+  premiumEl.style.display="none";
   document.getElementById("sv-tono").textContent=semis?shiftChord(current.tono,semis):current.tono;
-  document.getElementById("sv-chords").innerHTML=chordDiagramsHTML(current.letra,semis);
+  document.getElementById("sv-chords").innerHTML = current.bloqueada
+    ? `<div class="chords-row"><span class="lbl">Acordes de este tema</span>`+
+      `<div class="chords-lock">🔒 Diagramas disponibles en modo premium</div></div>`
+    : chordDiagramsHTML(current.letra,semis);
   document.getElementById("sv-lyrics").innerHTML=lyricsHTML(current.letra,semis);
 }
 function transpose(d){semis=((semis+d)%12+12)%12;if(semis>6)semis-=12;updateSong();}
@@ -639,7 +669,9 @@ function closeSong(){document.getElementById("song-view").classList.remove("open
 // ===================== Presentación =====================
 function openPresent(){
   document.getElementById("p-title").textContent=current.titulo;
-  document.getElementById("p-lyrics").innerHTML=lyricsHTML(current.letra,semis);
+  document.getElementById("p-lyrics").innerHTML=current.premium
+    ? `<div class="premium-msg">Disponible en modo premium</div>`
+    : lyricsHTML(current.letra,semis);
   document.getElementById("present").style.setProperty("--present-size",presentFontSize+"px");
   document.body.classList.add("presenting");
   document.getElementById("present").classList.add("open");
@@ -690,6 +722,8 @@ function newSong(){
   document.getElementById("se-tono").value="";
   document.getElementById("se-youtube").value="";
   document.getElementById("se-letra").value="";
+  document.getElementById("se-premium").checked=false;
+  document.getElementById("se-bloqueada").checked=false;
   fillCatSelect(document.getElementById("se-categoria"));
   updatePreview();
   closeModal("adminModal");openModal("songEditor");
@@ -704,6 +738,8 @@ function editSong(id){
   document.getElementById("se-autor").value=c.autor||"";
   document.getElementById("se-tono").value=c.tono;
   document.getElementById("se-youtube").value=c.youtube||"";
+  document.getElementById("se-premium").checked=!!c.premium;
+  document.getElementById("se-bloqueada").checked=!!c.bloqueada;
   fillCatSelect(document.getElementById("se-categoria"));
   document.getElementById("se-categoria").value=c.categoria;
   document.getElementById("se-letra").value=c.letra;
@@ -721,7 +757,9 @@ function saveSong(){
   const obj={
     titulo, autor:document.getElementById("se-autor").value.trim(),
     categoria:document.getElementById("se-categoria").value, tono, letra,
-    youtube:document.getElementById("se-youtube").value.trim()
+    youtube:document.getElementById("se-youtube").value.trim(),
+    premium:document.getElementById("se-premium").checked,
+    bloqueada:document.getElementById("se-bloqueada").checked
   };
   if(editingId){
     const c=DATA.canciones.find(x=>x.id===editingId);
@@ -812,7 +850,8 @@ function publishFile(){
   const cats=JSON.stringify(DATA.categorias);
   const cancionesLimpias=DATA.canciones.map(c=>({
     id:c.id, titulo:c.titulo, autor:c.autor||"", categoria:c.categoria,
-    tono:c.tono, letra:c.letra, youtube:c.youtube||""
+    tono:c.tono, letra:c.letra, youtube:c.youtube||"",
+    premium:!!c.premium, bloqueada:!!c.bloqueada
   }));
   const body=
 `// ============================================================
