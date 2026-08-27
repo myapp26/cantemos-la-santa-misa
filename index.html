@@ -23,6 +23,24 @@
     mix-blend-mode:multiply}
   #app{position:relative;z-index:1;max-width:760px;margin:0 auto;min-height:100%}
 
+  /* ---------- Botones (base global: aplica a todos, incluidos los que se agreguen) ---------- */
+  button{
+    font-family:"Courier New",monospace;
+    font-weight:700;
+    letter-spacing:.03em;
+    border:none;
+    border-radius:3px;
+    background:var(--paper-deep);
+    color:var(--ink);
+    cursor:pointer;
+    box-shadow:0 3px 0 rgba(43,33,24,.28);
+    transition:transform .08s ease, box-shadow .08s ease;
+  }
+  button:active{
+    transform:translateY(3px);
+    box-shadow:0 0 0 rgba(43,33,24,.28);
+  }
+
   /* ---------- Cabecera ---------- */
   header{padding:22px 22px 16px;border-bottom:2px solid var(--ink);
     position:sticky;top:0;background:var(--paper);z-index:10}
@@ -37,16 +55,17 @@
   .search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);
     width:17px;height:17px;stroke:var(--ink-soft);fill:none;stroke-width:2}
   .admin-dot{position:absolute;right:0;top:0;width:30px;height:30px;border:none;background:none;
-    cursor:pointer;opacity:.25;font-size:18px;color:var(--ink)}
+    cursor:pointer;opacity:.25;font-size:18px;color:var(--ink);font-weight:400;box-shadow:none}
   .admin-dot.on{opacity:1;color:var(--accent)}
+  .admin-dot:active{transform:none}
   .toolbar{display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
   .sortbtn{font-family:"Courier New",monospace;font-size:12px;letter-spacing:.04em;
-    background:var(--paper-deep);border:1px solid var(--rule);color:var(--ink);
+    background:var(--paper-deep);border:none;color:var(--ink);
     padding:8px 14px;border-radius:20px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
   .sortbtn::before{content:"⇅";color:var(--accent);font-size:13px}
   .sortbtn:active{background:var(--rule)}
   .installbtn{font-family:"Courier New",monospace;font-size:12px;letter-spacing:.04em;
-    background:var(--accent);border:1px solid var(--accent);color:#fff;
+    background:var(--accent);border:none;color:#fff;
     padding:8px 14px;border-radius:20px;cursor:pointer;margin-left:auto}
   .installbtn:active{background:var(--accent-deep)}
 
@@ -80,13 +99,13 @@
   #song-view.open{display:flex}
   .sv-bar{display:flex;align-items:center;gap:8px;padding:14px 16px;
     border-bottom:2px solid var(--ink);background:var(--paper)}
-  .sv-bar button{font-family:"Courier New",monospace;font-size:13px;background:none;
-    border:1px solid var(--rule);color:var(--ink);padding:7px 12px;border-radius:2px;cursor:pointer;letter-spacing:.04em}
+  .sv-bar button{font-family:"Courier New",monospace;font-size:13px;background:var(--paper-deep);
+    border:none;color:var(--ink);padding:7px 12px;border-radius:2px;cursor:pointer;letter-spacing:.04em}
   .sv-bar button:active{background:var(--paper-deep)}
-  .sv-bar .back{border-color:var(--ink)}
+  .sv-bar .back{color:var(--ink)}
   .sv-bar .spacer{flex:1}
-  .sv-bar .present{border-color:var(--accent);color:var(--accent)}
-  .sv-bar .edit{border-color:var(--accent-deep);color:var(--accent-deep)}
+  .sv-bar .present{color:var(--accent)}
+  .sv-bar .edit{color:var(--accent-deep)}
   .sv-scroll{flex:1;overflow-y:auto;padding:22px 22px 60px;-webkit-overflow-scrolling:touch}
   .sv-title{font-size:calc(26px*var(--tscale,1));font-weight:700;line-height:1.1}
   .sv-meta{font-size:13px;color:var(--ink-soft);font-style:italic;margin:6px 0 4px}
@@ -95,7 +114,7 @@
   .sv-tono-row .lbl{font-family:"Courier New",monospace;font-size:12px;
     letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft)}
   .transpose{display:flex;align-items:center;gap:6px}
-  .transpose button{width:32px;height:32px;border:1px solid var(--ink);background:none;
+  .transpose button{width:32px;height:32px;border:none;background:var(--paper-deep);
     color:var(--ink);font-size:18px;border-radius:2px;cursor:pointer;line-height:1}
   .transpose .val{font-family:"Courier New",monospace;font-size:15px;color:var(--accent);
     min-width:42px;text-align:center;font-weight:700}
@@ -142,8 +161,9 @@
     display:none;flex-direction:column}
   #present.open{display:flex}
   #present .p-bar{display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid #4a3c2c}
-  #present .p-bar button{background:none;border:1px solid #5a4a36;color:var(--paper);
-    font-family:"Courier New",monospace;font-size:13px;padding:7px 12px;border-radius:2px;cursor:pointer}
+  #present .p-bar button{background:rgba(244,236,216,.12);border:none;color:var(--paper);
+    font-family:"Courier New",monospace;font-size:13px;padding:7px 12px;border-radius:2px;cursor:pointer;
+    box-shadow:0 3px 0 rgba(0,0,0,.4)}
   #present .p-title{flex:1;font-size:15px;font-style:italic;color:#cdbf9e}
   #present .p-scroll{flex:1;overflow-y:auto;padding:30px 26px 80px;-webkit-overflow-scrolling:touch}
   #present .lyrics{font-size:var(--present-size,30px);color:var(--paper)}
@@ -171,15 +191,14 @@
   .field .hint{font-size:12px;color:var(--ink-soft);margin-top:5px;line-height:1.4}
   .btn-row{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
   .btn{padding:12px 18px;font-family:"Courier New",monospace;font-size:13px;letter-spacing:.05em;
-    border-radius:3px;cursor:pointer;border:1px solid var(--ink);background:none;color:var(--ink)}
-  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
-  .btn.danger{border-color:var(--accent-deep);color:var(--accent-deep)}
-  .btn:active{transform:translateY(1px)}
+    border-radius:3px;cursor:pointer;border:none;background:var(--paper-deep);color:var(--ink)}
+  .btn.primary{background:var(--accent);color:#fff}
+  .btn.danger{color:var(--accent-deep)}
   .btn.full{flex:1}
   .cat-editor{margin:10px 0;padding:12px;background:var(--paper-deep);border-radius:4px}
   .cat-line{display:flex;gap:8px;align-items:center;margin-bottom:8px}
   .cat-line input{flex:1}
-  .cat-line button{width:38px;height:38px;border:1px solid var(--rule);background:var(--paper);
+  .cat-line button{width:38px;height:38px;border:none;background:var(--paper);
     border-radius:3px;cursor:pointer;font-size:16px;color:var(--accent-deep)}
   .preview{margin-top:8px;padding:14px;background:var(--paper-deep);border-radius:4px;
     border:1px dashed var(--rule)}
