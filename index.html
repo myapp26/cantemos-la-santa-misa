@@ -410,7 +410,7 @@
 <script src="canciones.js"></script>
 <script>
 // ===================== Almacenamiento =====================
-const LS_DATA="cantemos_data_v1", LS_KEY="cantemos_admin_key";
+const LS_DATA="cantemos_data_v1", LS_KEY="cantemos_admin_key", LS_SESSION="cantemos_admin_session";
 let DATA = load();
 let isAdmin=false, current=null, semis=0, presentFontSize=30, editingId=null;
 
@@ -727,12 +727,14 @@ function doLogin(){
   }
   if(key===saved){
     isAdmin=true; document.getElementById("adminDot").classList.add("on");
+    localStorage.setItem(LS_SESSION,"1");
     document.getElementById("loginKey").value="";
     closeModal("loginModal"); openModal("adminModal");
     if(current) updateSong();
   }else toast("Clave incorrecta");
 }
 function logout(){isAdmin=false;document.getElementById("adminDot").classList.remove("on");
+  localStorage.removeItem(LS_SESSION);
   closeModal("adminModal");toast("Sesión de admin cerrada");render(document.getElementById("q").value);
   if(current) updateSong();}
 
@@ -952,6 +954,10 @@ function installApp(){
 window.addEventListener("appinstalled",()=>{ installBtn.style.display="none"; deferredPrompt=null; });
 
 // ===================== Init =====================
+if(localStorage.getItem(LS_SESSION)==="1" && localStorage.getItem(LS_KEY)){
+  isAdmin=true;
+  document.getElementById("adminDot").classList.add("on");
+}
 render();
 if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
