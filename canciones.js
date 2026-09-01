@@ -2,10 +2,10 @@
 //  CANCIONES — Generado automáticamente desde la app.
 //  Este archivo es la "semilla" que reciben todos los que
 //  instalan la app desde tu enlace de Netlify.
-//  Generado: 27/8/2026, 10:54:05 p. m.
+//  Generado: 1/9/2026, 12:27:41 a. m.
 // ============================================================
 
-const CATEGORIAS = ["Entrada","Piedad","Aclamación del Evangelio","Ofertorio","Santo","Cordero de Dios","Cantos de Comunión","Cantos a la Virgen María","Evangelio - sin Aleluya","Vocacionales y Mision","Alabanzas","De Adoración","Fiestas/ Solemnidades","Temas Biblicos","Adviento","Cuaresma","Semana Santa","Pascua y Resurrección","Pentecostés","Cantos para Niños"];
+const CATEGORIAS = ["Entrada","Piedad","Aclamación del Evangelio","Ofertorio","Santo","Cordero de Dios","Cantos de Comunión","Cantos a la Virgen María","Evangelio - sin Aleluya","Vocacionales y Mision","Alabanzas","De Adoración","Fiestas/ Solemnidades","Temas Biblicos","Adviento","Cuaresma","Semana Santa","Pascua y Resurrección","Pentecostés","Cantos para Niños","Misa por los Difuntos"];
 
 const CANCIONES = [
   {
@@ -2094,6 +2094,61 @@ const CANCIONES = [
     "categoria": "Cantos de Comunión",
     "tono": "Do",
     "letra": "# Estrofa 1\n[Do]Alma de Cristo, sant[Sib]ifíc[Fa]ame[Do].\nCuerpo de Cristo, [Sib]sálv[Fa]ame[Do].\nSangre de Cristo, embriágame.\nAgua de su Costado, lávame.\n\n[Do]   [Sib]    [Fa]   [Do]\n[Do]   [Sib]    [Fa]   [Do]\n\nPasión de Cristo, confórtame\nOh, buen Jesús, óyeme\n//D[Lam]entro de tus llagas, [Fa]escóndeme.[Do][Sol]\nNo permitas que me aparte de Ti.\nDel maligno enemigo, defiéndeme.\nY en la hora de mi muerte, llámame\ny má[Rem]ndame ir a Ti\n[Fa]para que con tus san[Do]tos te alabe[Sol]\nPor los sigl[Rem]os de los siglos. Amén.// ([Do]x2)",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "confieso",
+    "titulo": "Confieso",
+    "autor": "Kany García",
+    "categoria": "Misa por los Difuntos",
+    "tono": "La",
+    "letra": "# Intro\n[La] [Fa#m] [Re] [La]\n\n# Estrofa 1\n[La]Allí mire tu foto en la nevera\n[Mi]De aquel viaje que hicimos en noviembre\n[Re]Sonrío al descubrir tus mil maneras para [La]quererme\n[Mi]Hoy como cada tarde [Re]te [La]imaginaba\n\n# Coro\n[La]Confieso que me haces tanta falta\n[Mi]para decirme: \"Todo va a estar bien\"\n[Re]Para escucharme con una guitarra\n[La]sentado con tu taza de café\n[La]Lloré porque tu voz no está en la casa\n[Mi]Reí porque me amaste con todo tu ser\nEs [Re]una mezcla que me agarra el alma\nY [La]rompe en cada esquina de mi ser\nY [Mi]como no? [Re]Si eras mi [La]todo\nY [Mi]como no?\n\n# Estrofa 2\n[Fa#m]La noche buena se vuelve más fría\n[Do#m]Y en abril se caen todas las flores\n[Re]Y siento que me hablas cada día en [Rem]mil [La]canciones\n[Mi]Hoy como cada [Re]tarde te [La]imaginaba\n\n# Coro\n[La]Confieso que me haces tanta falta\n[Mi]para decirme: \"Todo va a estar bien\"\n[Re]Para escucharme con una guitarra\n[La]sentado con tu taza de café\n[La]Lloré porque tu voz no está en la casa\n[Mi]Reí porque me amaste con todo tu ser\nEs [Re]una mezcla que me agarra el alma\nY [La]rompe en cada esquina de mi ser\nY [Mi]como no? [Re]Si eras mi [La]todo\nY [Mi]como no?\n\n# Puente\nMiro al [Re]cielo y no me basta\nY tus [Mi]fotos que me engañan\nY me [Do#m]hacen creer que hoy llamas en [Fa#m]la tarde\n[Mi]Para [Re]saludarme\n\n# Coro\n[La]Confieso que me haces tanta falta\n[Mi]para decirme: \"Todo va a estar bien\"\n[Re]Para escucharme con una guitarra\n[La]sentado con tu taza de café\n[La]Lloré porque tu voz no esta en la casa\n[Mi]Reí porque me amaste con todo tu ser\nEs [Re]una mezcla que me agarra el alma\nY [La]rompe en cada esquina de mi ser\n\n# Final\nY [Mi]cómo no? [Re]Si eras mi [La]todo\nY [Mi]cómo no?\n",
+    "youtube": "https://www.youtube.com/watch?v=a39ViqCbmIs&list=RDa39ViqCbmIs&start_radio=1",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "hacia-ti-morada-santa",
+    "titulo": "Hacia Ti Morada Santa",
+    "autor": "Música Católica",
+    "categoria": "Misa por los Difuntos",
+    "tono": "Mim",
+    "letra": "# Estrofa 1\nHacia [Mim]ti morada [Si7]Santa,\nhacia ti tierra del [Mim]Salvador,\n[Re]peregrinos [Do]caminantes,\nvamos hacia [Si7]ti.\n\n# Coro\nVenimos a tu [Mim]mesa,\nsellaremos tu [Re]Pacto,\ncomeremos tu [Do]carne,\ntu sangre nos [Si7]limpiará.\nReinaremos contigo,\nen tu morada santa,\nbeberemos tu sangre,\ntu fe nos salvará.\n\n# Estrofa 2\nSomos tu pueblo Santo,\nque hoy camina unido;\nTú vas entre nosotros,\ntu amor nos guiará.\n\n# Final\nTú eres el camino.\nTu eres la esperanza\nHermano entre los pobres.\nAmen, Aleluya.\n",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "yo-soy-el-pan-de-vida",
+    "titulo": "Yo soy el pan de vida",
+    "autor": "Música Católica",
+    "categoria": "Misa por los Difuntos",
+    "tono": "Sol",
+    "letra": "# Estrofa 1\n[Sol]Yo soy el Pan [Sim]de vida,\nel que [Do]viene a Mí no tendrá [Re]hambre,\nel que [Sol]cree en [Sim]Mí no tendrá [Do]sed.\n[Sol]Nadie viene a [Mim]Mí si mi [Lam]Padre no lo [Re7]atrae.\n\n# Estribillo\n[Re7]Yo lo [Sol][Re][Mim]resucitaré, yo lo [Do][Re][Re7]resu-citaré,\nyo lo [Sol][Sol7][Do]resu-citaré [Dom]en [Re4]el [Re7]día final.\n\n# Estrofa 2\nEl pan que yo daré es mi Cuerpo,\nvida para el mundo.\nEl que siempre coma de mi carne\nvivirá en Mí como yo vivo en mi Padre.\n\n# Estrofa 3\nYo soy esa bebida\nque se prueba y no se siente sed.\nEl que siempre beba de mi sangre\nvivirá en Mí y tendrá la vida eterna.\n\n# Estrofa 4\nSí, mi Señor, yo creo\nque has venido al mundo a redimirnos,\nque Tú eres el Hijo de Dios\ny que estás aquí, alentando nuestras vidas.\n",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "no-se-han-ido-del-todo",
+    "titulo": "No se han ido del todo",
+    "autor": "Martin Valverde",
+    "categoria": "Misa por los Difuntos",
+    "tono": "Do",
+    "letra": "# Intro\n[Do] [Lam] [Do] [Lam]\n\n# Estrofa 1\nNo se han ido del [Do]todo\nSi aun podemos su [Lam]risa evocar\nSu carácter [Sib]y su [Fa]bondad\nNo se han ido del [Sol]todo.\n\n# Estrofa 2\nNo se han ido del [Do]todo\nSi algo bueno han [Lam]dejado al pasar\nAunque hoy ya no [Sib]estén más [Fa]aquí\nNo se han ido del [Sol][La][La7]todo.\n\n# Estrofa 3\nNo se han ido del [Re]todo\nSi recordar es [Sim]volver a vivir\nAún con lagrimas [Do]puedes [Sol]decir\nNo se han ido del [La]todo.\n\n# Puente 1\nNo es el fin de la [Re]historia\nSon dos lados de [Sim]la eternidad\nEllos ahora se [Do]encuentran [Sol]allá\nY tú y yo [La]debemos continuar.\n\nAhora se encuentran [Re]libres\nAhora ya son [Sim]felices\nLo que aquí tanta [Do]falta les [Sol]hizo\nDonde están hoy les [La]sobra.\n\nYa no hay [Re]sufrimiento\nY no existen más [Sim]lágrimas\nNo hay vacío ni [Do]hay [Sol]soledad\nSon libres como el [La][La7]viento.\n\n# Estrofa 4\nDios los ha [Sim][Sim7]recibido,\na sus brazos [Sim][Sim7]llegaron\nHoy están [La][La7]descansando\nEn la casa del [Sim][Sim7]Padre han sido\n[Sim][Sim7]recibidos\n[Do]Nada qué [Sol]temer\npues ya están en el [La]cielo\nNo se han ido del [Sim][La][Re]todo\n\n# Interludio\n([Re] [Sim] [Do] [Sol] [La])\n\n# Estrofa 5\nNo se han ido del [Re]todo\nSi nos han [Sim]dejado una luz\nSi su esfuerzo da [Do]frutos [Sol]aún\nNo se han ido del [La]todo.\n\n# Estrofa 6\nNo se han ido del [Re]todo\nSi al pensarlo nos [Sim]hacen vivir\nSi una meta nos [Do]hacen [Sol]seguir\nNo se han ido del [La]todo.\n\n# Puente 2\nY aunque duela hasta el [Re]alma\nMejor dales tu [Sim]último adiós\nSi hace falta [Do]también tu [Sol]perdón\nDeja ya que [La]descansen.\n\nYa no pierdas más [Re]tiempo\nEnfréntate a la [Sim]vida\nTodo hombre se [Do]puede [Sol]morir\nTú estás vivo y te [La]toca [La7]vivir.\n\nY no tengas [Sim][Sim7]miedo\nQue Dios te hace más [Sim][Sim7]fuerte\nQuien ha [Do]sabido [Sol][La]vivir\nNo le teme a la [Re]muerte (bis).\n\n# Interludio 2\n[Do] [Lam] [Sib] [Fa] [Sol]\n\n# Final\nYo soy la resurrección!!!\nNo se han ido del [Do]todo.\n",
+    "youtube": "https://www.youtube.com/watch?v=Qt_J5w0LQTQ&list=RDQt_J5w0LQTQ&start_radio=1",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "mas-alla-del-sol",
+    "titulo": "Más allá del sol",
+    "autor": "Samuel Hernandez",
+    "categoria": "Misa por los Difuntos",
+    "tono": "Sol",
+    "letra": "# Estrofa 1\n[Sol]Aunque en esta [Do][Sol]vida, no tengo [Do][Sol]riquezas,\nse que alla en la [Re7]gloria [Do]tengo una [Sol][Re][Sol]mansion,\ncual alma [Do][Sol]perdida entre la [Do][Sol]pobreza,\nque mi [Re7]Jesucristo [Do]tubo [Sol][Re][Sol]compasión.\n\n# Coro\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol][Re][Sol]sol\n\n# Coro\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol]sol\n\n# Estrofa 2\n[Sol]Así por el [Do][Sol]mundo, yo voy [Do][Sol]caminando\nde pruebas [Re7][Do]rodeado, y de [Sol][Re][Sol]tentación.\nPero a mi [Do][Sol]lado, viene [Do][Sol]consolando\nmi bendito [Re7]Cristo, [Do]en la [Sol][Re][Sol]turbación.\n\n# Coro\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol][Re][Sol]sol\n\n# Coro\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol]sol\n\n# Estrofa 3\n[Sol]Cristo a cada [Do][Sol]raza, del linaje [Do][Sol]humano\npuede [Re7][Do]impartirle, plena [Sol][Re][Sol]salvación.\n\n# Estrofa 4\n[Sol]Y una bella [Do][Sol]casa, hecha por su [Do][Sol]mano\nfue \"a\" [Re7]prepararles, [Do]ala santa [Sol][Re][Sol]Sión.\n\n# Coro\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol][Re][Sol]sol\n\n# Coro (final)\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol]sol\nyo tengo un [Re7]hogar, [Do]hogar, bello [Dom]hogar,\nmas alla del [Sol2]sol\n",
     "youtube": "",
     "premium": false,
     "bloqueada": false
