@@ -2,7 +2,7 @@
 //  CANCIONES — Generado automáticamente desde la app.
 //  Este archivo es la "semilla" que reciben todos los que
 //  instalan la app desde tu enlace de Netlify.
-//  Generado: 1/9/2026, 12:27:41 a. m.
+//  Generado: 1/9/2026, 11:53:32 a. m.
 // ============================================================
 
 const CATEGORIAS = ["Entrada","Piedad","Aclamación del Evangelio","Ofertorio","Santo","Cordero de Dios","Cantos de Comunión","Cantos a la Virgen María","Evangelio - sin Aleluya","Vocacionales y Mision","Alabanzas","De Adoración","Fiestas/ Solemnidades","Temas Biblicos","Adviento","Cuaresma","Semana Santa","Pascua y Resurrección","Pentecostés","Cantos para Niños","Misa por los Difuntos"];
@@ -2149,6 +2149,39 @@ const CANCIONES = [
     "categoria": "Misa por los Difuntos",
     "tono": "Sol",
     "letra": "# Estrofa 1\n[Sol]Aunque en esta [Do][Sol]vida, no tengo [Do][Sol]riquezas,\nse que alla en la [Re7]gloria [Do]tengo una [Sol][Re][Sol]mansion,\ncual alma [Do][Sol]perdida entre la [Do][Sol]pobreza,\nque mi [Re7]Jesucristo [Do]tubo [Sol][Re][Sol]compasión.\n\n# Coro\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol][Re][Sol]sol\n\n# Coro\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol]sol\n\n# Estrofa 2\n[Sol]Así por el [Do][Sol]mundo, yo voy [Do][Sol]caminando\nde pruebas [Re7][Do]rodeado, y de [Sol][Re][Sol]tentación.\nPero a mi [Do][Sol]lado, viene [Do][Sol]consolando\nmi bendito [Re7]Cristo, [Do]en la [Sol][Re][Sol]turbación.\n\n# Coro\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol][Re][Sol]sol\n\n# Coro\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol]sol\n\n# Estrofa 3\n[Sol]Cristo a cada [Do][Sol]raza, del linaje [Do][Sol]humano\npuede [Re7][Do]impartirle, plena [Sol][Re][Sol]salvación.\n\n# Estrofa 4\n[Sol]Y una bella [Do][Sol]casa, hecha por su [Do][Sol]mano\nfue \"a\" [Re7]prepararles, [Do]ala santa [Sol][Re][Sol]Sión.\n\n# Coro\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol][Re][Sol]sol\n\n# Coro (final)\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol]sol\nyo tengo un [Re7]hogar, [Do]hogar, bello [Dom]hogar,\nmas alla del [Sol2]sol\n",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "pescador-de-hombres-49",
+    "titulo": "Pescador de Hombres",
+    "autor": "Música Religiosa",
+    "categoria": "Misa por los Difuntos",
+    "tono": "Re",
+    "letra": "# Estrofa 1\n[Re]Tú, [La]has venido a la [Sim][Fa#m]orilla,\nno has [Sol]buscado, [Mi]ni a sabios ni [La]a ricos,\ntan solo [Re]quieres, [La]que yo [Re]te [Re7]siga.\n\n# Coro\n[Sol]Señor, [La]me has mirado a [Fa#m]los [Sim]ojos,\n[Mi]sonriendo, [La]has dicho [Re]mi [Re7]nombre.\nEn la [Sol]arena, [La]he dejado [Fa#m]mi [Sim]barca,\njunto a [Mi]ti, [La]buscaré otro [Re]mar.\n\n# Estrofa 2\n[Re]Tú, [La]sabes bien lo que [Sim][Fa#m]tengo,\nen mi [Sol]barca, [Mi]no hay oro ni [La]plata,\ntan solo [Re]redes [La]y mi [Re][Re7]trabajo.\n\n# Coro\n[Sol]Señor, [La]me has mirado a [Fa#m]los [Sim]ojos,\n[Mi]sonriendo, [La]has dicho [Re]mi [Re7]nombre.\nEn la [Sol]arena, [La]he dejado [Fa#m]mi [Sim]barca,\njunto a [Mi]ti, [La]buscaré otro [Re]mar.\n\n# Estrofa 3\n[Re]Tú, [La]necesitas mis [Sim][Fa#m]manos,\nmi [Sol]cansancio [Mi]que a otros [La]descanse,\namor que [Re]quiera [La]seguir [Re][Re7]amando.\n\n# Coro\n[Sol]Señor, [La]me has mirado a [Fa#m]los [Sim]ojos,\n[Mi]sonriendo, [La]has dicho [Re]mi [Re7]nombre.\nEn la [Sol]arena, [La]he dejado [Fa#m]mi [Sim]barca,\njunto a [Mi]ti, [La]buscaré otro [Re]mar.\n\n# Estrofa 4\n[Re]Tú, [La]pescador de otros [Sim][Fa#m]lagos,\nansia [Sol]eterna [Mi]de almas que [La]esperan,\namigo [Re]bueno, [La]que así [Re]me [Re7]llamas.\n\n# Coro (final)\n[Sol]Señor, [La]me has mirado a [Fa#m]los [Sim]ojos,\n[Mi]sonriendo, [La]has dicho [Re]mi [Re7]nombre.\nEn la [Sol]arena, [La]he dejado [Fa#m]mi [Sim]barca,\njunto a [Mi]ti, [La]buscaré otro [Re]mar,\njunto a [Mi]ti, [La]buscaré otro [Re]mar,\njunto a [Mi]ti, [La]buscaré otro [Re]mar.\n",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "caminare-en-presencia-del-senor",
+    "titulo": "Caminaré en presencia del Señor",
+    "autor": "Música Religiosa",
+    "categoria": "Misa por los Difuntos",
+    "tono": "Mim",
+    "letra": "# Estribillo\n[Mim][Re]Caminaré\nen [Do]presencia [Si7]del [Mim]señor. (2)\n\n# Estrofa 1\n[Mim]Amo al Señor\nporque [Re]escucha\nmi voz\n[Mim]suplicante.\n[Mim]Porque inclina\nsu [Re]oido\nhacia [Do]mi\nel [Si7]dia que lo [Mim]invoco.\n\n# Estribillo\n[Mim][Re]Caminaré\nen [Do]presencia [Si7]del [Mim]señor. (2)\n",
+    "youtube": "",
+    "premium": false,
+    "bloqueada": false
+  },
+  {
+    "id": "entre-tus-manos",
+    "titulo": "Entre Tus Manos",
+    "autor": "Música Católica",
+    "categoria": "Misa por los Difuntos",
+    "tono": "Re",
+    "letra": "# Estribillo\n[Do]Entre [Rem]tus [Sol7]manos, está mi vida [Do][Lam]señor;\n[Lam]Entre tus [Rem]manos, [Sol7]pongo [Do]mi [Do7]existir;\n[Do7]Hay que [Fa]morir, [Sol7]para [Do][Lam]vivir;\n[Lam]Entre tus [Rem]manos, [Sol7]confió mi [Do]ser.\n\n# Estrofa 1\n[Do]Si el [Rem]grano, [Sol7]de trigo [Do]no [Lam]muere,\nSi no [Rem]muere, [Sol7]Sólo [Do][Lam]quedará.\nPero [Rem]si muere, [Sol7]en [Do]abundancia [Lam]dará\n[Lam]Un fruto [Rem]eterno, [Sol7]que no [Do][Do7]morirá.\n\n# Estribillo\n[Do]Entre tus [Rem]manos, [Sol7]está [Do]mi vida [Lam]señor;\n[Lam]Entre tus [Rem]manos, [Sol7]Pongo [Do]mi [Do7]existir;\n[Do]Hay que [Fa]morir, [Sol7]para [Do][Lam]vivir;\n[Lam]Entre tus [Rem]manos, [Sol7]confió [Do]mi ser.\n",
     "youtube": "",
     "premium": false,
     "bloqueada": false
