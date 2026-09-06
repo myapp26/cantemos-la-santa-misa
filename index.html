@@ -69,6 +69,15 @@
     padding:8px 14px;border-radius:20px;cursor:pointer;margin-left:auto}
   .installbtn:active{background:var(--accent-deep)}
 
+  /* ---------- Selección de temas ---------- */
+  .sortbtn.plain::before{content:none}
+  .sortbtn.on{background:var(--accent);color:#fff}
+  .sortbtn.on::before{color:#fff}
+  #selectionBar{margin-top:10px}
+  .filterbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px;
+    padding:10px 14px;background:var(--paper-deep);border:1px solid var(--rule);border-radius:3px}
+  .filterbar-label{font-family:"Courier New",monospace;font-size:12px;color:var(--ink-soft)}
+
   /* ---------- Índice ---------- */
   main{padding:8px 22px 90px}
   .recientes{margin-top:18px;padding:14px 16px;background:var(--paper-deep);
@@ -87,6 +96,7 @@
   li.song{display:flex;align-items:baseline;gap:10px;padding:11px 4px;
     border-bottom:1px solid var(--line);cursor:pointer}
   li.song:active{background:var(--paper-deep)}
+  li.song .sel-check{width:18px;height:18px;flex:none;cursor:pointer;accent-color:var(--accent);align-self:center}
   li.song .num{font-family:"Courier New",monospace;font-size:12px;color:var(--ink-soft);min-width:26px}
   li.song .t{flex:1;font-size:calc(18px*var(--tscale,1))}
   li.song .a{font-size:12px;color:var(--ink-soft);font-style:italic}
@@ -252,6 +262,10 @@
       <button class="sortbtn" id="sortBtn" onclick="toggleSort()">
         <span id="sortLabel">Por categoría</span>
       </button>
+      <button class="sortbtn plain" id="selModeBtn" onclick="toggleSelectionMode()" title="Seleccionar varios cantos">
+        <span id="selModeLabel">☑ Seleccionar</span>
+      </button>
+      <button class="sortbtn plain" onclick="openSavedSelections()" title="Ver selecciones guardadas">📁 Selecciones</button>
       <div class="textsize-ctl" title="Tamaño de letra">
         <span class="a-sm">A</span>
         <input type="range" class="textsize-slider" min="70" max="200" step="5" value="100"
@@ -259,6 +273,11 @@
         <span class="a-lg">A</span>
       </div>
       <button class="installbtn" id="installBtn" style="display:none" onclick="installApp()">⬇ Instalar app</button>
+    </div>
+    <div class="toolbar" id="selectionBar" style="display:none">
+      <span class="sortbtn plain" id="selCount" style="cursor:default">0 seleccionados</span>
+      <button class="sortbtn plain" onclick="verSeleccionActual()">Ver selección</button>
+      <button class="sortbtn plain" onclick="pedirGuardarSeleccion()">Guardar selección</button>
     </div>
   </header>
   <main id="index"></main>
@@ -407,6 +426,18 @@
     <div class="btn-row">
       <button class="btn" onclick="closeModal('catEditor')">Cancelar</button>
       <button class="btn primary full" onclick="saveCats()">Guardar categorías</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal selecciones guardadas -->
+<div class="modal" id="selectionsModal">
+  <div class="sheet">
+    <h2>Selecciones guardadas</h2>
+    <div class="sub">Guarda y recupera listas de cantos, por ejemplo para armar una misa.</div>
+    <div class="cat-editor" id="selectionsList"></div>
+    <div class="btn-row">
+      <button class="btn" onclick="closeModal('selectionsModal')">Cerrar</button>
     </div>
   </div>
 </div>
@@ -629,7 +660,11 @@ function toggleSort(){
 
 function songLi(c, n){
   const li=document.createElement("li");li.className="song";
-  li.innerHTML=`<span class="num">${n}</span>
+  const checkHTML = selectionMode
+    ? `<input type="checkbox" class="sel-check" onclick="event.stopPropagation()"
+        onchange="toggleSongSelected('${c.id}', this.checked)" ${selectedIds.has(c.id)?"checked":""}>`
+    : "";
+  li.innerHTML=`${checkHTML}<span class="num">${n}</span>
     <span class="t">${esc(c.titulo)}${c.autor?` <span class="a">· ${esc(c.autor)}</span>`:""}</span>
     <span class="tono">${esc(c.tono)}</span>`;
   li.onclick=()=>openSong(c.id);
@@ -641,7 +676,14 @@ function render(filter=""){
   const f=filter.trim().toLowerCase();
   cont.innerHTML="";
 
-  if(!f){
+  if(viewFilterIds){
+    const bar=document.createElement("div");bar.className="filterbar";
+    bar.innerHTML=`<button class="btn" onclick="volverIndiceGeneral()">‹ Volver al índice general</button>
+      <span class="filterbar-label">${viewFilterLabel?esc(viewFilterLabel)+" · ":"Selección · "}${viewFilterIds.size} canto${viewFilterIds.size===1?"":"s"}</span>`;
+    cont.appendChild(bar);
+  }
+
+  if(!f && !viewFilterIds){
     const recientes=[...DATA.canciones].sort((a,b)=>(b.creado||0)-(a.creado||0)).slice(0,5);
     if(recientes.length){
       const box=document.createElement("div");box.className="recientes";
@@ -651,7 +693,10 @@ function render(filter=""){
     }
   }
 
-  const coincide=c=>!f||(c.titulo+" "+(c.autor||"")+" "+c.categoria).toLowerCase().includes(f);
+  const coincide=c=>{
+    if(viewFilterIds && !viewFilterIds.has(c.id)) return false;
+    return !f||(c.titulo+" "+(c.autor||"")+" "+c.categoria).toLowerCase().includes(f);
+  };
   let total=0;
 
   if(sortMode==="alfabetico"){
@@ -687,6 +732,98 @@ function render(filter=""){
     });
   }
   if(!total) cont.innerHTML+=`<div class="empty">No se encontraron cantos${f?` para “${esc(filter)}”`:""}.</div>`;
+}
+
+// ===================== Selección de temas =====================
+const LS_SELECCIONES="cantemos_selecciones_v1";
+let selectionMode=false;
+let selectedIds=new Set();
+let viewFilterIds=null;   // Set de ids, o null: cuando no es null, el índice muestra solo esos cantos
+let viewFilterLabel=null; // nombre de la selección guardada que se está viendo (si aplica)
+
+function loadSelecciones(){
+  try{
+    const raw=localStorage.getItem(LS_SELECCIONES);
+    if(raw) return JSON.parse(raw);
+  }catch(e){}
+  return [];
+}
+function saveSelecciones(list){ localStorage.setItem(LS_SELECCIONES, JSON.stringify(list)); }
+
+function toggleSelectionMode(){
+  selectionMode=!selectionMode;
+  if(!selectionMode) selectedIds.clear();
+  document.getElementById("selModeBtn").classList.toggle("on", selectionMode);
+  updateSelectionBar();
+  render(document.getElementById("q").value);
+}
+function toggleSongSelected(id, checked){
+  if(checked) selectedIds.add(id); else selectedIds.delete(id);
+  updateSelectionBar();
+}
+function updateSelectionBar(){
+  const bar=document.getElementById("selectionBar");
+  if(!bar) return;
+  bar.style.display=selectionMode?"flex":"none";
+  if(selectionMode){
+    document.getElementById("selCount").textContent =
+      selectedIds.size+(selectedIds.size===1?" canto seleccionado":" cantos seleccionados");
+  }
+}
+function verSeleccionActual(){
+  if(!selectedIds.size){ toast("No hay cantos seleccionados"); return; }
+  viewFilterIds=new Set(selectedIds);
+  viewFilterLabel=null;
+  render(document.getElementById("q").value);
+}
+function volverIndiceGeneral(){
+  viewFilterIds=null;
+  viewFilterLabel=null;
+  render(document.getElementById("q").value);
+}
+function pedirGuardarSeleccion(){
+  if(!selectedIds.size){ toast("No hay cantos seleccionados"); return; }
+  const nombre=(prompt("Nombre para esta selección:")||"").trim();
+  if(!nombre) return;
+  const list=loadSelecciones();
+  list.push({nombre, ids:[...selectedIds], creado:Date.now()});
+  saveSelecciones(list);
+  toast("Selección guardada");
+}
+function openSavedSelections(){
+  renderSavedSelectionsList();
+  openModal("selectionsModal");
+}
+function renderSavedSelectionsList(){
+  const box=document.getElementById("selectionsList");
+  const list=loadSelecciones();
+  if(!list.length){
+    box.innerHTML=`<div class="empty" style="padding:20px 4px">No hay selecciones guardadas.</div>`;
+    return;
+  }
+  box.innerHTML=list.map((s,i)=>
+    `<div class="cat-line">
+       <span style="flex:1">${esc(s.nombre)} <span style="font-size:12px;color:var(--ink-soft);font-style:italic">(${s.ids.length})</span></span>
+       <button title="Ver esta selección" onclick="cargarSeleccionGuardada(${i})">▶</button>
+       <button title="Eliminar" onclick="eliminarSeleccionGuardada(${i})">✕</button>
+     </div>`
+  ).join("");
+}
+function cargarSeleccionGuardada(i){
+  const list=loadSelecciones();
+  const s=list[i]; if(!s) return;
+  viewFilterIds=new Set(s.ids);
+  viewFilterLabel=s.nombre;
+  closeModal("selectionsModal");
+  render(document.getElementById("q").value);
+}
+function eliminarSeleccionGuardada(i){
+  const list=loadSelecciones();
+  if(!list[i]) return;
+  if(!confirm(`¿Eliminar la selección "${list[i].nombre}"?`)) return;
+  list.splice(i,1);
+  saveSelecciones(list);
+  renderSavedSelectionsList();
 }
 
 // ===================== Vista canción =====================
