@@ -277,7 +277,7 @@
     <div class="toolbar" id="selectionBar" style="display:none">
       <span class="sortbtn plain" id="selCount" style="cursor:default">0 seleccionados</span>
       <button class="sortbtn plain" onclick="verSeleccionActual()">Ver selección</button>
-      <button class="sortbtn plain" onclick="pedirGuardarSeleccion()">Guardar selección</button>
+      <button class="sortbtn plain" id="guardarSelBtn" onclick="pedirGuardarSeleccion()">Guardar selección</button>
     </div>
   </header>
   <main id="index"></main>
@@ -740,6 +740,7 @@ let selectionMode=false;
 let selectedIds=new Set();
 let viewFilterIds=null;   // Set de ids, o null: cuando no es null, el índice muestra solo esos cantos
 let viewFilterLabel=null; // nombre de la selección guardada que se está viendo (si aplica)
+let editingSelectionName=null; // si no es null, "Guardar selección" actualiza esa selección en vez de crear una nueva
 
 function loadSelecciones(){
   try{
@@ -752,7 +753,7 @@ function saveSelecciones(list){ localStorage.setItem(LS_SELECCIONES, JSON.string
 
 function toggleSelectionMode(){
   selectionMode=!selectionMode;
-  if(!selectionMode) selectedIds.clear();
+  if(!selectionMode){ selectedIds.clear(); editingSelectionName=null; }
   document.getElementById("selModeBtn").classList.toggle("on", selectionMode);
   updateSelectionBar();
   render(document.getElementById("q").value);
@@ -766,14 +767,18 @@ function updateSelectionBar(){
   if(!bar) return;
   bar.style.display=selectionMode?"flex":"none";
   if(selectionMode){
-    document.getElementById("selCount").textContent =
-      selectedIds.size+(selectedIds.size===1?" canto seleccionado":" cantos seleccionados");
+    const n=selectedIds.size;
+    document.getElementById("selCount").textContent = editingSelectionName
+      ? `Editando "${editingSelectionName}" · ${n} canto${n===1?"":"s"}`
+      : n+(n===1?" canto seleccionado":" cantos seleccionados");
+    document.getElementById("guardarSelBtn").textContent = editingSelectionName
+      ? "Guardar cambios" : "Guardar selección";
   }
 }
 function verSeleccionActual(){
   if(!selectedIds.size){ toast("No hay cantos seleccionados"); return; }
   viewFilterIds=new Set(selectedIds);
-  viewFilterLabel=null;
+  viewFilterLabel=editingSelectionName;
   render(document.getElementById("q").value);
 }
 function volverIndiceGeneral(){
@@ -783,12 +788,22 @@ function volverIndiceGeneral(){
 }
 function pedirGuardarSeleccion(){
   if(!selectedIds.size){ toast("No hay cantos seleccionados"); return; }
-  const nombre=(prompt("Nombre para esta selección:")||"").trim();
+  const nombre=(prompt("Nombre para esta selección:", editingSelectionName||"")||"").trim();
   if(!nombre) return;
   const list=loadSelecciones();
-  list.push({nombre, ids:[...selectedIds], creado:Date.now()});
-  saveSelecciones(list);
-  toast("Selección guardada");
+  if(editingSelectionName){
+    const idx=list.findIndex(s=>s.nombre===editingSelectionName);
+    if(idx>=0) list[idx]={...list[idx], nombre, ids:[...selectedIds], actualizado:Date.now()};
+    else list.push({nombre, ids:[...selectedIds], creado:Date.now()});
+    editingSelectionName=null;
+    saveSelecciones(list);
+    updateSelectionBar();
+    toast("Selección actualizada");
+  }else{
+    list.push({nombre, ids:[...selectedIds], creado:Date.now()});
+    saveSelecciones(list);
+    toast("Selección guardada");
+  }
 }
 function openSavedSelections(){
   renderSavedSelectionsList();
@@ -805,6 +820,7 @@ function renderSavedSelectionsList(){
     `<div class="cat-line">
        <span style="flex:1">${esc(s.nombre)} <span style="font-size:12px;color:var(--ink-soft);font-style:italic">(${s.ids.length})</span></span>
        <button title="Ver esta selección" onclick="cargarSeleccionGuardada(${i})">▶</button>
+       <button title="Editar (agregar o quitar cantos)" onclick="editarSeleccionGuardada(${i})">✎</button>
        <button title="Eliminar" onclick="eliminarSeleccionGuardada(${i})">✕</button>
      </div>`
   ).join("");
@@ -817,10 +833,25 @@ function cargarSeleccionGuardada(i){
   closeModal("selectionsModal");
   render(document.getElementById("q").value);
 }
+function editarSeleccionGuardada(i){
+  const list=loadSelecciones();
+  const s=list[i]; if(!s) return;
+  viewFilterIds=null;
+  viewFilterLabel=null;
+  selectionMode=true;
+  selectedIds=new Set(s.ids);
+  editingSelectionName=s.nombre;
+  document.getElementById("selModeBtn").classList.add("on");
+  closeModal("selectionsModal");
+  updateSelectionBar();
+  render(document.getElementById("q").value);
+  toast(`Editando "${s.nombre}": marca o desmarca cantos y toca "Guardar cambios"`);
+}
 function eliminarSeleccionGuardada(i){
   const list=loadSelecciones();
   if(!list[i]) return;
   if(!confirm(`¿Eliminar la selección "${list[i].nombre}"?`)) return;
+  if(editingSelectionName===list[i].nombre) editingSelectionName=null;
   list.splice(i,1);
   saveSelecciones(list);
   renderSavedSelectionsList();
