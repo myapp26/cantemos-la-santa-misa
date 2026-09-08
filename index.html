@@ -265,6 +265,7 @@
       <input id="gate-key" type="text" placeholder="CSM-XXXX-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false">
     </div>
     <div class="btn-row">
+      <button class="btn" onclick="hideGate()">Cancelar</button>
       <button class="btn primary full" id="gate-btn" onclick="submitGateKey()">Activar</button>
     </div>
   </div>
@@ -276,7 +277,7 @@
     <div class="search">
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
       <input id="q" type="search" placeholder="Buscar por título, autor o categoría…" autocomplete="off">
-      <button class="admin-dot" id="adminDot" title="Administrador" onclick="adminTap()" style="display:none">⚙</button>
+      <button class="admin-dot" id="adminDot" title="Administrador" onclick="adminTap()">⚙</button>
     </div>
     <div class="toolbar">
       <button class="sortbtn" id="sortBtn" onclick="toggleSort()">
@@ -498,9 +499,11 @@ function esAdmin(){
 }
 function aplicarRolAdmin(){
   isAdmin = esAdmin();
-  const dot = document.getElementById("adminDot");
-  dot.style.display = isAdmin ? "" : "none";
-  dot.classList.toggle("on", isAdmin); // visible = admin, así que siempre va "encendido"
+  // Lanzamiento por fases: el ícono queda siempre visible (a baja opacidad,
+  // como el resto de la app) para que cualquiera con una clave -- admin o
+  // no -- pueda activarla a mano desde adminTap(). Ya no hace falta ocultarlo
+  // porque tocar el ícono sin clave no autoasigna nada (ver adminTap()).
+  document.getElementById("adminDot").classList.toggle("on", isAdmin);
   if(current) document.getElementById("editBtn").style.display = isAdmin ? "" : "none";
 }
 
@@ -557,7 +560,17 @@ async function initAccessGate(){
   if(prefill) document.getElementById("gate-key").value = prefill.trim().toUpperCase();
 
   const access = loadAccess();
-  if(!access){ showGate(); return; }
+  if(!access){
+    // Lanzamiento por fases (8/9/2026): todavía no se exige clave a nadie
+    // para entrar -- solo los primeros usuarios que ya la activaron (ver
+    // rama abajo) siguen revalidándose solos. El gate no se muestra a quien
+    // nunca activó una clave; se puede abrir a mano desde adminTap(). Se
+    // activa la exigencia para todos cuando el sistema de niveles
+    // Demo/Freemium/Premium esté listo -- ver
+    // claude/auditoria-seguridad-cancionero.md en el proyecto de Claude.
+    if(prefill) showGate(); // excepción: si vino un link con ?key=, sí mostramos el gate para que lo active
+    return;
+  }
 
   // Ya se había activado antes: mostramos la app enseguida (para que siga
   // funcionando offline) y revalidamos en paralelo. Solo un rechazo explícito
@@ -1040,10 +1053,14 @@ function presentSize(d){
 // ===================== Admin: acceso =====================
 // El rol sale de esAdmin()/aplicarRolAdmin() (ver sección de acceso por
 // clave más arriba). No hay contraseña local propia del editor: si tu
-// clave de acceso tiene is_admin en Supabase, el ícono ya aparece solo.
+// clave de acceso tiene is_admin en Supabase, el panel se abre directo.
+// Si todavía no activaste ninguna clave (o no sos admin), tocar el ícono
+// abre el mismo cuadro para ingresarla a mano -- es como Gloria activa su
+// propia clave de administradora en un dispositivo nuevo, sin que la app
+// tenga que exigirle una clave a todo el mundo para poder mostrarse.
 function adminTap(){
-  if(!isAdmin) return; // el ícono está oculto para no-admins; esto es solo por las dudas.
-  openModal("adminModal");
+  if(isAdmin){ openModal("adminModal"); return; }
+  showGate("Ingresá tu clave de acceso para activarla en este dispositivo.");
 }
 
 // ===================== Admin: editor de canto =====================
