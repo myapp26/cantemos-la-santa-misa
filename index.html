@@ -568,6 +568,7 @@ async function initAccessGate(){
     // activa la exigencia para todos cuando el sistema de niveles
     // Demo/Freemium/Premium esté listo -- ver
     // claude/auditoria-seguridad-cancionero.md en el proyecto de Claude.
+    hideGate(); // el div no nace con class="hidden": hay que ocultarlo explícitamente
     if(prefill) showGate(); // excepción: si vino un link con ?key=, sí mostramos el gate para que lo active
     return;
   }
