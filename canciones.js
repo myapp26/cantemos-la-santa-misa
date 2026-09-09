@@ -20,17 +20,6 @@ const CANCIONES = [
     "bloqueada": false
   },
   {
-    "id": "pescador-de-hombres",
-    "titulo": "Pescador de Hombres",
-    "autor": "Cesáreo Gabaráin",
-    "categoria": "Vocacionales y Mision",
-    "tono": "Re",
-    "letra": "# Estrofa 1\n[Re]Tú has venido a la ori[Sol]lla\nno has bus[Re]cado ni a sabios [La]ni a ricos\ntan so[Re]lo quieres que yo te [Sol]siga[Re]\n\n# Coro\n[Sol]Señor, me has mi[Re]rado a los ojos\nsonrien[La]do has dicho mi [Re]nombre\nen la a[Sol]rena he dejado mi [Re]barca\njunto a [La]ti buscaré otro [Re]mar",
-    "youtube": "",
-    "premium": false,
-    "bloqueada": false
-  },
-  {
     "id": "juntos-como-hermanos",
     "titulo": "Juntos como Hermanos",
     "autor": "Musica Católica",
