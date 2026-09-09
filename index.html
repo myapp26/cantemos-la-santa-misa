@@ -270,6 +270,15 @@
     </div>
   </div>
 </div>
+<div class="gate-overlay hidden" id="instalar-overlay">
+  <div class="sheet">
+    <h2>Instalá la app</h2>
+    <div class="sub" id="instalar-sub">Para usar el cancionero, instalá la app en tu celular. Es gratis y después funciona sin internet.</div>
+    <div class="btn-row">
+      <button class="btn primary full" id="instalar-overlay-btn" onclick="installApp()">⬇ Instalar app</button>
+    </div>
+  </div>
+</div>
 <div id="app">
   <header>
     <div class="eyebrow">Cancionero litúrgico · Notas y acordes</div>
@@ -1277,6 +1286,31 @@ function installApp(){
 
 // Si se instala, ocultamos el botón.
 window.addEventListener("appinstalled",()=>{ installBtn.style.display="none"; deferredPrompt=null; });
+
+// ===================== Pantalla de instalar antes de usar (solo celular) =====================
+// La primera vez que alguien entra desde el navegador del celular (sin la
+// app instalada todavia), tapamos el catalogo y solo mostramos el boton de
+// instalar -- para que no se confunda entre "la app en el navegador" y "la
+// app instalada". En PC no aplica (ahi se sigue viendo todo normal, incluido
+// el panel de admin). Los links con clave (?key=...) tampoco pasan por acá:
+// van directo a activarla, como ya funcionaba.
+function debeMostrarInstalarPrimero(){
+  if(yaInstalada()) return false;
+  if(!/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) return false;
+  const params = new URLSearchParams(location.search);
+  if(params.get("key")) return false;
+  return true;
+}
+if(debeMostrarInstalarPrimero()){
+  document.getElementById("instalar-overlay").classList.remove("hidden");
+}
+// No podemos abrir la app instalada automáticamente desde acá (los
+// navegadores no lo permiten por seguridad, sobre todo en iPhone) -- lo más
+// confiable es avisarle con claridad que la abra ella misma.
+window.addEventListener("appinstalled",()=>{
+  document.getElementById("instalar-sub").textContent = "¡Listo! Abrí la app desde el ícono nuevo en tu pantalla de inicio para continuar.";
+  document.getElementById("instalar-overlay-btn").style.display = "none";
+});
 
 // ===================== Init =====================
 render();
