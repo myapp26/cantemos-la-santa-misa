@@ -2,7 +2,7 @@
 //  CANCIONES — Generado automáticamente desde la app.
 //  Este archivo es la "semilla" que reciben todos los que
 //  instalan la app desde tu enlace de Netlify.
-//  Generado: 1/9/2026, 11:53:32 a. m.
+//  Generado: 9/9/2026, 2:02:38 p. m.
 // ============================================================
 
 const CATEGORIAS = ["Entrada","Piedad","Aclamación del Evangelio","Ofertorio","Santo","Cordero de Dios","Cantos de Comunión","Cantos a la Virgen María","Evangelio - sin Aleluya","Vocacionales y Mision","Alabanzas","De Adoración","Fiestas/ Solemnidades","Temas Biblicos","Adviento","Cuaresma","Semana Santa","Pascua y Resurrección","Pentecostés","Cantos para Niños","Misa por los Difuntos"];
@@ -16,17 +16,6 @@ const CANCIONES = [
     "tono": "Sol",
     "letra": "# Coro\n[Sol]Vienen con ale[Do]gría, Se[Re]ñor\ncantando vienen con ale[Sol]gría, Señor\nlos que ca[Do]minan por la [Re]vida, Señor\nsembrando tu [Do]paz y a[Re]mor[Sol]\n\n# Estrofa 1\n[Sol]Vienen tra[Do]yendo la espe[Sol]ranza\na un mundo [Do]cargado de an[Re]siedad\na un mundo que [Sol]busca y que no al[Do]canza\ncaminos de [Re]amor y de amis[Sol]tad",
     "youtube": "https://www.youtube.com/watch?v=3nsk_tkvkQk&list=RD3nsk_tkvkQk&start_radio=1",
-    "premium": false,
-    "bloqueada": false
-  },
-  {
-    "id": "pescador-de-hombres",
-    "titulo": "Pescador de Hombres",
-    "autor": "Cesáreo Gabaráin",
-    "categoria": "Vocacionales y Mision",
-    "tono": "Re",
-    "letra": "# Estrofa 1\n[Re]Tú has venido a la ori[Sol]lla\nno has bus[Re]cado ni a sabios [La]ni a ricos\ntan so[Re]lo quieres que yo te [Sol]siga[Re]\n\n# Coro\n[Sol]Señor, me has mi[Re]rado a los ojos\nsonrien[La]do has dicho mi [Re]nombre\nen la a[Sol]rena he dejado mi [Re]barca\njunto a [La]ti buscaré otro [Re]mar",
-    "youtube": "",
     "premium": false,
     "bloqueada": false
   },
@@ -2099,17 +2088,6 @@ const CANCIONES = [
     "bloqueada": false
   },
   {
-    "id": "confieso",
-    "titulo": "Confieso",
-    "autor": "Kany García",
-    "categoria": "Misa por los Difuntos",
-    "tono": "La",
-    "letra": "# Intro\n[La] [Fa#m] [Re] [La]\n\n# Estrofa 1\n[La]Allí mire tu foto en la nevera\n[Mi]De aquel viaje que hicimos en noviembre\n[Re]Sonrío al descubrir tus mil maneras para [La]quererme\n[Mi]Hoy como cada tarde [Re]te [La]imaginaba\n\n# Coro\n[La]Confieso que me haces tanta falta\n[Mi]para decirme: \"Todo va a estar bien\"\n[Re]Para escucharme con una guitarra\n[La]sentado con tu taza de café\n[La]Lloré porque tu voz no está en la casa\n[Mi]Reí porque me amaste con todo tu ser\nEs [Re]una mezcla que me agarra el alma\nY [La]rompe en cada esquina de mi ser\nY [Mi]como no? [Re]Si eras mi [La]todo\nY [Mi]como no?\n\n# Estrofa 2\n[Fa#m]La noche buena se vuelve más fría\n[Do#m]Y en abril se caen todas las flores\n[Re]Y siento que me hablas cada día en [Rem]mil [La]canciones\n[Mi]Hoy como cada [Re]tarde te [La]imaginaba\n\n# Coro\n[La]Confieso que me haces tanta falta\n[Mi]para decirme: \"Todo va a estar bien\"\n[Re]Para escucharme con una guitarra\n[La]sentado con tu taza de café\n[La]Lloré porque tu voz no está en la casa\n[Mi]Reí porque me amaste con todo tu ser\nEs [Re]una mezcla que me agarra el alma\nY [La]rompe en cada esquina de mi ser\nY [Mi]como no? [Re]Si eras mi [La]todo\nY [Mi]como no?\n\n# Puente\nMiro al [Re]cielo y no me basta\nY tus [Mi]fotos que me engañan\nY me [Do#m]hacen creer que hoy llamas en [Fa#m]la tarde\n[Mi]Para [Re]saludarme\n\n# Coro\n[La]Confieso que me haces tanta falta\n[Mi]para decirme: \"Todo va a estar bien\"\n[Re]Para escucharme con una guitarra\n[La]sentado con tu taza de café\n[La]Lloré porque tu voz no esta en la casa\n[Mi]Reí porque me amaste con todo tu ser\nEs [Re]una mezcla que me agarra el alma\nY [La]rompe en cada esquina de mi ser\n\n# Final\nY [Mi]cómo no? [Re]Si eras mi [La]todo\nY [Mi]cómo no?\n",
-    "youtube": "https://www.youtube.com/watch?v=a39ViqCbmIs&list=RDa39ViqCbmIs&start_radio=1",
-    "premium": false,
-    "bloqueada": false
-  },
-  {
     "id": "hacia-ti-morada-santa",
     "titulo": "Hacia Ti Morada Santa",
     "autor": "Música Católica",
@@ -2157,7 +2135,7 @@ const CANCIONES = [
     "id": "pescador-de-hombres-49",
     "titulo": "Pescador de Hombres",
     "autor": "Música Religiosa",
-    "categoria": "Misa por los Difuntos",
+    "categoria": "Vocacionales y Mision",
     "tono": "Re",
     "letra": "# Estrofa 1\n[Re]Tú, [La]has venido a la [Sim][Fa#m]orilla,\nno has [Sol]buscado, [Mi]ni a sabios ni [La]a ricos,\ntan solo [Re]quieres, [La]que yo [Re]te [Re7]siga.\n\n# Coro\n[Sol]Señor, [La]me has mirado a [Fa#m]los [Sim]ojos,\n[Mi]sonriendo, [La]has dicho [Re]mi [Re7]nombre.\nEn la [Sol]arena, [La]he dejado [Fa#m]mi [Sim]barca,\njunto a [Mi]ti, [La]buscaré otro [Re]mar.\n\n# Estrofa 2\n[Re]Tú, [La]sabes bien lo que [Sim][Fa#m]tengo,\nen mi [Sol]barca, [Mi]no hay oro ni [La]plata,\ntan solo [Re]redes [La]y mi [Re][Re7]trabajo.\n\n# Coro\n[Sol]Señor, [La]me has mirado a [Fa#m]los [Sim]ojos,\n[Mi]sonriendo, [La]has dicho [Re]mi [Re7]nombre.\nEn la [Sol]arena, [La]he dejado [Fa#m]mi [Sim]barca,\njunto a [Mi]ti, [La]buscaré otro [Re]mar.\n\n# Estrofa 3\n[Re]Tú, [La]necesitas mis [Sim][Fa#m]manos,\nmi [Sol]cansancio [Mi]que a otros [La]descanse,\namor que [Re]quiera [La]seguir [Re][Re7]amando.\n\n# Coro\n[Sol]Señor, [La]me has mirado a [Fa#m]los [Sim]ojos,\n[Mi]sonriendo, [La]has dicho [Re]mi [Re7]nombre.\nEn la [Sol]arena, [La]he dejado [Fa#m]mi [Sim]barca,\njunto a [Mi]ti, [La]buscaré otro [Re]mar.\n\n# Estrofa 4\n[Re]Tú, [La]pescador de otros [Sim][Fa#m]lagos,\nansia [Sol]eterna [Mi]de almas que [La]esperan,\namigo [Re]bueno, [La]que así [Re]me [Re7]llamas.\n\n# Coro (final)\n[Sol]Señor, [La]me has mirado a [Fa#m]los [Sim]ojos,\n[Mi]sonriendo, [La]has dicho [Re]mi [Re7]nombre.\nEn la [Sol]arena, [La]he dejado [Fa#m]mi [Sim]barca,\njunto a [Mi]ti, [La]buscaré otro [Re]mar,\njunto a [Mi]ti, [La]buscaré otro [Re]mar,\njunto a [Mi]ti, [La]buscaré otro [Re]mar.\n",
     "youtube": "",
