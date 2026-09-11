@@ -85,6 +85,29 @@ generá una clave admin para cada uno (con notas claras para no confundirlas
 después). Revocar (`node keys.js revoke`) y liberar (`node keys.js unbind`)
 funcionan exactamente igual que con las claves normales.
 
+## Nivel de acceso (Freemium / Premium)
+
+Cada clave normal (no admin) tiene un nivel, `freemium` o `premium`. Por
+defecto se genera en `freemium`:
+
+```
+node keys.js generate --note "Parroquia San José" --tier premium
+```
+
+Para subir o bajar de nivel una clave que ya existe (por ejemplo, regalarle
+Premium a alguien que ya tenía Freemium), sin que el usuario tenga que hacer
+nada de su lado:
+
+```
+node keys.js set-tier CSM-7F3K-9QRT-2LXP premium
+```
+
+El cambio se aplica solo, la próxima vez que ese dispositivo revalide su
+clave (no hace falta reactivar ni volver a compartir el link). Las claves
+`--admin` no usan tier — siempre tienen acceso completo. El nivel "Demo" no
+usa clave en absoluto: es el acceso abierto que ya tiene hoy cualquiera que
+entra sin clave.
+
 ## Ver todas las claves
 
 ```
@@ -97,7 +120,7 @@ Editor o el Table Editor de tu proyecto en supabase.com.
 ## Setup inicial (una sola vez)
 
 1. Creá una cuenta y un proyecto en [supabase.com](https://supabase.com) (gratis, sin tarjeta).
-2. Pegá el contenido de `supabase/migrations/0001_access_keys.sql` en el SQL Editor del proyecto y ejecutalo.
+2. Pegá el contenido de `supabase/migrations/0001_access_keys.sql`, luego `0002_admin_keys.sql`, y luego `0003_tier.sql` (en ese orden) en el SQL Editor del proyecto y ejecutalos.
 3. Copiá `scripts/.env.example` a `scripts/.env` y completá `SUPABASE_URL` y `SUPABASE_SERVICE_ROLE_KEY` (Project Settings → API). **Nunca subas ese archivo ni compartas esa clave** — da acceso total a la base de datos.
 4. Desplegá la función: `npx supabase login` (una vez) y después `npx supabase functions deploy validate-key --project-ref TU-PROJECT-REF --no-verify-jwt`.
 5. Actualizá la constante `VALIDATE_URL` en `index.html` con la URL real de la función desplegada y publicá el cambio.
