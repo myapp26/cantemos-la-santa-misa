@@ -52,6 +52,10 @@
     margin-left:8px;border:1px solid var(--rule);white-space:nowrap}
   .tier-badge.freemium{color:var(--ink-soft)}
   .tier-badge.premium{color:var(--accent-deep);border-color:var(--accent-deep)}
+  .tier-badge.preview{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .preview-select{font-family:"Courier New",monospace;font-size:12px;letter-spacing:.04em;
+    background:var(--paper-deep);border:1px solid var(--rule);color:var(--ink);
+    padding:7px 10px;border-radius:20px;cursor:pointer}
   h1.brand .swash{color:var(--accent);font-style:italic}
   .search{margin-top:14px;position:relative}
   .search input{width:100%;padding:12px 14px 12px 40px;font-family:Georgia,serif;font-size:16px;
@@ -310,6 +314,15 @@
       </div>
       <button class="installbtn" id="installBtn" style="display:none" onclick="installApp()">⬇ Instalar app</button>
     </div>
+    <div class="toolbar" id="previewBar" style="display:none">
+      <span class="sortbtn plain" style="cursor:default;opacity:.7">👁 Vista previa (solo vos)</span>
+      <select id="previewSelect" class="preview-select" onchange="setPreviewTier(this.value)" aria-label="Ver la app como">
+        <option value="">Mi vista (admin)</option>
+        <option value="demo">Ver como Demo</option>
+        <option value="freemium">Ver como Freemium</option>
+        <option value="premium">Ver como Premium</option>
+      </select>
+    </div>
     <div class="toolbar" id="selectionBar" style="display:none">
       <span class="sortbtn plain" id="selCount" style="cursor:default">0 seleccionados</span>
       <button class="sortbtn plain" onclick="verSeleccionActual()">Ver selección</button>
@@ -527,18 +540,45 @@ function nivelActual(){
   return "demo";
 }
 function aplicarRolAdmin(){
+  const eraAdmin = isAdmin;
   isAdmin = esAdmin();
   userTier = nivelActual();
+  // Si dejó de ser admin (revocación, otra clave, etc.) no dejamos una vista
+  // previa pegada sin control visible para salir de ella.
+  if(!isAdmin && previewTier) previewTier = null;
   // Lanzamiento por fases: el ícono queda siempre visible (a baja opacidad,
   // como el resto de la app) para que cualquiera con una clave -- admin o
   // no -- pueda activarla a mano desde adminTap(). Ya no hace falta ocultarlo
   // porque tocar el ícono sin clave no autoasigna nada (ver adminTap()).
   document.getElementById("adminDot").classList.toggle("on", isAdmin);
   if(current) document.getElementById("editBtn").style.display = isAdmin ? "" : "none";
+  const previewBar = document.getElementById("previewBar");
+  if(previewBar) previewBar.style.display = isAdmin ? "" : "none";
+  const previewSelect = document.getElementById("previewSelect");
+  if(previewSelect && (!eraAdmin || !isAdmin)) previewSelect.value = previewTier || "";
   updateTierBadge();
   updateFeatureGating();
-  // El nivel puede haber cambiado (activación, revalidación, revocación):
-  // refrescamos la lista para que los candados de acceso queden al día.
+  // El nivel puede haber cambiado (activación, revalidación, revocación, o
+  // una vista previa): refrescamos la lista para que los candados de acceso
+  // queden al día.
+  render(document.getElementById("q").value);
+}
+// Vista previa de nivel, solo para administradora: le permite ver la app
+// como la vería un usuario en Demo/Freemium/Premium, sin tocar su clave real
+// ni la de nadie en Supabase. Vive solo en memoria -- se pierde al recargar
+// o cerrar la app, así nunca queda "pegada" por accidente.
+let previewTier = null; // null | "demo" | "freemium" | "premium"
+function nivelEfectivo(){
+  return (isAdmin && previewTier) ? previewTier : userTier;
+}
+function adminEfectivo(){
+  return isAdmin && !previewTier;
+}
+function setPreviewTier(valor){
+  if(!isAdmin) return; // defensa extra: solo puede activarse desde el selector de admin
+  previewTier = valor || null;
+  updateTierBadge();
+  updateFeatureGating();
   render(document.getElementById("q").value);
 }
 // Distintivo visible para el usuario final: le muestra en qué modo está
@@ -547,6 +587,13 @@ function aplicarRolAdmin(){
 function updateTierBadge(){
   const el=document.getElementById("tierBadge");
   if(!el) return;
+  if(isAdmin && previewTier){
+    const nombres = {demo:"Demo", freemium:"Freemium", premium:"⭐ Premium"};
+    el.className = "tier-badge preview";
+    el.textContent = "👁 Viendo como: " + nombres[previewTier];
+    el.style.display="";
+    return;
+  }
   if(isAdmin || userTier==="demo"){ el.style.display="none"; return; }
   el.className = "tier-badge " + userTier;
   el.textContent = userTier==="premium" ? "⭐ Premium" : "Freemium";
@@ -558,7 +605,7 @@ function updateTierBadge(){
 // orden por categoría/alfabético, YouTube) sigue libre en Freemium sin tocar
 // nada de esto.
 function updateFeatureGating(){
-  const habilitado = isAdmin || userTier==="premium";
+  const habilitado = adminEfectivo() || nivelEfectivo()==="premium";
   const selBtn=document.getElementById("selModeBtn");
   const savedBtn=document.getElementById("selSavedBtn");
   if(selBtn) selBtn.style.display = habilitado ? "" : "none";
@@ -578,14 +625,15 @@ function updateFeatureGating(){
 //  - "bloqueada" (diagramas de acordes): se ocultan para Demo y Freemium por igual,
 //    solo se ven con tier premium (o admin). No depende de si la canción es "demo".
 function estaBloqueada(c){
-  if(isAdmin) return false;
-  if(c.premium) return userTier!=="premium";
-  if(userTier==="demo") return !c.demo;
+  if(adminEfectivo()) return false;
+  const tier = nivelEfectivo();
+  if(c.premium) return tier!=="premium";
+  if(tier==="demo") return !c.demo;
   return false;
 }
 function diagramaBloqueado(c){
-  if(isAdmin) return false;
-  return !!c.bloqueada && userTier!=="premium";
+  if(adminEfectivo()) return false;
+  return !!c.bloqueada && nivelEfectivo()!=="premium";
 }
 
 async function callValidate(key, token){
@@ -1098,7 +1146,7 @@ function updateSong(){
     document.getElementById("sv-lyrics").innerHTML="";
     return;
   }
-  if(current.premium && isAdmin){
+  if(current.premium && adminEfectivo()){
     premiumEl.style.display="";
     premiumEl.textContent="⭐ Marcada como premium (solo tú la ves completa)";
   } else {
