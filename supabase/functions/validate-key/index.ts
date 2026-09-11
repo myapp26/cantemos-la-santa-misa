@@ -113,7 +113,7 @@ Deno.serve(async (req) => {
 
   if (row.status === "bound") {
     if (token && (await sha256Hex(token)) === row.device_token_hash) {
-      return json({ ok: true, is_admin: row.is_admin === true }, 200, origin);
+      return json({ ok: true, is_admin: row.is_admin === true, tier: row.tier }, 200, origin);
     }
     // Sin token valido: se rechaza, aunque la huella "parezca" la misma
     // (dos telefonos del mismo modelo pueden tener huellas identicas, asi
@@ -144,7 +144,7 @@ Deno.serve(async (req) => {
       if (rebindError || !rebound) {
         return json({ ok: false, reason: "server_error" }, 500, origin);
       }
-      return json({ ok: true, token: freshToken, is_admin: true }, 200, origin);
+      return json({ ok: true, token: freshToken, is_admin: true, tier: row.tier }, 200, origin);
     }
     return json({ ok: false, reason: "in_use" }, 403, origin);
   }
@@ -181,5 +181,5 @@ Deno.serve(async (req) => {
     return json({ ok: false, reason: "in_use" }, 403, origin);
   }
 
-  return json({ ok: true, token: freshToken, is_admin: row.is_admin === true }, 200, origin);
+  return json({ ok: true, token: freshToken, is_admin: row.is_admin === true, tier: row.tier }, 200, origin);
 });
