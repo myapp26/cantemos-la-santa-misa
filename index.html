@@ -423,9 +423,16 @@
       <label>Restricciones de acceso</label>
       <div class="lock-box">
         <div class="lock-title">🔒 Bloqueos de esta canción</div>
-        <label class="check-line"><input type="checkbox" id="se-premium" onchange="updateDemoCount()"> Canto completo solo premium (oculta letra y acordes, muestra aviso)</label>
+        <div style="margin-bottom:10px">
+          <label for="se-restriccion">Acceso en Freemium (Premium y admin siempre ven todo)</label>
+          <select id="se-restriccion" onchange="updateDemoCount()">
+            <option value="">Abierta para todos</option>
+            <option value="candado">Bloqueada con candado (aparece en la lista, pide clave)</option>
+            <option value="oculta">Oculta (no aparece en la lista)</option>
+          </select>
+        </div>
         <label class="check-line"><input type="checkbox" id="se-bloqueada"> Bloquear los diagramas de acordes salvo para premium (la letra se sigue viendo)</label>
-        <label class="check-line"><input type="checkbox" id="se-demo" onchange="updateDemoCount()"> Incluir en el catálogo Demo (visible sin clave de acceso)</label>
+        <label class="check-line"><input type="checkbox" id="se-demo" onchange="updateDemoCount()"> Incluir en el catálogo Demo (si no la marcás, no aparece para nadie en modo Demo)</label>
         <div class="hint" id="se-demo-count"></div>
       </div>
     </div>
@@ -624,16 +631,34 @@ function updateFeatureGating(){
 //    tier reconocido) solo se ven las marcadas "demo" -- el resto queda con candado.
 //  - "bloqueada" (diagramas de acordes): se ocultan para Demo y Freemium por igual,
 //    solo se ven con tier premium (o admin). No depende de si la canción es "demo".
+// "candado" y "oculta" restringen la canción entera igual -- la diferencia
+// entre las dos es si aparece o no en el listado (ver visibleParaListado()).
+// c.premium===true queda solo por compatibilidad con datos viejas.
+function esRestringida(c){
+  return c.restriccion==="candado" || c.restriccion==="oculta" || c.premium===true;
+}
 function estaBloqueada(c){
   if(adminEfectivo()) return false;
   const tier = nivelEfectivo();
-  if(c.premium) return tier!=="premium";
+  if(esRestringida(c)) return tier!=="premium";
   if(tier==="demo") return !c.demo;
   return false;
 }
 function diagramaBloqueado(c){
   if(adminEfectivo()) return false;
   return !!c.bloqueada && nivelEfectivo()!=="premium";
+}
+// Decide si una canción aparece en el listado (índice, alfabético, búsqueda,
+// "últimos subidos"). Distinto de estaBloqueada(): una canción "candado" sigue
+// apareciendo (con el 🔒), pero una "oculta" en Freemium, o una que Gloria no
+// marcó "demo" estando en modo Demo, no aparece en absoluto -- como si no
+// existiera para esa persona.
+function visibleParaListado(c){
+  if(adminEfectivo()) return true;
+  const tier = nivelEfectivo();
+  if(tier==="demo") return !!c.demo;
+  if(tier==="freemium") return c.restriccion!=="oculta";
+  return true;
 }
 
 async function callValidate(key, token){
@@ -948,7 +973,8 @@ function render(filter=""){
   }
 
   if(!f && !viewFilterIds){
-    const recientes=[...DATA.canciones].sort((a,b)=>(b.creado||0)-(a.creado||0)).slice(0,5);
+    const recientes=[...DATA.canciones].filter(visibleParaListado)
+      .sort((a,b)=>(b.creado||0)-(a.creado||0)).slice(0,5);
     if(recientes.length){
       const box=document.createElement("div");box.className="recientes";
       box.innerHTML=`<h3>Últimos cantos subidos</h3>`+
@@ -958,6 +984,7 @@ function render(filter=""){
   }
 
   const coincide=c=>{
+    if(!visibleParaListado(c)) return false;
     if(viewFilterIds && !viewFilterIds.has(c.id)) return false;
     return !f||(c.titulo+" "+(c.autor||"")+" "+c.categoria).toLowerCase().includes(f);
   };
@@ -1138,7 +1165,7 @@ function updateSong(){
   const premiumEl=document.getElementById("sv-premium");
   if(estaBloqueada(current)){
     premiumEl.style.display="";
-    premiumEl.textContent = current.premium
+    premiumEl.textContent = esRestringida(current)
       ? "⭐ Canción disponible en modo premium"
       : "🔒 Activá tu clave de acceso para ver este canto";
     document.getElementById("sv-tono").textContent=semis?shiftChord(current.tono,semis):current.tono;
@@ -1146,9 +1173,11 @@ function updateSong(){
     document.getElementById("sv-lyrics").innerHTML="";
     return;
   }
-  if(current.premium && adminEfectivo()){
+  if(esRestringida(current) && adminEfectivo()){
     premiumEl.style.display="";
-    premiumEl.textContent="⭐ Marcada como premium (solo tú la ves completa)";
+    premiumEl.textContent = current.restriccion==="oculta"
+      ? "🙈 Oculta en Freemium (solo tú y Premium la ven)"
+      : "⭐ Marcada como premium (solo tú la ves completa)";
   } else {
     premiumEl.style.display="none";
   }
@@ -1166,7 +1195,7 @@ function closeSong(){document.getElementById("song-view").classList.remove("open
 function openPresent(){
   document.getElementById("p-title").textContent=current.titulo;
   document.getElementById("p-lyrics").innerHTML = estaBloqueada(current)
-    ? `<div class="premium-msg">${current.premium?"Disponible en modo premium":"Activá tu clave de acceso para ver este canto"}</div>`
+    ? `<div class="premium-msg">${esRestringida(current)?"Disponible en modo premium":"Activá tu clave de acceso para ver este canto"}</div>`
     : lyricsHTML(current.letra,semis);
   document.getElementById("present").style.setProperty("--present-size",presentFontSize+"px");
   document.body.classList.add("presenting");
@@ -1208,7 +1237,7 @@ function newSong(){
   document.getElementById("se-tono").value="";
   document.getElementById("se-youtube").value="";
   document.getElementById("se-letra").value="";
-  document.getElementById("se-premium").checked=false;
+  document.getElementById("se-restriccion").value="";
   document.getElementById("se-bloqueada").checked=false;
   document.getElementById("se-demo").checked=false;
   fillCatSelect(document.getElementById("se-categoria"));
@@ -1226,7 +1255,7 @@ function editSong(id){
   document.getElementById("se-autor").value=c.autor||"";
   document.getElementById("se-tono").value=c.tono;
   document.getElementById("se-youtube").value=c.youtube||"";
-  document.getElementById("se-premium").checked=!!c.premium;
+  document.getElementById("se-restriccion").value = c.restriccion || (c.premium?"candado":"");
   document.getElementById("se-bloqueada").checked=!!c.bloqueada;
   document.getElementById("se-demo").checked=!!c.demo;
   fillCatSelect(document.getElementById("se-categoria"));
@@ -1259,7 +1288,7 @@ function saveSong(){
     titulo, autor:document.getElementById("se-autor").value.trim(),
     categoria:document.getElementById("se-categoria").value, tono, letra,
     youtube:document.getElementById("se-youtube").value.trim(),
-    premium:document.getElementById("se-premium").checked,
+    restriccion:document.getElementById("se-restriccion").value,
     bloqueada:document.getElementById("se-bloqueada").checked,
     demo:document.getElementById("se-demo").checked
   };
