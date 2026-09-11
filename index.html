@@ -47,6 +47,11 @@
   .eyebrow{font-family:"Courier New",monospace;font-size:11px;letter-spacing:.32em;
     text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
   h1.brand{font-size:25px;font-weight:700;letter-spacing:-.01em;line-height:1.05}
+  .tier-badge{font-family:"Courier New",monospace;font-size:10px;letter-spacing:.08em;
+    text-transform:uppercase;padding:2px 8px;border-radius:10px;vertical-align:middle;
+    margin-left:8px;border:1px solid var(--rule);white-space:nowrap}
+  .tier-badge.freemium{color:var(--ink-soft)}
+  .tier-badge.premium{color:var(--accent-deep);border-color:var(--accent-deep)}
   h1.brand .swash{color:var(--accent);font-style:italic}
   .search{margin-top:14px;position:relative}
   .search input{width:100%;padding:12px 14px 12px 40px;font-family:Georgia,serif;font-size:16px;
@@ -283,7 +288,7 @@
 <div id="app">
   <header>
     <div class="eyebrow">Cancionero litúrgico · Notas y acordes</div>
-    <h1 class="brand">Cantemos la <span class="swash">Santa Misa</span></h1>
+    <h1 class="brand">Cantemos la <span class="swash">Santa Misa</span><span class="tier-badge" id="tierBadge" style="display:none"></span></h1>
     <div class="search">
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
       <input id="q" type="search" placeholder="Buscar por título, autor o categoría…" autocomplete="off">
@@ -296,7 +301,7 @@
       <button class="sortbtn plain" id="selModeBtn" onclick="toggleSelectionMode()" title="Seleccionar varios cantos">
         <span id="selModeLabel">☑ Seleccionar</span>
       </button>
-      <button class="sortbtn plain" onclick="openSavedSelections()" title="Ver selecciones guardadas">📁 Selecciones</button>
+      <button class="sortbtn plain" id="selSavedBtn" onclick="openSavedSelections()" title="Ver selecciones guardadas">📁 Selecciones</button>
       <div class="textsize-ctl" title="Tamaño de letra">
         <span class="a-sm">A</span>
         <input type="range" class="textsize-slider" min="70" max="200" step="5" value="100"
@@ -530,9 +535,39 @@ function aplicarRolAdmin(){
   // porque tocar el ícono sin clave no autoasigna nada (ver adminTap()).
   document.getElementById("adminDot").classList.toggle("on", isAdmin);
   if(current) document.getElementById("editBtn").style.display = isAdmin ? "" : "none";
+  updateTierBadge();
+  updateFeatureGating();
   // El nivel puede haber cambiado (activación, revalidación, revocación):
   // refrescamos la lista para que los candados de acceso queden al día.
   render(document.getElementById("q").value);
+}
+// Distintivo visible para el usuario final: le muestra en qué modo está
+// (Freemium/Premium). No se muestra en Demo (todavía no activó ninguna
+// clave) ni para admin (ya tiene su propio ícono de administrador).
+function updateTierBadge(){
+  const el=document.getElementById("tierBadge");
+  if(!el) return;
+  if(isAdmin || userTier==="demo"){ el.style.display="none"; return; }
+  el.className = "tier-badge " + userTier;
+  el.textContent = userTier==="premium" ? "⭐ Premium" : "Freemium";
+  el.style.display="";
+}
+// Funciones "nuevas" (creadas después del lanzamiento original, no parte del
+// set base) reservadas para Premium: seleccionar varios cantos y armar/guardar
+// selecciones. El resto de la app (buscador, tamaño de texto, transposición,
+// orden por categoría/alfabético, YouTube) sigue libre en Freemium sin tocar
+// nada de esto.
+function updateFeatureGating(){
+  const habilitado = isAdmin || userTier==="premium";
+  const selBtn=document.getElementById("selModeBtn");
+  const savedBtn=document.getElementById("selSavedBtn");
+  if(selBtn) selBtn.style.display = habilitado ? "" : "none";
+  if(savedBtn) savedBtn.style.display = habilitado ? "" : "none";
+  if(!habilitado && typeof selectionMode!=="undefined" && selectionMode){
+    selectionMode=false; selectedIds.clear();
+    const bar=document.getElementById("selectionBar");
+    if(bar) bar.style.display="none";
+  }
 }
 // ===================== Compuerta por nivel (Demo/Freemium/Premium) =====================
 // Reglas (ver claude/plan-versiones-cancionero.md, definidas con Gloria el 8/9 y
@@ -1368,6 +1403,12 @@ window.addEventListener("appinstalled",()=>{
 });
 
 // ===================== Init =====================
+// Estado inicial (isAdmin=false, userTier="demo") por si initAccessGate()
+// tarda en resolver o no hay ninguna clave guardada -- que el distintivo y
+// las funciones de selección arranquen ya ocultas para Demo, en vez de
+// mostrarse un instante de más hasta que se confirme el nivel real.
+updateTierBadge();
+updateFeatureGating();
 render();
 initAccessGate();
 if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
