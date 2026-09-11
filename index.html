@@ -102,6 +102,7 @@
   li.song .a{font-size:12px;color:var(--ink-soft);font-style:italic}
   li.song .tono{font-family:"Courier New",monospace;font-size:12px;color:var(--accent);
     border:1px solid var(--rule);border-radius:2px;padding:1px 6px}
+  li.song .lock-tag{font-size:12px;opacity:.65}
   .empty{padding:40px 10px;text-align:center;color:var(--ink-soft);font-style:italic}
 
   /* ---------- Vista canción ---------- */
@@ -404,8 +405,10 @@
       <label>Restricciones de acceso</label>
       <div class="lock-box">
         <div class="lock-title">🔒 Bloqueos de esta canción</div>
-        <label class="check-line"><input type="checkbox" id="se-premium"> Canto completo solo premium (oculta letra y acordes, muestra aviso)</label>
-        <label class="check-line"><input type="checkbox" id="se-bloqueada"> Bloquear solo los diagramas de acordes (la letra se sigue viendo)</label>
+        <label class="check-line"><input type="checkbox" id="se-premium" onchange="updateDemoCount()"> Canto completo solo premium (oculta letra y acordes, muestra aviso)</label>
+        <label class="check-line"><input type="checkbox" id="se-bloqueada"> Bloquear los diagramas de acordes salvo para premium (la letra se sigue viendo)</label>
+        <label class="check-line"><input type="checkbox" id="se-demo" onchange="updateDemoCount()"> Incluir en el catálogo Demo (visible sin clave de acceso)</label>
+        <div class="hint" id="se-demo-count"></div>
       </div>
     </div>
     <div class="field">
@@ -461,6 +464,10 @@
 const LS_DATA="cantemos_data_v1";
 let DATA = load();
 let isAdmin=false, current=null, semis=0, presentFontSize=30, editingId=null;
+// Nivel de acceso del visitante: "demo" (sin clave o clave no reconocida),
+// "freemium" o "premium" (según la clave activada). Admin bypassa todo esto
+// por separado (ver isAdmin más arriba) -- no es un nivel, es un rol.
+let userTier="demo";
 
 function load(){
   try{
@@ -506,14 +513,44 @@ function esAdmin(){
   const access = loadAccess();
   return !!(access && access.is_admin === true);
 }
+// Nivel Demo/Freemium/Premium: sale de la clave activada (columna tier de
+// access_keys, ya la devuelve validate-key -- ver claude/plan-versiones-cancionero.md
+// en el proyecto de Claude). Sin clave, o clave sin tier reconocido: Demo.
+function nivelActual(){
+  const access = loadAccess();
+  if(access && (access.tier==="premium" || access.tier==="freemium")) return access.tier;
+  return "demo";
+}
 function aplicarRolAdmin(){
   isAdmin = esAdmin();
+  userTier = nivelActual();
   // Lanzamiento por fases: el ícono queda siempre visible (a baja opacidad,
   // como el resto de la app) para que cualquiera con una clave -- admin o
   // no -- pueda activarla a mano desde adminTap(). Ya no hace falta ocultarlo
   // porque tocar el ícono sin clave no autoasigna nada (ver adminTap()).
   document.getElementById("adminDot").classList.toggle("on", isAdmin);
   if(current) document.getElementById("editBtn").style.display = isAdmin ? "" : "none";
+  // El nivel puede haber cambiado (activación, revalidación, revocación):
+  // refrescamos la lista para que los candados de acceso queden al día.
+  render(document.getElementById("q").value);
+}
+// ===================== Compuerta por nivel (Demo/Freemium/Premium) =====================
+// Reglas (ver claude/plan-versiones-cancionero.md, definidas con Gloria el 8/9 y
+// refinadas el 11/9):
+//  - "premium" en la canción: solo la ve completa quien tiene tier premium (o admin).
+//  - Sin "premium": la ven freemium y premium enteras; en Demo (sin clave o sin
+//    tier reconocido) solo se ven las marcadas "demo" -- el resto queda con candado.
+//  - "bloqueada" (diagramas de acordes): se ocultan para Demo y Freemium por igual,
+//    solo se ven con tier premium (o admin). No depende de si la canción es "demo".
+function estaBloqueada(c){
+  if(isAdmin) return false;
+  if(c.premium) return userTier!=="premium";
+  if(userTier==="demo") return !c.demo;
+  return false;
+}
+function diagramaBloqueado(c){
+  if(isAdmin) return false;
+  return !!c.bloqueada && userTier!=="premium";
 }
 
 async function callValidate(key, token){
@@ -550,7 +587,7 @@ async function submitGateKey(){
   try{
     const result = await callValidate(key, null);
     if(result.ok){
-      saveAccess({key, token: result.token, is_admin: result.is_admin===true});
+      saveAccess({key, token: result.token, is_admin: result.is_admin===true, tier: result.tier});
       aplicarRolAdmin();
       hideGate();
       toast("¡Acceso activado!");
@@ -597,7 +634,7 @@ async function initAccessGate(){
     } else {
       // El servidor solo manda token nuevo en la primera activación; si no
       // vino, conservamos el que ya teníamos guardado.
-      saveAccess({key: access.key, token: result.token || access.token, is_admin: result.is_admin===true});
+      saveAccess({key: access.key, token: result.token || access.token, is_admin: result.is_admin===true, tier: result.tier || access.tier});
       aplicarRolAdmin();
     }
   }catch(e){
@@ -807,8 +844,9 @@ function songLi(c, n){
     ? `<input type="checkbox" class="sel-check" onclick="event.stopPropagation()"
         onchange="toggleSongSelected('${c.id}', this.checked)" ${selectedIds.has(c.id)?"checked":""}>`
     : "";
+  const bloqueada = estaBloqueada(c);
   li.innerHTML=`${checkHTML}<span class="num">${n}</span>
-    <span class="t">${esc(c.titulo)}${c.autor?` <span class="a">· ${esc(c.autor)}</span>`:""}</span>
+    <span class="t">${esc(c.titulo)}${c.autor?` <span class="a">· ${esc(c.autor)}</span>`:""}${bloqueada?` <span class="lock-tag">🔒</span>`:""}</span>
     <span class="tono">${esc(c.tono)}</span>`;
   li.onclick=()=>openSong(c.id);
   return li;
@@ -1015,10 +1053,11 @@ function openSong(id){
 }
 function updateSong(){
   const premiumEl=document.getElementById("sv-premium");
-  const locked=!isAdmin;
-  if(current.premium && locked){
+  if(estaBloqueada(current)){
     premiumEl.style.display="";
-    premiumEl.textContent="⭐ Canción disponible en modo premium";
+    premiumEl.textContent = current.premium
+      ? "⭐ Canción disponible en modo premium"
+      : "🔒 Activá tu clave de acceso para ver este canto";
     document.getElementById("sv-tono").textContent=semis?shiftChord(current.tono,semis):current.tono;
     document.getElementById("sv-chords").innerHTML="";
     document.getElementById("sv-lyrics").innerHTML="";
@@ -1031,7 +1070,7 @@ function updateSong(){
     premiumEl.style.display="none";
   }
   document.getElementById("sv-tono").textContent=semis?shiftChord(current.tono,semis):current.tono;
-  document.getElementById("sv-chords").innerHTML = (current.bloqueada && locked)
+  document.getElementById("sv-chords").innerHTML = diagramaBloqueado(current)
     ? `<div class="chords-row"><span class="lbl">Acordes de este tema</span>`+
       `<div class="chords-lock">🔒 Diagramas disponibles en modo premium</div></div>`
     : chordDiagramsHTML(current.letra,semis);
@@ -1043,8 +1082,8 @@ function closeSong(){document.getElementById("song-view").classList.remove("open
 // ===================== Presentación =====================
 function openPresent(){
   document.getElementById("p-title").textContent=current.titulo;
-  document.getElementById("p-lyrics").innerHTML=(current.premium && !isAdmin)
-    ? `<div class="premium-msg">Disponible en modo premium</div>`
+  document.getElementById("p-lyrics").innerHTML = estaBloqueada(current)
+    ? `<div class="premium-msg">${current.premium?"Disponible en modo premium":"Activá tu clave de acceso para ver este canto"}</div>`
     : lyricsHTML(current.letra,semis);
   document.getElementById("present").style.setProperty("--present-size",presentFontSize+"px");
   document.body.classList.add("presenting");
@@ -1088,8 +1127,10 @@ function newSong(){
   document.getElementById("se-letra").value="";
   document.getElementById("se-premium").checked=false;
   document.getElementById("se-bloqueada").checked=false;
+  document.getElementById("se-demo").checked=false;
   fillCatSelect(document.getElementById("se-categoria"));
   updatePreview();
+  updateDemoCount();
   closeModal("adminModal");openModal("songEditor");
 }
 function editCurrent(){ editSong(current.id); }
@@ -1104,11 +1145,24 @@ function editSong(id){
   document.getElementById("se-youtube").value=c.youtube||"";
   document.getElementById("se-premium").checked=!!c.premium;
   document.getElementById("se-bloqueada").checked=!!c.bloqueada;
+  document.getElementById("se-demo").checked=!!c.demo;
   fillCatSelect(document.getElementById("se-categoria"));
   document.getElementById("se-categoria").value=c.categoria;
   document.getElementById("se-letra").value=c.letra;
   updatePreview();
+  updateDemoCount();
   closeSong();openModal("songEditor");
+}
+// Aviso informativo (no bloquea): cuántos cantos hay marcados como Demo,
+// para que Gloria pueda mantenerse cerca del límite que ella decida (~30).
+function updateDemoCount(){
+  const el=document.getElementById("se-demo-count"); if(!el) return;
+  const marcandoDemo=document.getElementById("se-demo").checked;
+  let n=DATA.canciones.filter(c=>c.demo && c.id!==editingId).length;
+  if(marcandoDemo) n++;
+  el.textContent = n>30
+    ? `⚠️ ${n} cantos en Demo — ya pasaste el orden de ~30 sugerido.`
+    : `${n} cantos en el catálogo Demo hasta ahora.`;
 }
 function slugify(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"")
   .replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"").slice(0,50)||("canto-"+Date.now());}
@@ -1123,7 +1177,8 @@ function saveSong(){
     categoria:document.getElementById("se-categoria").value, tono, letra,
     youtube:document.getElementById("se-youtube").value.trim(),
     premium:document.getElementById("se-premium").checked,
-    bloqueada:document.getElementById("se-bloqueada").checked
+    bloqueada:document.getElementById("se-bloqueada").checked,
+    demo:document.getElementById("se-demo").checked
   };
   if(editingId){
     const c=DATA.canciones.find(x=>x.id===editingId);
@@ -1215,7 +1270,7 @@ function publishFile(){
   const cancionesLimpias=DATA.canciones.map(c=>({
     id:c.id, titulo:c.titulo, autor:c.autor||"", categoria:c.categoria,
     tono:c.tono, letra:c.letra, youtube:c.youtube||"",
-    premium:!!c.premium, bloqueada:!!c.bloqueada
+    premium:!!c.premium, bloqueada:!!c.bloqueada, demo:!!c.demo
   }));
   const body=
 `// ============================================================

@@ -2,7 +2,7 @@
 //  CANCIONES — Generado automáticamente desde la app.
 //  Este archivo es la "semilla" que reciben todos los que
 //  instalan la app desde tu enlace de Netlify.
-//  Generado: 9/9/2026, 2:02:38 p. m.
+//  Generado: 11/9/2026, 0:26:04
 // ============================================================
 
 const CATEGORIAS = ["Entrada","Piedad","Aclamación del Evangelio","Ofertorio","Santo","Cordero de Dios","Cantos de Comunión","Cantos a la Virgen María","Evangelio - sin Aleluya","Vocacionales y Mision","Alabanzas","De Adoración","Fiestas/ Solemnidades","Temas Biblicos","Adviento","Cuaresma","Semana Santa","Pascua y Resurrección","Pentecostés","Cantos para Niños","Misa por los Difuntos"];
@@ -17,7 +17,8 @@ const CANCIONES = [
     "letra": "# Coro\n[Sol]Vienen con ale[Do]gría, Se[Re]ñor\ncantando vienen con ale[Sol]gría, Señor\nlos que ca[Do]minan por la [Re]vida, Señor\nsembrando tu [Do]paz y a[Re]mor[Sol]\n\n# Estrofa 1\n[Sol]Vienen tra[Do]yendo la espe[Sol]ranza\na un mundo [Do]cargado de an[Re]siedad\na un mundo que [Sol]busca y que no al[Do]canza\ncaminos de [Re]amor y de amis[Sol]tad",
     "youtube": "https://www.youtube.com/watch?v=3nsk_tkvkQk&list=RD3nsk_tkvkQk&start_radio=1",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "juntos-como-hermanos",
@@ -28,7 +29,8 @@ const CANCIONES = [
     "letra": "# Coro\n[Do]Juntos como her[Fa]manos\nmiembros de una i[Sol]glesia\nvamos cami[Lam]nando\nal en[Fa]cuentro del Se[Sol]ñor[Do]\n\n# Estrofa 1\n[Do]Un largo ca[Fa]minar\npor el de[Sol]sierto bajo el [Lam]sol\nno podemos a[Fa]vanzar\nsin la a[Sol]yuda del Se[Do]ñor",
     "youtube": "https://youtu.be/3cET3XIP-4Q?si=8DYcDP26cFuY7jzZ",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "santa-maria-del-camino",
@@ -39,7 +41,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Sol]Mientras recorres la [Do]vida\n[Re]nunca solo es[Sol]tás\ncontigo por el ca[Do]mino\n[Re]Santa María [Sol]va\n\n# Coro\n[Do]Ven con noso[Sol]tros al caminar\n[Re]Santa Ma[Do]ría, ven[Sol]\n[Do]Ven con noso[Sol]tros al caminar\n[Re]Santa Ma[Do]ría, ven[Sol]",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "el-profeta",
@@ -50,7 +53,8 @@ const CANCIONES = [
     "letra": "[Lam]Antes que te [Do]formaras\ndentro del [Do]vientre de [Sol]tu [Do]madre\n[Rem]antes que tu [Lam]nacieras\nte [Mi7]conocía y te [Lam]consagré.\nPara ser mi profeta de las naciones yo te escogí.\nirás donde te envíe\ny lo que te mande proclamarás\n\n(B)\n[Lam]Tengo que andar,\n[Do]tengo que hablar,\n\nay de [Sol]mi sí no lo [Do]hago.\n[Sol]Cómo [Lam]escapar de ti,\n[Sol]como no [Lam]hablar,\nsi tu [Mi7]voz me quema [Lam]dentro.\n\nTengo que andar,\ntengo que luchar,\nay de mi si no lo hago.\nCómo escapar de ti,\ncomo no hablar,\nsi tu voz me quema dentro.\n\n(A)\nNo temas arriesgarte\nporque contigo yo estaré\nno temas anunciarme\nporque en tu boca yo hablaré.\nTe encargo hoy mi pueblo\npara arrancar y derribar\npara edificar destruirás y plantarás\n\nDeja a tus hermanos\ndeja a tu padre y a tu madre\nabandona tu casa\nporque la tierra gritando está.\nNada traigas contigo\nporque a tu lado yo estaré\nes hora de luchar\nporque mi pueblo\nsufriendo está.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "sois-semilla",
@@ -61,7 +65,8 @@ const CANCIONES = [
     "letra": "#1\n[Do]Soís la [Sol]semilla [Lam]que ha de crecer\nSois [Rem]estrella que ha de [Sol]brillar\n[Do]Sois [Sol]levadura [Lam]sois grano [Fa]de sal\n[Do]Antorcha [Sol]que debe [Do]alumbrar\nSois la [Sol]mañana que [Lam]vuelve a nacer\nSois [Rem]espiga que empieza a [Sol]granar\n[Do]Sois [Sol]aguijón y [Lam]caricia a [Fa]la vez\n[Do]Testigos [Sol]que voy a [Do]enviar\n\n#coro\n[Sol]Id amigos [Do]por el mundo\n[Fa]Anunciando el [Do]amor\n[Rem]Mensajeros de la [Lam]vida\n[Sol]De la paz y el [Do]perdón\n[Sol]Sed amigos, [Do]los testigos\n[Fa]De mi [Do]resurrección\n[Rem]Id llevando mi [Lam]presencia\n[Sol]Con vosotros [Do]estoy\n\n#2\nSois una llama que ha de encender\nResplandores de fe y caridad\nSois los pastores que han de guiar\nAl mundo por sendas de paz\nSois los amigos que quise escoger\nSois palabra que intento gritar\nSois reino nuevo que empieza\nA engendrar justicia, amor y verdad",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "ten-piedad-senor",
@@ -72,7 +77,8 @@ const CANCIONES = [
     "letra": "[Lam]Ten piedad, [Rem]Señor, ten [Lam]piedad\nSoy [Fa]pecador, [Mi]ten [Lam]piedad\n[Lam]Ten piedad, [Rem]Señor, ten [Lam]piedad\nSoy [Fa]pecador, [Mi]ten [Lam]piedad [Mi7]\n\nY de [Fa]mí, Cristo apiádate\nContra [Sol]ti, yo [Do]pequé [Mi7]\nY de [Fa]mí, Cristo apiádate\nContra [Sol]ti, yo [Do]pequé [Mi]\n\n[Lam]Ten piedad, [Rem]Señor, ten [Lam]piedad\nSoy [Fa]pecador, [Mi]ten [Lam]piedad\n[Lam]Ten piedad, [Rem]Señor, ten [Lam]piedad\nSoy [Fa]pecador, [Mi]ten [Lam]piedad",
     "youtube": "",
     "premium": false,
-    "bloqueada": true
+    "bloqueada": true,
+    "demo": true
   },
   {
     "id": "aleluya-el-senor-resucito",
@@ -83,7 +89,8 @@ const CANCIONES = [
     "letra": "# Coro\n[La]Aleluya, [Mi]aleluya, [Mi7]aleluya, [La]aleluya,\n[La7]aleluya, [Re]aleluya, el [La]Señor [Mi7]resucitó. [La]\n\n# Estrofa 1\nEl [La]Señor [Mi]resucitó, [Mi7]cantemos con [La]alegría,\ndemos [Fa#m]gracias al [Re6]Señor, [La]alelu--ya. [Mi7] [La]\n\n# Estrofa 2\nEl pecado redimió, Cristo Dios resucitó:\nnueva vida nos donó, alelu-ya.\n\n# Estrofa 3\nCristo al cielo ya subió: en el mundo\nnos envía,\na ser testigos de su amor, aleluya.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "una-espiga",
@@ -94,18 +101,20 @@ const CANCIONES = [
     "letra": "U[Re]na espiga dorad[Sol]a por el sol,     [Re]\nel racimo que corta el viñador,          [La7]\nse convierte[Sol]n ahora en pan y vino de amor      [Re]\n             Mim         La7           Re     (Re7)\nen el cuerpo y la sangre del Señor.       (bis)\n\nCo[Re]mulgamos la mis[Sol]ma comunión.      [Re]\nSomos trigo del mismo sembrador.         [La7]\nUn molino, l[Sol]a vida, nos tritura con dolor.     [Re]\n             Mim         La7           Re     (Re7)\nDios nos hace Eucaristía en el amor.\n\nCo[Re]mo granos que h[Sol]an hecho el mismo [Re]pan,\ncomo notas que tejen un cantar,          [La7]\ncomo gotas d[Sol]e agua que se funden en el mar,    [Re]\n             Mim         La7           Re     (Re7)\nlos cristianos un cuerpo formarán.\n\nEn[Re] la mesa de Dio[Sol]s se sentarán.    [Re]\nComo hijos su pan comulgarán.            [La7]\nUna misma es[Sol]peranza caminando cantarán.        [Re]\n             Mim         La7           Re     (Re7)\nEn la vida como hermanos se amarán.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "a-edificar-la-iglesia",
     "titulo": "A Edificar la Iglesia",
     "autor": "",
     "categoria": "Entrada",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nA edificar la iglesia (3) del Señor\nHermano ven ayúdame\nHermana ven ayúdame,\nA edificar la Iglesia del Señor.\n\n# Estrofa 2\nYo soy la Iglesia, tu eres la Iglesia,\nSomos la Iglesia del Señor...\nLos pobres... los ricos.\nLos vivos... los muertos.\nLos buenos... los malos.\nSan Pedro... San Pablo.\nMaría... los Santos.\nLos negros... los blancos.",
     "youtube": "",
     "premium": false,
-    "bloqueada": true
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "abran-las-puertas",
@@ -116,7 +125,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nAbran las puertas, abran las puertas,\nÁbranlas al Redentor.\nAbran las puertas, abran las puertas,\nÁbranlas al Redentor.\n\n# Estrofa 2\nBendecid  al Señor, todos los Hijos de Dios,\nAlcemos las manos en el santuario\ny bendecid al Señor,\n\n# Estrofa 3\nAbran las puertas…",
     "youtube": "",
     "premium": false,
-    "bloqueada": true
+    "bloqueada": true,
+    "demo": false
   },
   {
     "id": "alabare",
@@ -127,7 +137,8 @@ const CANCIONES = [
     "letra": "# Coro\nAlabare, alabare\nAlabare a mi Señor (2)\n\n# Estrofa 1\nJuan vio el numero\nDe los redimidos\nY todos alababan al Señor,\nUnos cantaban, otros oraban\nY todos alababan al Señor.\n\n# Estrofa 2\nSomos tus hijos Dios Padre eterno,\nTu nos haz creado por tu amor,\nTe alabamos, te bendecimos\nY todos cantamos en tu honor.\n\n# Estrofa 3\nTodos unidos alegres cantamos,\nGloria y alabanzas al Señor.\nGloria al Padre, gloria al hijo,\nGloria al Espíritu de amor.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "el-amor-del-senor",
@@ -138,18 +149,20 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nEl amor del Señor es maravilloso\nel amor del Señor es maravilloso\nel amor del Señor es maravilloso\ngrande es el amor de Dios.\n\n# Estrofa 2\nTan alto que no lo puedo estar arriba de El\nTan bajo que no puedo estar abajo de El\ntan ancho que no puedo estar afuera de El\ngrande es el amor de Dios.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "jesus-esta-pasando",
     "titulo": "Jesús está pasando",
     "autor": "",
     "categoria": "Entrada",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nJesús está pasando por aquí\nJesús está pasando por aquí\nY cuando el pasa todo se transforma\nSe va la tristeza, llega la alegría\nY cuando el pasa todo se transforma\nLlega la alegría para ti y para mi\n\n# Coro\nAhora mismo, Señor ahora mismo,\nYo te pido que rompas las cadenas\nAhora mismo, Señor ahora mismo,\nYo te pido que rompas las cadenas\nY que las puertas del cielo sean abiertas\nY de virtud mi alma sea llena\nJesús está pasando por aquí…",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "mi-dios-esta-vivo",
@@ -160,7 +173,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nMi Dios está vivo, El no está muerto\nmi Dios está vivo, El no está muerto\nmi Dios esta vivo, El no está muerto\nlo siento en las manos\nlo siento en los pies\nlo siento en el alma\ny en todo mi ser,\n\n# Estrofa 2\nOh, oh, oh, oh, hay que nacer del agua,\noh, oh, oh, oh, hay que nacer del Espíritu de Dios,\noh, oh, oh, oh, hay que nacer del agua\ny del Espíritu de Dios\nhay que nacer del Señor.\n\n# Estrofa 3\n/ prepárate para que sientas / (3)\nEl Espíritu De Dios.\n/ déjalo que se mueva / (3)\nDentro de tu corazón.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "no-hay-dios-tan-grande-como-tu",
@@ -171,7 +185,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nNo hay Dios tan grande como Tu\nno lo hay, no lo hay.\nNo hay Dios tan grande como Tu\nno lo hay, no lo hay.\n\n# Estrofa 2\nNo hay Dios que pueda hacer las obras como las que haces Tu.\nNo hay Dios que pueda hacer las obras\ncomo las que haces Tu.\nNo es con espada, no es con ejército\nmas con tu SantoEspíritu. (bis)\n\n# Estrofa 3\n/Y la Iglesia se salvará/ 3 veces\ncon tu SantoEspíritu.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "si-tuvieras-fe",
@@ -182,7 +197,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n// Si tuviera fe como un granito de mostaza,\neso dice el Señor. //\n\n# Estrofa 2\n// Tu le dirías a las montañas:\nmuévanse, muévanse, muévanse//\n\n# Estrofa 3\n// Y las montañas se moverán,\nse moverán, se moverán. //\n\n# Estrofa 4\nY los enfermos se sanarán…\nY el que está triste se alegrará…",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "estamos-de-fiesta-con-jesus",
@@ -193,18 +209,20 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nEstamos de fiesta con Jesús;\nal Cielo queremos ir.\nEstamos reunidos en la mesa\ny es Cristo quien va a servir.\n\n# Coro\n/Poderoso es nuestro Dios/ x3\n\n# Estrofa 2\nEl sana, el salva:\npoderoso es nuestro Dios.\nBautiza y limpia:\npoderoso es nuestro Dios.\n\n# Estrofa 3\nSu amor nos demuestra por doquier,\nnos llena con su amistad,\nsu pan y su vino nos regala,\nel mismo se nos dará.\n\n# Estrofa 4\nEl Padre, el Hijo:\npoderoso es nuestro Dios;\nEspíritu Santo:\npoderoso es nuestro Dios.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "que-alegria-cuando-me-dijeron",
     "titulo": "Qué Alegría Cuando Me Dijeron",
     "autor": "",
     "categoria": "Entrada",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Coro\n¡Qué alegría cuando me dijeron:\n«Vamos a la casa del Señor»\n!Ya están pisando nuestros pies\ntus umbrales, Jerusalén.\n\n# Estrofa 1\nJerusalén está fundada\ncomo ciudad bien compacta.\nAllá suben las tribus, las tribus del Señor.\n\n# Estrofa 2\nSegún la costumbre de Israel,\na celebrar el nombre del Señor;\nen ella están los tribunales de justicia,\nen el palacio de David.\n\n# Estrofa 3\nDesead la paz a Jerusalén.\nVivan seguros los que te aman,\nhaya paz dentro de tus muros,\nen tus palacios seguridad.\n\n# Estrofa 4\nPor mis hermanos y compañeros,\nvoy a decir: «La paz contigo».\nPor la Casa del Señor, nuestro Dios,\nte deseo todo bien.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "jesucristo-me-dejo-inquieto",
@@ -215,7 +233,8 @@ const CANCIONES = [
     "letra": "# Coro\nJesucristo me dejó inquieto\nSu palabra me llenó de luz,\n/ Nunca más yo pude ver el mundo,\nsin sentir aquello que sintió Jesús/\n\n# Estrofa 1\nYo vivía muy tranquilo y descuidado\nY pensaba haber cumplido mi deber\nMuchas veces yo pensaba equivocado\nContentarme con la letra de la ley,\nMás después que mi Señor pasó\nNunca más mi pensamiento descansó.\nCoro: Jesucristo me dejó….\n\n# Estrofa 2\nYo creía estar seguro y realizado\nY dejaba descansar mi corazón\nY siguiendo por la vía equivocada\nCosechaba en mi vida una ilusión\nMás después que mi Señor pasó\nNunca más mi pensamiento descansó.\nCoro: Jesucristo me dejó….",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "hoy-vengo-a-decirte-gracias",
@@ -226,7 +245,8 @@ const CANCIONES = [
     "letra": "# Coro\nHoy vengo a decirte gracias,\ngracias por todo, Señor\nHoy vengo a decirte gracias,\ngracias por todo, Señor\nGracias, Señor, por la vida,\ngracias Señor por tu amor,\ngracias, Señor, por mis Padres,\ngracias por todo, Señor.\n\n# Estrofa 1\nGracias, Señor, por el agua,\ngracias, Señor, por el sol,\nGracias, Señor, por el viento,\ngracias por todo, Señor.\n\n# Estrofa 2\nGracias, Señor, por las manos,\ngracias, Señor, por la voz\ngracias, Señor, por los ojos,\ngracias por todo, Señor.\nGracias Señor por llamarme\na ser amigo de Dios\ngracias Señor por María\ngracias por todo Señor.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "yo-te-alabo-con-el-corazon",
@@ -237,7 +257,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nYo te alabo con el corazón,\nyo te alabo con la voz (bis)\nY si me falta la voz,\nyo te alabo con las manos,\ny si me faltan las manos,\nyo te alabo con los pies.\n\n# Estrofa 2\nY si me faltan los pies..",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "alzad-las-manos",
@@ -248,7 +269,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nAlzad las manos\nY dadle la gloria a Dios. (bis)\nAlzad las manos\nY alabarle como niños\nDel Señor.\n\n# Estrofa 2\nDios dijo a Noé construye una barca; (2)\ntoda ella hecha de madera\ncomo niños del Señor.\n\n# Estrofa 3\nLos animalitos subieron de dos en dos; (2)\nelefantes y pingüinos\ncomo niños del Señor.\n\n# Estrofa 4\nLos animalitos subieron de dos en dos; (2)\ncocodrilos y gorilas\ncomo niños del Señor.\n\n# Estrofa 5\nSi subes al cielo primero que yo\ndile a todos esos angelitos\nque también iré yo.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "que-alegria-es-venir",
@@ -259,7 +281,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nque alegría es venir,\na la casa de Dios,\nque alegría es participar\ndel pan de Dios (2)\n\n# Estrofa 2\nvayamos todos,  a la casa de Dios,\ncantad alegres, nuestra canción.\n\n# Estrofa 3\nVengamos todos, a la casa de Dios,\nCantar alegres a una misma voz.\n\n# Estrofa 4\nVengamos todos, a la casa de Dios,\nComamos todos del pan de Dios.\nPorque el Señor con nosotros está\nY nueva vida Él nos dará.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "venimos-hoy-a-tu-altar",
@@ -270,7 +293,8 @@ const CANCIONES = [
     "letra": "# Coro\nVenimos hoy a tu altar\nA cantarte Señor\n// pues tu eres la alegría\nDe nuestro corazón // (2)\n\n# Estrofa 1\nTú, hiciste los cielos\nLos llenas de estrellas,\nde luz y color\nTú, pintaste la aurora\nHiciste las nubes, las puestas de sol\nVenimos hoy a tu altar…\n\n# Estrofa 2\nTú, creaste la risa\nLa paz y la dicha, la felicidad\nTú, al darnos la vida\nNos das tus riquezas,\ntu eterna amistad\nVenimos hoy a tu altar…\n\n# Estrofa 3\nTú, nos diste a tu Madre\nNos diste tu Cuerpo,\ntu Sangre en manjar\nTú, nos diste esperanza\nLa fe y nos hiciste capaces de amar\nVenimos hoy a tu altar…\n\n# Estrofa 4\nNos has invitado a tu mesa\n\n# Estrofa 5\nSomos tu pueblo Señor,\nadquiridos por amor,\nnación santa, sacerdocio real.\nSomos linaje escogido,\npara anunciar las grandezas\nde aquel que nos llamó de\ntinieblas a luz.\n\n# Estrofa 6\nY hoy venimos a tu mesa\ncon un corazón\ndispuesto a celebrar\nun pedacito de cielo,\ncontemplamos al sentarnos\nal banquete pascual.\n\n# Coro\nNos has invitado a tu mesa,\nquieres compartirnos tu pan\na tu altar llegamos con alegría,\npara juntos celebrar\nla fracción del pan.\n\n# Estrofa 7\nY hoy venimos a tu mesa\ncon un corazón\ndispuesto a celebrar\nun pedacito de cielo,\ncontemplamos al sentarnos\nal banquete pascual.\nNos has invitado…",
     "youtube": "https://youtu.be/zwdA40vEydc?si=5cvXq7qz3kZ26AkW",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "ven-a-celebrar",
@@ -281,18 +305,20 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nVen a celebrar el amor de Dios\nSe derramará como agua limpia\nEmpapando nuestras vidas\nDe su presencia\n\n# Estrofa 2\nOs aseguro que yo estaré\ndonde dos o más  por mí os reunáis\nEs mejor forma de crecer\nen nuestra amistad\nen nuestra amistad\n\n# Estrofa 3\nNo has traído al desierto hoy\npara hablarnos al corazón\ny transformar nuestras vidas\ncon tus palabras de amor.",
     "youtube": "https://youtu.be/4uznsqikl6w?si=uH8TGGY-3GmA5vJP",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "vamos-cantando-al-senor",
     "titulo": "Vamos Cantando Al Señor",
     "autor": "",
     "categoria": "Entrada",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Coro\n/Vamos cantando al Señor:\nEl es nuestra alegría./\n\n# Estrofa 1\nLa luz de un nuevo día venció la oscuridad;\nque brille en nuestras almas la luz de la verdad.\n\n# Estrofa 2\nLa roca que nos salva es Cristo, nuestro Dios;\nlleguemos dando gracias a nuestro Redentor.\n\n# Estrofa 3\nUnidos como hermanos, venimos a tu altar,\nque llenes nuestras vidas de amor y de amistad.\nLos cielos y la tierra aclaman al Señor:\n«Ha hecho maravillas, inmenso es su amor».",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "ten-piedad-de-mi",
@@ -303,29 +329,32 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nTen piedad de mi, Señor,\nten piedad, ten piedad.\nTen piedad de mi, Señor,\nten piedad de mí.\n\n# Estrofa 2\nCristo, Cristo, ten piedad,\nten piedad, ten piedad.\nCristo, Cristo, ten piedad,\nten piedad de mí.\n\n# Estrofa 3\nTen piedad de mi, Señor,\nten piedad, ten piedad.\nTen piedad de mi, Señor,\nten piedad de mí.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "ten-piedad",
     "titulo": "Ten Piedad",
     "autor": "",
     "categoria": "Piedad",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nTen Piedad Señor ten piedad,\nSoy pecador ten piedad.\nTen Piedad Señor ten piedad,\nSoy pecador ten piedad.\n\n# Estrofa 2\nY de mí, Cristo apiádate,\nContra a ti, yo pequé.\nY de mí, Cristo apiádate,\nContra a ti, yo pequé.\n\n# Estrofa 3\nTen Piedad Señor ten piedad,\nSoy pecador ten piedad.\nTen Piedad Señor ten piedad,\nSoy pecador ten piedad.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "tu-que-siempre-nos-perdonas",
     "titulo": "Tu que siempre nos perdonas,",
     "autor": "",
     "categoria": "Piedad",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nTu que siempre nos perdonas,\nporque nos quieres mucho,\nTu que siempre nos perdonas,\nSeñor, ten piedad.\n\n# Estrofa 2\nTu que siempre nos escuchas,\nporque... Cristo, ten piedad.\n\n# Estrofa 3\nTu que siempre nos ayudas,\nporque... Señor, ten piedad.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "perdon-senor",
@@ -336,7 +365,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nPerdón Señor\nde tu pueblo te piedad\nperdón Señor\nenséñanos a perdonar (BIS)\n\n# Estrofa 2\npor el pecado del mundo\nPadre ten piedad\npor tanta desigualdad\nen la repartición del pan\ny por nuestra indiferencia\nPadre ten piedad\nante el dolor del que sufre\nsin amor techo ni hogar\n\n# Estrofa 3\nperdón Señor\nde tu pueblo ten piedad\nperdón Señor\nenséñanos a perdonar  (BIS).",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "cuantas-veces-senor-yo-peque",
@@ -347,7 +377,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nCuantas veces, Señor, yo pequé\nCuantas veces, Señor, yo pequé!\nMi Jesús, mi Jesús,\nyo te pido mil veces perdón.\n\n# Estrofa 2\nTe he clavado, Señor, en la Cruz (2)\nMi Jesús, mi Jesús,\nte he clavado, Señor, en la Cruz.\n\n# Estrofa 3\nTe prometo Señor, ser mejor\nMi Jesús, mi Jesús, (2)\nte prometo Señor, ser mejor.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "por-el-mundo-y-por-la-paz",
@@ -358,7 +389,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nPor el mundo y por la paz, Señor, ten piedad.\nPor el sol y las estrellas, Señor, ten piedad.\nPor los hombres y por los niños, Padre, ten piedad.\nPor aquellos que no aman, Padre, ten piedad.\nSeñor, ten piedad, piedad de nosotros, piedad.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "jesus-es-senor",
@@ -369,7 +401,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nJesús es Señor\nJesús es, Jesús es Señor, (3).\nAleluya, aleluya (3).\nGloria a Dios, gloria, gloria a Dios.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "canta-aleluya",
@@ -380,29 +413,32 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nCanta aleluya al Señor,\ncanta aleluya al Señor.\nCanta aleluya, canta aleluya,\ncanta aleluya al Señor",
     "youtube": "https://youtu.be/z9J0ILs5Jq8?si=x_Yy9_hMQ9PpGVFt",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "busca-primero",
     "titulo": "Busca Primero",
     "autor": "",
     "categoria": "Aclamación del Evangelio",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nBusca primero el Reino de Dios\nY toda su justicia,\nY todo lo demás se os dará\nPor añadidura\nAleluya, aleluya.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "alelu-aleluya",
     "titulo": "Alelu Aleluya",
     "autor": "",
     "categoria": "Aclamación del Evangelio",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nAlelu alelu alelu aleluya\ngloria a al Señor. (bis)\n\n# Estrofa 2\nGloria al Señor aleluya\nGloria al Señor aleluya\nGloria al Señor aleluya\ngloria al Señor.\nAlelu…",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "ale-aleluya",
@@ -413,7 +449,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nAle Ale Ale, luuuya\nAle Ale Ale, luuuya aa\nAle Ale Ale, luuuya\nAleluya\nAleluuuuyaa\nAleluya  Aleluuuuyaa",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "el-senor-es-nuestro-rey",
@@ -424,7 +461,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n/ Aleluya, Aleluya,\nEl Señor Es Nuestro Rey. / (2)",
     "youtube": "https://youtu.be/4iWMjgRvoTI?si=fgwJi0JCmbiiVvLV",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "aleluya-cfones",
@@ -435,7 +473,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nAlelu-ya - Alelu-ya,\nalelu-ya\nAlelu-ya, alelu-ya\n\n# Estrofa 2\nEl Padre me ha enviado\npara anunciar\nla Buena Nueva a los pobres, aleluya.",
     "youtube": "https://youtu.be/RblO1ZE4vbE?si=Ntd4TEy84pMNa0cL",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "aleluya-msp",
@@ -446,29 +485,32 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nAleluya, aleluya. (2)",
     "youtube": "https://youtu.be/psLH1FJ09q8?si=wLmwvoAQJ2Rrh5bS",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "gloria-aleluya",
     "titulo": "Gloria, Aleluya",
     "autor": "",
     "categoria": "Aclamación del Evangelio",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nGloria, gloria, aleluya,\ngloria, gloria, aleluya,\ngloria, gloria, alelu-ya,\nJesús es resucitó.\n\n# Estrofa 2\nEl Espíritu Divino\nque a la tierra Cristo envió,\ncomo viento huracanado,\ncomo fuego abrasador,\nseptiforme don del cielo\ny consuelo en la aflicción,\n¡poder renovador!",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "un-nino-se-te-acerco",
     "titulo": "Un Niño Se Te Acercó",
     "autor": "",
     "categoria": "Ofertorio",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nUn Niño Se Te Acercó\nUn niño se te acercó aquella tarde,\nSus cinco panes te dio para ayudarte,\nLos dos hicisteis que ya, no hubiera hambre\nLos dos hicisteis que ya, no hubiera hambre.\n\n# Estrofa 2\nLa tierra, el aire y el sol, son tu regalo\nY mil estrellas de luz, sembró tu mano.\nel hombre pone su amor y su trabajo,\nel hombre pone su amor y su trabajo.\n\n# Estrofa 3\nTambién yo quiero poner sobre tu mesa\nMis cinco panes que son una promesa\nde darte todo mi amor y mi pobreza,\nde darte todo mi amor y mi pobreza.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "te-presentamos-la-vida-senor",
@@ -479,18 +521,20 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nTe presentamos la vida, Señor,\nvida del pueblo, de fiesta y dolor:\ncampo y desierto, vida y silencio,\nte presentamos, Señor,\ncampo y desierto, vida y silencio,\nte presentamos, Señor.\n\n# Estrofa 2\nTe presentamos la vida, Señor,\nel pan y el vino en tu mesa estarán:\npan compartido, vino de fiesta,\ntu Cuerpo y Sangre serán,\npan compartido, vino de fiesta,\ntu Cuerpo y Sangre serán.\n\n# Estrofa 3\nTe presentamos la vida, Señor…,",
     "youtube": "https://youtu.be/AtZxLvnj1Ro?si=K40KOBgBxSsWEYQ6",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "te-presentamos-el-vino-y-el-pan",
     "titulo": "Te presentamos el Vino y el Pan",
     "autor": "",
     "categoria": "Ofertorio",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\n/Te presentamos el vino y el pan\nbendito seas por siempre Señor/\n\n# Estrofa 2\nBendito seas Señor,\npor este pan que nos diste,\nfruto de la tierra\ny del trabajo de los hombres.\nBendito seas Señor,\nel vino tu nos lo diste,\nfruto de la tierra\ny del trabajo de los hombres.\n\n# Estrofa 3\nTe presentamos el vino y el pan\nbendito seas por siempre Señor.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "reunidos-senor-marco-lopez",
@@ -501,7 +545,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nReunidos, Señor ante tu altar,\nte ofrecemos el vino y el pan\nacéptalos, pues luego serán\ntu Cuerpo y Sangre, Señor (bis)\n\n# Estrofa 2\nY suba ante ti\nnuestra humilde ofrenda de amor\ny junto al fruto de nuestro trabajo\ntambién recibe nuestro corazón. (bis)",
     "youtube": "https://youtu.be/YXMYXSg2uyQ?si=ythT522vlCcWnrst",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "en-su-mesa-hay-amor",
@@ -512,7 +557,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nEl Señor nos ha reunido junto a El,\nEl Señor nos ha invitado a estar con El,\n/ en su mesa hay amor, la promesa del perdón,\nY en el vino y pan, su corazón. / (2)\n\n# Estrofa 2\nCuando Señor, tu voz, llega en silencio a mí,\ny mis hermanos me hablan de Ti,\nsé que a mi lado estás,\nte sientas junto a mí, acoges mi vida y oración.",
     "youtube": "https://youtu.be/Ura2GrCdqm8?si=ad2zd2Ikzp-LGMkW",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "padre-bendito",
@@ -523,51 +569,56 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nPadre bendito te presentamos\nEstas ofrendas  de pan y vino\nPara que sea convertido\nEn  Cuerpo y Sangre\nDe tu hijo Cristo.\n\n# Estrofa 2\nPadre bendito te presentamos\nEstas ofrendas de nuestros\nCampos\nPara que sea convertido\nEn Cuerpo y Sangre de tu hijo\nCristo.\n\n# Estrofa 3\nQue por amor a los hombres\nEn la Cruz nos fue entregado\nFue por amor.      A sus hermanos.\nQue por amor a nosotros\nSu Sangre ha derramado\nEn una Cruz nos ha salvado\n\n# Estrofa 4\nPadre bendito te ofrecemos\nUn corazón  arrepentido\nPues tu Señor no lo desprecias\nPor pecadores murió tu hijo.",
     "youtube": "https://youtu.be/_4523kipc20?si=2jO5dWULIiYcfl_U",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "ofrenda-de-amor",
     "titulo": "Ofrenda De Amor",
     "autor": "",
     "categoria": "Ofertorio",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nPor los niños que empiezan la vida,\npor los hombres sin techo ni hogar,\npor los pueblos que sufren la guerra,\nte ofrecemos el vino y el pan.\n\n# Coro\n/Pan y vino sobre el altar\nson ofrendas de amor.\nPan y vino serán, después,\ntu Cuerpo y Sangre, Señor./\n\n# Estrofa 2\nPor los hombres que viven unidos,\npor los hombres que buscan la paz,\npor los pueblos que no te conocen,\nte ofrecemos el vino y el pan.\n\n# Estrofa 3\nPor aquellos a quienes queremos,\npor nosotros y nuestra amistad,\npor los vivos y por los difuntos,\nte ofrecemos el vino y el pan.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "santo-es-el-senor",
     "titulo": "Santo es el Señor",
     "autor": "",
     "categoria": "Santo",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nSanto, Santo, Santoes el Señor,\nDios del universo.\nLlenos están el cielo y la tierra\nde tu glo- oooria.\nHosanna, hosanna,\nHosanna en el cielo.\n\n# Estrofa 2\nBendito el que viene en el nombre del Señor,\nHosanna Hosanna, hosanna,\nHosanna en el cielo.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "santo-dicen-los-querubines",
     "titulo": "Santo dicen los querubines",
     "autor": "",
     "categoria": "Santo",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nSanto, Santo, Santo, dicen los querubines\nSanto, Santo, Santo, es nuestro Rey Yahvé\nSanto, Santo, Santo, es el que nos redime,\nporque mi Dios es Santo\nla tierra llena de su gloria es,\nporque mi Dios es Santo\nla tierra llena de su gloria es\n\n# Estrofa 2\n/Cielo y tierra pasarán\nmas tu palabra no pasará/\nNo, no, no pasará,\nno, no, no pasará.\n\n# Estrofa 3\nBendito es el que viene en el nombre del Señor,\nla gloria a Jesucristo, el hijo de David,\nHosanna en las alturas a nuestro Salvador:\n¡bendito es que viene en el nombre del Señor!\n¡bendito es que viene en el nombre del Señor!",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "santo-colombiano",
     "titulo": "Santo Colombiano",
     "autor": "",
     "categoria": "Santo",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nSanto es el Señor, mi Dios,\nDigno de alabanza,\na Él el poder,\nel honor y la gloria. (bis)\nHosanna, Hosanna,\nHosanna, Oh Señor.(Bis)\n\n# Estrofa 2\nBendito el que viene\nEn nombre del Señor,\ncon todos los Santos\ncantamos para Ti. (bis)",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "santo-es-el-senor-cfones",
@@ -578,18 +629,20 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nSanto, Santo, Santoes el Señor\nDios del Universo, Santoes el Señor\n\n# Estrofa 2\nEl cielo y la tierra están llenos de tu gloria\nHosanna en el cielo\n\n# Estrofa 3\nBendito es el que viene en el nombre del Señor\nHosanna en el cielo",
     "youtube": "https://youtu.be/87yOdDpoSFs?si=7sN8EJ4y8AUI8ZK-",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "cordero-panamericano",
     "titulo": "Cordero Panamericano",
     "autor": "",
     "categoria": "Cordero de Dios",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nCordero de Dios, Cordero de Dios\nque quitas el pecado del mundo\nten piedad (ten piedad) de nosotros,\nten piedad (ten piedad) de nosotros(BIS)\nCordero de Dios, Cordero de Dios\nque quitas el pecado del mundo\nDanos (Danos) la paz",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "cordero-de-dios-1-a-mejia",
@@ -600,7 +653,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nCordero de Dios que quitas\nel pecado del mundo,\nten piedad de nosotros,\nten piedad de nosotros, (x2)\n\n# Estrofa 2\nCordero de Dios\nque quitas el pecado del mundo,\nDanos la paz; danos la paz,\ndanos, danos, danos la paz.\ndanos, danos, danos la paz.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "cordero-de-dios-leiva",
@@ -611,7 +665,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nCordero de Dios,\nTú que quitas el pecado del mundo,\nten piedad de nosotros, \nCordero de Dios.",
     "youtube": "https://youtu.be/rKzFCiduK-c?si=AgjC0KX9D-98yzE8",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "yo-tengo-un-amigo",
@@ -622,18 +677,20 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nYo tengo un amigo que me ama,\nme ama, me ama.\nYo tengo un amigo que me ama,\nsu nombre es Jesús.\nQue me ama, que me ama,\nque me ama con su tierno Amor (2)\n\n# Estrofa 2\nTú tienes un amigo…\nTenemos un amigo…",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "eucaristia",
     "titulo": "Eucaristía",
     "autor": "",
     "categoria": "Cantos de Comunión",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nPan transformado en el Cuerpo de Cristo\nVino transformado en la Sangre del Señor\n\n# Estrofa 2\nEucaristía milagro de amor\nEucaristía, presencia del Señor (2)\n\n# Estrofa 3\nCristo nos dice: 'Tomen y coman',\nEste es mi Cuerpo que ha sido entregado\n\n# Estrofa 4\nCristo en persona nos viene a liberar,\nDe nuestro egoísmo y la división fatal\n\n# Estrofa 5\nEste alimento renueva nuestras fuerzas,\npara caminar a la gran liberación\n\n# Estrofa 6\nCon este pan tenemos vida eterna,\nCristo nos invita a la gran Resurrección\n\n# Estrofa 7\nEn la familia de todos los cristianos,\nCristo quiere unirnos en la paz y en el amor.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "milagro-de-amor",
@@ -644,7 +701,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nJesús, aquí presente en forma real\nTe pido un poco más de fe y de humildad\nQuisiera poder ser digno de compartir\nContigo el milagro más grande de amor\n\n# Estrofa 2\nMilagro de amor tan infinito\nEn que tú mi Dios te has hecho\nTan pequéño y tan humilde para entrar en mi\n\n# Estrofa 3\nMilagro de amor tan infinito\nEn que tú mi Dios te olvidas\nDe tu gloria y de tu majestad por mi\n\n# Estrofa 4\nY hoy vengo, lleno de alegría\nA recibirte en esta Eucaristía\nTe doy gracias por llamarme a esta cena\nPorque aunque no soy digno\nVisitas tú mi alma\n\n# Estrofa 5\nMilagro de amor…\n\n# Estrofa 6\nGracias Señor\nPor esta comunión",
     "youtube": "https://youtu.be/e-sTTcgWDi8?si=Xk_9UW-zDZKpFwXN",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "tu-nos-invitas-jesus",
@@ -655,7 +713,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nTu nos invitas, Jesús.\nPara ti siempre somos importantes.\nen tu mesa nos das la comida mejor:\nel Pan de la Vida y el Amor,\nel Pan de la Vida y el Amor.\n\n# Estrofa 2\nDejad que los niños se acerquen,\ndejad que vengan a mi.\nDejad que los niños se acerquen,\ndejad que vengan a mi. (2)\n\n# Estrofa 3\nUn mismo Pan se nos da,\nes el pan de tu Cuerpo y de tu Sangre\nque nos une en familia\ny nos llena de Dios,\nel pan de la Vida y del Amor,\nel pan de la Vida y del Amor.\n\n# Estrofa 4\nPara crecer y vivir cada dia\nTendré que alimentarme;\npara el alma nos das la comida mejor:\nel pan de la Vida y del Amor,\nel pan de la Vida y del Amor.",
     "youtube": "https://youtu.be/hktSZsOw2W0?si=OwcMGaukaLa20CO2",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "ya-no-eres-pan-y-vino",
@@ -666,7 +725,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nYa no eres pan y vino\nAhora que eres Cuerpo y Sangre\nVives en mi\nDe rodillas yo caigo al contemplar tu bondad\n¿Cómo no te voy a adorar?\n\n# Estrofa 2\nMientras te pierdes en mis labios\nTu gracia va inundando todo mi corazón\nPor esa paz que me llena de alegría mi ser\n¿Cómo no te voy a adorar?\n\n# Estrofa 3\nSeñor Jesús, Mi salvador\nAmor eterno, amor divino\nYa no falta nada\nLo tengo todo te tengo a Ti...\nYa no falta nada\nLo tengo todo te tengo a Ti...\n\n# Estrofa 4\nDueño y Rey del universo\n¿Cómo puede ser posible que busques mi amor?\nTu tan grande y yo pequéño y te fijas en mi\n¿Cómo no te voy a adorar?\n\n# Estrofa 5\nDe rodillas yo te pido\nQue el día cuando tu me llames, sea como hoy\nPara mirarte a los ojos y poderte decir\nQue: ¿cómo no te voy adorar?\nSeñor Jesús Mi salvador\nAmor eterno, amor divino\n/Ya no falta nada, lo tengo todo, te tengo a ti/",
     "youtube": "https://youtu.be/vNAIk2XCVUQ?si=CL0oKxtIEdgDIRkj",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "jesus-amigo",
@@ -677,7 +737,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nHoy te quiero contar Jesús Amigo,\nque contigo estoy feliz,\nSi tengo tu amistad lo tengo todo,\npues estás dentro de mí,\n\n# Estrofa 2\nDespués de comulgar\nme haces como Tú,\nme llenas con tu paz,\nEn cada pedacito de este Pan,\ncompleto estás y así te das.\n\n# Estrofa 3\nEstás ahí por mí, porque conoces\nque sin ti pequéño soy,\nDe ahora en adelante,\nnada nos separará ya lo verás.\n\n# Coro\nTe escondes en el Pan\ny aunque no te pueda ver,\nte puedo acompañar,\nes mi lugar preferido.\nHoy quiero comulgar\nabrirte mi corazón,\ny así de par en par\neres mi mejor amigo.\n\n# Estrofa 4\nDos mil años atrás a tus amigos,\ninvitaste a cenar,\nahí les prometiste que con ellos,\npor siempre ibas a estar.\n\n# Estrofa 5\nY ahora cada vez que el sacerdote\neleva el Pan en el altar,\nme pongo de rodillas porque sé\nque en esa Hostia Tú estás.\n\n# Estrofa 6\nTe escondes en el Pan\ny aunque no te pueda ver,\nte puedo acompañar,\nes mi lugar preferido.\n\n# Estrofa 7\nHoy quiero comulgar\nabrirte mi corazón,\nasí de par en par\neres mi mejor amigo,\n\n# Estrofa 8\nMe vuelves a salvar\ncomo lo hiciste en la Cruz,\ny en cada Misa Tú repites tu sacrificio.\nJesús., mi amigo...",
     "youtube": "https://youtu.be/ZZirsgUO9Fs?si=NiGeq2R6195LgARA",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "eucaristia-estacion-cero",
@@ -688,7 +749,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nPan y vino\nCuerpo y Sangre\nPresencia viva mi Cristo Jesús\n\n# Estrofa 2\nAmor eterno, inagotable\nAmor divino mi Cristo Jesús\nFuente de vida\nAmor que brota\nDe lo profundo de tu corazón\n\n# Estrofa 3\nEucaristía, Eucaristía\nPresencia viva mi Cristo Jesús\nEucaristía, Eucaristía\nPresencia viva mi Cristo Jesús\n\n# Estrofa 4\nPresencia viva mi Cristo Jesús\nPan y vino\nCuerpo y Sangre\nPresencia viva mi Cristo Jesús\n\n# Estrofa 5\nFuente de vida\nAmor que brota\nDe lo profundo de tu corazón\n\n# Estrofa 6\nEucaristía, Eucaristía…",
     "youtube": "https://youtu.be/_g60bn1QscU?si=pGy9wKTbVRwlv1Xt",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "jesus-esta-vivo",
@@ -699,7 +761,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nTanto amó Dios al mundo\nque a su único hijo, él entregó\nPara que todo aquel que crea en Él\nno muera mas tenga vida eterna\n\n# Estrofa 2\nJesús está vivo Jesús está vivo\nEs el pan de vida, bajado del Cielo\nJesús está vivo   Jesús está vivo\nSu Sangre me sana, y sacia mi alma\nEstá vivo, está presente,\nmi Dios es real\ny yo le adoro reverente",
     "youtube": "https://youtu.be/c6uKRLNcheo?si=AbACXOzvajCTs5pi",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "ante-tu-presencia",
@@ -710,7 +773,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nSeñor me tienes ante tu presencia\nCon dulce voz a ti yo clamare\nEscucha OH Señor mi oración\nQue te ofrezco\n\n# Estrofa 2\nen ti me gozaré Señor Jesús\nA ti mi vida entera rendiré\nTu gracia y tu poder me ayudaran\nPara  siempre\n\n# Estrofa 3\n//oh Señor Jesús, úngeme\ny hazme dócil como tú quieras\ntómame y dame fuerzas\npara seguir tu camino //",
     "youtube": "https://youtu.be/_joArKSQFDM?si=RGnkoxw9-TTGwh-C",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "eucaristia-kairy-marquez",
@@ -721,7 +785,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nAhí en la Eucaristía\nEstá tu presencia, Señor\nAhí en la Eucaristía\nEstá la prueba de que tú vives, Cristo\n\n# Estrofa 2\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\n\n# Estrofa 3\nAhí en la Eucaristía\nEstá nuestra comunión\nOh, ahí en la Eucaristía\nEsta nuestra reconciliación\n\n# Estrofa 4\nTu Cuerpo, tu Sangre….\n\n# Estrofa 5\nY no puedo esperar\nHasta que estés aquí en mí\nPorque es tu Cuerpo vivo, Cristo\nQue estoy a punto de adquirir\nNo, no, no puedo esperar\nHasta que estés aquí en mí\n\n# Estrofa 6\nPues es el caliz de tu Sangre\nQue me ayuda a vivir\nTu Cuerpo, tu Sangre…\n\n# Estrofa 7\nOh, pan de vida\nEres tú, Jesús",
     "youtube": "https://youtu.be/BYyqtICvpDQ?si=LPgGLOwGJHXPdyhv",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "al-recibirte-en-comunion",
@@ -732,18 +797,20 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nSeñor Jesús\nDulce bien de mi alma\nAl recibirte en comunión\nSeñor Jesús\nDulce bien de mi alma\nAl recibirte en comunión\nEn lugar de sentirte a ti dentro de mí\nMe siento yo dentro de ti\nEn tu mismo Cuerpo\nEn lugar de sentirte a ti dentro de mí\nMe siento yo dentro de ti\nEn tu mismo Cuerpo\nSeñor Jesús\nDulce bien de mi alma\nAl recibirte en comunión\nSeñor Jesús\nDulce bien de mi alma\nAl recibirte en comunión\nMe parece que mi alma duerme\nEn brazos del amor\nSe desvanece en suavidad\nY solo sabe amar\nMe parece que mi alma duerme\nEn brazos del amor\nSe desvanece en suavidad\nY ya no sabe otra cosa más que amar amar\nYa no sabe otra cosa más que amar",
     "youtube": "https://youtu.be/cZNuio5CijQ?si=M6A0Z_YYpxvTQnG4",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "el-amor-se-hizo-pan-y-vino",
     "titulo": "El Amor Se Hizo Pan Y Vino",
     "autor": "",
     "categoria": "Cantos de Comunión",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nEl amor se hizo pan y vino,\ny su emblema es una Cruz,\nhubo un hombre hace mucho tiempo\nla gente lo llamó Jesús.\n\n# Estrofa 2\nSus palabras son como semilla\ncanto nuevo de libertad,\nvida que se construye día a día\nentregando el pan de la unidad.\n\n# Estrofa 3\nEse Es El Hombre, Tú Lo Debes\nDe Seguir,\nEse Es El Hombre,\nEs El Hombre De La Paz.(Bis)\n\n# Estrofa 4\nNos habló de justicia y de paz\nse entregó para los pobres,\nvio dolor y desesperación\ny nos dejó la esperanza.\n\n# Estrofa 5\nRompe las cadenas del odio\ncon palabras de libertad,\nliberando a los oprimidos\ny construyendo la paz.\n\n# Estrofa 6\nEse Es El Hombre, Tú Lo Debes De Seguir,\nEse Es El Hombre, Es El Hombre\nLa Paz.(Bis)",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "jesus-tu-eres-rey-de-reyes",
@@ -754,7 +821,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nJesús tu eres\nla persona\nmas importante\nde este lugar. (2)\n\n# Estrofa 2\nRey de reyes\nSeñor de Señores\naquel que mi vida cambio. (2)",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "no-me-habeis-elegido",
@@ -765,7 +833,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nNo me habéis vosotros elegido,\nfui yo mismo quien os elegí;\nya no os llamo siervos sino amigos,\npermaneceréis, para siempre, junto a mí.\n\n# Estrofa 2\nRecordad mi nuevo mandamiento,\npor el que os reconocerán;\nque os améis los unos a los otros,\ncomo yo os amé, para siempre, hasta el final.\n\n# Estrofa 3\nTomad y comed, esto es mi Cuerpo,\nque se entrega por vuestra salud;\ntomad y bebed, esta es mi Sangre,\nque yo derramé por vosotros en la Cruz.\n\n# Estrofa 4\nYo soy la verdad, soy el camino,\nsoy la vida y la resurrección;\nquien me sigue no andará perdido,\npues yo soy la luz, yo soy vuestra salvación.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "lo-mas-grande",
@@ -776,7 +845,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nLo mas grande  lo mas sublime\nlo mas grande  lo mas sublime\nJesús Eucaristía  Jesús Eucaristía (Bis)\n\n# Estrofa 2\nsu Cuerpo  su Sangre\nsu presencia viva\nsu Cuerpo su Sangre\nsu presencia viva\n\n# Estrofa 3\nlo mas grande lo mas sublime\nlo mas grande lo mas sublime\nJesús Eucaristía  Jesús Eucaristía\n\n# Estrofa 4\nsu alma su espiritu\nsu presencia viva\nsu alma su espiritu\nsu presencia viva\n\n# Estrofa 5\nsu Cuerpo su Sangre\nsu presencia viva… x4",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "eucaristia-pablo-sanchez",
@@ -787,7 +857,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nEs un misterio tenerte,\nen tan sencilla apariencia.\nQue gran regalo nos diste\ncon tu sublime presencia.\n\n# Estrofa 2\nAquí te quedas para estar.\nAquí te ofreces para dar.\nEucaristía presencial real.\nCuerpo, Sangre, alma y divinidad.\n\n# Estrofa 3\nVen y sacia nuestra hambre y sed.\nPan de Vida danos de comer.\nTu Reino se hace banquete\ny así en torno a tu mesa.\nTu gracia nos hace parte,\ny anticipa tu fiesta.\n\n# Estrofa 4\nAquí te quedas, para estar.\nAquí te ofreces para dar.\nEucaristía presencial real.\n\n# Estrofa 5\nCuerpo, Sangre, alma y divinidad.\nVen y sacia nuestra hambre y sed.\nPan de Vida danos de comer.\nTú, Jesús, Pan de Vida.\nTú, Jesús, Pan de vida.\nTú, Jesús, Pan de Vida.\nTú, Jesús, Pan de vida.\nEucaristía presencial real.\nCuerpo, Sangre, alma y divinidad.\nEucaristía presencial real.\nCuerpo, Sangre, alma y divinidad.\nEucaristía presencial real.\nCuerpo, Sangre, alma y divinidad.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "ahi-en-la-eucaristia",
@@ -798,7 +869,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nAhí en la Eucaristía\nEstá tu presencia, Señor\nAhí en la Eucaristía\nEstá la prueba de que tú vives, Cristo\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\nAhí en la Eucaristía\nEstá nuestra comunión\nOh, ahí en la Eucaristía\nEsta nuestra reconciliación\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\nY no puedo esperar\nHasta que estés aquí en mí\nPorque es tu Cuerpo vivo, Cristo\nQue estoy apunto de adquirir\nNo, no, no puedo esperar\nHasta que estés aquí en mí\nPues es el caliz de tu Sangre\nQue me ayuda a vivir\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\nTu Cuerpo (vivo Cristo), tu Sangre\nMe da vida, Señor, me da vida\nOh, pan de vida\nEres tú, Jesús",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "bendita-eucaristia",
@@ -809,7 +881,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nA ti el mas inocente, a ti el omnipotente,\na ti mi rey y mi Dios, mi Dios y salvador te crucificaron,\ntus manos y pies clavaron, y tu lo aceptabas,\nmas no te basto, com morir si no que te quedaste aqui.\n\n# Coro\nBendita Eucaristía, bendito señor\nadoro tu Cuerpo, que entregaste por amor,\nbensita Eucaristía, bendito señor,\nya no soy yo quien vive, eres tu quien vive en mi.\n\n# Estrofa 2\nyo puedo recibirte, tomarte y acerte parte de mi,\nsi eres mi Dios, tan pequeño, esn ese pedazo de pan\n\n# Coro\nBendita Eucaristía, bendito señor\nadoro tu Cuerpo, que me entregaste por amor,\nbensita Eucaristía, bendito señor,\nte consagro mi vida, y tuya es mi vos",
     "youtube": "https://youtu.be/L_viqeQVVLo?si=kVAN8mjoqfphNqVr",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "maria-mirame",
@@ -820,7 +893,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nMaría, mírame\nMaría, mírame\nSi Tú me miras\nÉl también me mirara\nMadre mía, mírame\nDe la mano llévame\nMuy cerca de Él\nQue ahí me quiero quedar\n\n# Estrofa 2\nMaría, cúbreme con tu manto\nQue tengo miedo, no sé rezar\nQue por tus ojos misericordiosos\nTendré la fuerza, tendré la paz\n\n# Estrofa 3\nMaría, mírame…\n\n# Estrofa 4\nMadre, consuélame de mis penas\nEs que no quiero ofenderle más\nQue por tus ojos misericordiosos\nQuiero ir al cielo y verlos ya\n\n# Estrofa 5\nMaría, mírame…",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "virgen-del-rosario",
@@ -831,7 +905,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nMadre nuestra que diste valor\nMadre tierna que diste perdón\nVirgen del Rosario eres amor\nVives siempre en nuestro corazón.\n\n# Estrofa 2\nEn las luchas tu siempre estarás\nDando aliento, calma, dando paz\nTú derramas semillas de amor\nEn nuestra oración siempre estarás.\n\n# Estrofa 3\n/ Madre nuestra Madre tierna\nVives siempre en mí,\nTú me llevas siempre a la verdad\nMi camino y mi oración\nSiempre a ti, llegarán\nVirgen nuestra tu eres la bondad /2\n\n# Estrofa 4\nCon gran fe yo he de evangelizar\nHasta al fin vivir en hermandad,\nCon esfuerzo yo he de conquistar\nQue nuestra alma tenga libertad.\n\n# Estrofa 5\nEn las luchas tu siempre estarás\nDando aliento, calma, dando paz\nTú derramas semillas de amor\nEn nuestra oración siempre estarás.\n\n# Estrofa 6\n/ Madre nuestra Madre tierna\nVives siempre en Mí,\nTú me llevas siempre a la verdad\nMi camino y mi oración\nSiempre a ti, llegarán\nVirgen nuestra tu eres la bondad /2",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "el-angelus",
@@ -842,7 +917,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nEl Angel vino de los cielos\nEl Angel vino de los cielos\ny a María le anunció\nel gran misterio de Dios hombre\nque a los cielos admiró.\nCoro\n\n# Estrofa 2\nVirgen Madre, Señora nuestra\nrecordando la encarnación\nte cantamos tus hijos todos\ncomo Estrella de Salvación.\n\n# Estrofa 3\nYo soy la esclava del Señor, mi Dios,\nla Virgen dijo al contestar\nque se haga en mí según has dicho,\nse cumpla en mí tu voluntad.\n\n# Estrofa 4\nY el Verbo para redimimos\ntomó su carne virginal\nvivió hecho hombre entre nosotros\nlibrándonos de eterno mal.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "oh-maria-madre-mia",
@@ -853,18 +929,20 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n¡Oh María,    Madre mía,\noh consuelo    del mortal,\namparadme    y guiadme\na la Patria    Celestial!\n\n# Estrofa 2\nCon el Angel de María\nlas grandezas celebrad,\ntransportados de alegría\nsus finezas publicad.\n\n# Estrofa 3\nQuien a Ti ferviente clama\nhalla alivio en el pesar,\npues tu nombre luz derrama,\ngozo y bálsamo sin par.\n\n# Estrofa 4\nPues te llamo con fe viva,\nmuestra, oh Madre, tu bondad;\na mí vuelve compasiva,\nesos ojos de piedad.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "te-vengo-a-decir",
     "titulo": "Te vengo a decir",
     "autor": "",
     "categoria": "Cantos a la Virgen María",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\n/Te vengo a decir,/ (bis)\noh Madre de Dios,\n/que ruegues por mí/ (bis)\na nuestro Señor.\n\n# Estrofa 2\n/Te vengo a pedir,/ (bis)\npor tu intercesión,\namar como Tú, llevar a Jesús\nen mi corazón.\n\n# Estrofa 3\n/Yo quiero crecer/ (bis)\nen fe y oración;\n/yo quiero vivir/ (bis)\nla vida de Dios.\n\n# Estrofa 4\n/Te vengo a pedir,/ (bis)\npor tu intercesión,\namar como Tú, llevar a Jesús\nen mi corazón.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "maria-de-mi-ninez",
@@ -875,18 +953,20 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nCuando era pequéño, muy pequéño,\nrecuerdo que siempre junto a mi cama\njuntaba las manos y de prisa rezaba;\nA mas rezaba como quien amaba.\n\n# Estrofa 2\nLas  ave Marías yo rezaba y siempre comia\nunas palabras. Y a veces cansado me\nquedaba dormido, mas dormia como\nA quien amaba.\n\n# Estrofa 3\nAve María de mi Señor el tiempo pasa,\nno vuelve atras; siento nostalgia de aquellos dias\ncuando dormia pensando en ti:\n\n# Estrofa 4\nAve María Madre de Dios,\nAve María, Madre de Dios.\n\n# Estrofa 5\nDespues fui creciendo, fui creciendo y\neche en el olvido mis oraciones.\nLlegaba a mi casa disgustado y\ncansado y de hablarte nuna me acordaba\nAnduve dudando, hoy recuerdo de cosas divinas\nque me  ensenaban: en mi estaba muerto aquel\nniño inocente, mis caminos de ti se alejaban\n\n# Estrofa 6\nTu amor es muy grande, no se acaba;\nla Madre no olvida al que se marcha.\nHoy llego a mi casa disgustado y cansado,\npero rezo como ayer rezaba.\nLas mismas palabras que ahora rezo,\na  veces olvido y hasta me duermo;\nno  importa dormirse sin rezar lo debido,\npues esta mi corazon contigo.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "madre-mia",
     "titulo": "Madre mía",
     "autor": "",
     "categoria": "Cantos a la Virgen María",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nMadre mía, que estas en los cielos,\nEnvía consuelo a mi corazón.\nCuando, triste, llorando te llame,\nTu mano derrame feliz bendición.\n\n# Estrofa 2\nLuna bella de eternos fulgores,\nmanojo de flores de aroma inmortal.\nEmbalsame mi pecho tu ambiente\ny alumbra mi mente y alumbra mi mente  tu luz celestial.\n\n# Estrofa 3\nEn Ti sola, abrigue confianza,\ntoda mi esperanza la puse yo en Ti.\nSiempre, oh Madre, tu amparo reciba\nen tanto que viva, en tanto que viva amándote a Ti.\n\n# Estrofa 4\nA tus manos, oh Madre, me llego,\nRecógeme luego contigo a vivir.\nQue del mundo la gloria ha dejado,\ny estoy empeñado, y estoy empeñado a Cristo en seguir.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "madre-eres-ternura",
@@ -897,18 +977,20 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nMadre, eres ternura\nEres una flor\nBlanca y preciosa\nLlena de amor\nSí, Señora, ven a mí\nVen, ven a mí\nCúbreme con tu manto\nLleno de amor\nMadre, eres ternura\nEres una flor\nBlanca y preciosa\nLlena de amor\nSí, Señora, ven a mí\nVen, ven a mí\nCúbreme con tu manto\nLleno de amor\nSí, Señora, ven a mí\nVen, ven a mí\nCúbreme con tu manto\nLleno de amor",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "junto-a-ti-maria",
     "titulo": "Junto A Ti María",
     "autor": "",
     "categoria": "Cantos a la Virgen María",
-    "tono": "",
+    "tono": "Do",
     "letra": "# Estrofa 1\nJunto a ti, María,\ncomo un niño quiero estar.\nTómame en tus brazos,\nguíame en tu caminar.\n\n# Estrofa 2\nQuiero que me eduques\nque me enseñes a rezar\nhazme transparente,\nlléname de paz.\n\n# Estrofa 3\nMadre (8 veces).\n\n# Estrofa 4\nGracias, Madre mía,\npor llevarnos a Jesús.\nHaznos más humildes,\ntan sencillos como tú.\n\n# Estrofa 5\nGracias, Madre mía,\npor abrir tu corazón,\nporque nos congregas\ny nos das tu amor.\nMadre (8 veces).",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": true
   },
   {
     "id": "quiero-decir-que-si",
@@ -919,7 +1001,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nQuiero decir que sí,\ncomo tú, María,\nComo tú, un día, como tú, María.\nQuiero decir que sí,.. (4)\nQuiero negarme a mi,\ncomo tú, María,...\nQuiero negarme a mí,...(4)\nQuiero seguirle a Él,\ncomo tú, María,....\nQuiero seguirle a Él,.. (4)",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "santa-maria-del-amen",
@@ -930,7 +1013,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nMadre de todos los hombres,\nenséñanos a decir\namén.\nCuando la noche se acerca\ny se oscurece la fe.\nCuando el dolor nos oprime\ny la ilusión ya no brilla.\n\n# Estrofa 2\nCuando aparece la luz\ny nos sentimos felices.\n\n# Estrofa 3\nCuando nos llegue la muerte\ny Tú nos lleves al cielo.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "contigo-maria",
@@ -941,7 +1025,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nQuiero caminar contigo María\nPues tu eres mi Madre eres mi guía\nTu eres para mi el mas grande ejemplo\nDe santidad de humildad\nQuiero caminar contigo María\nNo solo un momento todos los dias\nNecesito tu amor de Madre\nTu interseción ante el Señor\nGuía mis pasos llevame al cielo\nBajo tu manto no tengo miedo\nLlena de gracia, Ave María\nHoy yo te ofrezco toda mi vida\nQuiero caminar contigo María\nMadre en el dolor y en la alegría\nTú que fuiste fiel hasta el extremo\nFiel en la Cruz, fiel a Jesús\nGuia mis pasos llevame al cielo\nBajo tu manto no tengo miedo\nLlena de gracia, Ave María\nHoy yo te ofrezco toda mi vida\nCelestial princesa mírame con compasión\nHoy te doy mi alma, vida y corazón\nGuía mis pasos llevame al cielo\nBajo tu manto no tengo miedo\nLlena de gracia, Ave María\nHoy yo te ofrezco toda mi vida\nGuía mis pasos llévame al cielo\nBajo tu manto no tengo miedo\nLlena de gracia, Ave María\nHoy yo te ofrezco toda mi vida.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "la-fe-de-maria",
@@ -952,7 +1037,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nQue hubiese pasado\nSi ella hubiese dicho que no\nO ignorado o dilatado\nEl anuncio de tu ángel de amor\nEn cambio cReyó, en tu palabra\nY se hizo tu esclava\nEn un acto perfecto y de fe\nY hoy, quiero ser como ella\nY amarte aunque duelan\nLas espinas y el camino de la Cruz\n\n# Coro\nDame la fe Señor (dame la fe Señor)\nLa fe de María\nPara decirte sí  Un sí sin medidas\nDame la fe Señor (dame la fe Señor)\nLa fe de María\nPara renunciar a mí (renunciar a mí)\nY entregarte mi vida mi vida\nMi vida\n\n# Estrofa 2\nAunque traspasaron\nCon una espada su corazón\nY su alma lloró, el dolor de tus heridas\nA los pies del madero se quedó\nY hoy ella es nuestra reina y Señora\nY tú nos incorporas a tu eterna familia de amor\nY yo en tu amor quiero permanecer\nPostrado a tus pies\nEs lo único que un día llevaré (dame la fe)\n\n# Estrofa 3\nDame la fe Señor…",
     "youtube": "https://youtu.be/IgcKIl7pVrQ?si=Eaoc_HIBzbwzmUry",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "acaso-no-estoy-yo-aqui",
@@ -963,7 +1049,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nHijo mío,  lo que te aflige y asusta\n/Se encuentra en las manos de Dios/\nHijo mío,   No temas ninguna angustia\n/No se turbe tu corazón/\n\n# Estrofa 2\n¿Acaso no estoy yo aquí\nQue soy tu Madre?\nBajo mi manto y en mi regazo\nTe cuidaré\n¿Acaso no estoy yo aquí\nQue soy tu Madre?\nToma mi mano  y hacia mi Hijo\nTe llevaré\n\n# Estrofa 3\nHijo mío lo que te aflige y asusta\nSe encuentra en las manos de Dios\nNada es imposible para nuestro Dios\nHijo mío No temas ninguna angustia\n/No se turbe tu corazón/\n¿Acaso no estoy yo aquí…\n\n# Estrofa 4\nDéjame consolarte\nDéjame a Jesús llevarte\nDéjame ser tu Maaaadre\nDéjame consolarte\nDéjame a Jesús llevarte\nDéjame ser tu Maaaadre\n\n# Estrofa 5\n¿Acaso no estoy yo aquí…",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "viva-maria-viva-el-carmelo",
@@ -974,7 +1061,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nViva María, viva el Carmelo,\nviva el escapulario,\nprenda del cielo.\nviva el escapulario,\nprenda del cielo.\n\n# Estrofa 2\nEs la Virgen del Carmen nuestra abogada\nque en penas y peligros\ngloriosa ampara.\nque en penas y peligros\ngloriosa ampara.\n\n# Estrofa 3\nEs el escapulario sol refulgente\nque alumbra con sus rayos hasta la muerte.\n\n# Estrofa 4\nLa Virgen del Carmen…\npresta su amparo\nal devoto que viste su escapulario.\n\n# Estrofa 5\nA la Virgen del Carmen\nquiero y adoro, (venero)\nporque saca las almas,\ndel purgatorio.\n\n# Estrofa 6\nEs la Virgen del Carmen\nnuestra patrona\nTiene un niño en los brazos\nque nos perdona\n\n# Estrofa 7\nDe la Virgen del Carmen s\ned fieles hijos\nY ella hará amorosa mil beneficios.\n\n# Estrofa 8\nLa tentación más fuerte\nse desvanece\nCon el escapulario que nos ofrece.\n\n# Estrofa 9\nLos hijos del Carmelo\nsiempre han vencido\nCon el escapulario al enemigo.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "ella-es-maria",
@@ -985,7 +1073,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nEra Como la mañana\ny con ella amanecía\nese sol que al mirarla\nen sus brazos se dormía.\nElla es, ella es, ella es María\nElla es, ella es, ella es María\n\n# Estrofa 2\nElla cunaba en sus brazos\nel Niño que salvaría\na los hombres y mujeres\nque le entregaran su vida\n\n# Estrofa 3\nElla es, ella es, ella es María\nElla es, ella es, ella es María\n\n# Estrofa 4\nLuego de sufrir su muerte\nde ese hijo que ella amaba\nllevó en silencio al mundo\nla verdad de sus palabras\n\n# Estrofa 5\nElla es, ella es, ella es María\nElla es, ella es, ella es María\n\n# Estrofa 6\nDame tus fuerzas María\npara que pueda encontrar\nel camino que en su vida\nDios nos quiso señalar\n\n# Estrofa 7\nElla es, ella es, ella es María\nElla es, ella es, ella es María",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "la-rosa-mas-bella",
@@ -996,7 +1085,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nComo no cantarte oh María\nComo no acordarme cada diiiia\nsi eres tu mi Madre tan queriiiida\nLlenas tu mi vida de alegria\n\n# Estrofa 2\nComo no amarte oh María\nComo no rezarte cada dio\nllena eres de gracia y elegida\nMadre de Dios y esperanza mía\n\n# Coro\nY eres la rosa mas bella\nLa rosa mas bella de mi corazón\nY eres luminosa estrella\nluminosa estrella que Dios nos dejo  X2\n\n# Estrofa 3\nMe llenas de amor cada mañana\nY un abrazo tuyo me da vida\nCampesina hermosa y artesana\nllenas de amor, mi vida cada dia\n\n# Estrofa 4\nBienaventurada intercesora\nNunca me abandones Madre Mia\nCon tus bendiciones, cada dia\nruega por mi para encontrar la vida.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "maria-madre-de-la-iglesia-sarai-r",
@@ -1007,7 +1097,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nMaría, Madre de la Iglesia\nMaría, Madre de la Iglesia Eres Tú\nNuestra Madre y Señora Tú (Bis)\n\n# Estrofa 2\nQuiero cantar para ti\nCon gratitud\nPor todo el Amor que me das\nMe llevas hacia Jesús\nCamino perfecto Tú\nCamino seguro al Cielo Tú.\nCoro:  María Madre de la Iglesia…",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "como-no-amarte-j-cabrera",
@@ -1018,7 +1109,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nFue tu humildad lo que agradó a Dios, Fue tu sencillez y tu devoción\nFue el siempre estar dispuesta, Por practicar la obediencia\nEncontraste gracia delante de Dios\n\n# Estrofa 2\nFue tu humildad lo que agradó a Dios, Fue el siempre estar dispuesta a servir\n\n# Estrofa 3\nFue tu humildad la que te hizo, La Madre de Jesucristo\nDiste al mundo un Salvador\n\n# Estrofa 4\nCómo no amarte, cómo no amarte\nSi llevaste nueve meses , En tu vientre a mi Señor\nCómo no amarte, cómo no amarte\nSi en tí estuvo tanto tiempo, Recibiendo de tu amor\nCómo no amarte\n\n# Estrofa 5\nFue tu humildad lo que agradó al Señor\nFue tu sí para las cosas de Dios\nEso hizo que te escogiera\nY por un tiempo proveyeras\nAlimento al niño Dios\n\n# Estrofa 6\nDios te salve María\nLlena eres de gracia\nEl Señor es contigo\nBendita tu\nEntre todas las mujeres\nY bendito es el fruto\nY bendito es el fruto\nDe tu vientre\n\n# Estrofa 7\nJesús (8)",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "hoy-te-quiero-cantar",
@@ -1029,7 +1121,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nHoy te quiero cantar,\nhoy te quiero rezar,\nMadre mía del cielo;\nsi en mi alma hay dolor,\nbusco apoyo en tu amor\ny hallo en ti mi consuelo.\n\n# Estrofa 2\nHoy te quiero cantar,\nHoy te quiero rezar\nMi plegaria es canción.\nYo te quiero ofrecer\nLo más bello y mejor\nQue hay en mi corazón    (BIS)\n\n# Estrofa 3\nPorque tienes a Dios  (bis)\nMadre todo lo puedes,\nsoy tu hijo también  (bis)\ny por eso me quieres.\n\n# Estrofa 4\nHoy te quiero cantar...\n\n# Estrofa 5\nDios te quiso elegir  (bis)\ncomo puente y camino,\nque une al hombre con Dios  (bis)\nen abrazo divino.\n\n# Estrofa 6\nHoy te quiero cantar...",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "bajo-tu-manto-f-gomez",
@@ -1040,7 +1133,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nYa no tengo que temer\nYa no hay cosas, que me asusten,\n¡no me da miedo el ayer!\nY tampoco mi mirada quiere ver el porvenir\nNi saber a dónde ir, por un mañana\nNi lo que pueda pasar\nSi de las preocupaciones, yo no me puedo encargar\nSi no tengo más razones o si me voy a quebrar\nDios me dice hay que esperar, ¡bajo tu manto!\nBajo tu manto\nNo hay tempestades, que me azoten contra el viento\nNi esclavitudes amarradas por el tiempo\nLo tengo todo, te tengo a ti\nBajo tu manto\nLleno de estrellas, que iluminarán mi noche\nYa no habrá juicios, fariseos o reproches\nPues soy tu hijo, cuidas de mí\nYa no tengo que temer\nEres Madre, eres reina y la más santa mujer\nEres rosa inmaculada, eres todo mi querer\nLos susurros y mi llanto, mis palabras y mi canto\nBajo tu manto\nLleno de estrellas, que iluminarán mi noche\nYa no habrá juicios, fariseos o reproches\nPues soy tu hijo, cuidas de mí\nYa no tengo que temer",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "oh-mi-maria",
@@ -1051,7 +1145,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nQuisiera Madre mía en este día recitar\nUna dulce poesía que te haga suspirar\nHoy mi corazón es tuyo como nunca lo será\nY mis manos son tus manos instrumentos de tu paz\nTe regalo mi sonrisa, mis sentidos, mi oración\ny la dulce melodía que desborda ésta canción\n\n# Estrofa 2\nComo un niño quiero amarte por toda la eternidad\nY así juntito a Jesús, en tu regazo quiero estar\n\n# Estrofa 3\n¡Oh mi María, no me sueltes de la mano por favor\nOh Madre mía, soy pequéño más entiendo de tu amor\nOh mi María, oh Madre mía, mi compañía,\nLa luz que mi vida guía!.\n\n# Estrofa 4\nNo permitas que de grande yo me aleje de tu amor\nCubre siempre con tu manto éste tierno corazón\nPues Jesús me ha redimido con su Sangre en el altar\nVida nueva hoy respiro, en su gracia quiero estar.\n\n# Estrofa 5\n¡Oh mi María, …",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "el-hijo-prodigo",
@@ -1062,7 +1157,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nComo el hijo pródigo\nYo andaba por este mundo\nEntre vanidades\nY placeres vanos\nLos falsos amigos\nPronto se marcharon\nY la soledad\nMi vida entera entristeció\n\n# Estrofa 2\nPadre perdóname\nSolo contra ti pequé\nNo merezco llamarme\nHijo de un Dios tan bueno\nLíbrame de mis pecados\nPor favor acéptame\nQuiero volver a ser libre\nSé que contigo, me regocijaré\n\n# Estrofa 3\nNuevamente ocurre\nQue volvemos a caer\nEn los mismos pecados\nEs difícil ascender\nPero la misericordia\nDe nuestro Padre Dios\nViene en nuestro auxilio\nY nos levanta con su amor\n\n# Estrofa 4\nPadre  perdóname…",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "aleluya-por-esa-gente",
@@ -1073,7 +1169,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nLos que tienen y nunca se olvidan que a otros les falta.\nLos que nunca usaron la fuerza sino la razon.\nLos que dan una mano y ayudan a los que han caido,\nesa gente es feliz porque vive muy cerca de Dios.\n\n# Estrofa 2\nAleluya, Aleluya por esa gente que vive y que siente\nen su vida el amor. (bis)\n\n# Estrofa 3\nLos que ponen en todas las cosas amor y justicia.\nLos que nunca sembraron el odio tampoco el dolor.\nLos que dan y no piensan jamas en su recompensa.\nEsa gente es feliz porque vive muy cerca de Dios.\n\n# Estrofa 4\nLos que son generosos y dan de su pan un pedazo.\nLos que siempre trabajan pensando en un mundo mejor.\nLos que estan liberados de todas sus ambiciones.\nEsa gente es feliz porque vive muy cerca de Dios.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "el-joven-rico",
@@ -1084,7 +1181,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nUn joven se acercó\na Jesús que sonreía,\nun joven que quería ser mejor.\n\n# Estrofa 2\nQuiero hacer tu voluntad\ny no sé qué hacer, Señor,\nTú que eres la Verdad\ndime por favor.\n\n# Coro\n/Si tú quieres ser mi amigo,\nAnda y vende lo que tienes\nY ya libre ven conmigo,\nYo te ofrezco mucho más./\n\n# Estrofa 3\nJesús le contempló\ny era alegre su mirada\n¡qué urgente la llamada! Y le amó.\nPero el joven se marchó\nsin decir apenas nada.\nComo el joven era rico\ntriste se marchó.\n\n# Estrofa 4\n/Si tú quieres ser mi amigo…\n\n# Estrofa 5\nHay muchos que al Señor\nhoy le ofrecen alma y vida,\nmas tristes y en seguida dicen no.\nComo yo que al ofrecer\nlo que fácil puedo dar,\nno le doy lo que Jesús\nvino a mendigar.\n\n# Estrofa 6\n/Si tú quieres ser mi amigo…",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "aqui-hay-un-muchacho-jesed",
@@ -1095,7 +1193,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nAquí hay un muchacho\nQue solamente tiene cinco panes y dos peces\nMás ¿Qué es eso para tanta gente?\nAquí hay un muchacho\nQue solamente tiene un corazón dispuesto a dar\nMás, ¿Qué es eso para tanta gente?\nAquí esta este corazón\nQue quiere serte fiel\nMás, ¿Qué es eso si no tiene a ti?\n¿Si no te tiene a ti?\nToma este corazón\nToma cuanto tengo y cuanto soy\nToma mi pasado, mi presente y mi futuro\n¡Todo cuanto tengo tómalo!\nMi corazón tomaste\nMis panes bendijiste\nA la gente repartiste, y a todos alcanzó\nMi vida está en tus manos\nY quieres repartirla\nComo hiciste con mis panes\nAquel día, ¡Oh Señor!\nAquí están mis palabras\nAquí están mis acciones, aquí están mis ilusiones\nMás, ¿Qué es eso sin tu amor Señor?\nAquí esta este corazón que quiere serte fiel\nMás, ¿Qué es eso si no te tiene a ti?\n¿Si no te tiene a ti?\nAquí está este corazón, con mis panes y mis peces\nToma todo y ¡repártelo Señor!\nToma este corazón\nToma cuanto tengo y cuanto soy\nToma mi pasado, mi presente y mi futuro\n¡Todo cuanto tengo tómalo!\n(Tómalo)\nToma este corazón\nToma cuanto tengo y cuanto soy\nToma mi pasado, mi presente y mi futuro\n¡Todo cuanto tengo tómalo!\n¡Todo cuanto tengo tómalo!\nAquí hay un muchacho",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "os-anunciamos-betsaida",
@@ -1106,7 +1205,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nOs anunciamos el gozo de adviento\ncon la primera llama ardiendo.\nSe acerca ya el tiempo de salvación,\nabre las puertas de tu corazón.\n\n# Coro\nCanten con gozo, con ilusión,\nya se acerca el Señor.\n\n# Estrofa 2\nOs anunciamos el gozo de adviento\ncon la segunda llama ardiendo.\nDios Padre en su gloria\nmuestra su amor,\nabre tu alma a Jesús Salvador.\nCanten con gozo...\n\n# Estrofa 3\nOs anunciamos el gozo de adviento\nCon la tercera llama ardiendo.\nEl tiempo se acorta,\nya viene el Señor,\nel mundo se alegra en tan buen redentor\nCanten con gozo…\nOs anunciamos el gozo de adviento,\nmiren la cuarta llama ardiendo.\nluz de la estrella nos lleva a Belén,\nacoge a Dios Niño que ahí va a nacer.\n/Canten con gozo.. con ilusión,\nya se acerca el Señor/",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "ven-senor-nuestra-esperanza",
@@ -1117,7 +1217,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nVen, Señor, nuestra esperanza,\nven, Señor, no tardes más\nVen, Señor, a redimirnos,\nven, Señor, ven Señor.\nVen, Señor, nuestra alegría\nVen, Señor, no tardes más\nVen, Señor, a nuestro mundo,\nven, Señor, ven Señor.\n\nAnunciaron los profetas tu primera venida\ny tu pueblo Santoesperó a su Señor.\nAnunciaste a los pueblos tu segunda venida;\ny tu Pueblo Santoesperó a su Señor.\n\nVigilantes esperamos con la luz encendida;\ny tu pueblo Santoesperó a su Señor.\nEl Rocío de los cielos va a nacer hecho niño;\ny tu Pueblo Santoesperó a su Señor.\nSon dichosos los que esperan ver tu rostro de nuevo;\ny tu Pueblo Santoesperó a su Señor.\nCaminemos todos juntos al encuentro de Cristo;\ny tu Pueblo Santoesperó a su Señor.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "no-tardes-mas-msp",
@@ -1128,7 +1229,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n¡Ven, Señor Jesús!\n¡Ven, Señor Jesús!\nVen, Señor, no tardes más!\n¡Ven, Señor Jesús!\n\n# Estrofa 2\nUna clara voz resuena\nque las tinieblas repudia,\nel sueño pesado ahuyentase,\nCristo en el cielo fulgura.\nDespierte el alma adormida\ny sus torpezas sacuda,\nque para borrar los males\nun astro nuevo relumbra.\nDe arriba llega el Cordero\nque ha de lavar nuestras culpas;\ncon lágrimas imploremos\nel perdón que nos depura.\nPorque en su nueva venida\nque aterroriza y conturba,\nno tenga que castigarnos\nmas con piedad nos acuda.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "ven-jesus-msp",
@@ -1139,7 +1241,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nVen, Señor, Dios de justicia;\nven, Señor, Dios del amor.\nVen, Señor, de fidelidad;\nven, Señor, ven, ven , Jesús.\n\n# Estrofa 2\nSeñor, a ti dirijo mi oración;\nmi Dios, en ti confío:\nno dejes que me hunda en la vergüenza.\n¡En ti confío a todas horas!\nSeñor, muéstrame tus caminos;\nguíame por tus senderos;\nencamíname en tu verdad,\npues tú eres mi Dios y Salvador.\nSeñor, acuérdate del amor y la ternura\nque siempre nos has manifestado,\npero no te acuerdes de mis pecados\nni del mal de mi juventud.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "alegria-de-esperar-luis-elizalde-ochoa",
@@ -1150,7 +1253,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nAlegría de esperar\nQue está muy cercano el día.\nEn la carne de una Virgen\namanecerás, Señor.\nEn la carne de una Virgen\nAmanecerás, Señor.\n\n# Estrofa 2\nNos va a brotar un renuevo\nque hará florecer la tierra.\nSe encuentran dolor y gracia.\nVen, Señor, ven, Señor Jesús\nAlegría de esperar…\n\n# Estrofa 3\nAmanecerá tu luz\ny romperá las tinieblas.\nDanos, Dios, tu claridad.\nVen, Señor, ven, Señor Jesús.\nAlegría de…\n\n# Estrofa 4\nCuidaremos el camino\npara cuando al fin tú vengas,\nvestido de nuestra carne.\nVen, Señor, ven, Señor Jesús.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "presentamos-todos-juntos-msp",
@@ -1161,7 +1265,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nPresentamos, oh Señor,\ntodos juntos, como hermanos,\nen el vino y en el pan.- (2)\nFa ¡Vengan todos,\ncaminemos hacia el monte del Señor!\nQue su luz nos ilumina\npara darle el corazón.\nDespojados de las sombras, revestidos de la luz,\npara ser ofrenda al Padre nos unimos a Jesús.\nVigilantes avanzamos en espera del Señor.\nQue esta ofrenda purifique y reconforte en la misión.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "si-tu-no-vienes-jesus",
@@ -1172,7 +1277,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n/Si tú no vienes, Jesú\ns, seguirán nuestros pecados /2\n\n# Estrofa 2\n¿Cómo seremos los hombres\nuna familia de hermanos,\n/si desde el fondo del alma,\nSeñor, no nos amamos /2\n\n# Estrofa 3\nA ti se elevan hoy nuestras manos,\nnuestra pobreza te presentamos.\nJesús que salvas, no tardes tanto,\ntu pueblo somos, ya te esperamos.\n\n# Estrofa 4\n/Si tú no vienes, Jesús,\nseguirán nuestros pecados /2\n\n# Estrofa 5\n¿Cómo podremos los hombre\ns a la verdad abrir pasos,\n/si de apariencias vivimos, Señor,\nilusionados /2\n\n# Estrofa 6\nA ti se elevan hoy nuestras manos,\nnuestra pobreza te presentamos.\nJesús que salvas, no tardes tanto,\ntu pueblo somos, ya te esperamos.\n\n# Estrofa 7\n/Si tú no vienes, Jesús, seguirán nuestros pecados /2\n\n# Estrofa 8\n¿Cómo podremos los hombres dar a tu Cruz un abrazo,\n/si todo lo que nos duele, Señor, lo rechazamos /2\n\n# Estrofa 9\nA ti se elevan…",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "vamos-a-preparar-el-camino-del-senor",
@@ -1183,7 +1289,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nVamos a preparar el camino del Señor.\nVamos a construir la ciudad de nuestro Dios.\n\n# Estrofa 2\nVendrá el Señor con la aurora,\nÉl brillará en la mañana,\npregonará la verdad.\n\n# Estrofa 3\nVendrá el Señor con su fuerza,\nÉl romperá las cadenas, Él nos dará la libertad,\nÉl estará a nuestro lado, Él guiará nuestros pasos,\nÉl nos dará la salvación.\nNos limpiará del pecado,\nya no seremos esclavos,\nÉl nos dará la libertad.\n\n# Estrofa 4\nVamos a preparar…\nVendrá el Señor con su fuerza,…\n\n# Estrofa 5\nVamos a preparar\nel camino del Señor.\nVamos a construir\nla ciudad de nuestro Dios.\n\n# Estrofa 6\nVendrá el Señor con la aurora,\nÉl brillará en la mañana,\npregonará la verdad.\n\n# Estrofa 7\nVendrá el Señor con su fuerza,\nÉl romperá las cadenas, Él nos dará la libertad.\n\n# Estrofa 8\nCaminará con nosotros,\nnunca estaremos ya solos, Él nos dará la salvación.\n\n# Estrofa 9\nÉl cumplirá la promesa\ny llevará nuestras penas,\nÉl nos dará la libertad.\n\n# Estrofa 10\nVamos a preparar…",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "esperaba-esperaba",
@@ -1194,7 +1301,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nEsperaba, esperaba la niña de Nazaret.\nEsperaba, esperaba y no conocía qué.\nSabía que su dueño siempre era fiel\ny por eso esperaba, esperaba con fe.\n\n# Estrofa 2\nDios que a la puerta llama, ¿quién abrirá?\ntodos los hombres callan dormidos ya.\nLa Virgen vigilante despierta está:\npuso aceite en la lámpara que brilla más.\n\n# Estrofa 3\nEsperaba, esperaba la niña de Nazaret.\nEsperaba, esperaba y no conocía qué.\nSabía que su dueño siempre era fiel\ny por eso esperaba, esperaba con fe.\n\n# Estrofa 4\nDios que a los hombres dice: «Quiero venir».\nLos hombres que contestan: «No hay sitio aquí».\nPero la Virgen niña responde así:\n«Que esa palabra tuya se cumpla en mí».\n\n# Estrofa 5\nEsperaba, esperaba la niña de Nazaret.\nEsperaba, esperaba y no conocía qué.\nSabía que su dueño siempre era fiel\ny por eso esperaba, esperaba con fe.\n\n# Estrofa 6\n«Cuando mi niño venga ¿qué haré con Él?\nÉl se me ha dado todo y yo a Él también.\nQuiero darlo a los hombres, para ellos es:\nsalgamos de camino hacia Belén».\n\n# Estrofa 7\nEsperaba, esperaba la niña de Nazaret….",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "santa-maria-de-la-esperanza",
@@ -1205,7 +1313,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nSanta María, de la Esperanza\n/ mantén el ritmo de nuestra espera /2\n\n# Estrofa 2\nNos diste al esperado de los tiempos,\nmil veces prometido en los profetas.\nY nosotros de nuevo deseamos\nque vuelva a repetirnos sus promesas.\n\n# Estrofa 3\nSanta María,…\n\n# Estrofa 4\nBrillaste como aurora del gran día,\nplantaba Dios su tienda en nuestro suelo.\nY nosotros soñamos con su vuelta,\nqueremos la llegada de su reino.\n\n# Estrofa 5\nSanta María,…\n\n# Estrofa 6\nEsperaste cuando todos vacilaban\nel triunfo de Jesús sobre la muerte,\nY nosotros esperamos que su vida,\nanime nuestro mundo para siempre.\n\n# Estrofa 7\nSanta María,…\n\n# Estrofa 8\nViviste con la Cruz de la esperanza\ntensando en el amor de larga espera.\nY nosotros buscamos con los hombres\nel nuevo amanecer de nuestra tierra.\n\n# Estrofa 9\nSanta María, de la Esperanza\n/ mantén el ritmo de nuestra espera /2",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "virgen-de-la-esperanza",
@@ -1216,7 +1325,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nVirgen de la esperanza,\nen nuestra marcha danos tu luz.\nQueremos ir contigo por el camino\nque abre la Cruz.\n\n# Estrofa 2\nMadre del pueblo condúcenos\npor el camino de salvación,\nque en nuestra patria reine la paz,\nen la justicia y la libertad.\n\n# Estrofa 3\nCielo y tierra nueva,\nesa es la meta de nuestro andar,\nsomos la Iglesia en marcha,\nque hacia la Pascua cantando va.\n\n# Estrofa 4\nSobre cerros y pampas\ndespunta el alba de nuestra luz,\nes la luz que trajiste cuando\nnos diste a tu Hijo Jesús.\n\n# Estrofa 5\nAfirma nuestros pasos,\ndá a nuestros brazos fuerza y valor,\npara luchar unidos\ncomo instrumentos de salvación.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "nos-has-llamado-al-desierto",
@@ -1227,7 +1337,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nNos has llamado al desierto,\nSeñor de la libertad,\ny está  el corazón abierto\na la luz de tu verdad.\n\n# Estrofa 2\nSubimos con esperanza\nla escala….da  cuaresmal.\nel pueblo de Dios avanza\nhasta la cumbre pascual.\n\n# Estrofa 3\nTu pueblo, Señor, camina\ndesde la aurora al ocaso:\na tu Pascua se encamina\ny te sigue paso a paso.\n\n# Estrofa 4\nSeñor, te reconocemos\ny tu palabra escuchamos,\ntus caminos seguiremos\ny tu ley de amor cantamos.\n\n# Estrofa 5\nSe acerca, Señor, tu día\nen el que todo florece:\ncon su luz y su alegría\nya el camino resplandece.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "caminare-francisco-palazon",
@@ -1238,7 +1349,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nCaminaré en presencia del Señor(2)\nAmo al Señor porque escucha\nmi voz suplicante\nporque inclina su oído hacia mí\nel día que lo invocó.\n\n# Estrofa 2\nMe envolvían redes de muerte\ncaí en tristeza y en angustia\ninvoqué el nombre del Señor:\nSeñor, salva mi vida!\n\n# Estrofa 3\nEl Señor es benigno y justo\nnuestro Dios es compasivo\nel Señor guarda a los sencillos;\nestando yo sin fuerzas, me salvó!\n\n# Estrofa 4\nAlma mía, recobra tu calma\nque el Señor fue bueno contigo:\narrancó mi alma de la muerte,\nmis ojos de las lágrimas,\nmis pies de la caída",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "peque-peque-dios-mio",
@@ -1249,7 +1361,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nPequé, pequé Dios mío\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 2\nPor tu corona santa\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 3\nPor tus profundas  llagas\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 4\nPor tus heridas crueles\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 5\nPor tu preciosa Sangre\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 6\nPor tu costado  abierto\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 7\nPor tu agonía  santa\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 8\nPor tu Madre  afligida\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "dejame-nacer-ariel-glaser",
@@ -1260,7 +1373,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nTú conoces la dureza en mi sentir\ny la terquedad que hay en mi corazón.\nSon las cosas que me alejaron de Ti, Señor,\ndame vida nueva con tu amor.\n\n# Estrofa 2\nDéjame nacer de nuevo,\nDéjame nacer de nuevo,\nDéjame nacer de nuevo, oh Señor.\nNo importa la edad que tenga,\nTú no la tienes en cuenta.\nDéjame nacer de nuevo, oh Señor.\n\n# Estrofa 3\nTú conoces el pecado que hay en mí\ny el dolor que dejo en mi corazón.\nPor la muerte que he causado vuelvo a Ti, Señor,\nDame nueva vida en tu amor.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "nacer-de-nuevo",
@@ -1271,7 +1385,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n//Hay cosas en mi corazón\nque necesitan ser transformadas\ny ser llenas del amor de Dios\nHoy hago un alto en el camino\npara entregarle a Dios\ntodo aquello que necesita de su amor//\n\n# Estrofa 2\n//Quiero morir y nacer de nuevo en ti Señor\nrestáurame y transfórmame\nhe decidido morir a mi\ny dar paso a que Tú reines en mi//",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "arriba-nuestros-ramos",
@@ -1282,7 +1397,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nArriba nuestros ramos\ncantando al Señor\narriba nuestros ramos\ncantando al Señor\n\n# Estrofa 2\nBendito el que viene\nen nombre del Señor\nJesús nuestra esperanza\nJesús liberador\n\n# Estrofa 3\nEra un domingo allá en Jerusalén\ncuando en un burrito\nJesús entra apadecer\n\n# Estrofa 4\nTodo el pueblo humilde\nlo salió arecibir\ny con entusiasmo\ncomenzaron a decir;\n\n# Estrofa 5\nArriba nuestros ramos…\nPero el mejor canto\nque Jesús quiso escuchar\nfue el canto puro\nde los niños del lugar.\n\n# Estrofa 6\nEllos saludaban\na Jesús liberador\nCristo el esperado\nde los pobres del Señor\nArriba nuestros ramos…\n\n# Estrofa 7\nHoy también nosotros\nte queremos recibir\ny por tu camino\nserte  fieles  hasta el fin.\nCristo nos conduces\nhacia el reino de la luz\nmarcas nuestra huella\ncon la Sangre de tu Cruz.\n\n# Estrofa 8\nLlegan ya los días\nde la Pascua del Señor,\nCristo con su muerte\nnos da vida y salvación.\n\n# Estrofa 9\nJuntos revivamos\nel misterio de la Cruz\ny  compartiremos\nel gran triunfo de Jesús.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "preciosa-sangre-padre-miguel",
@@ -1293,7 +1409,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nPreciosa Sangre derramada en la Cruz\nvenció el Cordero que entregó su corazón\nAlianza eterna que sellaste con tu amor\ntu mi defensa, mi refugio y mi Dios.\n\n# Estrofa 2\nPrecioso Jesús.\nPrecioso Jesús.\n\n# Estrofa 3\nAdoremos, Adoremos en la Cruz\nal Cordero, que entregó su corazón.\nAdoremos, Adoremos en la Cruz\nal Cordero que nos dió su corazón.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "el-buen-ladron-felipe-gomez",
@@ -1304,7 +1421,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nCon su mirada serena, desde el cielo me miró\nBorrando toda condena mi maldad el perdonó\nTenía sus manos clavadas, flagelado el corazón\nPagaba todas mis penas con su Sangre y su dolor\nCon su Sangre y su dolor\n\n# Estrofa 2\nCrucificado a mi lado y muriendo por mi mal\nPero el no tuvo pecado, fue la Cruz su pedestal\nPorque si solo sus labios se teñían de verdad\nMientras mi boca perdida en blasfemias y maldad\nEn blasfemias y maldad\n\n# Estrofa 3\nPorque si solo sus labios se teñían de verdad\nMientras mi boca perdida en blasfemias y maldad\nEn blasfemias y maldad\n\n# Estrofa 4\n“Padre que vas a los cielos no pido bajar de aquí\nPero al llegar a tu reino Señor acuérdate de mí\nSeñor acuérdate de mí”\n\n# Estrofa 5\nPero unas solas palabras y en la Cruz yo fui ladrón\nPorque aún clavado y muriendo me robé su corazón\nMe robé su corazón, me robé su corazón.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "saname-mi-senor-felipe-gomez",
@@ -1315,7 +1433,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nSeñor mío, no entiendo tus designios,\nlos dolores de la dura enfermedad,\nTú que estabas cubierto por la llagas,\nhoy te pido que de mí tengas piedad.\nDevolviste la vida al moribundo,\ny los ciegos te pudieron contemplar,\nmira el llanto que cubre mis mejillas,\ny me azota tanta debilidad.\n\n# Estrofa 2\nSáname, mi Señor,\npor piedad, por amor,\npor los meritos de tus preciosas llagas.\nSáname, mi Señor,\npor piedad, por amor,\ny devuélvele la paz a mi alma.\n\n# Estrofa 3\nCuando veo que pendes del madero,\ny tu Sangre lo tiñe por amor,\nsiento que mis heridas son cobardes\ny mis quejas ya no tienen razón.\nHoy enfermo, Señor, voy a buscarte,\nsi Tú quieres te alabaré en la Cruz,\nyo te ruego cambies mi cobardía,\nal decirte lo aceptaré Jesús\n\n# Estrofa 4\nFúndeme en tu dolor,\ndame fuerza y valor,\nsé que sufro, pero Tú eres mi calma.\nQuiero ser, oh Señor,\nuna llama de amor\nque consuele el dolor de las almas.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "dolorosa",
@@ -1326,7 +1445,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nDolorosa, de pie junto a la Cruz,\nTú conoces nuestras penas,\nPenas de un pueblo que sufre,\nTú conoces nuestras penas,\nPenas de un pueblo que sufre.\n\n# Estrofa 2\nDolor de los Cuerpos que sufren enfermos,\nEl hambre de gentes que no tienen pan,\nSilencio de aquellos que callan por miedo,\nLa pena del triste que está en soledad.\n\n# Estrofa 3\nEl drama del hombre que fue marginado,\nTragedia de niños que ignoran reír,\nLa burda comedia de huecas promesas,\nLa farsa de muertos que deben vivir.\n\n# Estrofa 4\nDolor en los hombros sin tregua oprimidos,\nCansancio de brazos en lucha sin fin,\nCerebros lavados a base de “slogans”,\nEl rictus amargo del pobre infeliz.\n\n# Estrofa 5\nEl llanto de aquellos que suman fracasos,\nLa Cruz del soldado que mata el amor,\nPobreza de muchos sin libro en las manos,\nDerechos del hombre truncados en flor.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "resucito-el-senor",
@@ -1337,7 +1457,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nLlorando en silencio de soledad\nSe escucha el viento cantar\nEl alba y su luz tocan mi dolor\nMi Señor ya duerme en paz\nEl que hubo amado la vida dio\nAbrazándose a una Cruz\nEl sepulcro es un lugar sin luz\nMi Señor ya despertará\nLlegando al final de mi caminar\nSentí resonar su voz\nMe llamó a vivir, me llamó a anunciar\nMi Señor ya resucitó\nResucitó, resucitó el Señor, aleluya\nUna luz se ha encendido en la oscuridad\nUna luz que no se apagará\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nHoy la muerte se queda clavada en la Cruz\nEs vencida por el amor\nCon mucho sentido de gratitud\nTe alabo yo, mi Señor\nPor haber cambiado mi corazón\nPor haberme devuelto la paz\nLa gracia es un don de Dios que está en ti\nLa puedes ya despertar\nCon él llegarás hasta el Padre Dios\nCon él viviremos en paz\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nUna luz se ha encendido en la oscuridad\nUna luz que no se apagará\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nHoy la muerte se queda clavada en la Cruz\nEs vencida por el amor\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nUna luz se ha encendido en la oscuridad\nUna luz que no se apagará\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nHoy la muerte se queda clavada en la Cruz\nEs vencida por el amor\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nHoy la muerte se queda clavada en la Cruz\nEs vencida por el amor\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nHoy la muerte se queda clavada en la Cruz\nEs vencida por el amor",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "regina-caeli",
@@ -1348,7 +1469,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nRegina Caeli, laetáre\nAlleluia\nQuia quem meruisti portare\nAlleluia\nResurréxit, sicut dixit\nAlleluia\nOra pro nobis Deum\nAlleluia",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "te-conocimos-al-partir-el-pan",
@@ -1359,7 +1481,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nAndando por el camino,\nte tropezamos, Señor,\nte hiciste el encontradizo,\nnos diste conversación;\ntenían tus palabras fuerza de vida y amor,\nponían esperanza\ny fuego en el corazón.\n\n# Estrofa 2\n/Te conocimos, Señor, al partir el pan.\nTú nos conoces, Señor, al partir el pan./\n\n# Estrofa 3\nLlegando a la encrucijada,\nTú proseguías, Señor;\nte dimos nuestra posada,\ntecho, comida y calor;\nsentados como amigos\na compartir el cenar,\nallí te conocimos al repartirnos el pan.\n\n# Estrofa 4\nAndando por los caminos,\nte tropezamos, Señor,\nen todos los peregrinos\nque necesitan amor;\nesclavos y oprimidos\nque buscan la libertad,\nhambrientos, desvalidos,\na quienes damos el pan.\n\n# Estrofa 5\nNo quedden tristes  - J. Pedro Mertins\n\n# Estrofa 6\n//No queden tristes aunque me voy,\naunque me voy yo volveré//\n\n# Estrofa 7\nVoy a la casa de mi Padre\na prepararles un lugar.\nVendrá mi Espíritu a ustedes\npara enseñarles la verdad.\n\n# Estrofa 8\nSerán testigos de mi amor\npor los confines de este mundo.\nAnunciarán la buena nueva\na cada pueblo de la tierra.\n\n# Estrofa 9\nCuando los hombres los persigan\nno tengan miedo, confíen.\nYo estaré siempre con ustedes\nAcompañando hasta el final.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "se-siente-aqui",
@@ -1370,7 +1493,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nSe siente aquí (3)\nel Espíritu de Dios se siente aqui\nsi los hombres de la tierra glorifican al Señor\nel Espíritu de Dios se siente aqui.\n\n# Estrofa 2\n(se alaba . . . se mueve)\n\n# Estrofa 3\nPrepárate para que sientas (3)\nel Espíritu de Dios\ny déjalo que se mueva (3)\ndentro de tu corazón.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "ya-llego",
@@ -1381,7 +1505,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n// Ya llego, ya llego\nel Espíritu Santo, ya llego. //\n// Lo siento en mis manos,\nlo siento en mis pies,\nlo siento en mi alma\ny en todo mi ser. //\n\n# Estrofa 2\n// Aquel que camino sobre las aguas. //\n// Esta aqui, esta a mi lado. //\n// Como un rayo cayendo sobre mi.\n// Que quema, que quema, que quema,\nque quema, que quema, que quema. //",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "derramare-sobre-vosotros",
@@ -1392,7 +1517,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n/ Derramaré sobre vosotros,\nun agua pura que os purificará. / \n\nPondré mi Espíritu sobre vosotros\ny os renovaré el corazón.\n\nOs reuniré, entre las naciones\ny os llevaré a vuestra tierra.\n\nDe vuestras inmundicias os purificaré.\nDe vuestras idolatrías os liberaré.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "danos-senor-tu-espiritu-msp",
@@ -1403,7 +1529,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nDanos, Señor, tu Espíritu en este Pan celestial,\npara renovar nuestra vida. Aleluya.\n(Danos, danos...)2a\nDanos, Señor, tu Espíritu\n(en este Pan celestial)\nes este Pan celestial Re Sol La\n(...para renovar nuestra vida. Aleluya.)\npara renovar nuestra vida. Aleluya\n\n# Estrofa 2\nBendice al Señor, alma mía,\nDios mío, qué grande eres!\nSon muchas tus obras, Señor, inmensa tu majestad.\nSi retiras tu aliento todo vuelve al polvo.\nEnvías tu aliento de vida y renuevas la faz de la tierra.\nGloria a Dios para siempre,\ngoce el Señor con sus obras.\nQue le agrade mi poema,\ny me alegraré en el Señor.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "ven-espiritu-santo-u-arcodaci",
@@ -1414,7 +1541,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nVen Espíritu Santo, ven a este lugar\nVen en nuestra ayuda,\ntu gran amor\nven a derramar (Bis)\n\n# Estrofa 2\nVen divino amigo\nsopla con tu poder\nVen enciende tu fuego\nen tu amor quiero renacer\nVen Espíritu Santo, ven a este lugar\nVen en nuestra ayuda,\ntu gran amor\nven a derramar (Bis)\nVen luz de lo alto\nVen a iluminar\nVen dulce consuelo\nen mis angustias ven a habitar\nVen Espíritu Santo, ven a este lugar\nVen en nuestra ayuda,\ntu gran amor\nven a derramar (Bis)",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "ante-tu-presencia-jaime-chacua",
@@ -1425,7 +1553,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nSeñor me tienes ante tu presencia\nCon dulce voz a ti yo clamaré\nEscucha buen Señor mi oración\nQue te ofrezco\nEn ti me gozaré Señor, Jesús\nA ti mi vida entera rendiré\nTu gloria y tu poder me alegrará\nPara siempre\nOh, Señor, Jesús úngeme\nY hazme dócil como tu quieras\nTómame y dame fuerzas\nPara seguir tu camino\nOh, Señor, Jesús úngeme\nY hazme dócil como tu quieras\nTómame y dame fuerzas\nPara seguir tu camino\nSeñor, me tienes ante tu presencia\nCon dulce voz a ti yo clamaré\nEscucha buen Señor mi oración\nQue te ofrezco\nEn Ti me gozaré Señor Jesús\nA ti mi vida entera rendiré\nTu gloria y tu poder me alegrará\nPara siempre\nOh, Señor, Jesús úngeme\nY hazme dócil como tu quieras\nTómame y dame fuerzas\nPara seguir tu camino\nOh, Señor Jesús úngeme\nY hazme dócil como tu quieras\nTómame y dame fuerzas\nPara seguir tu camino",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "ven-espiritu-santoj-lopez",
@@ -1436,7 +1565,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nVen, Espíritu Santo,\nven a iluminar nuestra inteligencia\ny a defendernos del mal.\n\n# Estrofa 2\nTú, Promesa del Padre,\nDon de Cristo Jesús,\nven y danos tu fuerza\npara llevar nuestra Cruz.\n\n# Estrofa 3\nTú, llamado paráclito,\nnuestro confortador,\nven y habita en nosotros\npor la fe y por el amor.\n\n# Estrofa 4\nHaz que cada cristiano,\nbajo tu inspiración,\nsea testigo de Cristo\ncon la palabra y la acción.\n\n# Estrofa 5\nGuiados por el Espíritu\nhacia Cristo Jesús,\ncaminamos con júbilo\na la patria de la luz.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "espiritu-santo-guianos-antonio-alcalde",
@@ -1447,7 +1577,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nVen Espíritu Santo\nVen Espíritu Santo\nVen Espíritu Santo\n\nAlúmbranos y guíanos,\nalúmbranos y guíanos,\nconviértenos y alégranos,\nconviértenos y alégranos.\n\nEnciéndenos, transfórmanos,\nenciéndenos, transfórmanos;\nconfórtanos, reúnenos,\nconfórtanos, reúnenos.\n\nEnvíanos y guárdanos,\nenvíanos y guárdanos;\ninspíranos y aliéntanos,\ninspíranos y aliéntanos.\n\nVisítanos, consuélanos,\nvisítanos, consuélanos;\nconfírmanos y sálvanos,\nconfírmanos y sálvanos.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "ven-espiritu-divino",
@@ -1458,7 +1589,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n/Ven, ven, ven, Espíritu Divino\nven, ven, ven, acércate de mí/\n\n# Estrofa 2\n/Apodérate, apodérate, apodérate de todo mi ser/\n\n# Estrofa 3\n/Aquí se siente la presencia de Dios/\n/Siento el fuego del Espíritu Santo/\n\n# Estrofa 4\n/Siento gozo, siento paz,\nsiento el amor que mi Dios me da/",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "preparate-para-que-sientas",
@@ -1469,7 +1601,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n/Prepárate para que sientas/\nPrepárate para que sientas\nEl Espíritu de Dios\nDéjalo que se mueva x 3\nDentro de tu corazón\n\n# Estrofa 2\nOh gloria, aleluya\nAleluya Gloria a Dios\nOh gloria, aleluya\nAleluya Gloria a Dios",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "a-que-tu-no-sabes",
@@ -1480,7 +1613,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nA que tu no sabes\nlo que en Damasco pasó x3\n\n# Estrofa 2\nFue el Espiritu Santo\nFue el Espiritu Santo\nFue el Espiritu Santo\nlo que en mi vida se derramo. (bis)\n\n# Estrofa 3\nA que tu no sabes…\n…lo que en ... en mi vida ... en la Iglesia ...",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "algo-esta-descendiendo",
@@ -1491,7 +1625,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n/ Algo está descendiendo,\nalgo está descendiendo, / (2)\n\n# Estrofa 2\n/ Eso es el Espíritu Santo. / (2)\n\n# Estrofa 3\n/ Con gloria, Aleluya,\naleluya, gloria a Dios. / (2)\n\n# Estrofa 4\n/ Si quieres sentir el gozo\nque da el Espíritu Santo. / (2)\n\n# Estrofa 5\n/ Alábalo, alábalo,\nalábalo de corazón. / (2)\n\n# Estrofa 6\n/ Algo está descendiendo,...\n\n# Estrofa 7\n/ Eso es el Espíritu Santo,...\n\n# Estrofa 8\n/ Con gloria, Aleluya,...\n\n# Estrofa 9\n/ Si quieres sentir el gozo...\n\n# Estrofa 10\n/ Alábalo, ...",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "bautizame-senor",
@@ -1502,7 +1637,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nBautizame, Senor, con tu Espiritu,\nTransformame, Senor, con tu Espiritu.\n\n# Estrofa 2\nBautizame, Senor, con tu Espiritu,\nBautizame y transformame, Senor.\n\n# Estrofa 3\nY dejame sentir el fuego de tu amor\nAqui en mi corazon, Senor. (bis)",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "como-corren-rios",
@@ -1513,7 +1649,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nComo corren rios dentro de mi ser (bis)\nes que yo confío en Cristo, mi Rey (bis).\n\n# Estrofa 2\nComo río de agua viva que salta pa' arriba  Que llevo dentro;\nconfirma, confirma\nEn este momento, el Espíritu Santo\ny su derramamiento (bis).\n\n# Estrofa 3\nDame del agua del brota para la vida eterna (bis)\nel agua que le diste a la mujer samaritana (bis)\n\n# Estrofa 4\nAlzando las palmas con gozo asi te quiero alabar\nel gozo que hay en mi alma nadie lo podra quitar",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "es-un-rio",
@@ -1524,7 +1661,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nEs un rio, es la lluvia,\nes un soplo, es un fuego,\nes el Espiritu de Dios\nque quiere actuar.\n\n# Estrofa 2\nAhi va bajando, va cayendo\nva soplando, va ardiendo,\nes el Espiritu de Dios\nque esta aqui.\n\n# Estrofa 3\nBajando en ti, cayendo en mi,\nsoplando en ti, ardiendo en mi,\nes el Espiritu de Dios\nque esta aqui.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "este-avivamiento",
@@ -1535,7 +1673,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nEste avivamiento\nquien lo apagara, quien\nquien lo apagara, quien\nquien lo apagara, quien\n\n# Estrofa 2\nsi el Senor lo ha dado\npermanecera, si\npermanecera, si\npermanecera.\n\n# Estrofa 3\nNi en las pruebas ni en las luchas\nno me lo podran quitar.\nManda el fuego y santificame Señor\nno vivo yo mas Cristo vive en mi.\n\n# Estrofa 4\nPara mi el morir es vivir\npara mi el morir es vivir\npara mi el morir es vivir\npara mi el vivir es Cristo.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "este-gozo",
@@ -1546,7 +1685,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nEste gozo no va a pasar (no va a pasar),\neste gozo no va a pasar (no va a pasar),\neste gozo no va a pasar,\nporque está en mi corazón.\n\n# Estrofa 2\n/El fuego cae, cae, cae,\nlos males salen, salen, salen,\ny los creyentes alaban al Señor./\n\n# Estrofa 3\nEsta obra no va a parar (no va a parar),\nesta obra no va a parar (no va a parar),\nesta obra no va a parar,\nporque está en mi corazón.\n\n# Estrofa 4\nEsta alegría no va a salir (no va a salir),\nesta alegría no va a salir (no va a salir),\nesta alegría no va a salir,\nporque está en mi corazón.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "muevete-en-mi",
@@ -1557,7 +1697,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nEl Espíritu de Dios está en este lugar\nEl Espíritu de Dios se mueve en este lugar\nEstá aquí para consolar, está aquí para liberar\nEstá aquí para guiar, El Espíritu de Dios está aquí\n// Muévete en mi, muévete en mi\nToma mi mente y mi corazón\nLlena mi vida de tu amor\nMuévete en mi, Dios Espíritu, muévete en mi//",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "te-doy-gracias-jesus",
@@ -1568,7 +1709,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nTe doy gracias Jesús\nPor haberte encontrado\nPor haberme salvado\nTe doy gracias Jesús.\n\n# Estrofa 2\nHoy ya se el camino\nY hacia el me dirijo\nEs la senda bendita\nQue representa el hijo\n\n# Estrofa 3\nMi amor era pequéño\nPero ya lo he encontrado\nY ese pequéño amor\nHoy se ha agigantado\n\n# Estrofa 4\nHoy Jesús es mi guía\nEl controla mi vida\nNo hay ser terreno\nQue mi cariño mida",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "asi-se-alaba-a-dios",
@@ -1579,7 +1721,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nAsi, asi se alaba a Dios\nAsi, asi se alaba a Dios\nLevanten las manos todos\nLevanten las manos todos\nLevanten las manos todos",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "aqui-se-alaba",
@@ -1590,7 +1733,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n/Aquí se alaba al Señor\ncon mucha alegría y gozo./\n\n# Estrofa 2\nAlabemos al Señor, con mucha alegría y gozo\nAlabemos al Señor, alegres y muy gozosos.\n\n# Estrofa 3\nAlábenlo, alábenlo, alábenlo.\n\n# Estrofa 4\n/Con la mano arriba, con la mano arriba/\nAlabemos al Señor…\n\n# Estrofa 5\nCon el pie derecho...\nAlabemos al Señor…\n\n# Estrofa 6\nCon una sonrisa...\nAlabemos al Señor…",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "los-que-esperan",
@@ -1601,7 +1745,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nLos que esperan,\nlos que esperan en Jesús,\nLos que esperan,\nlos que esperan en Jesús,\n\n# Estrofa 2\n/como las aguilas,\ncomo las aguilas\nsus alas levantaran./ (bis)\n\n# Estrofa 3\nCaminaran y no se cansaran\ny correran, no se fatigaran,\n\n# Estrofa 4\n/nuevas fuerzas tendran, nuevas fuerzas tendran,\nlos que esperan, los que esperan en Jesús./ (bis)",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "cuando-el-pueblo-alaba",
@@ -1612,7 +1757,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n// Cuando el pueblo alaba a Dios, suceden cosas,\nsuceden cosas maravillosas. //\n\n# Estrofa 2\n// Hay sanacion,    liberacion\ny se siente la bendicion. //",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "pon-aceite-en-mi-lampara",
@@ -1623,7 +1769,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nPon aceite en mi lámpara, Señor\nPon aceite en mi lámpara, Señor\nQue yo quiero servirte con amor\nPon aceite en mi lámpara, Señor\n\n# Estrofa 2\nSeñor Jesús, Tú eres mi vida\nSeñor Jesús, Tú eres amor\nSalvaste mi alma perdida\nPor eso te alabo con el corazón\nSalvaste mi alma perdida\nPor eso te alabo con el corazón\n\n# Estrofa 3\nCon el corazón, con el corazón…",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "viva-la-fe",
@@ -1634,7 +1781,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nViva la fe, viva la esperanza, viva el amor (3)\nQue viva Cristo, que viva Cristo, que viva Él\nQue viva Cristo, que viva, que viva Cristo\nQue viva, que viva Cristo. Que viva Él (bis)",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "yo-edifique-una-casa",
@@ -1645,7 +1793,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n// Yo edifique una casa,\nyo edifique una casa,\nsobre la roca edifique,\ny era Cristo esa roca,\n\n# Estrofa 2\ny era Cristo esa roca\nsobre la que yo edifique. //\n\n# Estrofa 3\n// Y esa casa no se cae porque esta sobre la roca. //\n\n# Estrofa 4\n// Paseate Nazareno, Nazareno paseate,                                                            paseate Nazareno, Nazareno paseate. //",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "solamente-en-cristo",
@@ -1656,7 +1805,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nSolamente en Cristo\nsolamente en El\nla salvacion podras tener.\nNo hay otro nombre\ndado a los hombres.\nSolamente en Cristo\nsolamente en El.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "esta-es-la-gente",
@@ -1667,7 +1817,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n/Esta es la gente que alaba al Señor/\nEsta es la gente que tiene gozo,\nque tiene fe y que alaba al Senor. (Bis)\n\n# Estrofa 2\nManos arriba, manos abajo, moviendo de lado a lado (bis)",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "no-hay-nadie-como-mi-dios",
@@ -1678,7 +1829,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n//No hay nadie como mi Dios, no hay nadie//\nYo le amo, Éll me ama\nYo le pido, Él me da\nYo le llamó, Él me responde, contesta mis peticiones",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "delante-del-rey-w-alencar",
@@ -1689,7 +1841,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nVen Señor Jesús\nEl corazón ya late fuerte\nal verte a ti\ntu gracia quiero en mi vida recibir,\ncon tu bendición Señor,\npodré vivir.\n\n# Estrofa 2\nVen Señor Jesús,\nMirar el pueblo entorno a ti me hace acordar,\nla multitud que aguardaba tu llegar,\nVen Oh Santode Israel, pasa también en este lugar.\n\n# Estrofa 3\nEs el Rey, y al frente nuestro está\nes feliz quien le adora\nEs Jesús el gran maestro y Rey,\nque aquí, muy cerca se deja encontrar\ndelante del Rey de Reyes,\nlas rodillas se han de doblar.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "rey-de-reyes",
@@ -1700,7 +1853,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nEl que toca a los leprosos\nel que ilumina a los ciegos\nel que comparte la mesa\ncon los que hacemos de menos\ncon los que hacemos de menos\n\n# Estrofa 2\nEl que sale a los caminos\npara ir a nuestro encuentro\nel que regala su vida\nel que comparte su tiempo\nel que comparte su tiempo\n\n# Coro\nRey descalzo, Rey sin trono\nRey de Reyes, Rey de todos\nsin herencias, sin tesoros\ncodo a codo entre nosotros\nRey mendigo, Rey amigo\nsólo con amor vestido\nsólo con amor vestido\nsólo con amor vestido\n\n# Estrofa 3\nEl que conoce las leyes,\npero antepone a los hombres\nel que derrama sus lágrimas\ncuando el corazón se rompe\ncuando el corazón se rompe\nEl que confía en el Padre\ny se hace, de su Amor, testigo\nel que crece con María,\ny nos enseña a estar vivos\ny nos enseña a estar vivos\n\n# Coro\nRey descalzo, Rey sin trono\nRey de Reyes, Rey de todos\nsin herencias, sin tesoros\ncodo a codo entre nosotros\nRey mendigo, Rey amigo\nsólo con amor vestido\nsólo con amor vestido\nsólo con amor vestido\nsólo con amor vestido\npara mí, mas Rey que nunca\nencarnándose en un niño",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "bendito-bendito",
@@ -1711,7 +1865,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nYo creo Jesús mio que estas en el altar\noculto en la hostia te vengo a adorar (BIS)\nBendito bendito bendito sea Dios\nLos Angeles cantan y alaban a Dios\nPor amor al hombre moriste en una Cruz\ny al cáliz desciendes por nuestra salud",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "te-alabo-en-verdad",
@@ -1722,7 +1877,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nAun en la tormenta, aun cuando arrecia el mar\nTe alabo, te alabo en verdad\nAun lejos de los míos, aun en mi soledad\nTe alabo, te alabo en verdad\n// Pues sólo a ti te tengo, pues tu eres mi heredad\nTe alabo, te alabo en verdad //\nAún sin muchas palabras, aun cuando no sé alabar\nTe alabo, te alabo en verdad\nAun lejos de los míos, aun en mi soledad\nTe alabo, te alabo en verdad",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "yo-quiero-ser-johan-sanchez",
@@ -1733,7 +1889,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nNo quiero solamente hablar yo quiero ser adorador\nY que la ofrenda que te agrade sea mi vida\nYo no quiero solo cantar yo quiero ser adorador\nQuiero quedarme en tu presencia todo el día\n\n# Estrofa 2\n// Amándote más y más buscando tu rostro\nSirviéndote en santidad quiero llegar hasta tu trono //",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "quema-mi-vida",
@@ -1744,7 +1901,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nQuiero alabarte y no puedo\nQuiero levantar mis manos hacia ti\nYa no tengo fuerzas dame hoy las tuyas\nEs hora de que obres tú en mí\nQuiero agradarte con mi canto\nPero es tan difícil cuando estoy así\nYa no tengo fuerzas dame hoy las tuyas\nEs hora de que obres tú en mí\n// Quema mi vida, quema mi ser\nSaca de mi lo que ya no te agrada\nHazme de nuevo tuyo quiero ser\nQuema mi vida, quema mi ser\nTú eres el divino alfarero\nY todo nuevo lo puedes hacer\nQuema mi vida //",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "jesus-esta-vivo-marco-lopez",
@@ -1755,7 +1913,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nTanto amo Dios al mundo\nQue a su único hijo Él entregó\nPara que todo aquel que crea en Él\nNo muera más tenga vida eterna.\n\n# Estrofa 2\n// Jesús está vivo, Jesús está vivo\nEs el pan de vida bajado del cielo\nJesús está vivo, Jesús está vivo\nSu Sangre me sana y sacia mi alma//\n\n# Estrofa 3\nEstá vivo está presente\nMi Dios es real\nYo le adoro reverente",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "aqui-en-tu-presencia-m-lopez",
@@ -1766,7 +1925,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nAquí en tu presencia\nQuiero darte gracias\nAquí en tu presencia\nQuiero regalarte esta canción\nAquí en tu presencia\nQuiero darte gracias\nAquí en tu presencia\nQuiero regalarte esta canción\nPor haberme salvado\nPor haber resucitado\nPor haberle dado alas a mi corazón\n\n# Estrofa 2\nPor haberme salvado\nPor haber resucitado\nPor haberle dado alas a mi corazón\n\n# Estrofa 3\nAquí en tu presencia…",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "el-rey-de-mi-vida",
@@ -1777,7 +1937,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nQuiero alabarte sin parar todo los días\nQue tu presencia sea el anhelo de mi vida\nYo quiero hacer tu voluntad\nSeñor yo te quiero agradar\nY quiero darte siempre el primer lugar\nYo quiero darte siempre el primer lugar\nSi tu eres el rey\nEl rey de mi vida\nEl número uno en mi corazón\nA ti yo te rindo todo lo que soy\nSi tu eres el rey\nEl rey de mi vida\nEl número uno en mi corazón\nA ti yo te rindo todo lo que soy\nQuiero adorarte sin parar todo los días\nQue tu presencia sea el anhelo de mi vida\nYo quiero hacer tu voluntad\nSeñor yo te quiero agradar\nY quiero darte siempre el primer lugar\nYo quiero darte siempre el primer lugar\nSi tu eres el rey\nEl rey de mi vida\nEl número uno en mi corazón\nA ti yo rindo todo lo que soy",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "hazme-como-tu",
@@ -1788,7 +1949,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nhazme como tu\nhazme como tu Jesús\n/hazme como tu/\n\n# Estrofa 2\n/hazme como tu/\nhazme como tu Jesús\n/hazme como tu/\n\n# Estrofa 3\nmanso y humilde de corazon\npuro en intencion\nhacerlo el rey de mi corazon\nque quiero ser mas como tu",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "nadie-te-ama-como-yo",
@@ -1799,7 +1961,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nCuánto he esperado este momento\nCuánto he esperado que estuvieras aquí\nCuánto he esperado que me hablaras\nCuánto he esperado que vinieras a mí\nYo sé bien lo que has vivido\nYo sé bien por qué has llorado\nYo sé bien lo que has sufrido\nPues de tu lado no me he ido\nPues nadie te ama como yo\n\n# Coro\nPues nadie te ama como yo\nMira la Cruz, esa es mi más grande prueba\nNadie te ama como yo\nPues nadie te ama como yo\nPues nadie te ama como yo\nMira la Cruz, fue por ti, fue porque te amo\nNadie te ama como yo\n\n# Estrofa 2\nYo sé bien lo que me dices\nAunque a veces no me hablas\nYo sé bien lo que en ti sientes\nAunque nunca lo compartas\nYo a tu lado he caminado\nJunto a ti yo siempre he ido\nAún a veces te he cargado\nYo he sido tu mejor amigo\nPues nadie te ama como yo…\nPues nadie te ama como yo\nMira la Cruz, esa es mi más grande prueba\nNadie te ama como yo\nPues nadie te ama como yo\nPues nadie te ama como yo\nMira la Cruz, fue por ti, fue porque te amo\nNadie te ama como yo\nComo yo",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "viva-cristo-rey-jesed",
@@ -1810,7 +1973,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nUn grito de guerra se escucha\nen la faz de la Tierra y en todo lugar\nLos prestos guerreros empuñan su espada\ny se enlistan para pelear\nPara eso han sido entrenados,\ndefenderán la verdad\nY no les será arrebatado\nel fuego que en su Sangre está\n\n# Coro\nViva Cristo Rey, viva Cristo Rey\nEl grito de guerra que enciende la Tierra\nViva Cristo Rey\nNuestro soberano Señor\nNuestro capitán y campeón\nPelear por Él, es todo un honor\n\n# Estrofa 2\nSabemos que esta batalla no es fácil\ny muchos se acobardarán\nY bajo los dardos de nuestro enemigo,\nsin duda perecerán\nYo tendré mi espada en alto\ncomo la usa mi Señor\nA Él nada lo ha derrotado,\nsu fuerza es la de Dios\nViva Cristo Rey…\n\n# Estrofa 3\nNo conocemos mayor alegría,\nno existe más honroso afán\nQue con mis hermanos estar en la línea\ny juntos la vida entregar\nA Él, que merece la gloria\ny nos reclutó por amor\nAnte Él, la rodilla se dobla\ny se postra el corazón\nViva Cristo Rey…,\n\n# Estrofa 4\nViva Cristo Rey\nEl grito de guerra que enciende la tierra\nViva Cristo Rey\nNuestro soberano Señor\nNuestro capitán y campeón\nPelear por Él es todo un honor\nPelear por Él es todo un honor",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "canto-a-san-jose",
@@ -1821,7 +1985,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nSan José eres el esposo bueno\nel Padre perfecto el amigo fiel\nSan jose eres hombre casto y puro\nvaliente y muy justo lleno de gran fe\nPues tu confiaste en María\nsabiendo lo que vendría\npues era obra divina del cual\ntu serias Padre del redentor.\nSan jose es oficio carpintero\npatrono de obreros protector Universal\nSan jose amante de la pobreza\nespejo de paciencia jefe del hogar\nEsperanza del enfermo\nejemplo de Padre bueno\nFuiste hombre elegido\ndel Padre nutricio del hijo de Dios\n\n# Estrofa 2\nCuídanos como a María como al mesías\nEdúcanos en la fe\nGuíanos como lo hacías con tu sagrada familia\nY danos tu amoorrr\nSan jose en el taller laboraste\ny ahi forjaste a Cristo en su niñez\nSan jose tu sufriste con María\ncuando lo perdias en el templo aquel\n\n# Estrofa 3\nPero después lo entendiste\ncuando su misión supiste\nY como Padre amoroso\nsiempre fervoroso oraste por El\n\n# Estrofa 4\nSan José ahora que estas en el cielo\ndame el consuelo intercede ante Dios por mi\nPídele, que me dé su fortaleza\nen cualquier flaqueza lléname de ti.\nEnseñame a ser sumiso a la voluntad de El.\nCamina siempre conmigo\nque quiero por Cristo serle siempre fiel.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "himno-al-senor-de-los-milagros-de-buga",
@@ -1832,7 +1997,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nGloria a ti, gloria a ti, Milagroso,\nque diste a esta tierra un tesoro en la Cruz;\ny en tus llagas, y en tus llagas a todos\nabriste manantiales de gracia y salud.\n\n# Estrofa 2\nMira, oh Cristo, con cuánta ternura\ntodo un pueblo te viene a buscar\ny entusiasta te adora y te jura\ncon su amor tus bondades pagar.\n\n# Estrofa 3\nDe la Cruz has estado vertiendo\na esta tierra torrentes de amor\ny en tus fuentes seguimos\nbebiendo gracias mil, Milagroso Señor.\n\n# Estrofa 4\nVarios siglos, Jesús, has estado\nremediándonos culpa y dolor\n\n# Estrofa 5\ny si siempre ves llanto a tu lado\nsiempre en Cruz te verán, Rey de amor.\n\n# Estrofa 6\nEn la Cruz te han mirado los siglos\ntú has querido desde ella reinar\ny si a Buga te trajo su río\nhecho Cristo quisiste llegar.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "cancion-al-senor-de-los-milagros",
@@ -1843,7 +2009,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nHay un pueblo que te mira\nq camina tras de ti\nHay una esperanza viva\nque ha crecido en torno a ti\nhay unas manos q ofrecen\nsu cansancio a ti Señor\ncorazones que tu inundas\nde alegría y de calor\n\n# Estrofa 2\nno hay milagro sin amor\nno hay amor sin ti Jesús\nla grandeza de tu Cruz\nnos abrió a tu corazón\nSeñor de los Milagros\ndanos tu bendición Cristo Moreno\ncrucificado llenanos de tu amor\n\n# Estrofa 3\nhay un niño q te reza q te pide con fervor\npor sus padres y hermanitos q los cuides tu Señor\nhay una pobre Señora q te ruega en tu Altar\npor sus hijos q se amen y q reine la unidad\n\n# Estrofa 4\nno hay milagro sin amor..\n\n# Estrofa 5\nhay un hombre adolorido\nq te implora estar mejor\nq padese y te ha ofrecido s\nu dolor a ti Señor\nhay un joven q se a ido\nq ha gastado su vivir q te pide\nlo perdones y lo abraces junto a ti\n\n# Estrofa 6\nno hay milagro sin amor…\n\n# Estrofa 7\nhay un grupo de tus fieles\nq te pide en oración\nq los llenes de tu fuerza\npara anunciarte mejor\n\n# Estrofa 8\nhay una patria querida\nq ponemos a  tus pies\nte pedimos reine en ella\nla justicia y la paz\n\n# Estrofa 9\nno hay milagro sin amor…",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "oh-senor-de-los-milagros",
@@ -1854,7 +2021,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nOh Señor de los Milagros,\nhe venido para adorarte;\ncaminante y peregrino,\nme has traído solo ante Ti.\n\n# Estrofa 2\nOh Señor de los Milagros,\ntu rostro herido, veo tus llagas;\ncuánto has sufrido por mis pecados,\ny así me has dado la salvación.\n\n# Estrofa 3\nOh Señor, de los Milagros,\na tus pies yo me inclino;\nquiero entregarte mi vida entera,\ntodo, todo mi ser.\n\n# Estrofa 4\nOh Señor,\nque de las aguas has venido;\ny Milagroso te han llamado,\nhoy solo pido, Señor, tu bendición.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "aunque-marche",
@@ -1865,7 +2033,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nAunque marche por la oscuridad\nNada he de temer,\nPorque tú conmigo vas,\nMi pastor que me hace sosegar (2)\n\n# Estrofa 2\nTú que me conduces\nA tus fuentes de paz,\nTú me has bautizado,\nPor tu senda voy.\n\n# Estrofa 3\nAunque marche por la oscuridad\nNada he de temer,\nPorque tú conmigo vas,\nMi pastor que me hace sosegar.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "el-senor-es-mi-pastor-alejandro-mejia",
@@ -1876,7 +2045,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nEl Señor es mi Pastor\nsu vida ha dado por mí\nyo su voz he de escuchar\ny suyo siempre seré.\n\n# Estrofa 2\nYo soy el buen Pastor\ndoy la vida a mis ovejas\npor su nombre Yo las llamo\ny con gran amor me siguen.\n\n# Estrofa 3\nYo no soy el mercenario\nque abandona las ovejas\ncuando ve venir al lobo\nque las mata y las dispersa.\n\n# Estrofa 4\nYo conozco mis ovejas\ny ellas también me conocen\ncomo el Padre me conoce\ny también conozco al Padre.\n\n# Estrofa 5\nTengo otras ovejas lejos\ny es preciso que las traiga\nmi llamada escucharán\ny se hará solo un rebaño.\n\n# Estrofa 6\nMis ovejas mi voz oyen\ny me siguen por doquiera\nYo les doy la vida eterna\nellas no verán la muerte.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "iglesia-peregrina",
@@ -1887,7 +2057,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Re]Todos unidos[Re7], formand[Sol]o un solo cuer[Re]po\nun cu[Sim]erpo que en la P[Mim]ascua nac[La]ió;\n[Re]miembros de Cris[Re7]to, en [Sol]sangre redim[Re]idos,\nIgl[Sol]esia peregri[La]na de Dio[Re]s.\nVive en nosotros la fuerza del Espíritu\nque el Hijo desde el Padre envió,\nÉl nos conduce, nos guía y alimenta,\nIglesia peregrina de Dios.\n\n# Estrofa 2\nS[Sol]omos en la tierra, semillas de [Re]otro reino[Sim]\n[Sol]somos testim[La]onio de amor.[Re][Re7]\n[Sol]Paz para las guerr[Re]as\ny [Sim]luz entre las so[Mim]mbras,\nIgl[Sol]esia peregri[La]na de D[Re]ios.\n\n# Estrofa 3\nRugen tormentas y a veces nuestra barca\nparece que ha perdido el timón.\nMiras con miedo y no tienes confianza,\nIglesia peregrina de Dios.\nUna esperanza nos llena de alegría\npresencia que el Señor prometió.\nVamos cantando, Él viene con nosotros,\nIglesia peregrina de Dios.\n\n# Estrofa 4\nTodos nacidos en un solo bautismo,\nunidos en la misma comunión.\nTodos viviendo en una misma casa\nIglesia peregrina de Dios.\nTodos prendidos en una misma suerte\nligados a la misma salvación.\nSomos un cuerpo y Cristo es la cabeza,\nIglesia peregrina de Dios.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "nueva-creacion",
@@ -1898,7 +2069,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Mim]Camina, Pueblo[Do] de Dios.\nCam[Re]ina, Pueblo de D[Mim]ios.\nNueva[Sol] Ley, nueva [Sim]Alianza\nen la Nue[Do]va Creac[Si7]ión.\nCam[Lam]ina, Pueblo de D[Mim]ios.\nCam[Re]ina, Pueblo de D[Mim]ios.\n\n# Estrofa 2\nMira allá, en el Calvari[Lam]o:\nen la roc[Re]a hay una Cruz[Mim],\nmue[Do]rte que engendra [Sol]la vida,\nnuevos homb[Do]res, nuev[Si7]a luz.\n[Mim]Cristo nos ha sa[Lam]lvado\ncon su muerte [Re]y resurrecci[Mim]ón.\n[Sol]Todas las cosas [Sim]renacen\nen la Nue[Do]va Creac[Si7]ión.\n\n# Estrofa 3\nCristo toma en su cuerpo\nel pecado, la esclavitud.\nAl destruirlos, nos trae\nuna nueva plenitud.\nPone en paz a los hombres,\na las cosas y al Creador.\nTodo renace a la vida\nen la Nueva Creación.\n\n# Estrofa 4\nCielo y tierra se abrazan,\nnuestra alma halla el perdón.\nVuelven a abrirse los cielos\npara el hombre pecador.\nIsrael peregrino,\nvive y canta tu redención.\nHay nuevos mundos abiertos\nen la Nueva Creación.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "pueblo-de-reyes",
@@ -1909,7 +2081,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Sol]Pueblo de re[Sim]yes, as[Sol]amblea [Do]Santa,\n[Re] pueblo sacerdota[Mim]l,\n[Sol]pueblo de Di[Lam]os, bend[Re]ice a t[Re7]u Señor.[Sol]\n\n# Estrofa 2\nTe canta[Sol]mos, Oh Hijo amado del Padre,[Do]\nte alaba[Re]mos, eter[Do]na Palab[Sol]ra sali[Do]-da[Re] de Dios[Mim].\nTe cantamos, Oh Hijo de la Virgen María,\nte alabamos, Oh Cristo nuestro hermano,\nnuestro Salvador.\n\n# Estrofa 3\nTe cantamos a ti, esplendor de la Gloria,\nte alabamos Estrella radiante que anuncias el día.\nTe cantamos, oh Luz\nque iluminas nuestras sombras,\nte alabamos, Antorcha de la nueva Jerusalén.\n\n# Estrofa 4\nTe cantamos, Mesías que anunciaron los profetas,\nte alabamos, oh Hijo de Abraham e hijo de David.\nTe cantamos, Mesías esperado por los pobres,\nte alabamos, oh Cristo nuestro Rey\nde humilde corazón.\n\n# Estrofa 5\nTe cantamos, Mediador entre Dios y los hombres,\nte alabamos, oh Ruta viviente, camino del cielo.\nTe cantamos, Sacerdote de la Nueva Alianza,\nte alabamos; Tú eres nuestra paz\npor la sangre de la Cruz.\n\n# Estrofa 6\nTe cantamos; Cordero de la Pascua eterna,\nte alabamos, oh Víctima que borras\nnuestros pecados.\nTe cantamos, oh Templo de la Nueva Alianza,\nte alabamos, oh Piedra angular y Roca de Israel.\n\n# Estrofa 7\nTe cantamos, Pastor que nos conduces al Reino,\nte alabamos; reúne a tus ovejas en un redil.\nTe cantamos, oh Cristo, manantial de la gracia,\nte alabamos, oh Fuente de agua viva\nque apaga nuestra sed.\n\n# Estrofa 8\nTe cantamos, oh Viña plantada por el Padre,\nte alabamos, oh Viña fecunda\nen nosotros tus sarmientos.\nTe cantamos, oh Cristo, maná verdadero,\nte alabamos, oh Pan de la vida que el Padre nos da.\n\n# Estrofa 9\nTe cantamos, Imagen del Dios invisible,\nte alabamos, oh Rey de justicia y Rey de paz.\nTe cantamos, Primicias de aquellos que duermen,\nte alabamos a ti, el viviente, principio y fin.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "vine-a-alabar-a-dios",
@@ -1920,7 +2093,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[La]Vine a alaba[Mi]r a Dios[Fa#m].\n[Re]Vine a alaba[Si7]r a Dio[Mi]s.[Mi7]\n[La]Vine a alaba[Mi]r su nom[Fa#m]bre.\n[Re]Vine a alaba[Mi7]r a Dio[La]s.[La7]\n\n# Estrofa 2\n[Re]El lleg[Mi]ó a mi vida [La]en un dí[Fa#m]a muy especial,\ncamb[Re]ió mi corazó[Mi]n por un[La] nuevo c[La7]orazón.\nY [Re]esa es la ra[Mi]zón por [La]la que d[Fa#m]igo que\n[Re]vine a alaba[Mi]r a Dios[La].",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "mira-nuestra-ofrenda",
@@ -1931,7 +2105,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Lam]Mira [Mi7]nuestra o[Lam]frend[Rem]a, m[Mi7]írala[Lam], Señor.\nTodo te ofre[Rem]cemos p[Sol]ara unirnos m[Do]ás.\n\n# Coro\n[Lam]Porq[La7]ue tu[Rem] Mis[Sol]a es nuestra [Do]Misa\n[Lam]porque tu vi[Rem]da es n[Mi7]uestra vi[Lam]da. (bis)\n\n# Estrofa 2\n¿Qué podemos darte, nuestro Creador?\nSólo nuestra nada, tómala, Señor.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "recibe-oh-dios",
@@ -1942,7 +2117,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Do]Recibe, oh Dios, el [Fa]pan que te ofrec[Sol]emos[Lam],\nluego será [Do]el cuerp[Fa]o de Jesús.[Sol][Sol7]\nTambién acept[Do]a nuestr[Fa]o sacrificio[Sol],[Lam]\nnuestra oración,[Do] y nuest[Fa]ro c[Sol]orazó[Do]n.\n\n# Estrofa 2\nRecibe, oh Dios, el vino que ofrecemos,\nluego será la sangre de Jesús.\nTambién acepta nuestro sacrificio,\nnuestra oración y nuestro corazón.\n\n# Estrofa 3\nRecíbelos, Señor, por nuestras faltas,\npor los que están aquí junto al altar,\npor los cristianos vivos y difuntos,\npor todo el mundo, por su salvación.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": true,
+    "demo": true
   },
   {
     "id": "saber-que-vendras",
@@ -1953,7 +2129,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Do]En este [Fa]mundo que Cr[Do]isto nos[Lam] da,\nhac[Do]emos la ofre[Fa]nda del [Sol]pan.\nDel pan de nuestro trabajo sin fin,\ny el vino de nuestro cantar.\nTraigo ante Ti nuestra justa inquietud:\namar la justicia y la paz.\n\n# Coro\nSabe[Fa]r que vendrá[Sol]s, saber [Do]que estarás,[Lam]\npartie[Fa]ndo a los ho[Sol]mbres Tu [Do]pan. (bis)\n\n# Estrofa 2\nLa sed de todos los hombres sin luz,\nla pena y el triste llorar.\nEl odio de los que mueren sin fe,\ncansados de tanto luchar.\nEn la patena de nuestra oblación\nacepta la vida Señor.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "santo-i",
@@ -1964,7 +2141,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Mim]Santo es el Seño[Re]r mi Dios, d[Do]igno de alab[Si7]anza.\n¡A Él el poder, el honor y la gloria! (bis)\n\n# Coro\n¡Ho[Mim]sanna (hosanna), hos[Re]anna (hosanna),\nhos[Do]anna, ¡oh Se[Si7]ñor! (bis)\n\nBendito el que viene en nombre del Señor,\ncon todos los santos cantamos para Él. (bis)",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "santo-iii",
@@ -1975,7 +2153,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Lam]Santo[La7], Santo, [Rem]Santo, Sa[Sol]nto es el Señ[Do]or.\nDi[Rem]os del univer[Lam]so, Santo[Mi7] es el Señor. (bis)[Lam]\n\n# Coro\n¡Ho[Lam]sann[La7]a en el c[Rem]ielo! ¡Ho[Sol]sanna en las altu[Do]ras!\nBen[Rem]dito el que v[Lam]iene en N[Mi7]ombre del Señ[Lam]or. (bis)",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "si-yo-no-tengo-amor",
@@ -1986,7 +2165,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Re]Si yo no tengo a[Sim]mor,\nyo nad[Sol]a so[Mim]y, Se[La]ñor.\nSi [Re]yo no tengo amor[Sim],\nyo nad[Sol]a so[La]y, S[Re]eñor.\n\n# Estrofa 2\n[Re]El amor es compasivo,\n[Sim]el amor es servicial,\n[Sol]el amor no tiene [Mim]envidia\nel amor no bus[La]ca el mal.\n\n# Estrofa 3\nEl amor nunca se irrita,\nel amor no es descortés\nel amor no es egoísta,\nel amor nunca es doblez.\n\n# Estrofa 4\nEl amor disculpa todo,\nel amor es caridad,\nno se alegra de lo injusto\nsólo goza en la verdad.\n\n# Estrofa 5\nEl amor soporta todo,\nel amor todo lo cree,\nel amor todo lo espera,\nel amor es siempre fiel.\n\n# Estrofa 6\nNuestra fe, nuestra esperanza\nfrente a Dios terminarán\nel amor es algo eterno\nnunca, nunca pasar.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "yo-soy-el-camino",
@@ -1997,7 +2177,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Lam]Yo soy la[Rem] luz del [Lam]mundo,\n[Rem]no hay tinieb[Lam]las junto[Mi] a m[Lam]í.[Sol7]\nTendrá[Do]n la luz[Fa] de la vida[Do]\npo[Fa]r la palabra[Lam] que[Rem] les[Mi] di.\n\n# Coro\n/Yo so[Lam]y el [La7]camino fi[Rem]rme,\nyo soy la vi[Sol7]da y la verdad[Do].\nPor mí[Rem] llegarán al Padr[Sol7]e\ny al Santo Espírit[Mi]u tendrá[Lam]n./\n\n# Estrofa 2\nYo soy el pan de vida\ny con ustedes me quedé;\nme entrego como alimento\nsoy el misterio de la fe.\n\n# Estrofa 3\nYo soy el buen pastor\ny por amor mi vida doy;\nyo quiero un solo rebaño,\nsoy para todos salvador.\n\n# Estrofa 4\nYo soy la Vid verdadera\nmi Padre Dios, el Viñador\nproduzcan fruto abundante\npermaneciendo en mi amor.\n\n# Estrofa 5\nYo soy Señor y Maestro\ny un mandamiento nuevo doy:\nque se amen unos a otros\ncomo los he amado Yo.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "alma-misionera",
@@ -2008,7 +2189,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Sol]Señor [Re]toma mi vida [Mim]nueva\n[Do]antes de que la [Sol]espera\n[Do]desgaste años [Re]en mí.\nEstoy dispuesto a los que quieras\nno importa lo que sea\n[Do]Tú [Re]llámame a [Sol]servir.\n\n# Coro\n[Sol]Llévame donde los [Re]hombres\n[Mim]necesiten tus [Do]palabras, necesiten [Sol]\n[La]mis ganas de [Re]vivir.\nDonde falte la esperanza,\ndonde todo sea triste, simplemente\n[Do]por no [Re]saber de [Sol]Ti.\n\n# Estrofa 2\nTe doy mi corazón sincero,\npara gritar sin miedo\nlo hermoso que es tu amor.\nSeñor, tengo alma misionera,\ncondúceme a la tierra\nque tenga sed de vos.\n\n# Estrofa 3\nY así, en marcha iré cantando\npor pueblos, predicando\ntu grandeza, Señor.\nTendré mis manos sin cansancio,\ntu historia entre mis labios,\ntu fuerza en la oración.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "alabado-sea-el-santisimo",
@@ -2019,7 +2201,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Re]Alabado sea el Santí[La7]simo\n[Re]Sacramen[Sol]to del al[Re]tar.[Re7]\n//Y la[Sol] Virgen c[La]oncebida[Re]\n[Sim]sin [Mim]pecado or[La7]igin[Re]al.// (bis)\n\n# Estrofa 2\nEl manjar más regalado\nde este suelo terrenal,\n//es Jesús Sacramentado,\nDios Eterno e Inmortal.// (bis)\n\n# Estrofa 3\nCelebremos con Fe viva\neste pan angelical\n//y la Virgen concebida\nsin pecado original.// (bis)\n\n# Estrofa 4\nEs el Dios que da la vida\ny que nació en un portal,\n//de la Virgen concebida\nsin pecado original.// (bis)",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "cantemos-al-amor-de-los-amores",
@@ -2030,7 +2213,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Do]Cantemos al [Sol]Amor de l[Lam]os amores,\ncan[Rem]temos al Seño[Sol]r.\n¡Di[Do]os está [Lam]aquí:[Rem]\n[Fa]venid, adora[Sol]dores, ad[Lam]orem[Mim]os\n[Si7]a Cristo [Mim]Redentor!\n\n# Coro\n[Do]¡Gloria [La]a Cristo[Rem] Jesús!\nCielos y tie[Do]rra, ben[Lam]decid al Señor.[Sol]\n¡Honor[Fa] y glori[Sol]a a Ti,  [Do]Rey[Mi7] de la gloria[Fa];\namor por sie[Do]mpre a T[Lam]i, Dios d[Rem]el A[Do]mor[Sol]![Do]\n\n# Estrofa 2\nUnamos nuestra voz a los cantares\ndel coro celestial.\n¡Dios está aquí:\nal Dios de los altares alabemos,\ncon gozo angelical!\n\n# Estrofa 3\nCantemos al amor de los amores,\ncantemos sin cesar.\n¡Dios está aquí:\nvenid, adoradores, adoremos\na Cristo en el altar!",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "digno-de-alabar",
@@ -2041,7 +2225,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Do]Levanto mis manos,\ncie[Sol]rro mis o[Lam]jos,\npara p[Fa]roclamar tu [Sol]nombre,\nDios de p[Do]oder. (Bis)\n\n# Coro\nDigno de ala[Fa]bar, Señ[Sol]or.\nGloria[Lam] y m[Sol]ajestad,  sea[Do]n a Ti.\nRey de la[Fa] creación,\npor si[Sol]empr[Lam]e. A[Sol]meee[Do]eeeen.\n[Fa]Digno de[Sol] alabar, Señor.\nGloria[Lam] y m[Sol]ajestad,  sea[Do]n a Ti.\nRey de la[Fa] creación,\n[Sol]por [Do]sie[Fa]mpr[Do]e. Amén.\n\n# Estrofa 2\n[Do]Levanto mis manos\nCi[Sol]erro mis [Lam]ojos,\nPara p[Fa]roclamar tu [Sol]nombre,\nDios de p[Do]ode[Fa]r.[Do]\n\n# Coro (repetición)\n[Fa]Digno de[Sol] alabar, Señor.\nGloria[Lam] y m[Sol]ajestad,  sea[Do]n a Ti.\nRey de la[Fa] creación,\npor si[Sol]empr[Lam]e. A[Sol]meee[Do]eeeen.\n[Fa]Digno de[Sol] alabar, Señor.\nGloria[Lam] y m[Sol]ajestad,  sea[Do]n a Ti.\nRey de la[Fa] creación,\npor si[Sol]empr[Mim]e. A[Fa]mén.\n[Rem]Rey de la creación\npor si[Sol]empr[Do]e. [Fa]Ame[Do]eeeeeen.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "gloria-martin-valverde",
@@ -2052,7 +2237,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Rem]Gloria... Glo[Sib]ria.[La7]..\nGl[Rem]oria... Glori[Sib]a...[La7]\n\n# Estrofa 2\na J[Solm]esús el Señor,[Do]\nal Cor[Fa]dero de Dios[Sib].\nAl [Solm]nombre sobre t[La]odo[Rem] nombre.[Re7]\na J[Solm]esús el Señor,[Do]\nal Cor[Fa]dero de Dios[Sib].\nAl [Solm]nombre sobre t[La]odo[Rem] nombre.",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "vive-jesus",
@@ -2063,7 +2249,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Sol]Vive Jesú[Mim]s el Seño[Lam]r,\n[Do]vive Jes[Re]ús el Se[Sol]ñor. (Bis)\n\n# Coro\n[Re]Él vive, Él [Sol]vive, Él vive,\nv[Mim]ive, [Do]vive Jes[Re]ús el Se[Sol]ñor. (Bis)",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "maria-musica-de-dios",
@@ -2074,7 +2261,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Mi]Me quedé sin voz,[Si7]\n[La]  con qu[Si7]e can[Mi]tar.[Sol#][Do#m]\nY mi alma va[Fa#m]cía, dormida se quedab[Si7]a.\nY pensé para mí:\n\"me pondré en sus manos,\nmanos de madre,\nme dejaré en tu am[Re7]or\".\n\n# Coro\n[Sol] Y tu Mar[Mim]ía,\n[Do] hazme m[Re]úsica de Dio[Sol]s.\nY tu, [Mim]María,\n[Do] an[Re]ima Tú las c[Sol]uerdas de mi [Mim]alma,\n[Do]Aaaalelu[Re]ya, [Do]Aaa[Dom]aaam[Sol]én.\n\n# Estrofa 2\nMaría acompaña\ntú mi caminar\nyo sólo no puedo,\nayúdame a andar.\nY pensé para mí...\n\"me pondré en sus manos,\nmanos de madre,\nme dejaré en tu amor\".",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "alma-de-cristo",
@@ -2085,7 +2273,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Do]Alma de Cristo, sant[Sib]ifíc[Fa]ame[Do].\nCuerpo de Cristo, [Sib]sálv[Fa]ame[Do].\nSangre de Cristo, embriágame.\nAgua de su Costado, lávame.\n\n[Do]   [Sib]    [Fa]   [Do]\n[Do]   [Sib]    [Fa]   [Do]\n\nPasión de Cristo, confórtame\nOh, buen Jesús, óyeme\n//D[Lam]entro de tus llagas, [Fa]escóndeme.[Do][Sol]\nNo permitas que me aparte de Ti.\nDel maligno enemigo, defiéndeme.\nY en la hora de mi muerte, llámame\ny má[Rem]ndame ir a Ti\n[Fa]para que con tus san[Do]tos te alabe[Sol]\nPor los sigl[Rem]os de los siglos. Amén.// ([Do]x2)",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "hacia-ti-morada-santa",
@@ -2096,7 +2285,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\nHacia [Mim]ti morada [Si7]Santa,\nhacia ti tierra del [Mim]Salvador,\n[Re]peregrinos [Do]caminantes,\nvamos hacia [Si7]ti.\n\n# Coro\nVenimos a tu [Mim]mesa,\nsellaremos tu [Re]Pacto,\ncomeremos tu [Do]carne,\ntu sangre nos [Si7]limpiará.\nReinaremos contigo,\nen tu morada santa,\nbeberemos tu sangre,\ntu fe nos salvará.\n\n# Estrofa 2\nSomos tu pueblo Santo,\nque hoy camina unido;\nTú vas entre nosotros,\ntu amor nos guiará.\n\n# Final\nTú eres el camino.\nTu eres la esperanza\nHermano entre los pobres.\nAmen, Aleluya.\n",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "yo-soy-el-pan-de-vida",
@@ -2107,7 +2297,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Sol]Yo soy el Pan [Sim]de vida,\nel que [Do]viene a Mí no tendrá [Re]hambre,\nel que [Sol]cree en [Sim]Mí no tendrá [Do]sed.\n[Sol]Nadie viene a [Mim]Mí si mi [Lam]Padre no lo [Re7]atrae.\n\n# Estribillo\n[Re7]Yo lo [Sol][Re][Mim]resucitaré, yo lo [Do][Re][Re7]resu-citaré,\nyo lo [Sol][Sol7][Do]resu-citaré [Dom]en [Re4]el [Re7]día final.\n\n# Estrofa 2\nEl pan que yo daré es mi Cuerpo,\nvida para el mundo.\nEl que siempre coma de mi carne\nvivirá en Mí como yo vivo en mi Padre.\n\n# Estrofa 3\nYo soy esa bebida\nque se prueba y no se siente sed.\nEl que siempre beba de mi sangre\nvivirá en Mí y tendrá la vida eterna.\n\n# Estrofa 4\nSí, mi Señor, yo creo\nque has venido al mundo a redimirnos,\nque Tú eres el Hijo de Dios\ny que estás aquí, alentando nuestras vidas.\n",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "no-se-han-ido-del-todo",
@@ -2118,7 +2309,8 @@ const CANCIONES = [
     "letra": "# Intro\n[Do] [Lam] [Do] [Lam]\n\n# Estrofa 1\nNo se han ido del [Do]todo\nSi aun podemos su [Lam]risa evocar\nSu carácter [Sib]y su [Fa]bondad\nNo se han ido del [Sol]todo.\n\n# Estrofa 2\nNo se han ido del [Do]todo\nSi algo bueno han [Lam]dejado al pasar\nAunque hoy ya no [Sib]estén más [Fa]aquí\nNo se han ido del [Sol][La][La7]todo.\n\n# Estrofa 3\nNo se han ido del [Re]todo\nSi recordar es [Sim]volver a vivir\nAún con lagrimas [Do]puedes [Sol]decir\nNo se han ido del [La]todo.\n\n# Puente 1\nNo es el fin de la [Re]historia\nSon dos lados de [Sim]la eternidad\nEllos ahora se [Do]encuentran [Sol]allá\nY tú y yo [La]debemos continuar.\n\nAhora se encuentran [Re]libres\nAhora ya son [Sim]felices\nLo que aquí tanta [Do]falta les [Sol]hizo\nDonde están hoy les [La]sobra.\n\nYa no hay [Re]sufrimiento\nY no existen más [Sim]lágrimas\nNo hay vacío ni [Do]hay [Sol]soledad\nSon libres como el [La][La7]viento.\n\n# Estrofa 4\nDios los ha [Sim][Sim7]recibido,\na sus brazos [Sim][Sim7]llegaron\nHoy están [La][La7]descansando\nEn la casa del [Sim][Sim7]Padre han sido\n[Sim][Sim7]recibidos\n[Do]Nada qué [Sol]temer\npues ya están en el [La]cielo\nNo se han ido del [Sim][La][Re]todo\n\n# Interludio\n([Re] [Sim] [Do] [Sol] [La])\n\n# Estrofa 5\nNo se han ido del [Re]todo\nSi nos han [Sim]dejado una luz\nSi su esfuerzo da [Do]frutos [Sol]aún\nNo se han ido del [La]todo.\n\n# Estrofa 6\nNo se han ido del [Re]todo\nSi al pensarlo nos [Sim]hacen vivir\nSi una meta nos [Do]hacen [Sol]seguir\nNo se han ido del [La]todo.\n\n# Puente 2\nY aunque duela hasta el [Re]alma\nMejor dales tu [Sim]último adiós\nSi hace falta [Do]también tu [Sol]perdón\nDeja ya que [La]descansen.\n\nYa no pierdas más [Re]tiempo\nEnfréntate a la [Sim]vida\nTodo hombre se [Do]puede [Sol]morir\nTú estás vivo y te [La]toca [La7]vivir.\n\nY no tengas [Sim][Sim7]miedo\nQue Dios te hace más [Sim][Sim7]fuerte\nQuien ha [Do]sabido [Sol][La]vivir\nNo le teme a la [Re]muerte (bis).\n\n# Interludio 2\n[Do] [Lam] [Sib] [Fa] [Sol]\n\n# Final\nYo soy la resurrección!!!\nNo se han ido del [Do]todo.\n",
     "youtube": "https://www.youtube.com/watch?v=Qt_J5w0LQTQ&list=RDQt_J5w0LQTQ&start_radio=1",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "mas-alla-del-sol",
@@ -2129,7 +2321,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Sol]Aunque en esta [Do][Sol]vida, no tengo [Do][Sol]riquezas,\nse que alla en la [Re7]gloria [Do]tengo una [Sol][Re][Sol]mansion,\ncual alma [Do][Sol]perdida entre la [Do][Sol]pobreza,\nque mi [Re7]Jesucristo [Do]tubo [Sol][Re][Sol]compasión.\n\n# Coro\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol][Re][Sol]sol\n\n# Coro\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol]sol\n\n# Estrofa 2\n[Sol]Así por el [Do][Sol]mundo, yo voy [Do][Sol]caminando\nde pruebas [Re7][Do]rodeado, y de [Sol][Re][Sol]tentación.\nPero a mi [Do][Sol]lado, viene [Do][Sol]consolando\nmi bendito [Re7]Cristo, [Do]en la [Sol][Re][Sol]turbación.\n\n# Coro\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol][Re][Sol]sol\n\n# Coro\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol]sol\n\n# Estrofa 3\n[Sol]Cristo a cada [Do][Sol]raza, del linaje [Do][Sol]humano\npuede [Re7][Do]impartirle, plena [Sol][Re][Sol]salvación.\n\n# Estrofa 4\n[Sol]Y una bella [Do][Sol]casa, hecha por su [Do][Sol]mano\nfue \"a\" [Re7]prepararles, [Do]ala santa [Sol][Re][Sol]Sión.\n\n# Coro\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol][Re][Sol]sol\n\n# Coro (final)\nMas alla del [Do]sol mas alla del [Sol]sol,\nyo tengo un [Re7]hogar, [Do]hogar, bello [Sol]hogar,\nmas [Re7]alla del [Sol]sol\nyo tengo un [Re7]hogar, [Do]hogar, bello [Dom]hogar,\nmas alla del [Sol2]sol\n",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "pescador-de-hombres-49",
@@ -2140,7 +2333,8 @@ const CANCIONES = [
     "letra": "# Estrofa 1\n[Re]Tú, [La]has venido a la [Sim][Fa#m]orilla,\nno has [Sol]buscado, [Mi]ni a sabios ni [La]a ricos,\ntan solo [Re]quieres, [La]que yo [Re]te [Re7]siga.\n\n# Coro\n[Sol]Señor, [La]me has mirado a [Fa#m]los [Sim]ojos,\n[Mi]sonriendo, [La]has dicho [Re]mi [Re7]nombre.\nEn la [Sol]arena, [La]he dejado [Fa#m]mi [Sim]barca,\njunto a [Mi]ti, [La]buscaré otro [Re]mar.\n\n# Estrofa 2\n[Re]Tú, [La]sabes bien lo que [Sim][Fa#m]tengo,\nen mi [Sol]barca, [Mi]no hay oro ni [La]plata,\ntan solo [Re]redes [La]y mi [Re][Re7]trabajo.\n\n# Coro\n[Sol]Señor, [La]me has mirado a [Fa#m]los [Sim]ojos,\n[Mi]sonriendo, [La]has dicho [Re]mi [Re7]nombre.\nEn la [Sol]arena, [La]he dejado [Fa#m]mi [Sim]barca,\njunto a [Mi]ti, [La]buscaré otro [Re]mar.\n\n# Estrofa 3\n[Re]Tú, [La]necesitas mis [Sim][Fa#m]manos,\nmi [Sol]cansancio [Mi]que a otros [La]descanse,\namor que [Re]quiera [La]seguir [Re][Re7]amando.\n\n# Coro\n[Sol]Señor, [La]me has mirado a [Fa#m]los [Sim]ojos,\n[Mi]sonriendo, [La]has dicho [Re]mi [Re7]nombre.\nEn la [Sol]arena, [La]he dejado [Fa#m]mi [Sim]barca,\njunto a [Mi]ti, [La]buscaré otro [Re]mar.\n\n# Estrofa 4\n[Re]Tú, [La]pescador de otros [Sim][Fa#m]lagos,\nansia [Sol]eterna [Mi]de almas que [La]esperan,\namigo [Re]bueno, [La]que así [Re]me [Re7]llamas.\n\n# Coro (final)\n[Sol]Señor, [La]me has mirado a [Fa#m]los [Sim]ojos,\n[Mi]sonriendo, [La]has dicho [Re]mi [Re7]nombre.\nEn la [Sol]arena, [La]he dejado [Fa#m]mi [Sim]barca,\njunto a [Mi]ti, [La]buscaré otro [Re]mar,\njunto a [Mi]ti, [La]buscaré otro [Re]mar,\njunto a [Mi]ti, [La]buscaré otro [Re]mar.\n",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "caminare-en-presencia-del-senor",
@@ -2151,7 +2345,8 @@ const CANCIONES = [
     "letra": "# Estribillo\n[Mim][Re]Caminaré\nen [Do]presencia [Si7]del [Mim]señor. (2)\n\n# Estrofa 1\n[Mim]Amo al Señor\nporque [Re]escucha\nmi voz\n[Mim]suplicante.\n[Mim]Porque inclina\nsu [Re]oido\nhacia [Do]mi\nel [Si7]dia que lo [Mim]invoco.\n\n# Estribillo\n[Mim][Re]Caminaré\nen [Do]presencia [Si7]del [Mim]señor. (2)\n",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   },
   {
     "id": "entre-tus-manos",
@@ -2162,6 +2357,7 @@ const CANCIONES = [
     "letra": "# Estribillo\n[Do]Entre [Rem]tus [Sol7]manos, está mi vida [Do][Lam]señor;\n[Lam]Entre tus [Rem]manos, [Sol7]pongo [Do]mi [Do7]existir;\n[Do7]Hay que [Fa]morir, [Sol7]para [Do][Lam]vivir;\n[Lam]Entre tus [Rem]manos, [Sol7]confió mi [Do]ser.\n\n# Estrofa 1\n[Do]Si el [Rem]grano, [Sol7]de trigo [Do]no [Lam]muere,\nSi no [Rem]muere, [Sol7]Sólo [Do][Lam]quedará.\nPero [Rem]si muere, [Sol7]en [Do]abundancia [Lam]dará\n[Lam]Un fruto [Rem]eterno, [Sol7]que no [Do][Do7]morirá.\n\n# Estribillo\n[Do]Entre tus [Rem]manos, [Sol7]está [Do]mi vida [Lam]señor;\n[Lam]Entre tus [Rem]manos, [Sol7]Pongo [Do]mi [Do7]existir;\n[Do]Hay que [Fa]morir, [Sol7]para [Do][Lam]vivir;\n[Lam]Entre tus [Rem]manos, [Sol7]confió [Do]mi ser.\n",
     "youtube": "",
     "premium": false,
-    "bloqueada": false
+    "bloqueada": false,
+    "demo": false
   }
 ];
