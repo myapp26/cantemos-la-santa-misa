@@ -265,9 +265,135 @@
   .gate-overlay.hidden{display:none}
   .gate-overlay .sheet{max-width:420px;border-radius:14px;width:100%}
   #gate-key{text-transform:uppercase;letter-spacing:.04em}
+
+  /* ---------- Portada de bienvenida (primera vez) ---------- */
+  .portada{position:fixed;inset:0;z-index:1000;
+    background:radial-gradient(ellipse at 50% -10%,var(--paper-deep),var(--paper) 65%);
+    display:flex;align-items:center;justify-content:center;padding:28px;
+    overflow-y:auto}
+  .portada.hidden{display:none}
+  .portada-card{max-width:400px;width:100%;text-align:center;
+    display:flex;flex-direction:column;align-items:center;gap:18px}
+  .portada-loading{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .portada-note{font-size:34px;color:var(--accent);animation:portadaPulse 1.1s ease-in-out infinite}
+  @keyframes portadaPulse{0%,100%{opacity:.25;transform:scale(.85)}50%{opacity:1;transform:scale(1.05)}}
+  .portada-loading .eyebrow{margin:0}
+  .portada-content{display:none;flex-direction:column;align-items:center;gap:18px;
+    opacity:0;transform:translateY(6px);transition:opacity .5s ease,transform .5s ease}
+  .portada.ready .portada-loading{display:none}
+  .portada.ready .portada-content{display:flex;opacity:1;transform:none}
+  .portada-art{width:100%;max-width:300px;height:auto}
+  .portada-card h1.brand{margin:0}
+  .portada-tagline{color:var(--ink-soft);font-size:14.5px;line-height:1.5;max-width:320px}
+  .portada-enter{font-family:"Courier New",monospace;font-size:14px;letter-spacing:.04em;
+    background:var(--accent);color:#fff;border:none;padding:13px 28px;border-radius:24px;
+    cursor:pointer;box-shadow:0 2px 0 var(--accent-deep)}
+  .portada-enter:active{transform:translateY(1px);box-shadow:0 1px 0 var(--accent-deep)}
 </style>
 </head>
 <body>
+<div class="portada" id="portada">
+  <div class="portada-card">
+    <div class="portada-loading" id="portadaLoading">
+      <div class="eyebrow">Cancionero litúrgico · Notas y acordes</div>
+      <div class="portada-note">♪</div>
+    </div>
+    <div class="portada-content" id="portadaContent">
+      <svg class="portada-art" viewBox="0 0 350 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- iglesia -->
+        <g stroke="var(--ink)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M8,96 L52,46 L96,96" fill="var(--paper-deep)"/>
+          <rect x="21" y="96" width="63" height="64" rx="2" fill="var(--paper-deep)"/>
+          <rect x="42" y="126" width="21" height="34" rx="2" fill="var(--paper)"/>
+          <circle cx="52" cy="111" r="8" fill="var(--paper)"/>
+          <line x1="52" y1="104" x2="52" y2="118"/>
+          <line x1="45" y1="111" x2="59" y2="111"/>
+          <line x1="52" y1="46" x2="52" y2="27"/>
+          <line x1="44" y1="34" x2="60" y2="34"/>
+        </g>
+        <!-- cabecita cantando 1 -->
+        <g stroke="var(--ink)" stroke-width="2" stroke-linecap="round">
+          <path d="M128,84 Q150,58 172,84" fill="none"/>
+          <circle cx="150" cy="95" r="23" fill="var(--paper)"/>
+          <circle cx="142" cy="90" r="2.2" fill="var(--ink)" stroke="none"/>
+          <circle cx="158" cy="90" r="2.2" fill="var(--ink)" stroke="none"/>
+          <ellipse cx="150" cy="105" rx="6.5" ry="8.5" fill="var(--accent-deep)" stroke="none"/>
+        </g>
+        <g fill="var(--accent)">
+          <g transform="translate(175,70) rotate(-18)">
+            <ellipse rx="4.6" ry="3.3"/><rect x="3.9" y="-15" width="1.7" height="15"/>
+            <path d="M5.6,-15 C11.5,-13 11.5,-6.5 5.6,-4.3Z"/>
+          </g>
+          <g transform="translate(192,50) rotate(-12) scale(.8)">
+            <ellipse rx="4.6" ry="3.3"/><rect x="3.9" y="-15" width="1.7" height="15"/>
+            <path d="M5.6,-15 C11.5,-13 11.5,-6.5 5.6,-4.3Z"/>
+          </g>
+        </g>
+        <!-- cabecita cantando 2 (más chica) -->
+        <g stroke="var(--ink)" stroke-width="2" stroke-linecap="round">
+          <path d="M187,108 Q205,88 223,108" fill="none"/>
+          <circle cx="205" cy="118" r="18" fill="var(--paper)"/>
+          <circle cx="199" cy="114" r="1.8" fill="var(--ink)" stroke="none"/>
+          <circle cx="211" cy="114" r="1.8" fill="var(--ink)" stroke="none"/>
+          <ellipse cx="205" cy="126" rx="5" ry="6.5" fill="var(--accent-deep)" stroke="none"/>
+        </g>
+        <g fill="var(--accent)">
+          <g transform="translate(226,98) rotate(10) scale(.7)">
+            <ellipse rx="4.6" ry="3.3"/><rect x="3.9" y="-15" width="1.7" height="15"/>
+            <path d="M5.6,-15 C11.5,-13 11.5,-6.5 5.6,-4.3Z"/>
+          </g>
+        </g>
+        <!-- pentagrama con clave de sol, entre las caritas y la guitarra -->
+        <g stroke="var(--rule)" stroke-width="1.2">
+          <line x1="232" y1="100" x2="298" y2="100"/>
+          <line x1="232" y1="107" x2="298" y2="107"/>
+          <line x1="232" y1="114" x2="298" y2="114"/>
+          <line x1="232" y1="121" x2="298" y2="121"/>
+          <line x1="232" y1="128" x2="298" y2="128"/>
+        </g>
+        <text x="230" y="133" font-family="Georgia,'Times New Roman',serif" font-size="46" fill="var(--ink)">𝄞</text>
+        <g fill="var(--accent)">
+          <g transform="translate(258,107) rotate(-10) scale(.6)">
+            <ellipse rx="4.6" ry="3.3"/><rect x="3.9" y="-15" width="1.7" height="15"/>
+            <path d="M5.6,-15 C11.5,-13 11.5,-6.5 5.6,-4.3Z"/>
+          </g>
+          <g transform="translate(278,121) rotate(8) scale(.6)">
+            <ellipse rx="4.6" ry="3.3"/><rect x="3.9" y="-15" width="1.7" height="15"/>
+            <path d="M5.6,-15 C11.5,-13 11.5,-6.5 5.6,-4.3Z"/>
+          </g>
+        </g>
+        <!-- guitarra -->
+        <g stroke="var(--ink)" stroke-width="2" stroke-linejoin="round">
+          <circle cx="317" cy="168" r="21" fill="var(--paper-deep)"/>
+          <circle cx="319" cy="143" r="14" fill="var(--paper-deep)"/>
+          <rect x="314" y="88" width="7" height="52" rx="2" fill="var(--paper-deep)"/>
+          <rect x="309" y="78" width="17" height="12" rx="2" fill="var(--paper-deep)"/>
+          <circle cx="317" cy="168" r="6" fill="var(--paper)"/>
+          <line x1="317" y1="180" x2="317" y2="188" stroke-width="3"/>
+        </g>
+        <g stroke="var(--ink-soft)" stroke-width=".7">
+          <line x1="314" y1="90" x2="314" y2="186"/>
+          <line x1="317.5" y1="90" x2="317.5" y2="186"/>
+          <line x1="321" y1="90" x2="321" y2="186"/>
+        </g>
+        <!-- notas sueltas de fondo -->
+        <g fill="var(--accent)" opacity=".55">
+          <g transform="translate(120,150) rotate(14) scale(.65)">
+            <ellipse rx="4.6" ry="3.3"/><rect x="3.9" y="-15" width="1.7" height="15"/>
+            <path d="M5.6,-15 C11.5,-13 11.5,-6.5 5.6,-4.3Z"/>
+          </g>
+          <g transform="translate(105,45) rotate(-8) scale(.55)">
+            <ellipse rx="4.6" ry="3.3"/><rect x="3.9" y="-15" width="1.7" height="15"/>
+            <path d="M5.6,-15 C11.5,-13 11.5,-6.5 5.6,-4.3Z"/>
+          </g>
+        </g>
+      </svg>
+      <h1 class="brand">Cantemos la <span class="swash">Santa Misa</span></h1>
+      <div class="portada-tagline">Himnos y cantos para acompañar La Santa Misa, con letras, acordes y diagramas — en tu celular, sin internet.</div>
+      <button class="portada-enter" onclick="entrarApp()">🎵 Ingresar a la app</button>
+    </div>
+  </div>
+</div>
 <div class="gate-overlay" id="gate">
   <div class="sheet">
     <h2>Acceso</h2>
@@ -487,6 +613,24 @@
 
 <script src="canciones.js"></script>
 <script>
+// ===================== Portada de bienvenida =====================
+// Se muestra solo la primera vez que se abre la app en este dispositivo
+// (queda guardado en localStorage). Las siguientes veces entra directo
+// al índice, sin mostrarla de nuevo.
+const LS_PORTADA="cantemos_portada_vista";
+(function initPortada(){
+  const portada=document.getElementById("portada");
+  if(localStorage.getItem(LS_PORTADA)){
+    portada.classList.add("hidden");
+    return;
+  }
+  setTimeout(()=>{ portada.classList.add("ready"); },900);
+})();
+function entrarApp(){
+  localStorage.setItem(LS_PORTADA,"1");
+  document.getElementById("portada").classList.add("hidden");
+}
+
 // ===================== Almacenamiento =====================
 const LS_DATA="cantemos_data_v1";
 let DATA = load();
