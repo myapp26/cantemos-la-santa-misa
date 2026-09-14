@@ -1150,6 +1150,31 @@ function eliminarSeleccionGuardada(i){
   renderSavedSelectionsList();
 }
 
+// ===================== Botón "atrás" del celular =====================
+// Sin esto, el botón de retroceso de Android cierra la app directo al
+// tocarlo con una canción o la presentación abierta, porque la app nunca
+// usa el historial del navegador. Cada pantalla que se abre encima del
+// inicio (canción, presentación) empuja un estado; "atrás" primero cierra
+// esa pantalla y te deja en el inicio, y solo si ya estás en el inicio
+// "atrás" sale de la app como es normal.
+let overlayStack=[];
+function pushAppState(kind){
+  overlayStack.push(kind);
+  history.pushState({cancioneroOverlay:kind},"");
+}
+function popOverlay(){
+  const kind=overlayStack.pop();
+  if(kind==="present"){
+    document.getElementById("present").classList.remove("open");
+    document.body.classList.remove("presenting");
+  } else if(kind==="song"){
+    document.getElementById("song-view").classList.remove("open");
+  }
+}
+window.addEventListener("popstate",function(){
+  if(overlayStack.length) popOverlay();
+});
+
 // ===================== Vista canción =====================
 function openSong(id){
   current=DATA.canciones.find(c=>c.id===id);semis=0;
@@ -1162,6 +1187,7 @@ function openSong(id){
   updateSong();
   document.getElementById("song-view").classList.add("open");
   document.querySelector(".sv-scroll").scrollTop=0;
+  pushAppState("song");
 }
 function updateSong(){
   const premiumEl=document.getElementById("sv-premium");
@@ -1191,7 +1217,13 @@ function updateSong(){
   document.getElementById("sv-lyrics").innerHTML=lyricsHTML(current.letra,semis);
 }
 function transpose(d){semis=((semis+d)%12+12)%12;if(semis>6)semis-=12;updateSong();}
-function closeSong(){document.getElementById("song-view").classList.remove("open");}
+function closeSong(){
+  if(overlayStack.length && overlayStack[overlayStack.length-1]==="song"){
+    history.back(); // popstate hace el cierre real (popOverlay)
+  } else {
+    document.getElementById("song-view").classList.remove("open");
+  }
+}
 
 // ===================== Presentación =====================
 function openPresent(){
@@ -1203,10 +1235,15 @@ function openPresent(){
   document.body.classList.add("presenting");
   document.getElementById("present").classList.add("open");
   document.querySelector(".p-scroll").scrollTop=0;
+  pushAppState("present");
 }
 function closePresent(){
-  document.getElementById("present").classList.remove("open");
-  document.body.classList.remove("presenting");
+  if(overlayStack.length && overlayStack[overlayStack.length-1]==="present"){
+    history.back(); // popstate hace el cierre real (popOverlay)
+  } else {
+    document.getElementById("present").classList.remove("open");
+    document.body.classList.remove("presenting");
+  }
 }
 function presentSize(d){
   presentFontSize=Math.max(18,Math.min(64,presentFontSize+d));
