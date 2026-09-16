@@ -236,6 +236,7 @@
   .chords-lock{padding:18px;text-align:center;font-family:"Courier New",monospace;
     font-size:13px;color:var(--ink-soft);background:var(--paper-deep);border-radius:4px;
     border:1px dashed var(--rule)}
+  .cargando-letra{padding:24px 16px;text-align:center;color:var(--ink-soft);font-size:14px}
   .btn-row{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;position:sticky;bottom:-1px;
     background:var(--paper);padding:10px 0 2px;box-shadow:0 -6px 10px -6px rgba(0,0,0,.18);z-index:5}
   .btn{padding:12px 18px;font-family:"Courier New",monospace;font-size:13px;letter-spacing:.05em;
@@ -660,6 +661,7 @@ function save(){localStorage.setItem(LS_DATA,JSON.stringify(DATA));}
 // claude/auditoria-seguridad-cancionero.md en el proyecto de Claude para el
 // contexto completo de este hallazgo.
 const VALIDATE_URL = "https://zhxtoublmvrghmnpwxoj.supabase.co/functions/v1/validate-key";
+const GET_LETRA_URL = "https://zhxtoublmvrghmnpwxoj.supabase.co/functions/v1/get-letra";
 const LS_ACCESS = "cantemos_access";
 
 async function fingerprintHash(){
@@ -807,6 +809,30 @@ function visibleParaListado(c){
   if(tier==="demo") return !!c.demo;
   if(tier==="freemium") return c.restriccion!=="oculta";
   return true;
+}
+
+// Las canciones restringidas (candado/oculta/premium) se publican con la
+// letra vacia en canciones.js (archivo publico, sin autenticacion -- ver
+// publishFile()). Si hace falta mostrarla/editarla y no la tenemos en
+// memoria todavia, se pide bajo demanda a get-letra. Ver
+// claude/analisis-tecnico-cancionero.md (16/9/2026) en el proyecto de
+// Claude "App cancionero".
+function necesitaLetraRemota(c){
+  return !!c && esRestringida(c) && !c.letra && (adminEfectivo() || nivelEfectivo()==="premium");
+}
+async function ensureLetraDisponible(c){
+  if(!necesitaLetraRemota(c)) return;
+  const access=loadAccess();
+  if(!access || !access.key || !access.token) return;
+  try{
+    const res=await fetch(GET_LETRA_URL,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({key:access.key, token:access.token, id:c.id})
+    });
+    const data=await res.json();
+    if(data.ok && typeof data.letra==="string"){ c.letra=data.letra; save(); }
+  }catch(e){ /* sin conexion: se sigue viendo bloqueada, sin romper la app */ }
 }
 
 async function callValidate(key, token){
@@ -1322,7 +1348,7 @@ window.addEventListener("popstate",function(){
 });
 
 // ===================== Vista canción =====================
-function openSong(id){
+async function openSong(id){
   current=DATA.canciones.find(c=>c.id===id);semis=0;
   document.getElementById("sv-title").textContent=current.titulo;
   document.getElementById("sv-meta").textContent=
@@ -1330,10 +1356,15 @@ function openSong(id){
   document.getElementById("editBtn").style.display=isAdmin?"":"none";
   document.getElementById("sv-youtube").innerHTML=current.youtube
     ?`<a class="btn" href="${esc(current.youtube)}" target="_blank" rel="noopener">▶ Ver en YouTube</a>`:"";
-  updateSong();
   document.getElementById("song-view").classList.add("open");
   document.querySelector(".sv-scroll").scrollTop=0;
   pushAppState("song");
+  if(necesitaLetraRemota(current)){
+    document.getElementById("sv-chords").innerHTML="";
+    document.getElementById("sv-lyrics").innerHTML='<p class="cargando-letra">Cargando…</p>';
+    await ensureLetraDisponible(current);
+  }
+  updateSong();
 }
 function updateSong(){
   const premiumEl=document.getElementById("sv-premium");
@@ -1431,8 +1462,9 @@ function newSong(){
   closeModal("adminModal");openModal("songEditor");
 }
 function editCurrent(){ editSong(current.id); }
-function editSong(id){
+async function editSong(id){
   const c=DATA.canciones.find(x=>x.id===id); if(!c) return;
+  await ensureLetraDisponible(c);
   editingId=id;
   document.getElementById("se-h").textContent="Editar canto";
   document.getElementById("se-del").style.display="";
@@ -1609,10 +1641,16 @@ function importMergeData(ev){
 // listo para reemplazar en la carpeta y subir a Netlify.
 function publishFile(){
   const cats=JSON.stringify(DATA.categorias);
+  // Las canciones restringidas (candado/oculta/premium) NUNCA llevan su
+  // letra en este archivo -- se sirve publico, sin autenticacion, con
+  // <script src="canciones.js">. La letra real se sincroniza aparte a
+  // Supabase (ver letras-restringidas.json mas abajo + scripts/sync-letras.js)
+  // y se entrega bajo demanda via get-letra. Ver
+  // claude/analisis-tecnico-cancionero.md (16/9/2026).
   const cancionesLimpias=DATA.canciones.map(c=>({
     id:c.id, titulo:c.titulo, autor:c.autor||"", categoria:c.categoria,
-    tono:c.tono, letra:c.letra, youtube:c.youtube||"",
-    premium:!!c.premium, bloqueada:!!c.bloqueada, demo:!!c.demo
+    tono:c.tono, letra: esRestringida(c) ? "" : c.letra, youtube:c.youtube||"",
+    restriccion:c.restriccion||"", premium:!!c.premium, bloqueada:!!c.bloqueada, demo:!!c.demo
   }));
   const body=
 `// ============================================================
@@ -1631,7 +1669,23 @@ const CANCIONES = ${JSON.stringify(cancionesLimpias,null,2)};
   a.href=URL.createObjectURL(blob);
   a.download="canciones.js";
   a.click();URL.revokeObjectURL(a.href);
-  toast("Archivo canciones.js generado");
+
+  // Segundo archivo: la letra real de las canciones restringidas, para
+  // subir a Supabase con `node sync-letras.js letras-restringidas.json`
+  // (solo hace falta correrlo si alguna cambio desde la ultima publicacion).
+  const restringidas=DATA.canciones
+    .filter(c=>esRestringida(c) && c.letra)
+    .map(c=>({id:c.id, letra:c.letra}));
+  if(restringidas.length){
+    const blob2=new Blob([JSON.stringify(restringidas,null,2)],{type:"application/json"});
+    const a2=document.createElement("a");
+    a2.href=URL.createObjectURL(blob2);
+    a2.download="letras-restringidas.json";
+    a2.click();URL.revokeObjectURL(a2.href);
+    toast(`Archivos generados. Corré: node sync-letras.js letras-restringidas.json (${restringidas.length} restringidas)`);
+  } else {
+    toast("Archivo canciones.js generado");
+  }
 }
 
 // ===================== Utilidades UI =====================
