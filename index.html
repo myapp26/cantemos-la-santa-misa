@@ -516,6 +516,8 @@
       <button class="btn" onclick="exportData()">Exportar repertorio (respaldo)</button>
       <button class="btn" onclick="document.getElementById('importFile').click()">Importar repertorio</button>
       <input id="importFile" type="file" accept="application/json" style="display:none" onchange="importData(event)">
+      <button class="btn" onclick="document.getElementById('importMergeFile').click()">Importar y fusionar cantos</button>
+      <input id="importMergeFile" type="file" accept="application/json" style="display:none" onchange="importMergeData(event)">
       <button class="btn" style="border-color:var(--accent-deep);color:var(--accent-deep)" onclick="publishFile()">Generar archivo para publicar (Netlify)</button>
       <button class="btn" onclick="closeModal('adminModal')">Cerrar</button>
     </div>
@@ -1552,6 +1554,51 @@ function importData(ev){
       if(!d.categorias||!d.canciones) throw 0;
       if(!confirm("Esto reemplazará el repertorio actual en este dispositivo. ¿Continuar?")){ev.target.value="";return;}
       DATA=d;save();render();closeModal("adminModal");toast("Repertorio importado");
+    }catch(e){toast("Archivo no válido");}
+    ev.target.value="";
+  };
+  r.readAsText(file);
+}
+// Importa una lista de cantos y los FUSIONA con el repertorio actual en vez de
+// reemplazarlo: si el "id" del canto ya existe, actualiza sus acordes/tono/autor
+// (sin tocar categoría, premium, bloqueada ni id); si no existe, lo agrega como
+// canto nuevo. Acepta un array de cantos, o un objeto { "canciones": [...] }.
+function importMergeData(ev){
+  const file=ev.target.files[0]; if(!file) return;
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      const parsed=JSON.parse(r.result);
+      const items=Array.isArray(parsed)?parsed:parsed.canciones;
+      if(!Array.isArray(items)) throw 0;
+      let updates=0, nuevos=0;
+      items.forEach(item=>{
+        if(!item||!item.id) return;
+        if(DATA.canciones.some(c=>c.id===item.id)) updates++;
+        else if(item.titulo) nuevos++;
+      });
+      if(updates===0 && nuevos===0){toast("Nada para fusionar en ese archivo");ev.target.value="";return;}
+      if(!confirm(`Se actualizarán ${updates} cantos existentes (acordes/tono) y se agregarán ${nuevos} cantos nuevos. ¿Continuar?`)){ev.target.value="";return;}
+      items.forEach(item=>{
+        if(!item||!item.id) return;
+        const existing=DATA.canciones.find(c=>c.id===item.id);
+        if(existing){
+          if(typeof item.letra==="string") existing.letra=item.letra;
+          if(typeof item.tono==="string" && item.tono) existing.tono=item.tono;
+          if(typeof item.autor==="string" && item.autor && !(existing.autor||"").trim()) existing.autor=item.autor;
+        }else if(item.titulo){
+          if(item.categoria && !DATA.categorias.includes(item.categoria)) DATA.categorias.push(item.categoria);
+          DATA.canciones.push({
+            id:item.id, titulo:item.titulo, autor:item.autor||"",
+            categoria:item.categoria||DATA.categorias[0], tono:item.tono||"",
+            letra:item.letra||"", youtube:item.youtube||"",
+            premium:!!item.premium, bloqueada:!!item.bloqueada, demo:!!item.demo,
+            creado:Date.now()
+          });
+        }
+      });
+      save();render(document.getElementById("q").value);closeModal("adminModal");
+      toast(`Fusión completa: ${updates} actualizados, ${nuevos} nuevos`);
     }catch(e){toast("Archivo no válido");}
     ev.target.value="";
   };
