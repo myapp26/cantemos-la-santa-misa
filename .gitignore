@@ -6,3 +6,6 @@ supabase/.temp/
 seguridad/06-build/dist/
 logs/
 manual-administracion.html
+
+Claude outputs/
+.claude/
