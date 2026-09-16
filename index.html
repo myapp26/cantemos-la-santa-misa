@@ -1671,7 +1671,50 @@ updateTierBadge();
 updateFeatureGating();
 render();
 initAccessGate();
-if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
+// ===== Auto-actualización silenciosa: detecta si canciones.js cambió en el
+// servidor (aunque sw.js no haya cambiado) y recarga sola, sin pedirle nada
+// al usuario. Se revisa cada vez que la app vuelve a primer plano.
+let cancionesFirma=null, recargandoPorDatos=false;
+async function firmarCanciones(){
+  try{
+    const r=await fetch("canciones.js",{cache:"no-store"});
+    if(!r.ok) return null;
+    const t=await r.text();
+    return t.length+":"+t.slice(-200);
+  }catch(e){ return null; }
+}
+async function revisarCancionesActualizado(){
+  const firma=await firmarCanciones();
+  if(firma===null) return;
+  if(cancionesFirma===null){ cancionesFirma=firma; return; }
+  if(firma!==cancionesFirma && !recargandoPorDatos){
+    recargandoPorDatos=true;
+    location.reload();
+  }
+}
+revisarCancionesActualizado();
+
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.register("sw.js").then(reg=>{
+    document.addEventListener("visibilitychange", ()=>{
+      if(document.visibilityState==="visible"){
+        reg.update().catch(()=>{});
+        revisarCancionesActualizado();
+      }
+    });
+  }).catch(()=>{});
+
+  let recargando=false;
+  navigator.serviceWorker.addEventListener("controllerchange", ()=>{
+    if(recargando) return;
+    recargando=true;
+    location.reload();
+  });
+} else {
+  document.addEventListener("visibilitychange", ()=>{
+    if(document.visibilityState==="visible") revisarCancionesActualizado();
+  });
+}
 </script>
 <script src="/seguridad/01-sello-marca-agua.js"></script>
 <script src="/seguridad/02-anti-clonacion.js"></script>
