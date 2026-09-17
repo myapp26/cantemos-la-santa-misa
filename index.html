@@ -757,17 +757,23 @@ function updateTierBadge(){
   el.style.display="";
 }
 // Funciones "nuevas" (creadas después del lanzamiento original, no parte del
-// set base) reservadas para Premium: seleccionar varios cantos y armar/guardar
-// selecciones. El resto de la app (buscador, tamaño de texto, transposición,
-// orden por categoría/alfabético, YouTube) sigue libre en Freemium sin tocar
-// nada de esto.
+// set base): "Seleccionar" está disponible desde Freemium en adelante, pero
+// "Guardar selección" y "Selecciones guardadas" siguen reservadas a Premium/
+// admin (definido con Gloria el 17/9/2026, como diferenciador de planes
+// Freemium mensual / Premium anual en Hotmart). El resto de la app (buscador,
+// tamaño de texto, transposición, orden por categoría/alfabético, YouTube)
+// sigue libre en Freemium sin tocar nada de esto.
 function updateFeatureGating(){
-  const habilitado = adminEfectivo() || nivelEfectivo()==="premium";
+  const nivel = nivelEfectivo();
+  const puedeSeleccionar = adminEfectivo() || nivel==="premium" || nivel==="freemium";
+  const puedeGuardar = adminEfectivo() || nivel==="premium";
   const selBtn=document.getElementById("selModeBtn");
   const savedBtn=document.getElementById("selSavedBtn");
-  if(selBtn) selBtn.style.display = habilitado ? "" : "none";
-  if(savedBtn) savedBtn.style.display = habilitado ? "" : "none";
-  if(!habilitado && typeof selectionMode!=="undefined" && selectionMode){
+  const guardarBtn=document.getElementById("guardarSelBtn");
+  if(selBtn) selBtn.style.display = puedeSeleccionar ? "" : "none";
+  if(savedBtn) savedBtn.style.display = puedeGuardar ? "" : "none";
+  if(guardarBtn) guardarBtn.style.display = puedeGuardar ? "" : "none";
+  if(!puedeSeleccionar && typeof selectionMode!=="undefined" && selectionMode){
     selectionMode=false; selectedIds.clear();
     const bar=document.getElementById("selectionBar");
     if(bar) bar.style.display="none";
@@ -1252,6 +1258,10 @@ function volverIndiceGeneral(){
   render(document.getElementById("q").value);
 }
 function pedirGuardarSeleccion(){
+  if(!(adminEfectivo() || nivelEfectivo()==="premium")){
+    toast("Guardar selecciones es exclusivo de Premium");
+    return;
+  }
   if(!selectedIds.size){ toast("No hay cantos seleccionados"); return; }
   const nombre=(prompt("Nombre para esta selección:", editingSelectionName||"")||"").trim();
   if(!nombre) return;
@@ -1271,6 +1281,10 @@ function pedirGuardarSeleccion(){
   }
 }
 function openSavedSelections(){
+  if(!(adminEfectivo() || nivelEfectivo()==="premium")){
+    toast("Selecciones guardadas es exclusivo de Premium");
+    return;
+  }
   renderSavedSelectionsList();
   openModal("selectionsModal");
 }
