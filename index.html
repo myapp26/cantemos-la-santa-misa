@@ -1096,9 +1096,17 @@ function renderLine(line, semis){
   if(!parts.some(p=>p.chord))
     return `<span class="lyric-line"><span class="text-row">${esc(line)||" "}</span></span>`;
 
-  let text="", chords=[];
+  // Cuando dos acordes quedan pegados sin letra entre ellos (p.ej. "[Mim][La7]redentor"),
+  // ambos calcularian la misma posicion (text.length) y sus nombres se dibujarian
+  // superpuestos. Se fuerza un minimo de 1 espacio despues del nombre del acorde anterior.
+  let text="", chords=[], nextPos=0;
   parts.forEach(p=>{
-    if(p.chord){ chords.push({pos:text.length, ch: semis?shiftChord(p.chord,semis):p.chord}); }
+    if(p.chord){
+      const ch = semis?shiftChord(p.chord,semis):p.chord;
+      const pos = Math.max(text.length, nextPos);
+      chords.push({pos, ch});
+      nextPos = pos + ch.length + 1;
+    }
     text+=p.text;
   });
   let chordRow=chords.map(c=>
