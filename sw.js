@@ -27,7 +27,11 @@ self.addEventListener("fetch", e=>{
 
   if(esDinamico){
     // NETWORK-FIRST: intenta la red; si hay internet, trae lo más nuevo y lo guarda.
-    // Si no hay internet, usa la última copia guardada.
+    // Si no hay internet (o un bache de señal), usa la última copia guardada, pero
+    // la marca con la cabecera X-Cantemos-Origen: cache -- así el chequeo de
+    // "auto-actualizacion silenciosa" en index.html sabe que esta respuesta NO es
+    // fresca y no la usa para decidir si hay cambios (evita que un bache de red
+    // justo en el momento del chequeo se confunda con "no hay nada nuevo").
     e.respondWith(
       fetch(e.request).then(resp=>{
         if(mismoOrigen && resp.status===200){
@@ -35,7 +39,14 @@ self.addEventListener("fetch", e=>{
           caches.open(CACHE).then(c=>c.put(e.request, copy)).catch(()=>{});
         }
         return resp;
-      }).catch(()=> caches.match(e.request).then(r=> r || caches.match("./index.html")))
+      }).catch(()=> caches.match(e.request).then(r=> r || caches.match("./index.html")).then(res=>{
+        if(!res) return res;
+        return res.blob().then(body=>{
+          const headers = new Headers(res.headers);
+          headers.set("X-Cantemos-Origen","cache");
+          return new Response(body, {status:res.status, statusText:res.statusText, headers});
+        });
+      }))
     );
   } else if(mismoOrigen){
     // CACHE-FIRST para lo estático propio (íconos, manifest).
