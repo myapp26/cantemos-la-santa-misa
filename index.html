@@ -103,6 +103,15 @@
     font-family:"Courier New",monospace;color:var(--accent-deep);font-weight:700}
   .cat-head .rule{flex:1;height:1px;background:var(--rule)}
   .cat-head .count{font-family:"Courier New",monospace;font-size:11px;color:var(--ink-soft)}
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    gap:10px;margin-top:18px}
+  .cat-btn{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;
+    gap:10px;padding:14px 14px 12px;text-align:left;white-space:normal;min-height:70px}
+  .cat-btn-name{font-family:"Courier New",monospace;font-size:12px;letter-spacing:.06em;
+    text-transform:uppercase;line-height:1.35;color:var(--accent-deep);font-weight:700}
+  .cat-btn-count{align-self:flex-end;font-family:"Courier New",monospace;font-size:11px;
+    font-weight:400;color:var(--ink-soft);border:1px solid var(--rule);border-radius:10px;padding:1px 8px}
+  .cat-vertodas{display:block;margin:22px auto 6px}
   ul.songs{list-style:none}
   li.song{display:flex;align-items:baseline;gap:10px;padding:11px 4px;
     border-bottom:1px solid var(--line);cursor:pointer}
@@ -1126,6 +1135,8 @@ function lyricsHTML(letra, semis){
 
 // ===================== Render índice =====================
 let sortMode = "categoria"; // "categoria" | "alfabetico"
+let categoriaAbierta=null; // null = pantalla de categorías; string = nombre de categoría abierta
+let verTodas=false;        // true = listado completo (agrupado/alfabético), saltando la pantalla de categorías
 
 function toggleSort(){
   sortMode = (sortMode==="categoria") ? "alfabetico" : "categoria";
@@ -1148,6 +1159,55 @@ function songLi(c, n){
   return li;
 }
 
+function abrirCategoria(cat){
+  categoriaAbierta=cat;
+  verTodas=false;
+  render(document.getElementById("q").value);
+}
+function volverACategorias(){
+  categoriaAbierta=null;
+  verTodas=false;
+  render(document.getElementById("q").value);
+}
+function mostrarVerTodas(){
+  categoriaAbierta=null;
+  verTodas=true;
+  render(document.getElementById("q").value);
+}
+function renderCategoriasHome(cont){
+  const recientes=[...DATA.canciones].filter(visibleParaListado)
+    .sort((a,b)=>(b.creado||0)-(a.creado||0)).slice(0,5);
+  if(recientes.length){
+    const box=document.createElement("div");box.className="recientes";
+    box.innerHTML=`<h3>Últimos cantos subidos</h3>`+
+      recientes.map(c=>`<span class="chip" onclick="openSong('${c.id}')">${esc(c.titulo)}</span>`).join("");
+    cont.appendChild(box);
+  }
+
+  const grid=document.createElement("div");grid.className="cat-grid";
+  DATA.categorias.forEach(cat=>{
+    const n=DATA.canciones.filter(c=>c.categoria===cat && visibleParaListado(c)).length;
+    if(!n) return;
+    const btn=document.createElement("button");
+    btn.className="cat-btn";
+    btn.onclick=()=>abrirCategoria(cat);
+    btn.innerHTML=`<span class="cat-btn-name">${esc(cat)}</span><span class="cat-btn-count">${n}</span>`;
+    grid.appendChild(btn);
+  });
+  cont.appendChild(grid);
+
+  if(!grid.children.length){
+    cont.innerHTML+=`<div class="empty">No hay categorías con cantos disponibles todavía.</div>`;
+    return;
+  }
+
+  const verTodasBtn=document.createElement("button");
+  verTodasBtn.className="btn cat-vertodas";
+  verTodasBtn.textContent="Ver todas las canciones";
+  verTodasBtn.onclick=mostrarVerTodas;
+  cont.appendChild(verTodasBtn);
+}
+
 function render(filter=""){
   const cont=document.getElementById("index");
   const f=filter.trim().toLowerCase();
@@ -1160,7 +1220,19 @@ function render(filter=""){
     cont.appendChild(bar);
   }
 
-  if(!f && !viewFilterIds){
+  if(!f && !viewFilterIds && !categoriaAbierta && !verTodas){
+    renderCategoriasHome(cont);
+    return;
+  }
+
+  if(!f && !viewFilterIds && (categoriaAbierta || verTodas)){
+    const bar=document.createElement("div");bar.className="filterbar";
+    bar.innerHTML=`<button class="btn" onclick="volverACategorias()">‹ Volver a categorías</button>
+      ${categoriaAbierta?`<span class="filterbar-label">${esc(categoriaAbierta)}</span>`:""}`;
+    cont.appendChild(bar);
+  }
+
+  if(!f && !viewFilterIds && !categoriaAbierta){
     const recientes=[...DATA.canciones].filter(visibleParaListado)
       .sort((a,b)=>(b.creado||0)-(a.creado||0)).slice(0,5);
     if(recientes.length){
@@ -1174,6 +1246,7 @@ function render(filter=""){
   const coincide=c=>{
     if(!visibleParaListado(c)) return false;
     if(viewFilterIds && !viewFilterIds.has(c.id)) return false;
+    if(categoriaAbierta && c.categoria!==categoriaAbierta) return false;
     return !f||(c.titulo+" "+(c.autor||"")+" "+c.categoria).toLowerCase().includes(f);
   };
   let total=0;
@@ -1263,6 +1336,8 @@ function verSeleccionActual(){
 function volverIndiceGeneral(){
   viewFilterIds=null;
   viewFilterLabel=null;
+  categoriaAbierta=null;
+  verTodas=false;
   render(document.getElementById("q").value);
 }
 function pedirGuardarSeleccion(){
