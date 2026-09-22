@@ -728,6 +728,12 @@ function aplicarRolAdmin(){
   // una vista previa): refrescamos la lista para que los candados de acceso
   // queden al día.
   render(document.getElementById("q").value);
+  // Aprovechamos que hay buena señal (o la que haya) para ir completando en
+  // segundo plano las letras restringidas que todavía falten -- así, cuando
+  // hace falta usarlas en vivo (ej. en misa), ya están guardadas en el
+  // dispositivo y no dependen de la conexión de ese momento. Ver
+  // claude/analisis-tecnico-cancionero.md (22/9/2026).
+  precargarLetrasRestringidas();
 }
 // Vista previa de nivel, solo para administradora: le permite ver la app
 // como la vería un usuario en Demo/Freemium/Premium, sin tocar su clave real
@@ -848,6 +854,31 @@ async function ensureLetraDisponible(c){
     const data=await res.json();
     if(data.ok && typeof data.letra==="string"){ c.letra=data.letra; save(); }
   }catch(e){ /* sin conexion: se sigue viendo bloqueada, sin romper la app */ }
+}
+
+// Precarga en segundo plano de todas las letras restringidas que la persona
+// ya puede ver (admin o premium) pero que este dispositivo todavía no tiene
+// guardadas. Sin esto, la primera vez que se abre cada canción restringida
+// depende de tener señal justo en ese momento -- lo que puede fallar en vivo
+// (ej. en misa) y dejar la canción sin letra hasta volver a intentarlo con
+// mejor conexión. Ver claude/analisis-tecnico-cancionero.md (22/9/2026).
+let precargaLetrasEnCurso=false;
+async function precargarLetrasRestringidas(){
+  if(precargaLetrasEnCurso) return; // ya hay una corrida en curso, no solapar
+  if(!(adminEfectivo() || nivelEfectivo()==="premium")) return;
+  const access=loadAccess();
+  if(!access || !access.key || !access.token) return;
+  const pendientes=DATA.canciones.filter(c=>esRestringida(c) && !c.letra);
+  if(!pendientes.length) return;
+  precargaLetrasEnCurso=true;
+  for(const c of pendientes){
+    // El rol pudo haber cambiado a mitad de la precarga (ej. entró a la
+    // vista previa de Freemium/Demo): cortamos en vez de seguir pidiendo
+    // contenido que ya no le corresponde ver en ese modo.
+    if(!(adminEfectivo() || nivelEfectivo()==="premium")) break;
+    await ensureLetraDisponible(c);
+  }
+  precargaLetrasEnCurso=false;
 }
 
 async function callValidate(key, token){
@@ -1475,6 +1506,22 @@ function updateSong(){
     document.getElementById("sv-lyrics").innerHTML="";
     return;
   }
+  // Red de seguridad: esta canción es restringida, esta persona sí tiene
+  // acceso, pero la letra todavía no llegó a guardarse en este dispositivo
+  // (la precarga no alcanzó a traerla, o falló). En vez de dejarla en blanco
+  // sin explicación -- lo que pasó el 21/9/2026 en vivo, en misa -- se avisa
+  // y se ofrece reintentar en el momento. Ver
+  // claude/analisis-tecnico-cancionero.md (22/9/2026).
+  if(esRestringida(current) && !current.letra){
+    premiumEl.style.display="";
+    premiumEl.textContent = "⚠️ No se pudo cargar esta canción";
+    document.getElementById("sv-tono").textContent=semis?shiftChord(current.tono,semis):current.tono;
+    document.getElementById("sv-chords").innerHTML="";
+    document.getElementById("sv-lyrics").innerHTML=
+      `<div class="premium-msg">No se pudo cargar la letra de este canto (revisá tu conexión).<br>`+
+      `<button class="btn" style="margin-top:12px" onclick="reintentarCargarLetra()">↻ Reintentar</button></div>`;
+    return;
+  }
   if(esRestringida(current) && adminEfectivo()){
     premiumEl.style.display="";
     premiumEl.textContent = current.restriccion==="oculta"
@@ -1489,6 +1536,12 @@ function updateSong(){
       `<div class="chords-lock">🔒 Diagramas disponibles en modo premium</div></div>`
     : chordDiagramsHTML(current.letra,semis);
   document.getElementById("sv-lyrics").innerHTML=lyricsHTML(current.letra,semis);
+}
+async function reintentarCargarLetra(){
+  if(!current) return;
+  document.getElementById("sv-lyrics").innerHTML='<p class="cargando-letra">Cargando…</p>';
+  await ensureLetraDisponible(current);
+  updateSong();
 }
 function transpose(d){semis=((semis+d)%12+12)%12;if(semis>6)semis-=12;updateSong();}
 function closeSong(){
@@ -1903,6 +1956,7 @@ if("serviceWorker" in navigator){
       if(document.visibilityState==="visible"){
         reg.update().catch(()=>{});
         revisarCancionesActualizado();
+        precargarLetrasRestringidas();
       }
     });
   }).catch(()=>{});
@@ -1915,7 +1969,10 @@ if("serviceWorker" in navigator){
   });
 } else {
   document.addEventListener("visibilitychange", ()=>{
-    if(document.visibilityState==="visible") revisarCancionesActualizado();
+    if(document.visibilityState==="visible"){
+      revisarCancionesActualizado();
+      precargarLetrasRestringidas();
+    }
   });
 }
 </script>
