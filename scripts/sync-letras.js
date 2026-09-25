@@ -53,6 +53,9 @@ const rows = items
   .map((it) => ({
     id: it.id,
     letra: typeof it.letra === "string" ? it.letra : "",
+    // Cantos "privada": get-letra solo los entrega al admin (ver
+    // supabase/migrations/0005_solo_admin.sql).
+    solo_admin: it.solo_admin === true,
     updated_at: new Date().toISOString(),
   }));
 
