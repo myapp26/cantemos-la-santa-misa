@@ -1314,6 +1314,15 @@ function volverACategorias(){
   verTodas=false;
   render(document.getElementById("q").value);
 }
+function salirDeBusqueda(){
+  const q=document.getElementById("q");
+  q.value="";
+  q.blur();
+  categoriaAbierta=null;
+  verTodas=false;
+  render("");
+  window.scrollTo(0,0);
+}
 function mostrarVerTodas(){
   categoriaAbierta=null;
   verTodas=true;
@@ -1368,6 +1377,15 @@ function render(filter=""){
   if(!f && !viewFilterIds && !categoriaAbierta && !verTodas){
     renderCategoriasHome(cont);
     return;
+  }
+
+  // Con una búsqueda escrita no había forma visible de volver (solo borrar el
+  // texto a mano, poco evidente en el celular). 25/9/2026.
+  if(f && !viewFilterIds){
+    const bar=document.createElement("div");bar.className="filterbar";
+    bar.innerHTML=`<button class="btn" onclick="salirDeBusqueda()">‹ Volver a categorías</button>
+      <span class="filterbar-label">Resultados de «${esc(filter.trim())}»</span>`;
+    cont.appendChild(bar);
   }
 
   if(!f && !viewFilterIds && (categoriaAbierta || verTodas)){
