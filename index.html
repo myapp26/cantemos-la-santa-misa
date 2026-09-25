@@ -623,6 +623,13 @@
 </div>
 
 <div class="toast" id="toast"></div>
+<div id="avisoVersion" style="display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;background:#5C3017;color:#FBF8F5;border-radius:12px;padding:12px 14px;box-shadow:0 4px 16px rgba(0,0,0,.25);font-size:14px;line-height:1.35">
+  📢 Hay una versión publicada más nueva que tu copia de trabajo en este dispositivo.
+  <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+    <button class="btn" onclick="cargarVersionPublicada()">Cargar versión publicada</button>
+    <button class="btn" onclick="mantenerCopiaAdmin()">Mantener mi copia</button>
+  </div>
+</div>
 
 <script src="canciones.js"></script>
 <script>
@@ -653,17 +660,112 @@ let isAdmin=false, current=null, semis=0, presentFontSize=30, editingId=null;
 // por separado (ver isAdmin más arriba) -- no es un nivel, es un rol.
 let userTier="demo";
 
-function load(){
-  try{
-    const raw=localStorage.getItem(LS_DATA);
-    if(raw) return JSON.parse(raw);
-  }catch(e){}
+// ---- Catálogo publicado vs. copia de trabajo (25/9/2026) ----
+// Antes, en cuanto un dispositivo guardaba algo (p.ej. la letra de un canto
+// restringido bajada de get-letra), su copia en localStorage "congelaba" el
+// catálogo para siempre: load() la usaba y ya nunca leía el canciones.js
+// publicado. Afectaba a Premium y al admin. Ahora:
+//  - Clientes (demo/freemium/premium): el catálogo SIEMPRE sale del
+//    canciones.js publicado. Solo se guardan aparte (LS_LETRAS) las letras
+//    restringidas que esa persona tiene permitidas, para usarlas sin señal.
+//    Las que dejaron de corresponderle (p.ej. pasaron a "privada") se borran.
+//  - Admin: su copia de trabajo (LS_DATA) se respeta, pero si hay una versión
+//    publicada distinta se le avisa con un botón para cargarla.
+// Ver claude/analisis-tecnico-cancionero.md (25/9/2026).
+const LS_LETRAS="cantemos_letras_v1";
+const LS_SEMILLA_FIRMA="cantemos_semilla_firma";
+// load() corre antes de que exista LS_ACCESS (const más abajo), así que el rol
+// se lee acá directo de la misma clave de localStorage.
+function accesoAlCargar(){
+  try{ return JSON.parse(localStorage.getItem("cantemos_access")||"null"); }catch(e){ return null; }
+}
+function firmaTexto(s){
+  let h=5381; for(let i=0;i<s.length;i++){ h=((h<<5)+h+s.charCodeAt(i))|0; }
+  return s.length+":"+(h>>>0).toString(36);
+}
+function firmaSemilla(){ return firmaTexto(JSON.stringify(CANCIONES)); }
+function datosSemilla(){
   return {
     categorias:[...CATEGORIAS],
     canciones:CANCIONES.map((c,i)=>({...c, creado:Date.now()-(CANCIONES.length-i)*1000}))
   };
 }
-function save(){localStorage.setItem(LS_DATA,JSON.stringify(DATA));}
+function loadLetras(){
+  try{ const o=JSON.parse(localStorage.getItem(LS_LETRAS)||"{}"); return (o&&typeof o==="object")?o:{}; }catch(e){ return {}; }
+}
+// ¿Esta persona (no admin) puede tener guardada la letra de este canto?
+function letraPermitidaCliente(c, tier){
+  return esRestringida(c) && !esPrivada(c) && tier==="premium";
+}
+function load(){
+  const acc=accesoAlCargar();
+  if(acc && acc.is_admin===true){
+    try{
+      const raw=localStorage.getItem(LS_DATA);
+      if(raw) return JSON.parse(raw);
+    }catch(e){}
+    try{ localStorage.setItem(LS_SEMILLA_FIRMA, firmaSemilla()); }catch(e){}
+    return datosSemilla();
+  }
+  // Cliente: siempre el catálogo publicado + sus letras permitidas guardadas.
+  const tier = acc && (acc.tier==="premium"||acc.tier==="freemium") ? acc.tier : "demo";
+  const d=datosSemilla();
+  const guardadas=loadLetras();
+  // Migración: copias "congeladas" de versiones anteriores -- se rescatan sus
+  // letras restringidas (para no perderlas sin señal) y se descarta la copia.
+  try{
+    const raw=localStorage.getItem(LS_DATA);
+    if(raw){
+      const viejo=JSON.parse(raw);
+      (viejo.canciones||[]).forEach(c=>{ if(c && c.id && c.letra && !guardadas[c.id]) guardadas[c.id]=c.letra; });
+      localStorage.removeItem(LS_DATA);
+    }
+  }catch(e){ try{ localStorage.removeItem(LS_DATA); }catch(_){} }
+  const permitidas={};
+  d.canciones.forEach(c=>{
+    if(letraPermitidaCliente(c,tier) && !c.letra && guardadas[c.id]){
+      c.letra=guardadas[c.id]; permitidas[c.id]=guardadas[c.id];
+    }
+  });
+  try{ localStorage.setItem(LS_LETRAS, JSON.stringify(permitidas)); }catch(e){}
+  return d;
+}
+function save(){
+  if(esAdmin()){ localStorage.setItem(LS_DATA,JSON.stringify(DATA)); return; }
+  // Cliente: nunca se guarda el catálogo, solo sus letras restringidas permitidas.
+  const tier=nivelActual(), permitidas={};
+  DATA.canciones.forEach(c=>{ if(c.letra && letraPermitidaCliente(c,tier)) permitidas[c.id]=c.letra; });
+  try{ localStorage.setItem(LS_LETRAS, JSON.stringify(permitidas)); }catch(e){}
+}
+// Aviso para el admin: hay una versión publicada distinta de la que originó
+// su copia de trabajo. No se reemplaza sola para no perder ediciones sin publicar.
+function revisarVersionPublicadaAdmin(){
+  const barra=document.getElementById("avisoVersion");
+  if(!barra) return;
+  // Sin copia de trabajo guardada todavía (recién activó la clave admin en
+  // este dispositivo): lo que ve ES lo publicado, no hay nada que avisar.
+  if(esAdmin() && !localStorage.getItem(LS_DATA)) localStorage.setItem(LS_SEMILLA_FIRMA, firmaSemilla());
+  const mostrar = esAdmin() && localStorage.getItem(LS_SEMILLA_FIRMA)!==firmaSemilla();
+  barra.style.display = mostrar ? "" : "none";
+}
+function cargarVersionPublicada(){
+  if(!esAdmin()) return;
+  if(!confirm("Se cargará el catálogo publicado y se reemplazará tu copia de trabajo de este dispositivo (si editaste algo sin publicar, se perderá). ¿Continuar?")) return;
+  const nuevo=datosSemilla();
+  // Conservar las letras restringidas que ya estaban en este dispositivo.
+  const previas={}; DATA.canciones.forEach(c=>{ if(c.letra) previas[c.id]=c.letra; });
+  nuevo.canciones.forEach(c=>{ if(esRestringida(c) && !c.letra && previas[c.id]) c.letra=previas[c.id]; });
+  DATA=nuevo; save();
+  localStorage.setItem(LS_SEMILLA_FIRMA, firmaSemilla());
+  revisarVersionPublicadaAdmin();
+  render(document.getElementById("q").value);
+  precargarLetrasRestringidas();
+  toast("Catálogo publicado cargado");
+}
+function mantenerCopiaAdmin(){
+  localStorage.setItem(LS_SEMILLA_FIRMA, firmaSemilla());
+  revisarVersionPublicadaAdmin();
+}
 
 // ===================== Acceso por clave (activación vinculada a dispositivo) =====================
 // Reconecta el sistema de claves de Supabase (supabase/functions/validate-key)
@@ -725,6 +827,7 @@ function aplicarRolAdmin(){
   if(previewSelect && (!eraAdmin || !isAdmin)) previewSelect.value = previewTier || "";
   updateTierBadge();
   updateFeatureGating();
+  revisarVersionPublicadaAdmin();
   // El nivel puede haber cambiado (activación, revalidación, revocación, o
   // una vista previa): refrescamos la lista para que los candados de acceso
   // queden al día.
@@ -1817,6 +1920,10 @@ function publishFile(){
     tono:c.tono, letra: esRestringida(c) ? "" : c.letra, youtube:c.youtube||"",
     restriccion:c.restriccion||"", premium:!!c.premium, bloqueada:!!c.bloqueada, demo:!!c.demo
   }));
+  // Firma de lo que se está publicando: cuando este canciones.js llegue al
+  // sitio, la copia de trabajo del admin no mostrará el aviso de "versión
+  // publicada más nueva" (ya es la misma).
+  try{ localStorage.setItem(LS_SEMILLA_FIRMA, firmaTexto(JSON.stringify(cancionesLimpias))); }catch(e){}
   const body=
 `// ============================================================
 //  CANCIONES — Generado automáticamente desde la app.
@@ -1937,6 +2044,7 @@ updateTierBadge();
 updateFeatureGating();
 render();
 initAccessGate();
+revisarVersionPublicadaAdmin();
 // ===== Auto-actualización silenciosa: detecta si canciones.js cambió en el
 // servidor (aunque sw.js no haya cambiado) y recarga sola, sin pedirle nada
 // al usuario. Se revisa cada vez que la app vuelve a primer plano.
