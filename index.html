@@ -457,8 +457,8 @@
       <select id="previewSelect" class="preview-select" onchange="setPreviewTier(this.value)" aria-label="Ver la app como">
         <option value="">Mi vista (admin)</option>
         <option value="demo">Ver como Demo</option>
-        <option value="freemium">Ver como Freemium</option>
-        <option value="premium">Ver como Premium</option>
+        <option value="freemium">Ver como Plan Mensual</option>
+        <option value="premium">Ver como Plan Anual</option>
       </select>
     </div>
     <div class="toolbar" id="selectionBar" style="display:none">
@@ -481,7 +481,7 @@
   <div class="sv-scroll">
     <div class="sv-title" id="sv-title"></div>
     <div class="sv-meta" id="sv-meta"></div>
-    <div class="premium-badge" id="sv-premium" style="display:none">⭐ Canción disponible en modo premium</div>
+    <div class="premium-badge" id="sv-premium" style="display:none">⭐ Canción disponible en el Plan Anual</div>
     <div class="sv-tono-row">
       <span class="lbl">Tono</span>
       <div class="transpose">
@@ -864,7 +864,7 @@ function updateTierBadge(){
   const el=document.getElementById("tierBadge");
   if(!el) return;
   if(isAdmin && previewTier){
-    const nombres = {demo:"Demo", freemium:"Freemium", premium:"⭐ Premium"};
+    const nombres = {demo:"Demo", freemium:"Plan Mensual", premium:"⭐ Plan Anual"};
     el.className = "tier-badge preview";
     el.textContent = "👁 Viendo como: " + nombres[previewTier];
     el.style.display="";
@@ -872,7 +872,7 @@ function updateTierBadge(){
   }
   if(isAdmin || userTier==="demo"){ el.style.display="none"; return; }
   el.className = "tier-badge " + userTier;
-  el.textContent = userTier==="premium" ? "⭐ Premium" : "Freemium";
+  el.textContent = userTier==="premium" ? "⭐ Plan Anual" : "Plan Mensual";
   el.style.display="";
 }
 // Funciones "nuevas" (creadas después del lanzamiento original, no parte del
@@ -1487,7 +1487,7 @@ function volverIndiceGeneral(){
 }
 function pedirGuardarSeleccion(){
   if(!(adminEfectivo() || nivelEfectivo()==="premium")){
-    toast("Guardar selecciones es exclusivo de Premium");
+    toast("Guardar selecciones es exclusivo del Plan Anual");
     return;
   }
   if(!selectedIds.size){ toast("No hay cantos seleccionados"); return; }
@@ -1510,7 +1510,7 @@ function pedirGuardarSeleccion(){
 }
 function openSavedSelections(){
   if(!(adminEfectivo() || nivelEfectivo()==="premium")){
-    toast("Selecciones guardadas es exclusivo de Premium");
+    toast("Selecciones guardadas es exclusivo del Plan Anual");
     return;
   }
   renderSavedSelectionsList();
@@ -1615,7 +1615,7 @@ function updateSong(){
     premiumEl.textContent = esPrivada(current)
       ? "🔒 Este canto no está disponible"
       : esRestringida(current)
-      ? "⭐ Canción disponible en modo premium"
+      ? "⭐ Canción disponible en el Plan Anual"
       : "🔒 Activá tu clave de acceso para ver este canto";
     document.getElementById("sv-tono").textContent=semis?shiftChord(current.tono,semis):current.tono;
     document.getElementById("sv-chords").innerHTML="";
@@ -1651,7 +1651,7 @@ function updateSong(){
   document.getElementById("sv-tono").textContent=semis?shiftChord(current.tono,semis):current.tono;
   document.getElementById("sv-chords").innerHTML = diagramaBloqueado(current)
     ? `<div class="chords-row"><span class="lbl">Acordes de este tema</span>`+
-      `<div class="chords-lock">🔒 Diagramas disponibles en modo premium</div></div>`
+      `<div class="chords-lock">🔒 Diagramas disponibles en el Plan Anual</div></div>`
     : chordDiagramsHTML(current.letra,semis);
   document.getElementById("sv-lyrics").innerHTML=lyricsHTML(current.letra,semis);
 }
@@ -1674,7 +1674,7 @@ function closeSong(){
 function openPresent(){
   document.getElementById("p-title").textContent=current.titulo;
   document.getElementById("p-lyrics").innerHTML = estaBloqueada(current)
-    ? `<div class="premium-msg">${esPrivada(current)?"Este canto no está disponible":esRestringida(current)?"Disponible en modo premium":"Activá tu clave de acceso para ver este canto"}</div>`
+    ? `<div class="premium-msg">${esPrivada(current)?"Este canto no está disponible":esRestringida(current)?"Disponible en el Plan Anual":"Activá tu clave de acceso para ver este canto"}</div>`
     : lyricsHTML(current.letra,semis);
   document.getElementById("present").style.setProperty("--present-size",presentFontSize+"px");
   document.body.classList.add("presenting");
