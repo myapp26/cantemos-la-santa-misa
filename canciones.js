@@ -24,7 +24,7 @@ const CANCIONES = [
   {
     "id": "juntos-como-hermanos",
     "titulo": "Juntos como Hermanos",
-    "autor": "Musica Católica",
+    "autor": "Cesáreo Gabaráin",
     "categoria": "Entrada",
     "tono": "Do",
     "letra": "",
@@ -50,7 +50,7 @@ const CANCIONES = [
   {
     "id": "el-profeta",
     "titulo": "El Profeta",
-    "autor": "Música Católica",
+    "autor": "Tradicional",
     "categoria": "Vocacionales y Mision",
     "tono": "Lam",
     "letra": "[Lam]Antes que te [Do]formaras\ndentro del [Do]vientre de [Sol]tu [Do]madre\n[Rem]antes que tu [Lam]nacieras\nte [Mi7]conocía y te [Lam]consagré.\nPara ser mi profeta de las naciones yo te escogí.\nirás donde te envíe\ny lo que te mande proclamarás\n\n(B)\n[Lam]Tengo que andar,\n[Do]tengo que hablar,\n\nay de [Sol]mi sí no lo [Do]hago.\n[Sol]Cómo [Lam]escapar de ti,\n[Sol]como no [Lam]hablar,\nsi tu [Mi7]voz me quema [Lam]dentro.\n\nTengo que andar,\ntengo que luchar,\nay de mi si no lo hago.\nCómo escapar de ti,\ncomo no hablar,\nsi tu voz me quema dentro.\n\n(A)\nNo temas arriesgarte\nporque contigo yo estaré\nno temas anunciarme\nporque en tu boca yo hablaré.\nTe encargo hoy mi pueblo\npara arrancar y derribar\npara edificar destruirás y plantarás\n\nDeja a tus hermanos\ndeja a tu padre y a tu madre\nabandona tu casa\nporque la tierra gritando está.\nNada traigas contigo\nporque a tu lado yo estaré\nes hora de luchar\nporque mi pueblo\nsufriendo está.",
@@ -63,7 +63,7 @@ const CANCIONES = [
   {
     "id": "sois-semilla",
     "titulo": "Sois Semilla",
-    "autor": "Música Católica",
+    "autor": "Cesáreo Gabaráin",
     "categoria": "Vocacionales y Mision",
     "tono": "Do",
     "letra": "",
@@ -89,7 +89,7 @@ const CANCIONES = [
   {
     "id": "aleluya-el-senor-resucito",
     "titulo": "Aleluya El Señor Resucitó",
-    "autor": "Música Católica",
+    "autor": "Tradicional",
     "categoria": "Aclamación del Evangelio",
     "tono": "La",
     "letra": "# Coro\n[La]Aleluya, [Mi]aleluya, [Mi7]aleluya, [La]aleluya,\n[La7]aleluya, [Re]aleluya, el [La]Señor [Mi7]resucitó. [La]\n\n# Estrofa 1\nEl [La]Señor [Mi]resucitó, [Mi7]cantemos con [La]alegría,\ndemos [Fa#m]gracias al [Re6]Señor, [La]alelu--ya. [Mi7] [La]\n\n# Estrofa 2\nEl pecado redimió, Cristo Dios resucitó:\nnueva vida nos donó, alelu-ya.\n\n# Estrofa 3\nCristo al cielo ya subió: en el mundo\nnos envía,\na ser testigos de su amor, aleluya.",
@@ -102,7 +102,7 @@ const CANCIONES = [
   {
     "id": "una-espiga",
     "titulo": "Una Espiga",
-    "autor": "Música Católica",
+    "autor": "Cesáreo Gabaráin",
     "categoria": "Ofertorio",
     "tono": "Re",
     "letra": "",
@@ -115,7 +115,7 @@ const CANCIONES = [
   {
     "id": "a-edificar-la-iglesia",
     "titulo": "A Edificar la Iglesia",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Entrada",
     "tono": "Do",
     "letra": "# Estrofa 1\nA edificar la iglesia (3) del Señor\nHermano ven ayúdame\nHermana ven ayúdame,\nA edificar la Iglesia del Señor.\n\n# Estrofa 2\nYo soy la Iglesia, tu eres la Iglesia,\nSomos la Iglesia del Señor...\nLos pobres... los ricos.\nLos vivos... los muertos.\nLos buenos... los malos.\nSan Pedro... San Pablo.\nMaría... los Santos.\nLos negros... los blancos.",
@@ -128,7 +128,7 @@ const CANCIONES = [
   {
     "id": "abran-las-puertas",
     "titulo": "Abran las Puertas",
-    "autor": "Música Católica",
+    "autor": "Tradicional",
     "categoria": "Entrada",
     "tono": "Re",
     "letra": "[Re]Abran las puertas, Abran [Sol]las puertas,\n[Re]Ábranlas [Sim]al [Mim][La7]Redentor\n[Re]Abran las puertas, Abran [Sol]las puertas,\n[Re]Ábranlas [La7]al [Re]Redentor.\n[Re][Sol]A....bran,\nAbran las [Re]puertas [Sim]al [Mim][La7]redentor.\n[Re][Sol]A....bran,\nAbran las [Re]puertas [La7]al [Re]redentor.\n[Re]Bendecid [Sol]al [Re][Sol]Señor,\n[Re]todos [Sol]los siervos del [Re][Sol]Señor\n[Re]Alzad vuestras [Sol]manos en [Re]el [Sol]santuario\n[Re]y [Sol]bendecid al [Re]Señor.\n[Re]Te [Sol]bendiga el [Re][Sol]Señor,\n[Re]desde su [Sol]monte de [Re][Sol]Sión,\nÉl [Re]hizo los [Sol]cielos e [Re]hizo la [Sol]tierra\n[Re]que te [Sol]bendiga el [Re]Señor",
@@ -141,7 +141,7 @@ const CANCIONES = [
   {
     "id": "alabare",
     "titulo": "Alabaré",
-    "autor": "",
+    "autor": "Manuel José Alonso y José Pagán",
     "categoria": "Entrada",
     "tono": "Do",
     "letra": "",
@@ -154,7 +154,7 @@ const CANCIONES = [
   {
     "id": "el-amor-del-senor",
     "titulo": "El Amor del Señor",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
     "letra": "# Estrofa 1\nEl amor del Señor es maravilloso\nel amor del Señor es maravilloso\nel amor del Señor es maravilloso\ngrande es el amor de Dios.\n\n# Estrofa 2\nTan alto que no lo puedo estar arriba de El\nTan bajo que no puedo estar abajo de El\ntan ancho que no puedo estar afuera de El\ngrande es el amor de Dios.",
@@ -167,7 +167,7 @@ const CANCIONES = [
   {
     "id": "jesus-esta-pasando",
     "titulo": "Jesús está pasando",
-    "autor": "",
+    "autor": "Anónimo",
     "categoria": "Entrada",
     "tono": "Do",
     "letra": "# Estrofa 1\nJesús está pasando por aquí\nJesús está pasando por aquí\nY cuando el pasa todo se transforma\nSe va la tristeza, llega la alegría\nY cuando el pasa todo se transforma\nLlega la alegría para ti y para mi\n\n# Coro\nAhora mismo, Señor ahora mismo,\nYo te pido que rompas las cadenas\nAhora mismo, Señor ahora mismo,\nYo te pido que rompas las cadenas\nY que las puertas del cielo sean abiertas\nY de virtud mi alma sea llena\nJesús está pasando por aquí…",
@@ -180,7 +180,7 @@ const CANCIONES = [
   {
     "id": "mi-dios-esta-vivo",
     "titulo": "Mi Dios está Vivo",
-    "autor": "Música Católica",
+    "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Mi",
     "letra": "[Mi]Mi Dios está [Do#m]vivo, El no está muerto,\nmi [Si7]Dios está vivo, El no está [Mi]muerto,\nmi Dios está vivo, [Do#m]El no está muerto,\nlo [Si7]siento en mis manos, lo [Fa#m]siento en mis pies,\nlo [Si7]siento en mi alma, lo siento en todo mi [Mi]ser.\n[Mi]Oh, oh, oh, [Si7]oh, hay que nacer [Mi]del agua,\noh, oh, oh, [Si7]oh, hay que nacer del [Mi]Espíritu de [Mi7]Dios,\n/oh, oh, oh, [La]oh, hay que [Si7]nacer\n[Mi]del agua y del [Do#m]Espíritu de [Fa#m]Dios,\n[Mi]hay que [Si7]nacer del [Mi][Mi7]Señor./\n[Mi]//Preparate para que [Si7][La]sientas// [Si7]el Espíritu de [Mi]Dios.\n//Dejalo que se mueva// dentro de tu corazón.",
@@ -193,7 +193,7 @@ const CANCIONES = [
   {
     "id": "no-hay-dios-tan-grande-como-tu",
     "titulo": "No hay Dios tan Grande como Tú",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
     "letra": "# Estrofa 1\nNo hay Dios tan grande como Tu\nno lo hay, no lo hay.\nNo hay Dios tan grande como Tu\nno lo hay, no lo hay.\n\n# Estrofa 2\nNo hay Dios que pueda hacer las obras como las que haces Tu.\nNo hay Dios que pueda hacer las obras\ncomo las que haces Tu.\nNo es con espada, no es con ejército\nmas con tu SantoEspíritu. (bis)\n\n# Estrofa 3\n/Y la Iglesia se salvará/ 3 veces\ncon tu SantoEspíritu.",
@@ -206,7 +206,7 @@ const CANCIONES = [
   {
     "id": "si-tuvieras-fe",
     "titulo": "Si tuvieras fe",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Entrada",
     "tono": "",
     "letra": "# Estrofa 1\n// Si tuviera fe como un granito de mostaza,\neso dice el Señor. //\n\n# Estrofa 2\n// Tu le dirías a las montañas:\nmuévanse, muévanse, muévanse//\n\n# Estrofa 3\n// Y las montañas se moverán,\nse moverán, se moverán. //\n\n# Estrofa 4\nY los enfermos se sanarán…\nY el que está triste se alegrará…",
@@ -219,7 +219,7 @@ const CANCIONES = [
   {
     "id": "estamos-de-fiesta-con-jesus",
     "titulo": "Estamos de fiesta con Jesús",
-    "autor": "Padre Mario",
+    "autor": "Tradicional",
     "categoria": "Entrada",
     "tono": "Sol",
     "letra": "[Sol]Estamos de fiesta con Jesus\nal cielo queremos [Re]ir,\n[Re]estamos reunidos en la mesa,\nel es [Re]Cristo quien va a [Sol]servir.\n[Sol]Poderoso es nuestro [Re]Dios, [Re]poderoso es nuestro [Sol]Dios.\n[Sol]Poderoso es nuestro [Re]Dios, [Re]poderoso es nuestro [Sol]Dios.\nEl [Sol]sana, El [Do]salva, [Re]poderoso es nuestro [Sol]Dios.\n[Sol]Bautiza, El [Do]viene, [Re]poderoso es nuestro [Sol]Dios.\nPoderoso es nuestro Dios...\nEl [Sol]Padre, El [Do]Hijo, [Re]poderoso es nuestro [Sol]Dios.\n[Sol]Espiritu [Do]Santo, [Re]poderoso es nuestro [Sol]Dios.\nPoderoso es nuestro Dios...",
@@ -245,7 +245,7 @@ const CANCIONES = [
   {
     "id": "jesucristo-me-dejo-inquieto",
     "titulo": "Jesucristo me dejó inquieto",
-    "autor": "Padre Zezinho",
+    "autor": "Padre Zezinho scj",
     "categoria": "Entrada",
     "tono": "Fa",
     "letra": "",
@@ -271,7 +271,7 @@ const CANCIONES = [
   {
     "id": "yo-te-alabo-con-el-corazon",
     "titulo": "Yo te alabo con el corazón",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
     "letra": "# Estrofa 1\nYo te alabo con el corazón,\nyo te alabo con la voz (bis)\nY si me falta la voz,\nyo te alabo con las manos,\ny si me faltan las manos,\nyo te alabo con los pies.\n\n# Estrofa 2\nY si me faltan los pies..",
@@ -284,7 +284,7 @@ const CANCIONES = [
   {
     "id": "alzad-las-manos",
     "titulo": "Alzad las manos.",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Cantos para Niños",
     "tono": "Do",
     "letra": "# Estrofa 1\nAlzad las manos\nY dadle la gloria a Dios. (bis)\nAlzad las manos\nY alabarle como niños\nDel Señor.\n\n# Estrofa 2\nDios dijo a Noé construye una barca; (2)\ntoda ella hecha de madera\ncomo niños del Señor.\n\n# Estrofa 3\nLos animalitos subieron de dos en dos; (2)\nelefantes y pingüinos\ncomo niños del Señor.\n\n# Estrofa 4\nLos animalitos subieron de dos en dos; (2)\ncocodrilos y gorilas\ncomo niños del Señor.\n\n# Estrofa 5\nSi subes al cielo primero que yo\ndile a todos esos angelitos\nque también iré yo.",
@@ -349,7 +349,7 @@ const CANCIONES = [
   {
     "id": "ten-piedad-de-mi",
     "titulo": "Ten piedad de mí",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Piedad",
     "tono": "Do",
     "letra": "# Estrofa 1\nTen piedad de mi, Señor,\nten piedad, ten piedad.\nTen piedad de mi, Señor,\nten piedad de mí.\n\n# Estrofa 2\nCristo, Cristo, ten piedad,\nten piedad, ten piedad.\nCristo, Cristo, ten piedad,\nten piedad de mí.\n\n# Estrofa 3\nTen piedad de mi, Señor,\nten piedad, ten piedad.\nTen piedad de mi, Señor,\nten piedad de mí.",
@@ -388,7 +388,7 @@ const CANCIONES = [
   {
     "id": "cuantas-veces-senor-yo-peque",
     "titulo": "Cuantas veces, Señor, yo peque",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Piedad",
     "tono": "",
     "letra": "# Estrofa 1\nCuantas veces, Señor, yo pequé\nCuantas veces, Señor, yo pequé!\nMi Jesús, mi Jesús,\nyo te pido mil veces perdón.\n\n# Estrofa 2\nTe he clavado, Señor, en la Cruz (2)\nMi Jesús, mi Jesús,\nte he clavado, Señor, en la Cruz.\n\n# Estrofa 3\nTe prometo Señor, ser mejor\nMi Jesús, mi Jesús, (2)\nte prometo Señor, ser mejor.",
@@ -414,7 +414,7 @@ const CANCIONES = [
   {
     "id": "jesus-es-senor",
     "titulo": "Jesús es Señor",
-    "autor": "Kairoi",
+    "autor": "José Miguel Cubeles",
     "categoria": "Aclamación del Evangelio",
     "tono": "Sol",
     "letra": "[Do]Jesús es, [Fa]Jesús es [Do][Sol]Señoooor,\n[Fa]Jesús es, [Sol]Jesús es [Do][Lam]Señoooor,\n[Fa]Jesús es, [Sol]Jesús es [Do][Sol]Señooooor...\n(bis)\n[Do]Aleluya, [Fa][Do][Sol]aleluuuyaaaaa,\n[Fa]Aleluya, [Sol][Do][Lam]aleluuuyaaaaa,\n[Fa]Aleluya, [Sol][Do][La]aleluuuyaaaaa...\n(Sube tono)\n[Re]Gloria a Dios, [Sol]gloria, gloria a [Re][La]Diooos,\n[Sol]gloria a Dios, [La]gloria, gloria a [Re][Sim]Diooos,\n[Sol]gloria a Dios, [La]gloria, gloria a [Re][La]Dios...",
@@ -440,7 +440,7 @@ const CANCIONES = [
   {
     "id": "busca-primero",
     "titulo": "Busca Primero",
-    "autor": "Música Católica",
+    "autor": "Karen Lafferty",
     "categoria": "Aclamación del Evangelio",
     "tono": "Do",
     "letra": "",
@@ -453,7 +453,7 @@ const CANCIONES = [
   {
     "id": "ale-aleluya",
     "titulo": "Ale Aleluya",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Aclamación del Evangelio",
     "tono": "Do",
     "letra": "# Estrofa 1\nAle Ale Ale, luuuya\nAle Ale Ale, luuuya aa\nAle Ale Ale, luuuya\nAleluya\nAleluuuuyaa\nAleluya  Aleluuuuyaa",
@@ -466,7 +466,7 @@ const CANCIONES = [
   {
     "id": "el-senor-es-nuestro-rey",
     "titulo": "El Señor es Nuestro Rey",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Aclamación del Evangelio",
     "tono": "Do",
     "letra": "# Estrofa 1\n/ Aleluya, Aleluya,\nEl Señor Es Nuestro Rey. / (2)",
@@ -479,7 +479,7 @@ const CANCIONES = [
   {
     "id": "aleluya-cfones",
     "titulo": "Aleluya,  C.Fones",
-    "autor": "Cristobal Fones",
+    "autor": "Cristóbal Fones SJ",
     "categoria": "Aclamación del Evangelio",
     "tono": "Re",
     "letra": "",
@@ -492,7 +492,7 @@ const CANCIONES = [
   {
     "id": "aleluya-msp",
     "titulo": "Aleluya - MSP",
-    "autor": "",
+    "autor": "Misioneros Servidores de la Palabra",
     "categoria": "Aclamación del Evangelio",
     "tono": "Do",
     "letra": "# Estrofa 1\nAleluya, aleluya. (2)",
@@ -505,7 +505,7 @@ const CANCIONES = [
   {
     "id": "gloria-aleluya",
     "titulo": "Gloria, Aleluya",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Aclamación del Evangelio",
     "tono": "Do",
     "letra": "# Estrofa 1\nGloria, gloria, aleluya,\ngloria, gloria, aleluya,\ngloria, gloria, alelu-ya,\nJesús es resucitó.\n\n# Estrofa 2\nEl Espíritu Divino\nque a la tierra Cristo envió,\ncomo viento huracanado,\ncomo fuego abrasador,\nseptiforme don del cielo\ny consuelo en la aflicción,\n¡poder renovador!",
@@ -570,7 +570,7 @@ const CANCIONES = [
   {
     "id": "en-su-mesa-hay-amor",
     "titulo": "En su Mesa hay Amor",
-    "autor": "Kairoi",
+    "autor": "Miguel Ángel Pujol",
     "categoria": "Ofertorio",
     "tono": "Re",
     "letra": "[Re]El [Fa#m]Señor [Sol]nos [Solm]ha reunido junto a Él,\n[Re]el [Sol]Señor [La7]nos ha invitado a estar con Él.\n[Sim]En [Fa#m]su mesa hay amor,\n[Sol]la [Re]promesa del perdón,\n[Mim]y en [La7]el [Re]vino y pan, su corazón.\n[Sim]En [Fa#m]su mesa hay amor,\n[Sol]la [Re]promesa del perdón,\n[Mim]y en [La7]el [Re]vino y pan, su corazón.\n[Re][La7]Cuando,Señor, tu voz,\n[Sol7]llega [Re]en silencio a mí,\n[Sol]y mis [La7][Re]hermanos me hablan de Ti,\n[Re]sé [La7]que a mi lado estás,\n[Fa#m]te [Sim]sientas junto a mí,\n[Sol]acoges [La7][Re]mi vida y mi oración.\nEl Señor nos ha reunido junto a Él...",
@@ -596,7 +596,7 @@ const CANCIONES = [
   {
     "id": "ofrenda-de-amor",
     "titulo": "Ofrenda De Amor",
-    "autor": "Música Religiosa",
+    "autor": "Gregorio Fernández",
     "categoria": "Ofertorio",
     "tono": "Re",
     "letra": "[Re]Por los niños que [La]empiezan la vida,\npor los [Re]hombres sin [Sol]techo ni [La7]hogar,\npor los [Re]pueblos que sufren la [La]guerra,\nte [Sol]ofrecemos el [La7]vino y el [Re][Re7]pan\n# Coro\n[Sol]Pan y vino sobre el [La]altar\n[Sol]son ofrendas de [Re]amor.\n[Sim]Pan y Vino serán [Mim]después\ntu [La]Cuerpo y [La7]Sangre [Re]Señor.\nPor los hombres que viven unidos,\npor los hombres que buscan la paz, (igual que la premera estrofa)\npor los pueblos que no te conocen,\nte ofrecemos el vino y el pan.\n# Coro\nPor aquellos a quienes queremos,\npor nosotros y nuestra amistad,\npor los vivos y por los difuntos,\nte ofrecemos el vino y el pan.",
@@ -609,7 +609,7 @@ const CANCIONES = [
   {
     "id": "santo-es-el-senor",
     "titulo": "Santo es el Señor",
-    "autor": "Cristobal Fones",
+    "autor": "Cristóbal Fones",
     "categoria": "Santo",
     "tono": "Re",
     "letra": "# Coro\n[La]Santo, [Do#m]santo, [Re]santo es el [Mi]Señor\n[Re]Dios del [Mi][Fa#m]Universo, [Re]santo es [Mi]el [La]Señor\nEl [Fa#m]cielo y la [Do#m]tierra están [Re]llenos de tu [Mi]gloria\n[Re]Hosanna en el [Mi]cielo\n# Coro\n[Fa#m]Bendito es el que [Do#m]viene en el [Re]nombre del [Mi]Señor\n[Re]Hosanna en el [Mi]cielo",
@@ -622,7 +622,7 @@ const CANCIONES = [
   {
     "id": "santo-dicen-los-querubines",
     "titulo": "Santo dicen los querubines",
-    "autor": "Música Católica",
+    "autor": "Tradicional",
     "categoria": "Santo",
     "tono": "Rem",
     "letra": "[Mim]1. Santo, santo, santo, dicen los [La7]querubines,\nsanto, santo, santo es nuestro Rey [Rem]Jesús (Yavé).\nSanto, santo, santo es el que nos [Solm]redime;\n[Solm]/porque mi Dios es [Rem]santo,\nla tierra [La7]llena de su gloria [Rem]es./\n[Rem]/Cielo y tierra [La7]pasarán,\nmas sus palabras no [Rem]pasarán./\n[Solm]No, [Rem]no, [La7]no [Rem]pasarán; no, no, no,\n[Solm]no, [Rem]no, [La7]no [Rem]pasarán.\n2. Bendito el que [Rem]viene en nombre del [La7]Señor;\n¡da gloria a Jesucristo, el hijo de [Rem]David!\nHosanna en las alturas a [Re7]nuestro [Solm]Salvador.\n/ Bendito el que [Rem]viene en [La7]nombre del [Rem]Señor./\n[Rem]/Cielo y tierra [La7]pasarán,\nmas sus palabras no [Rem]pasarán./\n[Solm]No, [Rem]no, [La7]no [Rem]pasarán; no, no, no,\n[Solm]no, [Rem]no, [La7]no [Rem]pasarán.",
@@ -635,7 +635,7 @@ const CANCIONES = [
   {
     "id": "santo-es-el-senor-cfones",
     "titulo": "Santo Es El Señor  C.Fones",
-    "autor": "",
+    "autor": "Cristóbal Fones",
     "categoria": "Santo",
     "tono": "Do",
     "letra": "# Estrofa 1\nSanto, Santo, Santoes el Señor\nDios del Universo, Santoes el Señor\n\n# Estrofa 2\nEl cielo y la tierra están llenos de tu gloria\nHosanna en el cielo\n\n# Estrofa 3\nBendito es el que viene en el nombre del Señor\nHosanna en el cielo",
@@ -648,7 +648,7 @@ const CANCIONES = [
   {
     "id": "cordero-panamericano",
     "titulo": "Cordero Panamericano",
-    "autor": "Música Religiosa",
+    "autor": "Tradicional",
     "categoria": "Cordero de Dios",
     "tono": "Mim",
     "letra": "[Mim]Cordero [Re]de [Mim]Dios, [Re]Cordero [Mim]de Dios\n[Sol]que quitas [Re]el pecado [Sol]del mundo\nten [Mim]piedad [Re]de [Mim]nosotros. [Re]Ten piedad de [Mim]nosotros.\n[Mim]Cordero [Re]de [Mim]Dios, [Re]Cordero [Mim]de Dios\n[Sol]que quitas [Re]el pecado [Sol]del mundo\nten [Mim]piedad [Re]de [Mim]nosotros. [Re]Ten piedad de [Mim]nosotros.\nPuente Musical....\n[Mim][Sim7][Mim][Sim7][Mim][Sim7][Mim][Re7][Sol][Re7][Sol][Re7][Sim7]\n[Mim]Cordero [Re]de [Mim]Dios, [Re]Cordero [Mim]de Dios\n[Sol]que quitas [Re]el pecado [Sol]del mundo\n[Mim]Danos [Re]la [Mim]paz, [Mim]danos [Re]la [Mim]paz",
@@ -674,7 +674,7 @@ const CANCIONES = [
   {
     "id": "cordero-de-dios-leiva",
     "titulo": "Cordero De Dios, Leiva",
-    "autor": "",
+    "autor": "Leiva",
     "categoria": "Cordero de Dios",
     "tono": "Do",
     "letra": "# Estrofa 1\nCordero de Dios,\nTú que quitas el pecado del mundo,\nten piedad de nosotros, \nCordero de Dios.",
@@ -687,7 +687,7 @@ const CANCIONES = [
   {
     "id": "yo-tengo-un-amigo",
     "titulo": "Yo Tengo Un Amigo",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Cantos para Niños",
     "tono": "Do",
     "letra": "# Estrofa 1\nYo tengo un amigo que me ama,\nme ama, me ama.\nYo tengo un amigo que me ama,\nsu nombre es Jesús.\nQue me ama, que me ama,\nque me ama con su tierno Amor (2)\n\n# Estrofa 2\nTú tienes un amigo…\nTenemos un amigo…",
@@ -726,7 +726,7 @@ const CANCIONES = [
   {
     "id": "tu-nos-invitas-jesus",
     "titulo": "Tu Nos Invitas, Jesús.",
-    "autor": "",
+    "autor": "Cesáreo Gabaráin",
     "categoria": "Cantos para Niños",
     "tono": "Do",
     "letra": "",
@@ -739,7 +739,7 @@ const CANCIONES = [
   {
     "id": "ya-no-eres-pan-y-vino",
     "titulo": "Ya no eres pan y vino",
-    "autor": "Música Católica",
+    "autor": "Jorge Luis Bohórquez",
     "categoria": "Cantos de Comunión",
     "tono": "Re",
     "letra": "[Re]Ya no eres [Sol]pan y [Re]vino,\nahora que eres [Sol]cuerpo y [Re]sangre, vives en [La]mí\nde [Sol]rodillas yo caigo al [Re]contemplar tu bondad,\n[Mi]como no te voy a [La]adorar\nMientras te pierdes en mis labios,\ntu gracia va inundando todo mi corazón\npor esa paz que me llena de alegría mi ser\ncomo no te voy a adorar\n# Coro\nSeñor [Re]Jesús, mi [La]salvador,\namor [Sim]eterno, [Sol]amor [Re]divino\n[Sol]ya no falta [Re]nada, lo tengo [La]todo, te tengo a [Re]tí (bis)\nDueño y Rey del universo\ncomo puede ser posible que busques mi amor\nTú tan grande y yo pequeño y te fijas en mi\ncomo no te voy a adorar\nDe rodillas yo te pido\nque el día cuando tu me llames sea como hoy\npara mirarte a los ojos y poderte decir\nque como no te voy a adorar",
@@ -752,7 +752,7 @@ const CANCIONES = [
   {
     "id": "jesus-amigo",
     "titulo": "Jesús Amigo",
-    "autor": "Dei verbum",
+    "autor": "Dei Verbum",
     "categoria": "Cantos de Comunión",
     "tono": "Sol",
     "letra": "# Introducción\n[Lam][Sol][Fa][Sol][Lam][Sol][Rem][Mi]\nHoy te quiero [Lam]contar Jesús [Sol]amigo\nQue [Fa]contigo estoy [Sol]feliz\nSi tengo tu [Lam]amistad lo tengo [Sol]todo\nPues [Fa]estas dentro de [Sol]mi\nDespués de comulgar [Do]me haces [Sol]como tú,\nMe [Fa]llenas con tu [Sol]paz\nEn cada [Do]pedacito de ese [Sol]pan\nCompleto [Fa]estas y así te [Sol]das\nEstas ahí por [Lam]mí porque [Sol]conoces\nQue sin [Fa]ti pequeño [Sol]soy\nDe ahora en [Do]adelante nada [Sol]nos separara [Fa]ya lo [Sol]veras\n# Coro\nTe escondes en el [Do]pan\nY [Fa]aunque no te puedo [Sol]ver\nTe [Mim]puedo acompañar [Lam]es mi [Fa]lugar [Sol]preferido\nHoy quiero comulgar [Do][Fa]abrirte mi [Sol]corazón\n[Mim]Así de par en [Lam]par\nEres mi [Fa]mejor [Sol]amigo\n[Fa][Sol][Lam][Fa][Mi]\nDos mil años [Lam]atrás a tus [Sol]amigos\n[Fa]Invitaste a [Sol]cenar\nY ahí les [Lam]prometiste que con [Sol]ellos\nPor [Fa]siempre ibas a [Sol]estar\nY ahora cada [Do]vez que el [Sol]sacerdote\nEleva el [Fa]pan sobre el [Sol]altar\nMe pongo de [Do]rodillas porque [Sol]sé que en esa [Fa]hostia tu [Sol]estas\n# Coro\nTe escondes en el [Do]pan\nY [Fa]aunque no te puedo [Sol]ver\nTe [Mim]puedo acompañar [Lam]es mi [Fa]lugar [Sol]preferido\nHoy quiero comulgar [Do][Fa]abrirte mi [Sol]corazón\n[Mim]Así de par en [Lam]par\nEres mi [Fa]mejor [Sol]amigo\nMe vuelves a [Do]salvar\nComo [Fa]lo hiciste en la [Sol]cruz\nY en [Mim]cada misa [Lam]tú me sirves [Fa]tu [Sol]sacrificio\nHoy quiero [Re]comulgar [Sol]abrirte mi [La]corazón\n[Sim]Así de par en [Fa#m]par\nEres mi [Sol]mejor [La]amigo [Sol][Re]JESUS",
@@ -804,7 +804,7 @@ const CANCIONES = [
   {
     "id": "eucaristia-kairy-marquez",
     "titulo": "Eucaristía - Kairy Marquez",
-    "autor": "Kairy Marquez",
+    "autor": "Kairy Márquez",
     "categoria": "Cantos de Comunión",
     "tono": "Re",
     "letra": "",
@@ -843,7 +843,7 @@ const CANCIONES = [
   {
     "id": "jesus-tu-eres-rey-de-reyes",
     "titulo": "Jesús tu eres Rey de reyes",
-    "autor": "Música Católica",
+    "autor": "Tradicional",
     "categoria": "Cantos de Comunión",
     "tono": "Sol",
     "letra": "[Sol]Jesus tu eres\nla [Do]persona\nmas [Re][Re7]importante\nde este [Sol][Re7]lugar. (2)\n[Sol]Rey de reyes\nseñor de [Re]señores\n[Do][Re7]aquel que mi vida [Sol][Re7]cambio. (2)",
@@ -869,7 +869,7 @@ const CANCIONES = [
   {
     "id": "lo-mas-grande",
     "titulo": "Lo Mas Grande",
-    "autor": "Padre Juan Andrés Barrera",
+    "autor": "P. Juan Andrés Barrera",
     "categoria": "Cantos de Comunión",
     "tono": "Re",
     "letra": "Lo mas [Sol]grande, lo mas [Do]sublime (x2)\n[Fa#m7b5]Jesús [Si7][Mim7]Eucaristía, [Re][Do]Jesús [Re][Sol]Eucaristía\nSu [Sol][Re/Fa#][Mim]Cuerpo,\nsu [Do][Re][Mim]Sangre,\nsu [Do]presencia [Re][Mim]viva (x2)",
@@ -882,7 +882,7 @@ const CANCIONES = [
   {
     "id": "eucaristia-pablo-sanchez",
     "titulo": "Eucaristía, Pablo Sanchez",
-    "autor": "",
+    "autor": "Pablo Sánchez",
     "categoria": "Cantos de Comunión",
     "tono": "",
     "letra": "# Estrofa 1\nEs un misterio tenerte,\nen tan sencilla apariencia.\nQue gran regalo nos diste\ncon tu sublime presencia.\n\n# Estrofa 2\nAquí te quedas para estar.\nAquí te ofreces para dar.\nEucaristía presencial real.\nCuerpo, Sangre, alma y divinidad.\n\n# Estrofa 3\nVen y sacia nuestra hambre y sed.\nPan de Vida danos de comer.\nTu Reino se hace banquete\ny así en torno a tu mesa.\nTu gracia nos hace parte,\ny anticipa tu fiesta.\n\n# Estrofa 4\nAquí te quedas, para estar.\nAquí te ofreces para dar.\nEucaristía presencial real.\n\n# Estrofa 5\nCuerpo, Sangre, alma y divinidad.\nVen y sacia nuestra hambre y sed.\nPan de Vida danos de comer.\nTú, Jesús, Pan de Vida.\nTú, Jesús, Pan de vida.\nTú, Jesús, Pan de Vida.\nTú, Jesús, Pan de vida.\nEucaristía presencial real.\nCuerpo, Sangre, alma y divinidad.\nEucaristía presencial real.\nCuerpo, Sangre, alma y divinidad.\nEucaristía presencial real.\nCuerpo, Sangre, alma y divinidad.",
@@ -895,7 +895,7 @@ const CANCIONES = [
   {
     "id": "ahi-en-la-eucaristia",
     "titulo": "Ahí en la Eucaristía",
-    "autor": "",
+    "autor": "Kairy Márquez",
     "categoria": "Cantos de Comunión",
     "tono": "",
     "letra": "# Estrofa 1\nAhí en la Eucaristía\nEstá tu presencia, Señor\nAhí en la Eucaristía\nEstá la prueba de que tú vives, Cristo\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\nAhí en la Eucaristía\nEstá nuestra comunión\nOh, ahí en la Eucaristía\nEsta nuestra reconciliación\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\nY no puedo esperar\nHasta que estés aquí en mí\nPorque es tu Cuerpo vivo, Cristo\nQue estoy apunto de adquirir\nNo, no, no puedo esperar\nHasta que estés aquí en mí\nPues es el caliz de tu Sangre\nQue me ayuda a vivir\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\nTu Cuerpo (vivo Cristo), tu Sangre\nMe da vida, Señor, me da vida\nOh, pan de vida\nEres tú, Jesús",
@@ -947,7 +947,7 @@ const CANCIONES = [
   {
     "id": "el-angelus",
     "titulo": "El Angelus",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Cantos a la Virgen María",
     "tono": "Re",
     "letra": "[Re]El ángel vino de los [La]cielos\ny [La7]a María le [Re]anunció\nel gran misterio de Dios [La]hombre\nque [Mim]a los [La7]cielos [Re]admiró.\n[Re7]Virgen [Sol]Madre, [La]Señora [Re]nuestra\n[Sim]recordando [Sol]la [La][Re]Encarnación\nte cantamos, tus hijos, todos\ncomo estrella de salvación.\n\"Yo soy la esclava del Señor, mi Dios -\nla virgen dijo al contestar-\nque se haga en mí según has dicho\nse cumpla en mí Su Voluntad\".\nY el Verbo, para redimirnos\ntomó su carne virginal.\nVivió hecho hombre entre nosotros\nlibrándonos de eterno mal.",
@@ -960,7 +960,7 @@ const CANCIONES = [
   {
     "id": "oh-maria-madre-mia",
     "titulo": "Oh María, Madre Mía",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
     "letra": "# Estrofa 1\n¡Oh María,    Madre mía,\noh consuelo    del mortal,\namparadme    y guiadme\na la Patria    Celestial!\n\n# Estrofa 2\nCon el Angel de María\nlas grandezas celebrad,\ntransportados de alegría\nsus finezas publicad.\n\n# Estrofa 3\nQuien a Ti ferviente clama\nhalla alivio en el pesar,\npues tu nombre luz derrama,\ngozo y bálsamo sin par.\n\n# Estrofa 4\nPues te llamo con fe viva,\nmuestra, oh Madre, tu bondad;\na mí vuelve compasiva,\nesos ojos de piedad.",
@@ -986,7 +986,7 @@ const CANCIONES = [
   {
     "id": "maria-de-mi-ninez",
     "titulo": "María de mi Niñez",
-    "autor": "",
+    "autor": "Padre Zezinho scj",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
     "letra": "",
@@ -999,7 +999,7 @@ const CANCIONES = [
   {
     "id": "madre-mia",
     "titulo": "Madre mía",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Cantos a la Virgen María",
     "tono": "Do",
     "letra": "# Estrofa 1\nMadre mía, que estas en los cielos,\nEnvía consuelo a mi corazón.\nCuando, triste, llorando te llame,\nTu mano derrame feliz bendición.\n\n# Estrofa 2\nLuna bella de eternos fulgores,\nmanojo de flores de aroma inmortal.\nEmbalsame mi pecho tu ambiente\ny alumbra mi mente y alumbra mi mente  tu luz celestial.\n\n# Estrofa 3\nEn Ti sola, abrigue confianza,\ntoda mi esperanza la puse yo en Ti.\nSiempre, oh Madre, tu amparo reciba\nen tanto que viva, en tanto que viva amándote a Ti.\n\n# Estrofa 4\nA tus manos, oh Madre, me llego,\nRecógeme luego contigo a vivir.\nQue del mundo la gloria ha dejado,\ny estoy empeñado, y estoy empeñado a Cristo en seguir.",
@@ -1038,7 +1038,7 @@ const CANCIONES = [
   {
     "id": "quiero-decir-que-si",
     "titulo": "Quiero Decir Que Sí",
-    "autor": "",
+    "autor": "Salvador Gómez",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
     "letra": "# Estrofa 1\nQuiero decir que sí,\ncomo tú, María,\nComo tú, un día, como tú, María.\nQuiero decir que sí,.. (4)\nQuiero negarme a mi,\ncomo tú, María,...\nQuiero negarme a mí,...(4)\nQuiero seguirle a Él,\ncomo tú, María,....\nQuiero seguirle a Él,.. (4)",
@@ -1051,7 +1051,7 @@ const CANCIONES = [
   {
     "id": "santa-maria-del-amen",
     "titulo": "Santa María del Amén",
-    "autor": "",
+    "autor": "Juan Antonio Espinosa",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
     "letra": "",
@@ -1103,7 +1103,7 @@ const CANCIONES = [
   {
     "id": "viva-maria-viva-el-carmelo",
     "titulo": "Viva María Viva El Carmelo",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
     "letra": "# Estrofa 1\nViva María, viva el Carmelo,\nviva el escapulario,\nprenda del cielo.\nviva el escapulario,\nprenda del cielo.\n\n# Estrofa 2\nEs la Virgen del Carmen nuestra abogada\nque en penas y peligros\ngloriosa ampara.\nque en penas y peligros\ngloriosa ampara.\n\n# Estrofa 3\nEs el escapulario sol refulgente\nque alumbra con sus rayos hasta la muerte.\n\n# Estrofa 4\nLa Virgen del Carmen…\npresta su amparo\nal devoto que viste su escapulario.\n\n# Estrofa 5\nA la Virgen del Carmen\nquiero y adoro, (venero)\nporque saca las almas,\ndel purgatorio.\n\n# Estrofa 6\nEs la Virgen del Carmen\nnuestra patrona\nTiene un niño en los brazos\nque nos perdona\n\n# Estrofa 7\nDe la Virgen del Carmen s\ned fieles hijos\nY ella hará amorosa mil beneficios.\n\n# Estrofa 8\nLa tentación más fuerte\nse desvanece\nCon el escapulario que nos ofrece.\n\n# Estrofa 9\nLos hijos del Carmelo\nsiempre han vencido\nCon el escapulario al enemigo.",
@@ -1129,7 +1129,7 @@ const CANCIONES = [
   {
     "id": "la-rosa-mas-bella",
     "titulo": "La Rosa más Bella",
-    "autor": "",
+    "autor": "Jaime Chacua",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
     "letra": "# Estrofa 1\nComo no cantarte oh María\nComo no acordarme cada diiiia\nsi eres tu mi Madre tan queriiiida\nLlenas tu mi vida de alegria\n\n# Estrofa 2\nComo no amarte oh María\nComo no rezarte cada dio\nllena eres de gracia y elegida\nMadre de Dios y esperanza mía\n\n# Coro\nY eres la rosa mas bella\nLa rosa mas bella de mi corazón\nY eres luminosa estrella\nluminosa estrella que Dios nos dejo  X2\n\n# Estrofa 3\nMe llenas de amor cada mañana\nY un abrazo tuyo me da vida\nCampesina hermosa y artesana\nllenas de amor, mi vida cada dia\n\n# Estrofa 4\nBienaventurada intercesora\nNunca me abandones Madre Mia\nCon tus bendiciones, cada dia\nruega por mi para encontrar la vida.",
@@ -1142,7 +1142,7 @@ const CANCIONES = [
   {
     "id": "maria-madre-de-la-iglesia-sarai-r",
     "titulo": "María Madre de la Iglesia – Sarai R.",
-    "autor": "",
+    "autor": "Sarai R.",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
     "letra": "# Estrofa 1\nMaría, Madre de la Iglesia\nMaría, Madre de la Iglesia Eres Tú\nNuestra Madre y Señora Tú (Bis)\n\n# Estrofa 2\nQuiero cantar para ti\nCon gratitud\nPor todo el Amor que me das\nMe llevas hacia Jesús\nCamino perfecto Tú\nCamino seguro al Cielo Tú.\nCoro:  María Madre de la Iglesia…",
@@ -1155,7 +1155,7 @@ const CANCIONES = [
   {
     "id": "como-no-amarte-j-cabrera",
     "titulo": "Como No Amarte – J.  Cabrera",
-    "autor": "",
+    "autor": "J. Cabrera",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
     "letra": "# Estrofa 1\nFue tu humildad lo que agradó a Dios, Fue tu sencillez y tu devoción\nFue el siempre estar dispuesta, Por practicar la obediencia\nEncontraste gracia delante de Dios\n\n# Estrofa 2\nFue tu humildad lo que agradó a Dios, Fue el siempre estar dispuesta a servir\n\n# Estrofa 3\nFue tu humildad la que te hizo, La Madre de Jesucristo\nDiste al mundo un Salvador\n\n# Estrofa 4\nCómo no amarte, cómo no amarte\nSi llevaste nueve meses , En tu vientre a mi Señor\nCómo no amarte, cómo no amarte\nSi en tí estuvo tanto tiempo, Recibiendo de tu amor\nCómo no amarte\n\n# Estrofa 5\nFue tu humildad lo que agradó al Señor\nFue tu sí para las cosas de Dios\nEso hizo que te escogiera\nY por un tiempo proveyeras\nAlimento al niño Dios\n\n# Estrofa 6\nDios te salve María\nLlena eres de gracia\nEl Señor es contigo\nBendita tu\nEntre todas las mujeres\nY bendito es el fruto\nY bendito es el fruto\nDe tu vientre\n\n# Estrofa 7\nJesús (8)",
@@ -1168,7 +1168,7 @@ const CANCIONES = [
   {
     "id": "hoy-te-quiero-cantar",
     "titulo": "Hoy te quiero cantar",
-    "autor": "",
+    "autor": "Cesáreo Gabaráin",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
     "letra": "",
@@ -1181,7 +1181,7 @@ const CANCIONES = [
   {
     "id": "bajo-tu-manto-f-gomez",
     "titulo": "Bajo Tu Manto – F. Gómez",
-    "autor": "",
+    "autor": "Felipe Gómez",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
     "letra": "# Estrofa 1\nYa no tengo que temer\nYa no hay cosas, que me asusten,\n¡no me da miedo el ayer!\nY tampoco mi mirada quiere ver el porvenir\nNi saber a dónde ir, por un mañana\nNi lo que pueda pasar\nSi de las preocupaciones, yo no me puedo encargar\nSi no tengo más razones o si me voy a quebrar\nDios me dice hay que esperar, ¡bajo tu manto!\nBajo tu manto\nNo hay tempestades, que me azoten contra el viento\nNi esclavitudes amarradas por el tiempo\nLo tengo todo, te tengo a ti\nBajo tu manto\nLleno de estrellas, que iluminarán mi noche\nYa no habrá juicios, fariseos o reproches\nPues soy tu hijo, cuidas de mí\nYa no tengo que temer\nEres Madre, eres reina y la más santa mujer\nEres rosa inmaculada, eres todo mi querer\nLos susurros y mi llanto, mis palabras y mi canto\nBajo tu manto\nLleno de estrellas, que iluminarán mi noche\nYa no habrá juicios, fariseos o reproches\nPues soy tu hijo, cuidas de mí\nYa no tengo que temer",
@@ -1220,7 +1220,7 @@ const CANCIONES = [
   {
     "id": "aleluya-por-esa-gente",
     "titulo": "Aleluya por esa gente",
-    "autor": "",
+    "autor": "Palito Ortega",
     "categoria": "Temas Biblicos",
     "tono": "",
     "letra": "",
@@ -1233,7 +1233,7 @@ const CANCIONES = [
   {
     "id": "el-joven-rico",
     "titulo": "El Joven Rico",
-    "autor": "",
+    "autor": "Cesáreo Gabaráin",
     "categoria": "Temas Biblicos",
     "tono": "",
     "letra": "",
@@ -1246,7 +1246,7 @@ const CANCIONES = [
   {
     "id": "aqui-hay-un-muchacho-jesed",
     "titulo": "Aquí hay un muchacho (Jesed)",
-    "autor": "",
+    "autor": "Jésed",
     "categoria": "Temas Biblicos",
     "tono": "",
     "letra": "# Estrofa 1\nAquí hay un muchacho\nQue solamente tiene cinco panes y dos peces\nMás ¿Qué es eso para tanta gente?\nAquí hay un muchacho\nQue solamente tiene un corazón dispuesto a dar\nMás, ¿Qué es eso para tanta gente?\nAquí esta este corazón\nQue quiere serte fiel\nMás, ¿Qué es eso si no tiene a ti?\n¿Si no te tiene a ti?\nToma este corazón\nToma cuanto tengo y cuanto soy\nToma mi pasado, mi presente y mi futuro\n¡Todo cuanto tengo tómalo!\nMi corazón tomaste\nMis panes bendijiste\nA la gente repartiste, y a todos alcanzó\nMi vida está en tus manos\nY quieres repartirla\nComo hiciste con mis panes\nAquel día, ¡Oh Señor!\nAquí están mis palabras\nAquí están mis acciones, aquí están mis ilusiones\nMás, ¿Qué es eso sin tu amor Señor?\nAquí esta este corazón que quiere serte fiel\nMás, ¿Qué es eso si no te tiene a ti?\n¿Si no te tiene a ti?\nAquí está este corazón, con mis panes y mis peces\nToma todo y ¡repártelo Señor!\nToma este corazón\nToma cuanto tengo y cuanto soy\nToma mi pasado, mi presente y mi futuro\n¡Todo cuanto tengo tómalo!\n(Tómalo)\nToma este corazón\nToma cuanto tengo y cuanto soy\nToma mi pasado, mi presente y mi futuro\n¡Todo cuanto tengo tómalo!\n¡Todo cuanto tengo tómalo!\nAquí hay un muchacho",
@@ -1259,7 +1259,7 @@ const CANCIONES = [
   {
     "id": "os-anunciamos-betsaida",
     "titulo": "Os Anunciamos, Betsaida",
-    "autor": "",
+    "autor": "Betsaida",
     "categoria": "Adviento",
     "tono": "",
     "letra": "# Estrofa 1\nOs anunciamos el gozo de adviento\ncon la primera llama ardiendo.\nSe acerca ya el tiempo de salvación,\nabre las puertas de tu corazón.\n\n# Coro\nCanten con gozo, con ilusión,\nya se acerca el Señor.\n\n# Estrofa 2\nOs anunciamos el gozo de adviento\ncon la segunda llama ardiendo.\nDios Padre en su gloria\nmuestra su amor,\nabre tu alma a Jesús Salvador.\nCanten con gozo...\n\n# Estrofa 3\nOs anunciamos el gozo de adviento\nCon la tercera llama ardiendo.\nEl tiempo se acorta,\nya viene el Señor,\nel mundo se alegra en tan buen redentor\nCanten con gozo…\nOs anunciamos el gozo de adviento,\nmiren la cuarta llama ardiendo.\nluz de la estrella nos lleva a Belén,\nacoge a Dios Niño que ahí va a nacer.\n/Canten con gozo.. con ilusión,\nya se acerca el Señor/",
@@ -1272,7 +1272,7 @@ const CANCIONES = [
   {
     "id": "ven-senor-nuestra-esperanza",
     "titulo": "Ven Señor Nuestra Esperanza",
-    "autor": "",
+    "autor": "Mariano Fuertes",
     "categoria": "Adviento",
     "tono": "",
     "letra": "# Estrofa 1\nVen, Señor, nuestra esperanza,\nven, Señor, no tardes más\nVen, Señor, a redimirnos,\nven, Señor, ven Señor.\nVen, Señor, nuestra alegría\nVen, Señor, no tardes más\nVen, Señor, a nuestro mundo,\nven, Señor, ven Señor.\n\nAnunciaron los profetas tu primera venida\ny tu pueblo Santoesperó a su Señor.\nAnunciaste a los pueblos tu segunda venida;\ny tu Pueblo Santoesperó a su Señor.\n\nVigilantes esperamos con la luz encendida;\ny tu pueblo Santoesperó a su Señor.\nEl Rocío de los cielos va a nacer hecho niño;\ny tu Pueblo Santoesperó a su Señor.\nSon dichosos los que esperan ver tu rostro de nuevo;\ny tu Pueblo Santoesperó a su Señor.\nCaminemos todos juntos al encuentro de Cristo;\ny tu Pueblo Santoesperó a su Señor.",
@@ -1285,7 +1285,7 @@ const CANCIONES = [
   {
     "id": "no-tardes-mas-msp",
     "titulo": "No Tardes Más (Msp)",
-    "autor": "",
+    "autor": "Misioneros Servidores de la Palabra",
     "categoria": "Adviento",
     "tono": "",
     "letra": "# Estrofa 1\n¡Ven, Señor Jesús!\n¡Ven, Señor Jesús!\nVen, Señor, no tardes más!\n¡Ven, Señor Jesús!\n\n# Estrofa 2\nUna clara voz resuena\nque las tinieblas repudia,\nel sueño pesado ahuyentase,\nCristo en el cielo fulgura.\nDespierte el alma adormida\ny sus torpezas sacuda,\nque para borrar los males\nun astro nuevo relumbra.\nDe arriba llega el Cordero\nque ha de lavar nuestras culpas;\ncon lágrimas imploremos\nel perdón que nos depura.\nPorque en su nueva venida\nque aterroriza y conturba,\nno tenga que castigarnos\nmas con piedad nos acuda.",
@@ -1298,7 +1298,7 @@ const CANCIONES = [
   {
     "id": "ven-jesus-msp",
     "titulo": "¡Ven, Jesús! (Msp)",
-    "autor": "",
+    "autor": "Misioneros Servidores de la Palabra",
     "categoria": "Adviento",
     "tono": "",
     "letra": "# Estrofa 1\nVen, Señor, Dios de justicia;\nven, Señor, Dios del amor.\nVen, Señor, de fidelidad;\nven, Señor, ven, ven , Jesús.\n\n# Estrofa 2\nSeñor, a ti dirijo mi oración;\nmi Dios, en ti confío:\nno dejes que me hunda en la vergüenza.\n¡En ti confío a todas horas!\nSeñor, muéstrame tus caminos;\nguíame por tus senderos;\nencamíname en tu verdad,\npues tú eres mi Dios y Salvador.\nSeñor, acuérdate del amor y la ternura\nque siempre nos has manifestado,\npero no te acuerdes de mis pecados\nni del mal de mi juventud.",
@@ -1311,7 +1311,7 @@ const CANCIONES = [
   {
     "id": "alegria-de-esperar-luis-elizalde-ochoa",
     "titulo": "Alegría De Esperar Luis Elizalde Ochoa",
-    "autor": "",
+    "autor": "Luis Elizalde Ochoa",
     "categoria": "Adviento",
     "tono": "",
     "letra": "# Estrofa 1\nAlegría de esperar\nQue está muy cercano el día.\nEn la carne de una Virgen\namanecerás, Señor.\nEn la carne de una Virgen\nAmanecerás, Señor.\n\n# Estrofa 2\nNos va a brotar un renuevo\nque hará florecer la tierra.\nSe encuentran dolor y gracia.\nVen, Señor, ven, Señor Jesús\nAlegría de esperar…\n\n# Estrofa 3\nAmanecerá tu luz\ny romperá las tinieblas.\nDanos, Dios, tu claridad.\nVen, Señor, ven, Señor Jesús.\nAlegría de…\n\n# Estrofa 4\nCuidaremos el camino\npara cuando al fin tú vengas,\nvestido de nuestra carne.\nVen, Señor, ven, Señor Jesús.",
@@ -1324,7 +1324,7 @@ const CANCIONES = [
   {
     "id": "presentamos-todos-juntos-msp",
     "titulo": "Presentamos Todos Juntos (Msp)",
-    "autor": "",
+    "autor": "Misioneros Servidores de la Palabra",
     "categoria": "Adviento",
     "tono": "",
     "letra": "# Estrofa 1\nPresentamos, oh Señor,\ntodos juntos, como hermanos,\nen el vino y en el pan.- (2)\nFa ¡Vengan todos,\ncaminemos hacia el monte del Señor!\nQue su luz nos ilumina\npara darle el corazón.\nDespojados de las sombras, revestidos de la luz,\npara ser ofrenda al Padre nos unimos a Jesús.\nVigilantes avanzamos en espera del Señor.\nQue esta ofrenda purifique y reconforte en la misión.",
@@ -1337,7 +1337,7 @@ const CANCIONES = [
   {
     "id": "si-tu-no-vienes-jesus",
     "titulo": "Si Tú No Vienes Jesús",
-    "autor": "",
+    "autor": "Pbro. Máximo SJ",
     "categoria": "Adviento",
     "tono": "",
     "letra": "# Estrofa 1\n/Si tú no vienes, Jesú\ns, seguirán nuestros pecados /2\n\n# Estrofa 2\n¿Cómo seremos los hombres\nuna familia de hermanos,\n/si desde el fondo del alma,\nSeñor, no nos amamos /2\n\n# Estrofa 3\nA ti se elevan hoy nuestras manos,\nnuestra pobreza te presentamos.\nJesús que salvas, no tardes tanto,\ntu pueblo somos, ya te esperamos.\n\n# Estrofa 4\n/Si tú no vienes, Jesús,\nseguirán nuestros pecados /2\n\n# Estrofa 5\n¿Cómo podremos los hombre\ns a la verdad abrir pasos,\n/si de apariencias vivimos, Señor,\nilusionados /2\n\n# Estrofa 6\nA ti se elevan hoy nuestras manos,\nnuestra pobreza te presentamos.\nJesús que salvas, no tardes tanto,\ntu pueblo somos, ya te esperamos.\n\n# Estrofa 7\n/Si tú no vienes, Jesús, seguirán nuestros pecados /2\n\n# Estrofa 8\n¿Cómo podremos los hombres dar a tu Cruz un abrazo,\n/si todo lo que nos duele, Señor, lo rechazamos /2\n\n# Estrofa 9\nA ti se elevan…",
@@ -1350,7 +1350,7 @@ const CANCIONES = [
   {
     "id": "vamos-a-preparar-el-camino-del-senor",
     "titulo": "Vamos A Preparar El Camino Del Señor",
-    "autor": "",
+    "autor": "Carmelo Erdozáin",
     "categoria": "Adviento",
     "tono": "",
     "letra": "",
@@ -1363,7 +1363,7 @@ const CANCIONES = [
   {
     "id": "esperaba-esperaba",
     "titulo": "Esperaba Esperaba",
-    "autor": "",
+    "autor": "Pbro. Máximo Pérez",
     "categoria": "Adviento",
     "tono": "",
     "letra": "# Estrofa 1\nEsperaba, esperaba la niña de Nazaret.\nEsperaba, esperaba y no conocía qué.\nSabía que su dueño siempre era fiel\ny por eso esperaba, esperaba con fe.\n\n# Estrofa 2\nDios que a la puerta llama, ¿quién abrirá?\ntodos los hombres callan dormidos ya.\nLa Virgen vigilante despierta está:\npuso aceite en la lámpara que brilla más.\n\n# Estrofa 3\nEsperaba, esperaba la niña de Nazaret.\nEsperaba, esperaba y no conocía qué.\nSabía que su dueño siempre era fiel\ny por eso esperaba, esperaba con fe.\n\n# Estrofa 4\nDios que a los hombres dice: «Quiero venir».\nLos hombres que contestan: «No hay sitio aquí».\nPero la Virgen niña responde así:\n«Que esa palabra tuya se cumpla en mí».\n\n# Estrofa 5\nEsperaba, esperaba la niña de Nazaret.\nEsperaba, esperaba y no conocía qué.\nSabía que su dueño siempre era fiel\ny por eso esperaba, esperaba con fe.\n\n# Estrofa 6\n«Cuando mi niño venga ¿qué haré con Él?\nÉl se me ha dado todo y yo a Él también.\nQuiero darlo a los hombres, para ellos es:\nsalgamos de camino hacia Belén».\n\n# Estrofa 7\nEsperaba, esperaba la niña de Nazaret….",
@@ -1376,7 +1376,7 @@ const CANCIONES = [
   {
     "id": "santa-maria-de-la-esperanza",
     "titulo": "Santa María De La Esperanza",
-    "autor": "",
+    "autor": "Rafael de Andrés / Juan Antonio Espinosa",
     "categoria": "Adviento",
     "tono": "",
     "letra": "",
@@ -1389,7 +1389,7 @@ const CANCIONES = [
   {
     "id": "virgen-de-la-esperanza",
     "titulo": "Virgen de la Esperanza",
-    "autor": "",
+    "autor": "P. Osvaldo Catena",
     "categoria": "Adviento",
     "tono": "",
     "letra": "# Estrofa 1\nVirgen de la esperanza,\nen nuestra marcha danos tu luz.\nQueremos ir contigo por el camino\nque abre la Cruz.\n\n# Estrofa 2\nMadre del pueblo condúcenos\npor el camino de salvación,\nque en nuestra patria reine la paz,\nen la justicia y la libertad.\n\n# Estrofa 3\nCielo y tierra nueva,\nesa es la meta de nuestro andar,\nsomos la Iglesia en marcha,\nque hacia la Pascua cantando va.\n\n# Estrofa 4\nSobre cerros y pampas\ndespunta el alba de nuestra luz,\nes la luz que trajiste cuando\nnos diste a tu Hijo Jesús.\n\n# Estrofa 5\nAfirma nuestros pasos,\ndá a nuestros brazos fuerza y valor,\npara luchar unidos\ncomo instrumentos de salvación.",
@@ -1402,7 +1402,7 @@ const CANCIONES = [
   {
     "id": "nos-has-llamado-al-desierto",
     "titulo": "Nos Has Llamado Al Desierto",
-    "autor": "",
+    "autor": "Bernardo Velado / Antonio Alcalde",
     "categoria": "Cuaresma",
     "tono": "",
     "letra": "",
@@ -1415,7 +1415,7 @@ const CANCIONES = [
   {
     "id": "caminare-francisco-palazon",
     "titulo": "Caminaré - Francisco Palazón",
-    "autor": "",
+    "autor": "Francisco Palazón",
     "categoria": "Cuaresma",
     "tono": "",
     "letra": "# Estrofa 1\nCaminaré en presencia del Señor(2)\nAmo al Señor porque escucha\nmi voz suplicante\nporque inclina su oído hacia mí\nel día que lo invocó.\n\n# Estrofa 2\nMe envolvían redes de muerte\ncaí en tristeza y en angustia\ninvoqué el nombre del Señor:\nSeñor, salva mi vida!\n\n# Estrofa 3\nEl Señor es benigno y justo\nnuestro Dios es compasivo\nel Señor guarda a los sencillos;\nestando yo sin fuerzas, me salvó!\n\n# Estrofa 4\nAlma mía, recobra tu calma\nque el Señor fue bueno contigo:\narrancó mi alma de la muerte,\nmis ojos de las lágrimas,\nmis pies de la caída",
@@ -1428,7 +1428,7 @@ const CANCIONES = [
   {
     "id": "peque-peque-dios-mio",
     "titulo": "Pequé,  pequé Dios mío",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Cuaresma",
     "tono": "",
     "letra": "# Estrofa 1\nPequé, pequé Dios mío\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 2\nPor tu corona santa\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 3\nPor tus profundas  llagas\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 4\nPor tus heridas crueles\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 5\nPor tu preciosa Sangre\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 6\nPor tu costado  abierto\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 7\nPor tu agonía  santa\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 8\nPor tu Madre  afligida\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//",
@@ -1441,7 +1441,7 @@ const CANCIONES = [
   {
     "id": "dejame-nacer-ariel-glaser",
     "titulo": "Déjame nacer - Ariel Glaser.",
-    "autor": "",
+    "autor": "Ariel Glaser",
     "categoria": "Cuaresma",
     "tono": "",
     "letra": "# Estrofa 1\nTú conoces la dureza en mi sentir\ny la terquedad que hay en mi corazón.\nSon las cosas que me alejaron de Ti, Señor,\ndame vida nueva con tu amor.\n\n# Estrofa 2\nDéjame nacer de nuevo,\nDéjame nacer de nuevo,\nDéjame nacer de nuevo, oh Señor.\nNo importa la edad que tenga,\nTú no la tienes en cuenta.\nDéjame nacer de nuevo, oh Señor.\n\n# Estrofa 3\nTú conoces el pecado que hay en mí\ny el dolor que dejo en mi corazón.\nPor la muerte que he causado vuelvo a Ti, Señor,\nDame nueva vida en tu amor.",
@@ -1467,7 +1467,7 @@ const CANCIONES = [
   {
     "id": "arriba-nuestros-ramos",
     "titulo": "Arriba nuestros ramos",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Semana Santa",
     "tono": "",
     "letra": "# Estrofa 1\nArriba nuestros ramos\ncantando al Señor\narriba nuestros ramos\ncantando al Señor\n\n# Estrofa 2\nBendito el que viene\nen nombre del Señor\nJesús nuestra esperanza\nJesús liberador\n\n# Estrofa 3\nEra un domingo allá en Jerusalén\ncuando en un burrito\nJesús entra apadecer\n\n# Estrofa 4\nTodo el pueblo humilde\nlo salió arecibir\ny con entusiasmo\ncomenzaron a decir;\n\n# Estrofa 5\nArriba nuestros ramos…\nPero el mejor canto\nque Jesús quiso escuchar\nfue el canto puro\nde los niños del lugar.\n\n# Estrofa 6\nEllos saludaban\na Jesús liberador\nCristo el esperado\nde los pobres del Señor\nArriba nuestros ramos…\n\n# Estrofa 7\nHoy también nosotros\nte queremos recibir\ny por tu camino\nserte  fieles  hasta el fin.\nCristo nos conduces\nhacia el reino de la luz\nmarcas nuestra huella\ncon la Sangre de tu Cruz.\n\n# Estrofa 8\nLlegan ya los días\nde la Pascua del Señor,\nCristo con su muerte\nnos da vida y salvación.\n\n# Estrofa 9\nJuntos revivamos\nel misterio de la Cruz\ny  compartiremos\nel gran triunfo de Jesús.",
@@ -1480,7 +1480,7 @@ const CANCIONES = [
   {
     "id": "preciosa-sangre-padre-miguel",
     "titulo": "Preciosa Sangre - Padre Miguel",
-    "autor": "",
+    "autor": "Padre Miguel",
     "categoria": "Semana Santa",
     "tono": "",
     "letra": "# Estrofa 1\nPreciosa Sangre derramada en la Cruz\nvenció el Cordero que entregó su corazón\nAlianza eterna que sellaste con tu amor\ntu mi defensa, mi refugio y mi Dios.\n\n# Estrofa 2\nPrecioso Jesús.\nPrecioso Jesús.\n\n# Estrofa 3\nAdoremos, Adoremos en la Cruz\nal Cordero, que entregó su corazón.\nAdoremos, Adoremos en la Cruz\nal Cordero que nos dió su corazón.",
@@ -1493,7 +1493,7 @@ const CANCIONES = [
   {
     "id": "el-buen-ladron-felipe-gomez",
     "titulo": "El Buen Ladron - Felipe Gómez",
-    "autor": "",
+    "autor": "Felipe Gómez",
     "categoria": "Semana Santa",
     "tono": "",
     "letra": "# Estrofa 1\nCon su mirada serena, desde el cielo me miró\nBorrando toda condena mi maldad el perdonó\nTenía sus manos clavadas, flagelado el corazón\nPagaba todas mis penas con su Sangre y su dolor\nCon su Sangre y su dolor\n\n# Estrofa 2\nCrucificado a mi lado y muriendo por mi mal\nPero el no tuvo pecado, fue la Cruz su pedestal\nPorque si solo sus labios se teñían de verdad\nMientras mi boca perdida en blasfemias y maldad\nEn blasfemias y maldad\n\n# Estrofa 3\nPorque si solo sus labios se teñían de verdad\nMientras mi boca perdida en blasfemias y maldad\nEn blasfemias y maldad\n\n# Estrofa 4\n“Padre que vas a los cielos no pido bajar de aquí\nPero al llegar a tu reino Señor acuérdate de mí\nSeñor acuérdate de mí”\n\n# Estrofa 5\nPero unas solas palabras y en la Cruz yo fui ladrón\nPorque aún clavado y muriendo me robé su corazón\nMe robé su corazón, me robé su corazón.",
@@ -1506,7 +1506,7 @@ const CANCIONES = [
   {
     "id": "saname-mi-senor-felipe-gomez",
     "titulo": "Sáname mi Señor - Felipe Gómez",
-    "autor": "",
+    "autor": "Felipe Gómez",
     "categoria": "Semana Santa",
     "tono": "",
     "letra": "# Estrofa 1\nSeñor mío, no entiendo tus designios,\nlos dolores de la dura enfermedad,\nTú que estabas cubierto por la llagas,\nhoy te pido que de mí tengas piedad.\nDevolviste la vida al moribundo,\ny los ciegos te pudieron contemplar,\nmira el llanto que cubre mis mejillas,\ny me azota tanta debilidad.\n\n# Estrofa 2\nSáname, mi Señor,\npor piedad, por amor,\npor los meritos de tus preciosas llagas.\nSáname, mi Señor,\npor piedad, por amor,\ny devuélvele la paz a mi alma.\n\n# Estrofa 3\nCuando veo que pendes del madero,\ny tu Sangre lo tiñe por amor,\nsiento que mis heridas son cobardes\ny mis quejas ya no tienen razón.\nHoy enfermo, Señor, voy a buscarte,\nsi Tú quieres te alabaré en la Cruz,\nyo te ruego cambies mi cobardía,\nal decirte lo aceptaré Jesús\n\n# Estrofa 4\nFúndeme en tu dolor,\ndame fuerza y valor,\nsé que sufro, pero Tú eres mi calma.\nQuiero ser, oh Señor,\nuna llama de amor\nque consuele el dolor de las almas.",
@@ -1519,7 +1519,7 @@ const CANCIONES = [
   {
     "id": "dolorosa",
     "titulo": "Dolorosa",
-    "autor": "",
+    "autor": "Juan Antonio Espinosa",
     "categoria": "Semana Santa",
     "tono": "",
     "letra": "",
@@ -1532,7 +1532,7 @@ const CANCIONES = [
   {
     "id": "resucito-el-senor",
     "titulo": "Resucitó el Señor",
-    "autor": "",
+    "autor": "Seminario Pontificio Mayor de Santiago",
     "categoria": "Pascua y Resurrección",
     "tono": "",
     "letra": "# Estrofa 1\nLlorando en silencio de soledad\nSe escucha el viento cantar\nEl alba y su luz tocan mi dolor\nMi Señor ya duerme en paz\nEl que hubo amado la vida dio\nAbrazándose a una Cruz\nEl sepulcro es un lugar sin luz\nMi Señor ya despertará\nLlegando al final de mi caminar\nSentí resonar su voz\nMe llamó a vivir, me llamó a anunciar\nMi Señor ya resucitó\nResucitó, resucitó el Señor, aleluya\nUna luz se ha encendido en la oscuridad\nUna luz que no se apagará\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nHoy la muerte se queda clavada en la Cruz\nEs vencida por el amor\nCon mucho sentido de gratitud\nTe alabo yo, mi Señor\nPor haber cambiado mi corazón\nPor haberme devuelto la paz\nLa gracia es un don de Dios que está en ti\nLa puedes ya despertar\nCon él llegarás hasta el Padre Dios\nCon él viviremos en paz\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nUna luz se ha encendido en la oscuridad\nUna luz que no se apagará\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nHoy la muerte se queda clavada en la Cruz\nEs vencida por el amor\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nUna luz se ha encendido en la oscuridad\nUna luz que no se apagará\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nHoy la muerte se queda clavada en la Cruz\nEs vencida por el amor\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nHoy la muerte se queda clavada en la Cruz\nEs vencida por el amor\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nHoy la muerte se queda clavada en la Cruz\nEs vencida por el amor",
@@ -1545,7 +1545,7 @@ const CANCIONES = [
   {
     "id": "regina-caeli",
     "titulo": "Regina Caeli",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Pascua y Resurrección",
     "tono": "",
     "letra": "# Estrofa 1\nRegina Caeli, laetáre\nAlleluia\nQuia quem meruisti portare\nAlleluia\nResurréxit, sicut dixit\nAlleluia\nOra pro nobis Deum\nAlleluia",
@@ -1558,7 +1558,7 @@ const CANCIONES = [
   {
     "id": "te-conocimos-al-partir-el-pan",
     "titulo": "Te Conocimos Al Partir El Pan",
-    "autor": "",
+    "autor": "Joaquín Madurga",
     "categoria": "Pascua y Resurrección",
     "tono": "",
     "letra": "",
@@ -1571,7 +1571,7 @@ const CANCIONES = [
   {
     "id": "se-siente-aqui",
     "titulo": "Se Siente Aquí",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
     "letra": "# Estrofa 1\nSe siente aquí (3)\nel Espíritu de Dios se siente aqui\nsi los hombres de la tierra glorifican al Señor\nel Espíritu de Dios se siente aqui.\n\n# Estrofa 2\n(se alaba . . . se mueve)\n\n# Estrofa 3\nPrepárate para que sientas (3)\nel Espíritu de Dios\ny déjalo que se mueva (3)\ndentro de tu corazón.",
@@ -1584,7 +1584,7 @@ const CANCIONES = [
   {
     "id": "ya-llego",
     "titulo": "Ya llegó",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
     "letra": "# Estrofa 1\n// Ya llego, ya llego\nel Espíritu Santo, ya llego. //\n// Lo siento en mis manos,\nlo siento en mis pies,\nlo siento en mi alma\ny en todo mi ser. //\n\n# Estrofa 2\n// Aquel que camino sobre las aguas. //\n// Esta aqui, esta a mi lado. //\n// Como un rayo cayendo sobre mi.\n// Que quema, que quema, que quema,\nque quema, que quema, que quema. //",
@@ -1610,7 +1610,7 @@ const CANCIONES = [
   {
     "id": "danos-senor-tu-espiritu-msp",
     "titulo": "Danos, Señor, Tu Espíritu -MSP",
-    "autor": "",
+    "autor": "Misioneros Servidores de la Palabra",
     "categoria": "Pentecostés",
     "tono": "",
     "letra": "# Estrofa 1\nDanos, Señor, tu Espíritu en este Pan celestial,\npara renovar nuestra vida. Aleluya.\n(Danos, danos...)2a\nDanos, Señor, tu Espíritu\n(en este Pan celestial)\nes este Pan celestial Re Sol La\n(...para renovar nuestra vida. Aleluya.)\npara renovar nuestra vida. Aleluya\n\n# Estrofa 2\nBendice al Señor, alma mía,\nDios mío, qué grande eres!\nSon muchas tus obras, Señor, inmensa tu majestad.\nSi retiras tu aliento todo vuelve al polvo.\nEnvías tu aliento de vida y renuevas la faz de la tierra.\nGloria a Dios para siempre,\ngoce el Señor con sus obras.\nQue le agrade mi poema,\ny me alegraré en el Señor.",
@@ -1623,7 +1623,7 @@ const CANCIONES = [
   {
     "id": "ven-espiritu-santo-u-arcodaci",
     "titulo": "Ven Espíritu Santo U. Arcodaci",
-    "autor": "",
+    "autor": "U. Arcodaci",
     "categoria": "Pentecostés",
     "tono": "",
     "letra": "# Estrofa 1\nVen Espíritu Santo, ven a este lugar\nVen en nuestra ayuda,\ntu gran amor\nven a derramar (Bis)\n\n# Estrofa 2\nVen divino amigo\nsopla con tu poder\nVen enciende tu fuego\nen tu amor quiero renacer\nVen Espíritu Santo, ven a este lugar\nVen en nuestra ayuda,\ntu gran amor\nven a derramar (Bis)\nVen luz de lo alto\nVen a iluminar\nVen dulce consuelo\nen mis angustias ven a habitar\nVen Espíritu Santo, ven a este lugar\nVen en nuestra ayuda,\ntu gran amor\nven a derramar (Bis)",
@@ -1636,7 +1636,7 @@ const CANCIONES = [
   {
     "id": "ante-tu-presencia-jaime-chacua",
     "titulo": "Ante tu presencia  – Jaime Chacua",
-    "autor": "",
+    "autor": "Jaime Chacua",
     "categoria": "Pentecostés",
     "tono": "",
     "letra": "# Estrofa 1\nSeñor me tienes ante tu presencia\nCon dulce voz a ti yo clamaré\nEscucha buen Señor mi oración\nQue te ofrezco\nEn ti me gozaré Señor, Jesús\nA ti mi vida entera rendiré\nTu gloria y tu poder me alegrará\nPara siempre\nOh, Señor, Jesús úngeme\nY hazme dócil como tu quieras\nTómame y dame fuerzas\nPara seguir tu camino\nOh, Señor, Jesús úngeme\nY hazme dócil como tu quieras\nTómame y dame fuerzas\nPara seguir tu camino\nSeñor, me tienes ante tu presencia\nCon dulce voz a ti yo clamaré\nEscucha buen Señor mi oración\nQue te ofrezco\nEn Ti me gozaré Señor Jesús\nA ti mi vida entera rendiré\nTu gloria y tu poder me alegrará\nPara siempre\nOh, Señor, Jesús úngeme\nY hazme dócil como tu quieras\nTómame y dame fuerzas\nPara seguir tu camino\nOh, Señor Jesús úngeme\nY hazme dócil como tu quieras\nTómame y dame fuerzas\nPara seguir tu camino",
@@ -1649,7 +1649,7 @@ const CANCIONES = [
   {
     "id": "ven-espiritu-santoj-lopez",
     "titulo": "Ven Espíritu SantoJ. López",
-    "autor": "",
+    "autor": "J. López",
     "categoria": "Pentecostés",
     "tono": "",
     "letra": "# Estrofa 1\nVen, Espíritu Santo,\nven a iluminar nuestra inteligencia\ny a defendernos del mal.\n\n# Estrofa 2\nTú, Promesa del Padre,\nDon de Cristo Jesús,\nven y danos tu fuerza\npara llevar nuestra Cruz.\n\n# Estrofa 3\nTú, llamado paráclito,\nnuestro confortador,\nven y habita en nosotros\npor la fe y por el amor.\n\n# Estrofa 4\nHaz que cada cristiano,\nbajo tu inspiración,\nsea testigo de Cristo\ncon la palabra y la acción.\n\n# Estrofa 5\nGuiados por el Espíritu\nhacia Cristo Jesús,\ncaminamos con júbilo\na la patria de la luz.",
@@ -1662,7 +1662,7 @@ const CANCIONES = [
   {
     "id": "espiritu-santo-guianos-antonio-alcalde",
     "titulo": "Espíritu Santo, Guíanos Antonio Alcalde",
-    "autor": "",
+    "autor": "Antonio Alcalde",
     "categoria": "Pentecostés",
     "tono": "",
     "letra": "# Estrofa 1\nVen Espíritu Santo\nVen Espíritu Santo\nVen Espíritu Santo\n\nAlúmbranos y guíanos,\nalúmbranos y guíanos,\nconviértenos y alégranos,\nconviértenos y alégranos.\n\nEnciéndenos, transfórmanos,\nenciéndenos, transfórmanos;\nconfórtanos, reúnenos,\nconfórtanos, reúnenos.\n\nEnvíanos y guárdanos,\nenvíanos y guárdanos;\ninspíranos y aliéntanos,\ninspíranos y aliéntanos.\n\nVisítanos, consuélanos,\nvisítanos, consuélanos;\nconfírmanos y sálvanos,\nconfírmanos y sálvanos.",
@@ -1675,7 +1675,7 @@ const CANCIONES = [
   {
     "id": "ven-espiritu-divino",
     "titulo": "Ven, Espíritu Divino",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
     "letra": "# Estrofa 1\n/Ven, ven, ven, Espíritu Divino\nven, ven, ven, acércate de mí/\n\n# Estrofa 2\n/Apodérate, apodérate, apodérate de todo mi ser/\n\n# Estrofa 3\n/Aquí se siente la presencia de Dios/\n/Siento el fuego del Espíritu Santo/\n\n# Estrofa 4\n/Siento gozo, siento paz,\nsiento el amor que mi Dios me da/",
@@ -1688,7 +1688,7 @@ const CANCIONES = [
   {
     "id": "preparate-para-que-sientas",
     "titulo": "Prepárate para que sientas",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
     "letra": "# Estrofa 1\n/Prepárate para que sientas/\nPrepárate para que sientas\nEl Espíritu de Dios\nDéjalo que se mueva x 3\nDentro de tu corazón\n\n# Estrofa 2\nOh gloria, aleluya\nAleluya Gloria a Dios\nOh gloria, aleluya\nAleluya Gloria a Dios",
@@ -1701,7 +1701,7 @@ const CANCIONES = [
   {
     "id": "a-que-tu-no-sabes",
     "titulo": "A que tu no sabes",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
     "letra": "# Estrofa 1\nA que tu no sabes\nlo que en Damasco pasó x3\n\n# Estrofa 2\nFue el Espiritu Santo\nFue el Espiritu Santo\nFue el Espiritu Santo\nlo que en mi vida se derramo. (bis)\n\n# Estrofa 3\nA que tu no sabes…\n…lo que en ... en mi vida ... en la Iglesia ...",
@@ -1714,7 +1714,7 @@ const CANCIONES = [
   {
     "id": "algo-esta-descendiendo",
     "titulo": "Algo está descendiendo",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
     "letra": "# Estrofa 1\n/ Algo está descendiendo,\nalgo está descendiendo, / (2)\n\n# Estrofa 2\n/ Eso es el Espíritu Santo. / (2)\n\n# Estrofa 3\n/ Con gloria, Aleluya,\naleluya, gloria a Dios. / (2)\n\n# Estrofa 4\n/ Si quieres sentir el gozo\nque da el Espíritu Santo. / (2)\n\n# Estrofa 5\n/ Alábalo, alábalo,\nalábalo de corazón. / (2)\n\n# Estrofa 6\n/ Algo está descendiendo,...\n\n# Estrofa 7\n/ Eso es el Espíritu Santo,...\n\n# Estrofa 8\n/ Con gloria, Aleluya,...\n\n# Estrofa 9\n/ Si quieres sentir el gozo...\n\n# Estrofa 10\n/ Alábalo, ...",
@@ -1727,7 +1727,7 @@ const CANCIONES = [
   {
     "id": "bautizame-senor",
     "titulo": "Bautizame, Senor",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
     "letra": "# Estrofa 1\nBautizame, Senor, con tu Espiritu,\nTransformame, Senor, con tu Espiritu.\n\n# Estrofa 2\nBautizame, Senor, con tu Espiritu,\nBautizame y transformame, Senor.\n\n# Estrofa 3\nY dejame sentir el fuego de tu amor\nAqui en mi corazon, Senor. (bis)",
@@ -1740,7 +1740,7 @@ const CANCIONES = [
   {
     "id": "como-corren-rios",
     "titulo": "Como corren ríos",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
     "letra": "# Estrofa 1\nComo corren rios dentro de mi ser (bis)\nes que yo confío en Cristo, mi Rey (bis).\n\n# Estrofa 2\nComo río de agua viva que salta pa' arriba  Que llevo dentro;\nconfirma, confirma\nEn este momento, el Espíritu Santo\ny su derramamiento (bis).\n\n# Estrofa 3\nDame del agua del brota para la vida eterna (bis)\nel agua que le diste a la mujer samaritana (bis)\n\n# Estrofa 4\nAlzando las palmas con gozo asi te quiero alabar\nel gozo que hay en mi alma nadie lo podra quitar",
@@ -1753,7 +1753,7 @@ const CANCIONES = [
   {
     "id": "es-un-rio",
     "titulo": "Es un rio",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
     "letra": "# Estrofa 1\nEs un rio, es la lluvia,\nes un soplo, es un fuego,\nes el Espiritu de Dios\nque quiere actuar.\n\n# Estrofa 2\nAhi va bajando, va cayendo\nva soplando, va ardiendo,\nes el Espiritu de Dios\nque esta aqui.\n\n# Estrofa 3\nBajando en ti, cayendo en mi,\nsoplando en ti, ardiendo en mi,\nes el Espiritu de Dios\nque esta aqui.",
@@ -1766,7 +1766,7 @@ const CANCIONES = [
   {
     "id": "este-avivamiento",
     "titulo": "Este Avivamiento",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
     "letra": "# Estrofa 1\nEste avivamiento\nquien lo apagara, quien\nquien lo apagara, quien\nquien lo apagara, quien\n\n# Estrofa 2\nsi el Senor lo ha dado\npermanecera, si\npermanecera, si\npermanecera.\n\n# Estrofa 3\nNi en las pruebas ni en las luchas\nno me lo podran quitar.\nManda el fuego y santificame Señor\nno vivo yo mas Cristo vive en mi.\n\n# Estrofa 4\nPara mi el morir es vivir\npara mi el morir es vivir\npara mi el morir es vivir\npara mi el vivir es Cristo.",
@@ -1779,7 +1779,7 @@ const CANCIONES = [
   {
     "id": "este-gozo",
     "titulo": "Este Gozo",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
     "letra": "# Estrofa 1\nEste gozo no va a pasar (no va a pasar),\neste gozo no va a pasar (no va a pasar),\neste gozo no va a pasar,\nporque está en mi corazón.\n\n# Estrofa 2\n/El fuego cae, cae, cae,\nlos males salen, salen, salen,\ny los creyentes alaban al Señor./\n\n# Estrofa 3\nEsta obra no va a parar (no va a parar),\nesta obra no va a parar (no va a parar),\nesta obra no va a parar,\nporque está en mi corazón.\n\n# Estrofa 4\nEsta alegría no va a salir (no va a salir),\nesta alegría no va a salir (no va a salir),\nesta alegría no va a salir,\nporque está en mi corazón.",
@@ -1805,7 +1805,7 @@ const CANCIONES = [
   {
     "id": "te-doy-gracias-jesus",
     "titulo": "Te doy gracias Jesús",
-    "autor": "Música Católica",
+    "autor": "Tradicional",
     "categoria": "De Adoración",
     "tono": "Do",
     "letra": "Te doy gracias [Do]Jesús\nPor haberte [Lam]encontrado\nPor haberme [Fa][Sol7]salvado\nTe doy gracias [Do]Jesús.\n# Coro\n[Do]Hoy ya se el camino\nY hacia el me [Lam]dirijo\nEs la senda [Fa]bendita\nQue representa el [Sol7]hijo\n# Coro\n[Do]Mi amor era pequeño\nPero ya lo he [Lam]encontrado\nY ese pequeño [Fa]amor\nHoy se ha [Sol7]agigantado\n# Coro\n[Do]Hoy Jesús es mi guía\nEl controla mi [Lam]vida\nNo hay ser [Fa]terreno\nQue mi cariño [Sol7]mida\n# Coro",
@@ -1818,7 +1818,7 @@ const CANCIONES = [
   {
     "id": "asi-se-alaba-a-dios",
     "titulo": "Asi se alaba a Dios",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
     "letra": "# Estrofa 1\nAsi, asi se alaba a Dios\nAsi, asi se alaba a Dios\nLevanten las manos todos\nLevanten las manos todos\nLevanten las manos todos",
@@ -1831,7 +1831,7 @@ const CANCIONES = [
   {
     "id": "aqui-se-alaba",
     "titulo": "Aquí se alaba",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
     "letra": "# Estrofa 1\n/Aquí se alaba al Señor\ncon mucha alegría y gozo./\n\n# Estrofa 2\nAlabemos al Señor, con mucha alegría y gozo\nAlabemos al Señor, alegres y muy gozosos.\n\n# Estrofa 3\nAlábenlo, alábenlo, alábenlo.\n\n# Estrofa 4\n/Con la mano arriba, con la mano arriba/\nAlabemos al Señor…\n\n# Estrofa 5\nCon el pie derecho...\nAlabemos al Señor…\n\n# Estrofa 6\nCon una sonrisa...\nAlabemos al Señor…",
@@ -1844,7 +1844,7 @@ const CANCIONES = [
   {
     "id": "los-que-esperan",
     "titulo": "Los que esperan",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
     "letra": "# Estrofa 1\nLos que esperan,\nlos que esperan en Jesús,\nLos que esperan,\nlos que esperan en Jesús,\n\n# Estrofa 2\n/como las aguilas,\ncomo las aguilas\nsus alas levantaran./ (bis)\n\n# Estrofa 3\nCaminaran y no se cansaran\ny correran, no se fatigaran,\n\n# Estrofa 4\n/nuevas fuerzas tendran, nuevas fuerzas tendran,\nlos que esperan, los que esperan en Jesús./ (bis)",
@@ -1857,7 +1857,7 @@ const CANCIONES = [
   {
     "id": "cuando-el-pueblo-alaba",
     "titulo": "Cuando el pueblo alaba",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
     "letra": "# Estrofa 1\n// Cuando el pueblo alaba a Dios, suceden cosas,\nsuceden cosas maravillosas. //\n\n# Estrofa 2\n// Hay sanacion,    liberacion\ny se siente la bendicion. //",
@@ -1870,7 +1870,7 @@ const CANCIONES = [
   {
     "id": "pon-aceite-en-mi-lampara",
     "titulo": "Pon aceite en mi lampara",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
     "letra": "# Estrofa 1\nPon aceite en mi lámpara, Señor\nPon aceite en mi lámpara, Señor\nQue yo quiero servirte con amor\nPon aceite en mi lámpara, Señor\n\n# Estrofa 2\nSeñor Jesús, Tú eres mi vida\nSeñor Jesús, Tú eres amor\nSalvaste mi alma perdida\nPor eso te alabo con el corazón\nSalvaste mi alma perdida\nPor eso te alabo con el corazón\n\n# Estrofa 3\nCon el corazón, con el corazón…",
@@ -1883,7 +1883,7 @@ const CANCIONES = [
   {
     "id": "viva-la-fe",
     "titulo": "Viva La Fe",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
     "letra": "# Estrofa 1\nViva la fe, viva la esperanza, viva el amor (3)\nQue viva Cristo, que viva Cristo, que viva Él\nQue viva Cristo, que viva, que viva Cristo\nQue viva, que viva Cristo. Que viva Él (bis)",
@@ -1896,7 +1896,7 @@ const CANCIONES = [
   {
     "id": "yo-edifique-una-casa",
     "titulo": "Yo Edifique Una Casa",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
     "letra": "# Estrofa 1\n// Yo edifique una casa,\nyo edifique una casa,\nsobre la roca edifique,\ny era Cristo esa roca,\n\n# Estrofa 2\ny era Cristo esa roca\nsobre la que yo edifique. //\n\n# Estrofa 3\n// Y esa casa no se cae porque esta sobre la roca. //\n\n# Estrofa 4\n// Paseate Nazareno, Nazareno paseate,                                                            paseate Nazareno, Nazareno paseate. //",
@@ -1909,7 +1909,7 @@ const CANCIONES = [
   {
     "id": "solamente-en-cristo",
     "titulo": "Solamente En Cristo",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
     "letra": "# Estrofa 1\nSolamente en Cristo\nsolamente en El\nla salvacion podras tener.\nNo hay otro nombre\ndado a los hombres.\nSolamente en Cristo\nsolamente en El.",
@@ -1922,7 +1922,7 @@ const CANCIONES = [
   {
     "id": "esta-es-la-gente",
     "titulo": "Esta Es La Gente",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
     "letra": "# Estrofa 1\n/Esta es la gente que alaba al Señor/\nEsta es la gente que tiene gozo,\nque tiene fe y que alaba al Senor. (Bis)\n\n# Estrofa 2\nManos arriba, manos abajo, moviendo de lado a lado (bis)",
@@ -1935,7 +1935,7 @@ const CANCIONES = [
   {
     "id": "no-hay-nadie-como-mi-dios",
     "titulo": "No Hay Nadie Como Mi Dios",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
     "letra": "# Estrofa 1\n//No hay nadie como mi Dios, no hay nadie//\nYo le amo, Éll me ama\nYo le pido, Él me da\nYo le llamó, Él me responde, contesta mis peticiones",
@@ -1948,7 +1948,7 @@ const CANCIONES = [
   {
     "id": "delante-del-rey-w-alencar",
     "titulo": "Delante del Rey – W. Alencar",
-    "autor": "",
+    "autor": "W. Alencar",
     "categoria": "De Adoración",
     "tono": "",
     "letra": "# Estrofa 1\nVen Señor Jesús\nEl corazón ya late fuerte\nal verte a ti\ntu gracia quiero en mi vida recibir,\ncon tu bendición Señor,\npodré vivir.\n\n# Estrofa 2\nVen Señor Jesús,\nMirar el pueblo entorno a ti me hace acordar,\nla multitud que aguardaba tu llegar,\nVen Oh Santode Israel, pasa también en este lugar.\n\n# Estrofa 3\nEs el Rey, y al frente nuestro está\nes feliz quien le adora\nEs Jesús el gran maestro y Rey,\nque aquí, muy cerca se deja encontrar\ndelante del Rey de Reyes,\nlas rodillas se han de doblar.",
@@ -1974,7 +1974,7 @@ const CANCIONES = [
   {
     "id": "bendito-bendito",
     "titulo": "Bendito Bendito",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "De Adoración",
     "tono": "",
     "letra": "# Estrofa 1\nYo creo Jesús mio que estas en el altar\noculto en la hostia te vengo a adorar (BIS)\nBendito bendito bendito sea Dios\nLos Angeles cantan y alaban a Dios\nPor amor al hombre moriste en una Cruz\ny al cáliz desciendes por nuestra salud",
@@ -1987,7 +1987,7 @@ const CANCIONES = [
   {
     "id": "te-alabo-en-verdad",
     "titulo": "Te Alabo En Verdad",
-    "autor": "",
+    "autor": "Martín Valverde",
     "categoria": "De Adoración",
     "tono": "",
     "letra": "",
@@ -2000,7 +2000,7 @@ const CANCIONES = [
   {
     "id": "yo-quiero-ser-johan-sanchez",
     "titulo": "Yo Quiero Ser, Johan Sanchez",
-    "autor": "",
+    "autor": "Johan Sánchez",
     "categoria": "De Adoración",
     "tono": "",
     "letra": "# Estrofa 1\nNo quiero solamente hablar yo quiero ser adorador\nY que la ofrenda que te agrade sea mi vida\nYo no quiero solo cantar yo quiero ser adorador\nQuiero quedarme en tu presencia todo el día\n\n# Estrofa 2\n// Amándote más y más buscando tu rostro\nSirviéndote en santidad quiero llegar hasta tu trono //",
@@ -2013,7 +2013,7 @@ const CANCIONES = [
   {
     "id": "quema-mi-vida",
     "titulo": "Quema Mi Vida",
-    "autor": "",
+    "autor": "Jon Carlo",
     "categoria": "De Adoración",
     "tono": "",
     "letra": "",
@@ -2026,7 +2026,7 @@ const CANCIONES = [
   {
     "id": "jesus-esta-vivo-marco-lopez",
     "titulo": "Jesús Esta Vivo, Marco López",
-    "autor": "",
+    "autor": "Marco López",
     "categoria": "De Adoración",
     "tono": "",
     "letra": "# Estrofa 1\nTanto amo Dios al mundo\nQue a su único hijo Él entregó\nPara que todo aquel que crea en Él\nNo muera más tenga vida eterna.\n\n# Estrofa 2\n// Jesús está vivo, Jesús está vivo\nEs el pan de vida bajado del cielo\nJesús está vivo, Jesús está vivo\nSu Sangre me sana y sacia mi alma//\n\n# Estrofa 3\nEstá vivo está presente\nMi Dios es real\nYo le adoro reverente",
@@ -2039,7 +2039,7 @@ const CANCIONES = [
   {
     "id": "aqui-en-tu-presencia-m-lopez",
     "titulo": "Aquí en tu presencia, M. Lopez",
-    "autor": "",
+    "autor": "Marco López",
     "categoria": "De Adoración",
     "tono": "",
     "letra": "# Estrofa 1\nAquí en tu presencia\nQuiero darte gracias\nAquí en tu presencia\nQuiero regalarte esta canción\nAquí en tu presencia\nQuiero darte gracias\nAquí en tu presencia\nQuiero regalarte esta canción\nPor haberme salvado\nPor haber resucitado\nPor haberle dado alas a mi corazón\n\n# Estrofa 2\nPor haberme salvado\nPor haber resucitado\nPor haberle dado alas a mi corazón\n\n# Estrofa 3\nAquí en tu presencia…",
@@ -2052,7 +2052,7 @@ const CANCIONES = [
   {
     "id": "el-rey-de-mi-vida",
     "titulo": "El Rey De Mi Vida",
-    "autor": "",
+    "autor": "Joan Sánchez & Río Poderoso",
     "categoria": "De Adoración",
     "tono": "",
     "letra": "# Estrofa 1\nQuiero alabarte sin parar todo los días\nQue tu presencia sea el anhelo de mi vida\nYo quiero hacer tu voluntad\nSeñor yo te quiero agradar\nY quiero darte siempre el primer lugar\nYo quiero darte siempre el primer lugar\nSi tu eres el rey\nEl rey de mi vida\nEl número uno en mi corazón\nA ti yo te rindo todo lo que soy\nSi tu eres el rey\nEl rey de mi vida\nEl número uno en mi corazón\nA ti yo te rindo todo lo que soy\nQuiero adorarte sin parar todo los días\nQue tu presencia sea el anhelo de mi vida\nYo quiero hacer tu voluntad\nSeñor yo te quiero agradar\nY quiero darte siempre el primer lugar\nYo quiero darte siempre el primer lugar\nSi tu eres el rey\nEl rey de mi vida\nEl número uno en mi corazón\nA ti yo rindo todo lo que soy",
@@ -2065,7 +2065,7 @@ const CANCIONES = [
   {
     "id": "hazme-como-tu",
     "titulo": "Hazme como tu",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "De Adoración",
     "tono": "",
     "letra": "# Estrofa 1\nhazme como tu\nhazme como tu Jesús\n/hazme como tu/\n\n# Estrofa 2\n/hazme como tu/\nhazme como tu Jesús\n/hazme como tu/\n\n# Estrofa 3\nmanso y humilde de corazon\npuro en intencion\nhacerlo el rey de mi corazon\nque quiero ser mas como tu",
@@ -2078,7 +2078,7 @@ const CANCIONES = [
   {
     "id": "nadie-te-ama-como-yo",
     "titulo": "Nadie te ama como yo",
-    "autor": "",
+    "autor": "Martín Valverde",
     "categoria": "De Adoración",
     "tono": "",
     "letra": "",
@@ -2091,7 +2091,7 @@ const CANCIONES = [
   {
     "id": "viva-cristo-rey-jesed",
     "titulo": "Viva Cristo Rey  - Jésed",
-    "autor": "",
+    "autor": "Jésed",
     "categoria": "Fiestas/ Solemnidades",
     "tono": "",
     "letra": "# Estrofa 1\nUn grito de guerra se escucha\nen la faz de la Tierra y en todo lugar\nLos prestos guerreros empuñan su espada\ny se enlistan para pelear\nPara eso han sido entrenados,\ndefenderán la verdad\nY no les será arrebatado\nel fuego que en su Sangre está\n\n# Coro\nViva Cristo Rey, viva Cristo Rey\nEl grito de guerra que enciende la Tierra\nViva Cristo Rey\nNuestro soberano Señor\nNuestro capitán y campeón\nPelear por Él, es todo un honor\n\n# Estrofa 2\nSabemos que esta batalla no es fácil\ny muchos se acobardarán\nY bajo los dardos de nuestro enemigo,\nsin duda perecerán\nYo tendré mi espada en alto\ncomo la usa mi Señor\nA Él nada lo ha derrotado,\nsu fuerza es la de Dios\nViva Cristo Rey…\n\n# Estrofa 3\nNo conocemos mayor alegría,\nno existe más honroso afán\nQue con mis hermanos estar en la línea\ny juntos la vida entregar\nA Él, que merece la gloria\ny nos reclutó por amor\nAnte Él, la rodilla se dobla\ny se postra el corazón\nViva Cristo Rey…,\n\n# Estrofa 4\nViva Cristo Rey\nEl grito de guerra que enciende la tierra\nViva Cristo Rey\nNuestro soberano Señor\nNuestro capitán y campeón\nPelear por Él es todo un honor\nPelear por Él es todo un honor",
@@ -2143,7 +2143,7 @@ const CANCIONES = [
   {
     "id": "oh-senor-de-los-milagros",
     "titulo": "Oh Señor, de los Milagros",
-    "autor": "",
+    "autor": "P. Aicardo Alzate",
     "categoria": "Fiestas/ Solemnidades",
     "tono": "",
     "letra": "# Estrofa 1\nOh Señor de los Milagros,\nhe venido para adorarte;\ncaminante y peregrino,\nme has traído solo ante Ti.\n\n# Estrofa 2\nOh Señor de los Milagros,\ntu rostro herido, veo tus llagas;\ncuánto has sufrido por mis pecados,\ny así me has dado la salvación.\n\n# Estrofa 3\nOh Señor, de los Milagros,\na tus pies yo me inclino;\nquiero entregarte mi vida entera,\ntodo, todo mi ser.\n\n# Estrofa 4\nOh Señor,\nque de las aguas has venido;\ny Milagroso te han llamado,\nhoy solo pido, Señor, tu bendición.",
@@ -2156,7 +2156,7 @@ const CANCIONES = [
   {
     "id": "aunque-marche",
     "titulo": "Aunque Marche",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Fiestas/ Solemnidades",
     "tono": "",
     "letra": "# Estrofa 1\nAunque marche por la oscuridad\nNada he de temer,\nPorque tú conmigo vas,\nMi pastor que me hace sosegar (2)\n\n# Estrofa 2\nTú que me conduces\nA tus fuentes de paz,\nTú me has bautizado,\nPor tu senda voy.\n\n# Estrofa 3\nAunque marche por la oscuridad\nNada he de temer,\nPorque tú conmigo vas,\nMi pastor que me hace sosegar.",
@@ -2169,7 +2169,7 @@ const CANCIONES = [
   {
     "id": "el-senor-es-mi-pastor-alejandro-mejia",
     "titulo": "El Señor Es Mi Pastor Alejandro Mejía",
-    "autor": "",
+    "autor": "Alejandro Mejía",
     "categoria": "Fiestas/ Solemnidades",
     "tono": "",
     "letra": "# Estrofa 1\nEl Señor es mi Pastor\nsu vida ha dado por mí\nyo su voz he de escuchar\ny suyo siempre seré.\n\n# Estrofa 2\nYo soy el buen Pastor\ndoy la vida a mis ovejas\npor su nombre Yo las llamo\ny con gran amor me siguen.\n\n# Estrofa 3\nYo no soy el mercenario\nque abandona las ovejas\ncuando ve venir al lobo\nque las mata y las dispersa.\n\n# Estrofa 4\nYo conozco mis ovejas\ny ellas también me conocen\ncomo el Padre me conoce\ny también conozco al Padre.\n\n# Estrofa 5\nTengo otras ovejas lejos\ny es preciso que las traiga\nmi llamada escucharán\ny se hará solo un rebaño.\n\n# Estrofa 6\nMis ovejas mi voz oyen\ny me siguen por doquiera\nYo les doy la vida eterna\nellas no verán la muerte.",
@@ -2182,7 +2182,7 @@ const CANCIONES = [
   {
     "id": "iglesia-peregrina",
     "titulo": "Iglesia peregrina",
-    "autor": "P. Cesáreo Gabaráin",
+    "autor": "Cesáreo Gabaráin",
     "categoria": "Entrada",
     "tono": "Re",
     "letra": "",
@@ -2195,7 +2195,7 @@ const CANCIONES = [
   {
     "id": "nueva-creacion",
     "titulo": "Nueva creación",
-    "autor": "P. Cesáreo Gabaráin",
+    "autor": "Cesáreo Gabaráin",
     "categoria": "Pascua y Resurrección",
     "tono": "Mim",
     "letra": "",
@@ -2208,7 +2208,7 @@ const CANCIONES = [
   {
     "id": "pueblo-de-reyes",
     "titulo": "Pueblo de Reyes",
-    "autor": "P. Lucien Deiss",
+    "autor": "Lucien Deiss",
     "categoria": "Entrada",
     "tono": "Sol",
     "letra": "",
@@ -2221,7 +2221,7 @@ const CANCIONES = [
   {
     "id": "vine-a-alabar-a-dios",
     "titulo": "Vine a alabar a Dios",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "La",
     "letra": "# Estrofa 1\n[La]Vine a alaba[Mi]r a Dios[Fa#m].\n[Re]Vine a alaba[Si7]r a Dio[Mi]s.[Mi7]\n[La]Vine a alaba[Mi]r su nom[Fa#m]bre.\n[Re]Vine a alaba[Mi7]r a Dio[La]s.[La7]\n\n# Estrofa 2\n[Re]El lleg[Mi]ó a mi vida [La]en un dí[Fa#m]a muy especial,\ncamb[Re]ió mi corazó[Mi]n por un[La] nuevo c[La7]orazón.\nY [Re]esa es la ra[Mi]zón por [La]la que d[Fa#m]igo que\n[Re]vine a alaba[Mi]r a Dios[La].",
@@ -2273,7 +2273,7 @@ const CANCIONES = [
   {
     "id": "santo-i",
     "titulo": "Santo I",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Santo",
     "tono": "Mim",
     "letra": "# Estrofa 1\n[Mim]Santo es el Seño[Re]r mi Dios, d[Do]igno de alab[Si7]anza.\n¡A Él el poder, el honor y la gloria! (bis)\n\n# Coro\n¡Ho[Mim]sanna (hosanna), hos[Re]anna (hosanna),\nhos[Do]anna, ¡oh Se[Si7]ñor! (bis)\n\nBendito el que viene en nombre del Señor,\ncon todos los santos cantamos para Él. (bis)",
@@ -2286,7 +2286,7 @@ const CANCIONES = [
   {
     "id": "santo-iii",
     "titulo": "Santo III",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Santo",
     "tono": "Lam",
     "letra": "# Estrofa 1\n[Lam]Santo[La7], Santo, [Rem]Santo, Sa[Sol]nto es el Señ[Do]or.\nDi[Rem]os del univer[Lam]so, Santo[Mi7] es el Señor. (bis)[Lam]\n\n# Coro\n¡Ho[Lam]sann[La7]a en el c[Rem]ielo! ¡Ho[Sol]sanna en las altu[Do]ras!\nBen[Rem]dito el que v[Lam]iene en N[Mi7]ombre del Señ[Lam]or. (bis)",
@@ -2299,7 +2299,7 @@ const CANCIONES = [
   {
     "id": "si-yo-no-tengo-amor",
     "titulo": "Si yo no tengo amor",
-    "autor": "Música Religiosa",
+    "autor": "Tradicional",
     "categoria": "Temas Biblicos",
     "tono": "Re",
     "letra": "# Coro\n[Re]Si yo no tengo [Sim]amor\nyo [Mim]nada [Mi7]soy, [La7]Señor\n[Re]Si yo no tengo [Sim]amor\nyo [Mim]nada [La7]soy, [Re]Señor\n[Re]El amor es [Fa#m]comprensivo\nel [Sol]amor es [Re]servicial\nel [Sol]amor no tiene [Mim]envidia\nel [Sol]amor no busca [La7]el mal.\n[Re]El amor nunca se [Fa#m]irrita\nel [Sol]amor no es [Re]descortés\nel [Sol]amor no es [Mim]egoísta\nel [Sol]amor nunca es [La7]doblez.\n# Coro\n[Re]Si yo no tengo [Sim]amor …\n[Re]El amor disculpa [Fa#m]todo\nel [Sol]amor es [Re]caridad\nno [Sol]se alegra de lo [Mim]injusto\nsólo [Sol]goza en la [La7]verdad.\n[Re]El amor soporta [Fa#m]todo\nel [Sol]amor todo lo [Re]cree\nel [Sol]amor todo lo [Mim]espera\nel [Sol]amor es siempre [La7]fiel.\n# Coro\n[Re]Si yo no tengo [Sim]amor …\n[Re]Nuestra fe, nuestra [Fa#m]esperanza\njunto [Sol]a Dios [Re]terminarán\nel [Sol]amor es algo [Mim]eterno\n[Sol]nunca, nunca [La7]pasará.\n# Coro\n[Re]Si yo no tengo [Sim]amor …",
@@ -2312,7 +2312,7 @@ const CANCIONES = [
   {
     "id": "yo-soy-el-camino",
     "titulo": "Yo soy el camino",
-    "autor": "B.Aguilera / L.González",
+    "autor": "B. Aguilera / L. González",
     "categoria": "Temas Biblicos",
     "tono": "Lam",
     "letra": "",
@@ -2338,7 +2338,7 @@ const CANCIONES = [
   {
     "id": "alabado-sea-el-santisimo",
     "titulo": "Alabado sea el Santísimo",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "De Adoración",
     "tono": "Re",
     "letra": "# Estrofa 1\n[Re]Alabado sea el Santí[La7]simo\n[Re]Sacramen[Sol]to del al[Re]tar.[Re7]\n//Y la[Sol] Virgen c[La]oncebida[Re]\n[Sim]sin [Mim]pecado or[La7]igin[Re]al.// (bis)\n\n# Estrofa 2\nEl manjar más regalado\nde este suelo terrenal,\n//es Jesús Sacramentado,\nDios Eterno e Inmortal.// (bis)\n\n# Estrofa 3\nCelebremos con Fe viva\neste pan angelical\n//y la Virgen concebida\nsin pecado original.// (bis)\n\n# Estrofa 4\nEs el Dios que da la vida\ny que nació en un portal,\n//de la Virgen concebida\nsin pecado original.// (bis)",
@@ -2351,7 +2351,7 @@ const CANCIONES = [
   {
     "id": "cantemos-al-amor-de-los-amores",
     "titulo": "Cantemos al amor de los amores",
-    "autor": "",
+    "autor": "Restituto del Valle / J. I. Busca Sagastizábal",
     "categoria": "Alabanzas",
     "tono": "Do",
     "letra": "",
@@ -2390,7 +2390,7 @@ const CANCIONES = [
   {
     "id": "vive-jesus",
     "titulo": "Vive Jesús",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Pascua y Resurrección",
     "tono": "Sol",
     "letra": "# Estrofa 1\n[Sol]Vive Jesú[Mim]s el Seño[Lam]r,\n[Do]vive Jes[Re]ús el Se[Sol]ñor. (Bis)\n\n# Coro\n[Re]Él vive, Él [Sol]vive, Él vive,\nv[Mim]ive, [Do]vive Jes[Re]ús el Se[Sol]ñor. (Bis)",
@@ -2429,7 +2429,7 @@ const CANCIONES = [
   {
     "id": "hacia-ti-morada-santa",
     "titulo": "Hacia Ti Morada Santa",
-    "autor": "Música Católica",
+    "autor": "Kiko Argüello",
     "categoria": "Misa por los Difuntos",
     "tono": "Mim",
     "letra": "",
@@ -2442,7 +2442,7 @@ const CANCIONES = [
   {
     "id": "yo-soy-el-pan-de-vida",
     "titulo": "Yo soy el pan de vida",
-    "autor": "Música Católica",
+    "autor": "Suzanne Toolan",
     "categoria": "Misa por los Difuntos",
     "tono": "Sol",
     "letra": "",
@@ -2455,7 +2455,7 @@ const CANCIONES = [
   {
     "id": "no-se-han-ido-del-todo",
     "titulo": "No se han ido del todo",
-    "autor": "Martin Valverde",
+    "autor": "Martín Valverde",
     "categoria": "Misa por los Difuntos",
     "tono": "Do",
     "letra": "",
@@ -2468,7 +2468,7 @@ const CANCIONES = [
   {
     "id": "mas-alla-del-sol",
     "titulo": "Más allá del sol",
-    "autor": "Samuel Hernandez",
+    "autor": "Emiliano Ponce",
     "categoria": "Misa por los Difuntos",
     "tono": "Sol",
     "letra": "",
@@ -2481,7 +2481,7 @@ const CANCIONES = [
   {
     "id": "pescador-de-hombres-49",
     "titulo": "Pescador de Hombres",
-    "autor": "Música Religiosa",
+    "autor": "Cesáreo Gabaráin",
     "categoria": "Vocacionales y Mision",
     "tono": "Re",
     "letra": "",
@@ -2494,7 +2494,7 @@ const CANCIONES = [
   {
     "id": "caminare-en-presencia-del-senor",
     "titulo": "Caminaré en presencia del Señor",
-    "autor": "Música Religiosa",
+    "autor": "Francisco Palazón",
     "categoria": "Misa por los Difuntos",
     "tono": "Mim",
     "letra": "# Estribillo\n[Mim][Re]Caminaré\nen [Do]presencia [Si7]del [Mim]señor. (2)\n\n# Estrofa 1\n[Mim]Amo al Señor\nporque [Re]escucha\nmi voz\n[Mim]suplicante.\n[Mim]Porque inclina\nsu [Re]oido\nhacia [Do]mi\nel [Si7]dia que lo [Mim]invoco.\n\n# Estribillo\n[Mim][Re]Caminaré\nen [Do]presencia [Si7]del [Mim]señor. (2)\n",
@@ -2533,7 +2533,7 @@ const CANCIONES = [
   {
     "id": "aleluya-el-senor-es-nuestro-rey",
     "titulo": "Aleluya el Señor es nuestro rey",
-    "autor": "Música Religiosa",
+    "autor": "Tradicional",
     "categoria": "Aclamación del Evangelio",
     "tono": "La",
     "letra": "[La]Aleluya, [Re][Re][La]Aleluya\nEl [La]señor es nuestro [Mi]Rey (2x)\n[La]Cantad al Señor un [Re]cantico [La]nuevo\n[Re]Porque ha hecho [La]maravillas\nSu [La]diestra le ha [Re]dado la [La]victoria\nSu [Re]santo [Mi][La]brazo\n[La][Re]Aleluya...",
@@ -2546,7 +2546,7 @@ const CANCIONES = [
   {
     "id": "cordero-de-dios",
     "titulo": "Cordero de Dios",
-    "autor": "Cristobal Fones",
+    "autor": "Cristóbal Fones",
     "categoria": "Cordero de Dios",
     "tono": "Sol",
     "letra": "[Lam]Cordero de [Mim]Dios,\n[Re]tú, que quitas el [Do]pecado del [Sol]mundo,\n[Lam]ten piedad de [Si7]nosotros\n[Sol]Cordero de [Re]Dios,\n[Lam]tú, que quitas el [Mim]pecado del [Re]mundo,\n[Sol]ten piedad de [Re7]nosotros\n[Sol]Cordero de [Sim]Dios,\n[Lam7]tú, que quitas el [Mim]pecado del [Re]mundo,\n[Sol]danos la [Re]paz, [Do]danos la [Sol]paz",
@@ -2572,7 +2572,7 @@ const CANCIONES = [
   {
     "id": "cordero-de-dios-cumbia",
     "titulo": "Cordero de Dios (cumbia)",
-    "autor": "Música Religiosa",
+    "autor": "Tradicional",
     "categoria": "Cordero de Dios",
     "tono": "Mim",
     "letra": "[Mim]\" Cordero de Dios que quitas\nEl [Si7]pecado de los [Mim]hombres \" (2)\n\" Ten [Re]piedad de [Do]nuestras [Si7]almas\nY alegra los [Mim]corazones\" (2).\n\" [Mim]Cordero de Dios que quitas\nEl [Si7]pecado de los [Mim]hombres \" (2).\n\" Ten [Re]piedad de [Do]nuestras [Si7]almas\nY concédenos la [Mim]paz \" (2)",
@@ -2598,7 +2598,7 @@ const CANCIONES = [
   {
     "id": "juntos-cantando-la-alegria",
     "titulo": "Juntos cantando la alegría",
-    "autor": "",
+    "autor": "Cesáreo Gabaráin",
     "categoria": "Entrada",
     "tono": "Mi",
     "letra": "",
@@ -2611,7 +2611,7 @@ const CANCIONES = [
   {
     "id": "quiero-cantar-una-linda-cancion",
     "titulo": "Quiero cantar una linda canción",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
     "letra": "[Do]Quiero cantar una [Lam]linda canción\na un [Fa]hombre que me [Sol]transformó.\n[Do]Quiero cantar una [Lam]linda canción\na [Fa]aquél que mi vida [Sol]cambió.\nEs mi [Do]amigo [Lam]Jesús, es mi [Fa]amigo [Sol]Jesús,\nÉl es [Do]Dios, Él es [Lam]Rey, es [Fa]amor y [Sol]verdad.\nsólo en [Do]Él encontré [Lam]esa [Fa]paz que [Sol]busqué.\nsólo en [Do]Él encontré [Lam]la [Fa][Sol][Do]felicidad.\n[Do]Amo al Señor, [Lam]amo a Jesús\ny a [Fa]Él sólo quiero [Sol]servir.\n[Do]Él es mi Dios, [Lam]mi Salvador,\npor [Fa]siempre lo [Sol]alabaré.",
@@ -2650,7 +2650,7 @@ const CANCIONES = [
   {
     "id": "oh-senor-ten-piedad",
     "titulo": "Oh Señor ten piedad",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Piedad",
     "tono": "La",
     "letra": "",
@@ -2663,7 +2663,7 @@ const CANCIONES = [
   {
     "id": "aleluya-7-de-taize",
     "titulo": "Aleluya 7 de Taizé",
-    "autor": "",
+    "autor": "Jacques Berthier / Comunidad de Taizé",
     "categoria": "Aclamación del Evangelio",
     "tono": "Sim",
     "letra": "",
@@ -2676,7 +2676,7 @@ const CANCIONES = [
   {
     "id": "santo",
     "titulo": "Santo",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Santo",
     "tono": "Lam",
     "letra": "[Lam]Santo, [Rem]santo, [Sol]santo es el [Do]Señor,\n[Lam]Santo es el [Rem]Señor, [Mi]Dios del [Lam]universo.\n[La7]Llenos [Rem]están el [Sol]cielo y la [Do]tierra\n[Lam]de tu [Rem]gloria, [Mi]de tu [Lam]gloria.\n[La7]//Hosanna, [Rem][Sol][Do]hosanna, [Lam]hosanna [Rem][Mi]en el [Lam]cielo.//\n[La7]Bendito es el que [Rem]viene\nen el [Sol]nombre del [Do]Señor,\n[Lam]Hosanna en el [Rem]cielo, [Mi]en el [Lam]cielo.",
@@ -2689,7 +2689,7 @@ const CANCIONES = [
   {
     "id": "aun-en-la-tormenta",
     "titulo": "Aún en la tormenta",
-    "autor": "",
+    "autor": "Martín Valverde",
     "categoria": "Alabanzas",
     "tono": "Si7",
     "letra": "",
@@ -2754,7 +2754,7 @@ const CANCIONES = [
   {
     "id": "tuyo-soy",
     "titulo": "Tuyo soy",
-    "autor": "",
+    "autor": "Luis Alfredo Díaz",
     "categoria": "De Adoración",
     "tono": "Do",
     "letra": "[Do]Yo no soy nada y del [Lam]polvo nací,\n[Sol]pero Tú me amas y moriste por mí;\n[Do]ante la cruz sólo [Lam]puedo exclamar:\n¡tuyo [Sol]soy, tuyo [Do][Sol]soy!\nToma mis [Do]manos, te pido,\ntoma mis [Sol]labios, te amo,\ntoma mi [Do]vida, oh Padre,\ntuyo [Sol]soy, tuyo [Do]soy.\n[Do]Cuando de rodillas te [Lam]miro, Jesús,\n[Sol]veo tu grandeza y mi pequeñez.\n[Do]¿Qué puedo darte yo?, tan [Lam]sólo mi ser;\n¡tuyo [Sol]soy, tuyo [Do][Sol]soy!",
@@ -2767,7 +2767,7 @@ const CANCIONES = [
   {
     "id": "alabare-2",
     "titulo": "Alabare",
-    "autor": "Música Católica",
+    "autor": "Manuel José Alonso y José Pagán",
     "categoria": "Alabanzas",
     "tono": "Mi",
     "letra": "",
@@ -2780,7 +2780,7 @@ const CANCIONES = [
   {
     "id": "jesus-esta-pasando-2",
     "titulo": "Jesús está pasando",
-    "autor": "Música Católica",
+    "autor": "Anónimo",
     "categoria": "Alabanzas",
     "tono": "Mi",
     "letra": "[Mi]/Jesús está pasando por aquí/\ny cuando Él [La]pasa todo se [Sol#m]transforma,\n[Do#m]se va la [Fa#m]tristeza y [Si]llega la [Mi][Mi7]alegría;\ny cuando Él [La]pasa todo se [Mi]transforma,\nllega la [Si7]alegría para ti y para [Mi]mí.\n/Ahora mismo Señor, ahora mismo\nYo te pido que rompas las cadenas,/\ny que las puertas del cielo sean abiertas\ny de virtud mi alma sea llena.",
@@ -2793,7 +2793,7 @@ const CANCIONES = [
   {
     "id": "si-tuvieras-fe-2",
     "titulo": "Si tuvieras fé",
-    "autor": "Banda Misericordia Joven",
+    "autor": "Tradicional",
     "categoria": "Temas Biblicos",
     "tono": "Solm",
     "letra": "# Intro\n[Solm][Dom][Re] //: :// x4\nSi tuviera [Solm]fe, si tuviera fe,\nsi tuviera fe, fe fe fe\nComo un granito de [Re]mostaza,\nEso dice el [Solm]Señor\nYo le [Dom]diría a las [Solm]montañas,\nMuévanse, [Re]muévanse,\nMuévanse. [Solm](bis)\nY las montañas se [Re]moverán\nSe moverán, se [Solm]moverán. (bis)",
@@ -2832,7 +2832,7 @@ const CANCIONES = [
   {
     "id": "de-nosotros-piedad-senor",
     "titulo": "De nosotros, piedad Señor",
-    "autor": "Música Católica",
+    "autor": "Tradicional",
     "categoria": "Piedad",
     "tono": "Rem",
     "letra": "[Rem]1. De nosotros, piedad, [Do][Fa]Señor.\nDe nosotros, [Rem]piedad, [Do][Fa]Señor.\nDe [Do]nosotros, [Rem]piedad, [Do][Fa]Señor.\nDe [Rem]nosotros, [Solm]piedad, [Lam][Rem]Se-ñor.\n2. Te ofendimos con el pecado,\nno escuchamos tu voz de padre:\nTú perdónanos, por favor.\nDe nosotros, piedad, Señor.\n3. No te vimos en el hermano,\nfuimos ciegos, no lo negamos,\nfuimos duros de corazón:\nde nosotros, piedad, Señor.\n4. Olvidamos de ser tu templo,\ntu morada la profanamos,\nmas queremos resucitar:\nde nosotros, piedad, Señor",
@@ -2845,7 +2845,7 @@ const CANCIONES = [
   {
     "id": "senor-ten-piedad-3",
     "titulo": "Señor Ten Piedad",
-    "autor": "Música Católica",
+    "autor": "Tradicional",
     "categoria": "Piedad",
     "tono": "Solm",
     "letra": "[Rem]Seeenor, [Solm]ten [Do]piedad\n[Fa]Seeenor, ten [Sib]piedad\n[Solm]Seeenor, ten [La]piedad\n[La7]Ten [Rem]pieeedad\n[Re7]Cristo ten [Solm]piedad, ten piedad\n[Do]Cristo ten [Fa]piedad, ten piedad\n[Sib]Cristo ten [Solm]piedad, ten piedad\n[La7]Ten [Rem]pieeedad\n[Rem]Seeenor, [Solm]ten [Do]piedad\n[Fa]Seeenor, ten [Sib]piedad\n[Solm]Seeenor, ten [La]piedad\n[La7]Ten [Rem]pieeedad",
@@ -2871,7 +2871,7 @@ const CANCIONES = [
   {
     "id": "ten-piedad-soy-pecador",
     "titulo": "Ten Piedad - Soy Pecador",
-    "autor": "Musica Catolica (Emmanuel)",
+    "autor": "Emmanuel",
     "categoria": "Piedad",
     "tono": "Lam",
     "letra": "[Lam]Ten piedad [Rem]señor ten [Lam]piedad\nSoy pecador [Fa][Mi]ten [Lam]piedad\n[Lam]Ten piedad [Rem]señor ten [Lam]piedad\nSoy pecador [Fa][Mi]ten [Lam]piedad\nY de [Fa]mi Cristo apiadate\nContra [Sol]ti yo [Do][La7]peque\nY de [Fa]mi Cristo apiadate\nContra [Sol]ti yo [Do][La7]peque\n[Lam]Ten piedad [Rem]señor ten [Lam]piedad\nSoy pecador [Fa][Mi]ten [Lam]piedad\n[Lam]Ten piedad [Rem]señor ten [Lam]piedad\nSoy pecador [Fa][Mi]ten [Lam]piedad",
@@ -2884,7 +2884,7 @@ const CANCIONES = [
   {
     "id": "oh-senor-ten-piedad-2",
     "titulo": "Oh Señor, Ten Piedad",
-    "autor": "",
+    "autor": "Tradicional",
     "categoria": "Piedad",
     "tono": "Re",
     "letra": "[Re]//Oh [Sol]Señor ten [Re]piedad [La7]de [Re]nosotros//\n//Cristo [Re]Jesús [Sol]ten piedad [Re][La7]de [Re]nosotros\n//Oh [Re]Señor ten [Sol]piedad [Re]de [La7][Re]nosotros//",
@@ -2897,7 +2897,7 @@ const CANCIONES = [
   {
     "id": "aleluya-gloria-al-senor",
     "titulo": "Aleluya, gloria al Señor",
-    "autor": "Música Católica",
+    "autor": "Tradicional",
     "categoria": "Aclamación del Evangelio",
     "tono": "Mi",
     "letra": "[Mi]/Alelu, alelu, [La]alelu, aleluya\n[Si7]Gloria al [Mi]Señor./\n1. Gloria al [Si7]Señor, aleluya.\nGloria al [Mi]Señor, aleluya.\nGloria al [La7]Señor, aleluya.\n[Si7]Gloria al [Mi]Señor.\n2. Gracias Señor, Aleluya\n3. Gloria al Señor nuestro Padre\nGloria al Señor Jesucristo\nGloria al Espíritu santo\nGloria al Señor.",
@@ -2910,7 +2910,7 @@ const CANCIONES = [
   {
     "id": "santo-es-el-senor-mi-dios",
     "titulo": "Santo es el señor, mi Dios",
-    "autor": "Música Católica",
+    "autor": "Tradicional",
     "categoria": "Santo",
     "tono": "Solm",
     "letra": "[Solm]1. /Santo es [Fa]el Señor, mi [Dom]Dios, digno de [Re]alabanza.\nA Él [Solm]el [Fa]poder, el honor [Dom]y la [Re]gloria./\n[Solm]/Hosanna (hosanna),\n[Fa]hosanna (hosanna),\n[Mim]hosanna, [Re]oh [Re7]Se-ñor./\n2. [Solm]/Bendito el que [Fa]viene en [Dom]nombre del [Re]Señor.\nCon [Solm]todos tus [Fa]santos [Dom]cantamos para [Re]Ti./",
@@ -2936,7 +2936,7 @@ const CANCIONES = [
   {
     "id": "es-mi-cuerpo",
     "titulo": "Es mi cuerpo",
-    "autor": "Música Católica",
+    "autor": "Tradicional",
     "categoria": "Cantos de Comunión",
     "tono": "Mi",
     "letra": "[Mi]1. El Señor [Do#m]Dios nos [La]amó como nadie [Mi]amó jamás.\nÉl nos guía como [Do#m]estrella cuando [Fa#7]no existe la [Si7]luz;\nal partir [Mi]juntos el [Do#m]pan, Él nos [La]llena de su [Mi]amor,\nes el pan de la amistad, [Si7]el pan de [Mi]Dios.\n[Mi]«Es mi Cuerpo, [La]tomad y [Mi]comed.\nEs mi Sangre, [Fa#7]tomad y [Si7]bebed,\npues yo [Mi]soy la vida, [La]yo soy el [Mi]amor».\nOh Señor, condúcenos [Si7]hacia tu [Mi][La][Mi]amor.\n2. El Señor Dios nos amó como nadie amó jamás,\ncomo todos sus amigos trabajaba en Nazareth,\ncomo todos, Él también ganó el pan con su sudor\ny conoce la fatiga y el dolor.\n3. El Señor Dios nos amó como nadie amó jamás,\nera tan grande su amor que murió sobre una cruz.\nEra tan fuerte su amor que de la muerte triunfó,\nde la tumba salió libre y vencedor.\n4. El Señor Dios nos amó como nadie amó jamás.\nÉl reúne a los hermanos en la mesa del amor;\nlos cristianos todos ya miembros de un cuerpo son,\nnadie puede separarlos de su amor.",
@@ -2975,7 +2975,7 @@ const CANCIONES = [
   {
     "id": "un-mandamiento-nuevo",
     "titulo": "Un mandamiento Nuevo",
-    "autor": "Música Católica",
+    "autor": "Tradicional",
     "categoria": "Cantos de Comunión",
     "tono": "Mi",
     "letra": "[Mi]Un mandamiento\nnuevo nos da el [Si]Señor:\n[Fa#m]que nos amemos [Mi]todos\ncomo [Si7]nos ama [Mi]Dios.\n1. La [Mi]señal de los cristianos\nes [Fa#m]amarnos como [Si7][Mi]hermanos.\n2. Quien a sus hermanos no ama,\nmiente si a Dios dice que ama.\n3. Cristo, Luz, Verdad y Vida,\nal perdón y amor invita.\n4. Perdonemos al hermano\ncomo Cristo ha perdonado.\n5. En trabajos y fatigas\nCristo a todos nos anima.\n6. Comulguemos con frecuencia\npara amarnos a conciencia.\n7. Nuestra fe no desfallezca,\nque el Señor es nuestra fuerza.\n8. Quiten odios y rencores\nde todos los corazones.\n9. Si al enfermo visitamos\na Dios mismo consolamos.\n10. En la vida y en la muerte\nDios nos ama para siempre.",
@@ -2988,7 +2988,7 @@ const CANCIONES = [
   {
     "id": "amemonos-de-corazon",
     "titulo": "Amémonos de corazón",
-    "autor": "Música Religiosa",
+    "autor": "Tradicional",
     "categoria": "Cantos de Comunión",
     "tono": "Rem",
     "letra": "[Rem]Amémonos [Re7]de [Solm]corazón\n[La7]no de labios ni de oídos [Rem](bis)\n[Solm]para [Do]cuando Cristo [Fa]venga,\npara [La#]cuando Cristo [Solm]venga\nnos encuentre [La7]preparados. [Rem](bis)\n¿Como puedes tu orar\nenojado con tu hermano?(bis)\nDios no escucha la oración,\nDios no escucha la oración\nsi no te haz reconciliado. (bis)\nUn mandamiento nuevo os doy\nque os améis unos a otros\ncomo yo os he amado,\ncomo yo os he amado\nos améis también vosotros. (bis)\nQue recompensa tendrás\nCristo nos ha preguntado (bis)\nsi te dispones ha amar,\nsi te dispones a amar\nsolo para ser amado. (bis)",
@@ -3001,7 +3001,7 @@ const CANCIONES = [
   {
     "id": "con-vosotros-esta-y-no-le-conoceis",
     "titulo": "Con vosotros está y no le conocéis",
-    "autor": "Música Religiosa",
+    "autor": "Tradicional",
     "categoria": "Cantos de Comunión",
     "tono": "Rem",
     "letra": "[Rem]Con [Solm7]nosotros [Do7]está y [Fa7]no le [Sib7]conocéis,\ncon [Sib6]nosotros [Solm6]está, su [Rem]nombre es el [La7]Señor.\nCon [Solm7]nosotros [Do7]está y [Fa7]no le [Sib7]conocéis,\ncon [Sib6]nosotros [Solm6]está, su [La7]nombre es el [Rem]Señor.\n1. Su [Rem]nombre es «el [La7]Señor» y pasa [Rem]hambre,\ny clama por la [La7]boca del [Rem][Re7]hambriento,\ny [Solm]muchos que lo [Solm6]ven pasan de [Rem]largo,\n[Mi7]acaso por llegar [Mim7]temprano al [La][La7]templo.\nSu [Rem]nombre es «el [La7]Señor» y sed [Rem]soporta\ny está en quien de [La7]justicia va [Rem][Re7]sediento\ny [Solm]muchos que lo [Solm6]ven pasan de [Rem]largo,\na [Mi7]veces [La]ocupados [La7]en sus [Rem]rezos.\n2. Su nombre es «el Señor» y está desnudo,\nla ausencia del amor hiela sus huesos,\ny muchos que lo ven pasan de largo,\nseguros y al calor de su dinero.\nSu nombre es «el Señor» y enfermo vive,\ny su agonía es la del enfermo,\ny muchos que lo saben no hacen caso,\ntal vez no frecuentaba mucho el templo.\n3. Su nombre es «el Señor» y está en la cárcel,\nestá en la soledad de cada preso,\ny nadie lo visita, y hasta dicen:\n«Tal vez ése no era de los nuestros».\nSu nombre es «el Señor», el que sed tiene,\nquien pide por la boca del hambriento,\nestá preso, está enfermo, está desnudo,\npero Él nos va a juzgar por todo eso.",
@@ -3014,7 +3014,7 @@ const CANCIONES = [
   {
     "id": "danos-un-corazon",
     "titulo": "Danos un corazón",
-    "autor": "Música Católica",
+    "autor": "Juan Antonio Espinosa",
     "categoria": "Ofertorio",
     "tono": "Sim",
     "letra": "",
@@ -3040,7 +3040,7 @@ const CANCIONES = [
   {
     "id": "si-me-falta-el-amor",
     "titulo": "Si me falta el amor",
-    "autor": "Música Católica",
+    "autor": "Francisco Palazón",
     "categoria": "Temas Biblicos",
     "tono": "La",
     "letra": "[La]Aunque yo dominara las lenguas arcanas\nY el lenguaje del cielo del cielo supiera [Mi]expresar\n[Re]Solamente sería una hueca [La]campana\n[Mi]Si me falta el [La]amor\nSI ME FALTA EL [Mi]AMOR\nNO ME SIRVE DE [La]NADA\nSI ME FALTA EL [Mi]AMOR NADA [La]SOY. (BIS)\nAunque todos mis bienes pasara a los pobres\nY mi cuerpo en el fuego quisiera inmolar\nTodo aquello sería una inútil hazaña\nSi me falta el amor\nAunque yo revelara los grandes misterios\nY mi fe las montañas pudiera mover\nNo tendría valor ni me sirve de nada\nSi me falta el amor",
