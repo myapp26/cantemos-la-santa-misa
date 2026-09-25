@@ -564,11 +564,12 @@
       <div class="lock-box">
         <div class="lock-title">🔒 Bloqueos de esta canción</div>
         <div style="margin-bottom:10px">
-          <label for="se-restriccion">Acceso en Freemium (Premium y admin siempre ven todo)</label>
+          <label for="se-restriccion">Acceso en Freemium (Premium y admin ven todo, salvo "Privada": solo admin)</label>
           <select id="se-restriccion" onchange="updateDemoCount()">
             <option value="">Abierta para todos</option>
             <option value="candado">Bloqueada con candado (aparece en la lista, pide clave)</option>
             <option value="oculta">Oculta (no aparece en la lista)</option>
+            <option value="privada">🔐 Privada (solo la administradora la ve, ni siquiera Premium)</option>
           </select>
         </div>
         <label class="check-line"><input type="checkbox" id="se-bloqueada"> Bloquear los diagramas de acordes salvo para premium (la letra se sigue viendo)</label>
@@ -805,11 +806,19 @@ function updateFeatureGating(){
 // "candado" y "oculta" restringen la canción entera igual -- la diferencia
 // entre las dos es si aparece o no en el listado (ver visibleParaListado()).
 // c.premium===true queda solo por compatibilidad con datos viejas.
+// "privada" (25/9/2026): canto de uso personal de Gloria (p.ej. autores con
+// derechos protegidos). Nadie lo ve salvo el admin -- ni Premium. Su letra
+// tampoco viaja en canciones.js, y get-letra se la niega a todo el que no sea
+// admin (columna solo_admin en letras_restringidas).
+function esPrivada(c){
+  return !!c && c.restriccion==="privada";
+}
 function esRestringida(c){
-  return c.restriccion==="candado" || c.restriccion==="oculta" || c.premium===true;
+  return c.restriccion==="candado" || c.restriccion==="oculta" || esPrivada(c) || c.premium===true;
 }
 function estaBloqueada(c){
   if(adminEfectivo()) return false;
+  if(esPrivada(c)) return true;
   const tier = nivelEfectivo();
   if(esRestringida(c)) return tier!=="premium";
   if(tier==="demo") return !c.demo;
@@ -826,6 +835,7 @@ function diagramaBloqueado(c){
 // existiera para esa persona.
 function visibleParaListado(c){
   if(adminEfectivo()) return true;
+  if(esPrivada(c)) return false;
   const tier = nivelEfectivo();
   if(tier==="demo") return !!c.demo;
   if(tier==="freemium") return c.restriccion!=="oculta";
@@ -839,7 +849,8 @@ function visibleParaListado(c){
 // claude/analisis-tecnico-cancionero.md (16/9/2026) en el proyecto de
 // Claude "App cancionero".
 function necesitaLetraRemota(c){
-  return !!c && esRestringida(c) && !c.letra && (adminEfectivo() || nivelEfectivo()==="premium");
+  return !!c && esRestringida(c) && !c.letra &&
+    (adminEfectivo() || (nivelEfectivo()==="premium" && !esPrivada(c)));
 }
 async function ensureLetraDisponible(c){
   if(!necesitaLetraRemota(c)) return;
@@ -868,7 +879,7 @@ async function precargarLetrasRestringidas(){
   if(!(adminEfectivo() || nivelEfectivo()==="premium")) return;
   const access=loadAccess();
   if(!access || !access.key || !access.token) return;
-  const pendientes=DATA.canciones.filter(c=>esRestringida(c) && !c.letra);
+  const pendientes=DATA.canciones.filter(c=>esRestringida(c) && !c.letra && (adminEfectivo() || !esPrivada(c)));
   if(!pendientes.length) return;
   precargaLetrasEnCurso=true;
   for(const c of pendientes){
@@ -1498,7 +1509,9 @@ function updateSong(){
   const premiumEl=document.getElementById("sv-premium");
   if(estaBloqueada(current)){
     premiumEl.style.display="";
-    premiumEl.textContent = esRestringida(current)
+    premiumEl.textContent = esPrivada(current)
+      ? "🔒 Este canto no está disponible"
+      : esRestringida(current)
       ? "⭐ Canción disponible en modo premium"
       : "🔒 Activá tu clave de acceso para ver este canto";
     document.getElementById("sv-tono").textContent=semis?shiftChord(current.tono,semis):current.tono;
@@ -1524,7 +1537,9 @@ function updateSong(){
   }
   if(esRestringida(current) && adminEfectivo()){
     premiumEl.style.display="";
-    premiumEl.textContent = current.restriccion==="oculta"
+    premiumEl.textContent = esPrivada(current)
+      ? "🔐 Privada (solo tú la ves)"
+      : current.restriccion==="oculta"
       ? "🙈 Oculta en Freemium (solo tú y Premium la ven)"
       : "⭐ Marcada como premium (solo tú la ves completa)";
   } else {
@@ -1556,7 +1571,7 @@ function closeSong(){
 function openPresent(){
   document.getElementById("p-title").textContent=current.titulo;
   document.getElementById("p-lyrics").innerHTML = estaBloqueada(current)
-    ? `<div class="premium-msg">${esRestringida(current)?"Disponible en modo premium":"Activá tu clave de acceso para ver este canto"}</div>`
+    ? `<div class="premium-msg">${esPrivada(current)?"Este canto no está disponible":esRestringida(current)?"Disponible en modo premium":"Activá tu clave de acceso para ver este canto"}</div>`
     : lyricsHTML(current.letra,semis);
   document.getElementById("present").style.setProperty("--present-size",presentFontSize+"px");
   document.body.classList.add("presenting");
@@ -1825,7 +1840,7 @@ const CANCIONES = ${JSON.stringify(cancionesLimpias,null,2)};
   // (solo hace falta correrlo si alguna cambio desde la ultima publicacion).
   const restringidas=DATA.canciones
     .filter(c=>esRestringida(c) && c.letra)
-    .map(c=>({id:c.id, letra:c.letra}));
+    .map(c=>({id:c.id, letra:c.letra, solo_admin:esPrivada(c)}));
   if(restringidas.length){
     const blob2=new Blob([JSON.stringify(restringidas,null,2)],{type:"application/json"});
     const a2=document.createElement("a");

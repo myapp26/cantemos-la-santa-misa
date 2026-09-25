@@ -122,7 +122,7 @@ Deno.serve(async (req) => {
 
   const { data: letraRow, error: letraError } = await supabase
     .from("letras_restringidas")
-    .select("letra")
+    .select("letra, solo_admin")
     .eq("id", cancionId)
     .maybeSingle();
 
@@ -131,6 +131,11 @@ Deno.serve(async (req) => {
   }
   if (!letraRow) {
     return json({ ok: false, reason: "not_found" }, 404, origin);
+  }
+  // Cantos "privada" (25/9/2026): solo el admin, nunca premium. Ver
+  // migracion 0005_solo_admin.sql y esPrivada() en index.html.
+  if (letraRow.solo_admin === true && row.is_admin !== true) {
+    return json({ ok: false, reason: "forbidden" }, 403, origin);
   }
 
   return json({ ok: true, letra: letraRow.letra }, 200, origin);
