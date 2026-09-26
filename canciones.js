@@ -2,7 +2,7 @@
 //  CANCIONES — Generado automáticamente desde la app.
 //  Este archivo es la "semilla" que reciben todos los que
 //  instalan la app desde tu enlace de Netlify.
-//  Generado: 25/9/2026, 12:29:34
+//  Generado: 25/9/2026, 21:28:44
 // ============================================================
 
 const CATEGORIAS = ["Entrada","Piedad","Aclamación del Evangelio","Ofertorio","Santo","Cordero de Dios","Cantos de Comunión","Cantos a la Virgen María","Evangelio - sin Aleluya","Vocacionales y Mision","Alabanzas","De Adoración","Fiestas/ Solemnidades","Temas Biblicos","Adviento","Cuaresma","Semana Santa","Pascua y Resurrección","Pentecostés","Cantos para Niños","Misa por los Difuntos"];
@@ -157,7 +157,7 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
-    "letra": "# Estrofa 1\nEl amor del Señor es maravilloso\nel amor del Señor es maravilloso\nel amor del Señor es maravilloso\ngrande es el amor de Dios.\n\n# Estrofa 2\nTan alto que no lo puedo estar arriba de El\nTan bajo que no puedo estar abajo de El\ntan ancho que no puedo estar afuera de El\ngrande es el amor de Dios.",
+    "letra": " [La7]El amor de Dios [Re]es maravilloso.\n[Re]El amor de Dios [La7]es maravilloso.\n[Sol]El amor de Dios [Re7]es maravilloso.\n[La7]¡Grande es el amor de [Re]Dios!\n\n[Re]Tan alto que no puedo estar más alto que [La7]El.\n[La7]Tan bajo que no puedo estar más bajo que [Re]El.\n[Re]Tan ancho que no puedo [Re7]estar afuera de [Sol]El.\n[La7]¡Grande es el amor de [Re]Dios!",
     "youtube": "",
     "restriccion": "",
     "premium": false,
@@ -196,7 +196,7 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
-    "letra": "# Estrofa 1\nNo hay Dios tan grande como Tu\nno lo hay, no lo hay.\nNo hay Dios tan grande como Tu\nno lo hay, no lo hay.\n\n# Estrofa 2\nNo hay Dios que pueda hacer las obras como las que haces Tu.\nNo hay Dios que pueda hacer las obras\ncomo las que haces Tu.\nNo es con espada, no es con ejército\nmas con tu SantoEspíritu. (bis)\n\n# Estrofa 3\n/Y la Iglesia se salvará/ 3 veces\ncon tu SantoEspíritu.",
+    "letra": "No hay [Do]Dios tan grande como [Do]Tú\nNo lo [Sol]hay, no lo [Do]hay\n\nNo hay [Fa]Dios que pueda hacer las [Do]obras\ncomo [Sol]las que haces [Do]Tú\n\n[Fa]No es con [Do]espada ni con ejército\n[Do]más con [Sol]tu Santo Espíritu\nY esta [Fa]iglesia se [Do]moverá (bis)\n[Do]más con tu [Sol]Santo Espíritu",
     "youtube": "",
     "restriccion": "",
     "premium": false,
@@ -274,7 +274,7 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
-    "letra": "# Estrofa 1\nYo te alabo con el corazón,\nyo te alabo con la voz (bis)\nY si me falta la voz,\nyo te alabo con las manos,\ny si me faltan las manos,\nyo te alabo con los pies.\n\n# Estrofa 2\nY si me faltan los pies..",
+    "letra": "[Si7]Yo te alabo de [Mi]corazón\nyo te alabo con [Mi]mi voz.\n[Mi]Y si me falta la [Si7]voz\nyo te alabo con las [Mi]manos\ny si me faltan las [Si7]manos\n[Mi]yo te alabo con los [Si7]pies\n[Mi]y si me faltan los [Si7]pies\n[Mi]yo te alabo con el [Si7]alma\n[Mi]y si me faltara el [Si7]alma\n[Mi]es que me he [Si7]ido con [Mi]Él...",
     "youtube": "",
     "restriccion": "",
     "premium": false,
@@ -1821,7 +1821,7 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
-    "letra": "# Estrofa 1\nAsi, asi se alaba a Dios\nAsi, asi se alaba a Dios\nLevanten las manos todos\nLevanten las manos todos\nLevanten las manos todos",
+    "letra": "[Sol]Asi, [Re]asi se alaba a [Sol]Dios (bis)\n[Sol]Levanten las manos [Re]todos\nLevanten las manos [Sol]todos\nLevanten las manos [Re]todos\nAsi se alaba [Sol]a Dios",
     "youtube": "",
     "restriccion": "",
     "premium": false,
@@ -1847,7 +1847,7 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
-    "letra": "# Estrofa 1\nLos que esperan,\nlos que esperan en Jesús,\nLos que esperan,\nlos que esperan en Jesús,\n\n# Estrofa 2\n/como las aguilas,\ncomo las aguilas\nsus alas levantaran./ (bis)\n\n# Estrofa 3\nCaminaran y no se cansaran\ny correran, no se fatigaran,\n\n# Estrofa 4\n/nuevas fuerzas tendran, nuevas fuerzas tendran,\nlos que esperan, los que esperan en Jesús./ (bis)",
+    "letra": "[Rem]//Los que esperan los que esperan [La7]en Jesús//[Rem]\n[Re7]como las [Solm]águilas, [Do7]como las [Fa]águilas sus [La7]alas [Rem]levantarán.\n\n[Do]Caminarán y no se [Fa]cansarán,\n[Do]correrán, no se [Fa]fatigarán.[Rem]\n\n/Nuevas [Solm]fuerzas tendrán,\n[Rem]nuevas fuerzas tendrán\n[Re7]los que [La7]esperan los que esperan en [Rem]Jesús./",
     "youtube": "",
     "restriccion": "",
     "premium": false,
