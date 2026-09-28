@@ -115,7 +115,11 @@ Deno.serve(async (req) => {
     return json({ ok: false, reason: "invalid" }, 403, origin);
   }
 
-  const autorizado = row.is_admin === true || row.tier === "premium";
+  // "beneficiario" (28/9/2026): rol de "beneficiario de uso exclusivo" --
+  // ve el catalogo completo igual que el admin, incluidas las "privada"
+  // (ver el chequeo de solo_admin mas abajo). Ver
+  // claude/analisis-tecnico-cancionero.md en el proyecto de Claude.
+  const autorizado = row.is_admin === true || row.tier === "premium" || row.tier === "beneficiario";
   if (!autorizado) {
     return json({ ok: false, reason: "forbidden" }, 403, origin);
   }
@@ -134,7 +138,10 @@ Deno.serve(async (req) => {
   }
   // Cantos "privada" (25/9/2026): solo el admin, nunca premium. Ver
   // migracion 0005_solo_admin.sql y esPrivada() en index.html.
-  if (letraRow.solo_admin === true && row.is_admin !== true) {
+  // Excepcion agregada el 28/9/2026: el rol "beneficiario" tambien puede
+  // verlas -- es la unica diferencia real de contenido que tiene frente a
+  // "premium" (ver claude/analisis-tecnico-cancionero.md).
+  if (letraRow.solo_admin === true && row.is_admin !== true && row.tier !== "beneficiario") {
     return json({ ok: false, reason: "forbidden" }, 403, origin);
   }
 

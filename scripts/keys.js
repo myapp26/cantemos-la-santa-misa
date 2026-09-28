@@ -2,20 +2,24 @@
 // Generar, listar, revocar y cambiar de nivel las claves de acceso.
 //
 // Uso:
-//   node keys.js generate [--note "Parroquia San Jose"] [--n 1] [--admin] [--tier freemium|premium]
+//   node keys.js generate [--note "Parroquia San Jose"] [--n 1] [--admin] [--tier freemium|premium|beneficiario]
 //   node keys.js list
 //   node keys.js revoke CSM-XXXX-XXXX-XXXX
-//   node keys.js set-tier CSM-XXXX-XXXX-XXXX freemium|premium
+//   node keys.js set-tier CSM-XXXX-XXXX-XXXX freemium|premium|beneficiario
 //
 // --admin marca la clave como administradora: se puede activar desde
 // cualquier dispositivo (compu incluida). Sin ese flag, la clave solo
 // se puede activar la primera vez desde un celular (comportamiento normal
 // de cliente).
 //
-// --tier asigna el nivel de acceso (freemium o premium). Por defecto,
-// freemium. No aplica a claves --admin (siempre tienen acceso completo,
-// sin importar el tier). El nivel "Demo" no usa clave: es el acceso
-// abierto que ya tiene la app hoy.
+// --tier asigna el nivel de acceso (freemium, premium o beneficiario). Por
+// defecto, freemium. No aplica a claves --admin (siempre tienen acceso
+// completo, sin importar el tier). El nivel "Demo" no usa clave: es el
+// acceso abierto que ya tiene la app hoy.
+//
+// "beneficiario" (28/9/2026): rol de "beneficiario de uso exclusivo" -- ve
+// todo el catálogo igual que el admin (incluidas las canciones "privada"),
+// pero nunca tiene acceso al panel de configuración/edición.
 //
 // set-tier cambia el nivel de una clave que ya existe (por ejemplo, subir
 // a alguien de freemium a premium) sin que el usuario tenga que reactivar
@@ -39,7 +43,7 @@ if (!SUPABASE_URL || !SERVICE_ROLE_KEY) {
 const supabase = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);
 
 const ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // sin I, O, 0, 1
-const TIERS_VALIDOS = ["freemium", "premium"];
+const TIERS_VALIDOS = ["freemium", "premium", "beneficiario"];
 
 function randomGroup(len) {
   let out = "";
@@ -168,7 +172,7 @@ async function cmdSetTier(args) {
   const keyCode = (args._[0] || "").trim().toUpperCase();
   const tier = (args._[1] || "").trim().toLowerCase();
   if (!keyCode || !tier) {
-    console.error("Uso: node keys.js set-tier CSM-XXXX-XXXX-XXXX freemium|premium");
+    console.error("Uso: node keys.js set-tier CSM-XXXX-XXXX-XXXX freemium|premium|beneficiario");
     process.exit(1);
   }
   if (!TIERS_VALIDOS.includes(tier)) {
@@ -223,7 +227,7 @@ async function main() {
   if (cmd === "unbind") return cmdUnbind(args);
   if (cmd === "set-tier") return cmdSetTier(args);
   if (cmd === "list") return cmdList();
-  console.log("Comandos: generate [--note '...'] [--n N] [--admin] [--tier freemium|premium] | list | revoke <CLAVE> | unbind <CLAVE> | set-tier <CLAVE> <freemium|premium>");
+  console.log("Comandos: generate [--note '...'] [--n N] [--admin] [--tier freemium|premium|beneficiario] | list | revoke <CLAVE> | unbind <CLAVE> | set-tier <CLAVE> <freemium|premium|beneficiario>");
 }
 
 main();
