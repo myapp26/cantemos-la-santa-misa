@@ -464,6 +464,7 @@
         <option value="demo">Ver como Demo</option>
         <option value="freemium">Ver como Plan Mensual</option>
         <option value="premium">Ver como Plan Anual</option>
+        <option value="beneficiario">Ver como Beneficiario</option>
       </select>
     </div>
     <div class="toolbar" id="selectionBar" style="display:none">
@@ -857,10 +858,11 @@ function aplicarRolAdmin(){
   precargarLetrasRestringidas();
 }
 // Vista previa de nivel, solo para administradora: le permite ver la app
-// como la vería un usuario en Demo/Freemium/Premium, sin tocar su clave real
-// ni la de nadie en Supabase. Vive solo en memoria -- se pierde al recargar
-// o cerrar la app, así nunca queda "pegada" por accidente.
-let previewTier = null; // null | "demo" | "freemium" | "premium"
+// como la vería un usuario en Demo/Freemium/Premium/Beneficiario, sin tocar
+// su clave real ni la de nadie en Supabase. Vive solo en memoria -- se
+// pierde al recargar o cerrar la app, así nunca queda "pegada" por
+// accidente. Opción "beneficiario" agregada el 29/9/2026.
+let previewTier = null; // null | "demo" | "freemium" | "premium" | "beneficiario"
 function nivelEfectivo(){
   return (isAdmin && previewTier) ? previewTier : userTier;
 }
@@ -888,7 +890,7 @@ function updateTierBadge(){
   const el=document.getElementById("tierBadge");
   if(!el) return;
   if(isAdmin && previewTier){
-    const nombres = {demo:"Demo", freemium:"Plan Mensual", premium:"⭐ Plan Anual"};
+    const nombres = {demo:"Demo", freemium:"Plan Mensual", premium:"⭐ Plan Anual", beneficiario:"Beneficiario"};
     el.className = "tier-badge preview";
     el.textContent = "👁 Viendo como: " + nombres[previewTier];
     el.style.display="";
