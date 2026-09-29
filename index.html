@@ -69,6 +69,11 @@
     cursor:pointer;opacity:.25;font-size:18px;color:var(--ink);font-weight:400;box-shadow:none}
   .admin-dot.on{opacity:1;color:var(--accent)}
   .admin-dot:active{transform:none}
+  /* Rol "beneficiario de uso exclusivo" (28/9/2026): el engranaje se ve
+     apagado -- nunca puede llegar a configuración, así que no debe lucir
+     como un botón activo que invita a intentarlo. */
+  .admin-dot.disabled-look{opacity:.12;cursor:default}
+  .admin-dot.disabled-look:active{transform:none}
   .toolbar{display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
   .sortbtn{font-family:"Courier New",monospace;font-size:12px;letter-spacing:.04em;
     background:var(--paper-deep);border:none;color:var(--ink);
@@ -694,8 +699,12 @@ function loadLetras(){
   try{ const o=JSON.parse(localStorage.getItem(LS_LETRAS)||"{}"); return (o&&typeof o==="object")?o:{}; }catch(e){ return {}; }
 }
 // ¿Esta persona (no admin) puede tener guardada la letra de este canto?
+// "beneficiario" ve incluso las "privada" (igual que el admin); "premium"
+// ve todo lo restringido menos las "privada".
 function letraPermitidaCliente(c, tier){
-  return esRestringida(c) && !esPrivada(c) && tier==="premium";
+  if(!esRestringida(c)) return false;
+  if(tier==="beneficiario") return true;
+  return !esPrivada(c) && tier==="premium";
 }
 function load(){
   const acc=accesoAlCargar();
@@ -800,12 +809,17 @@ function esAdmin(){
   const access = loadAccess();
   return !!(access && access.is_admin === true);
 }
-// Nivel Demo/Freemium/Premium: sale de la clave activada (columna tier de
-// access_keys, ya la devuelve validate-key -- ver claude/plan-versiones-cancionero.md
-// en el proyecto de Claude). Sin clave, o clave sin tier reconocido: Demo.
+// Nivel Demo/Freemium/Premium/Beneficiario: sale de la clave activada (columna
+// tier de access_keys, ya la devuelve validate-key -- ver
+// claude/plan-versiones-cancionero.md en el proyecto de Claude). Sin clave, o
+// clave sin tier reconocido: Demo.
+// "beneficiario" (28/9/2026): rol nuevo para una persona de confianza a quien
+// Gloria le da visibilidad total (como el admin, incluidas las canciones
+// "privada") pero sin acceso al panel de configuración -- ver
+// claude/analisis-tecnico-cancionero.md.
 function nivelActual(){
   const access = loadAccess();
-  if(access && (access.tier==="premium" || access.tier==="freemium")) return access.tier;
+  if(access && (access.tier==="premium" || access.tier==="freemium" || access.tier==="beneficiario")) return access.tier;
   return "demo";
 }
 function aplicarRolAdmin(){
@@ -820,6 +834,9 @@ function aplicarRolAdmin(){
   // no -- pueda activarla a mano desde adminTap(). Ya no hace falta ocultarlo
   // porque tocar el ícono sin clave no autoasigna nada (ver adminTap()).
   document.getElementById("adminDot").classList.toggle("on", isAdmin);
+  // Rol "beneficiario de uso exclusivo": el engranaje se ve apagado -- nunca
+  // puede llegar a configuración (ver .disabled-look arriba y adminTap()).
+  document.getElementById("adminDot").classList.toggle("disabled-look", !isAdmin && userTier==="beneficiario");
   if(current) document.getElementById("editBtn").style.display = isAdmin ? "" : "none";
   const previewBar = document.getElementById("previewBar");
   if(previewBar) previewBar.style.display = isAdmin ? "" : "none";
@@ -850,6 +867,13 @@ function nivelEfectivo(){
 function adminEfectivo(){
   return isAdmin && !previewTier;
 }
+// Rol "beneficiario de uso exclusivo" (28/9/2026): ve todo el catálogo igual
+// que el admin (incluidas las canciones "privada"), pero no tiene sesión de
+// admin real -- nunca puede llegar al panel de configuración/edición, que
+// depende exclusivamente de esAdmin()/adminEfectivo(), un mecanismo aparte.
+function esBeneficiario(){
+  return nivelEfectivo()==="beneficiario";
+}
 function setPreviewTier(valor){
   if(!isAdmin) return; // defensa extra: solo puede activarse desde el selector de admin
   previewTier = valor || null;
@@ -870,7 +894,7 @@ function updateTierBadge(){
     el.style.display="";
     return;
   }
-  if(isAdmin || userTier==="demo"){ el.style.display="none"; return; }
+  if(isAdmin || userTier==="demo" || userTier==="beneficiario"){ el.style.display="none"; return; }
   el.className = "tier-badge " + userTier;
   el.textContent = userTier==="premium" ? "⭐ Plan Anual" : "Plan Mensual";
   el.style.display="";
@@ -884,8 +908,8 @@ function updateTierBadge(){
 // sigue libre en Freemium sin tocar nada de esto.
 function updateFeatureGating(){
   const nivel = nivelEfectivo();
-  const puedeSeleccionar = adminEfectivo() || nivel==="premium" || nivel==="freemium";
-  const puedeGuardar = adminEfectivo() || nivel==="premium";
+  const puedeSeleccionar = adminEfectivo() || nivel==="premium" || nivel==="freemium" || nivel==="beneficiario";
+  const puedeGuardar = adminEfectivo() || nivel==="premium" || nivel==="beneficiario";
   const selBtn=document.getElementById("selModeBtn");
   const savedBtn=document.getElementById("selSavedBtn");
   const guardarBtn=document.getElementById("guardarSelBtn");
@@ -920,7 +944,7 @@ function esRestringida(c){
   return c.restriccion==="candado" || c.restriccion==="oculta" || esPrivada(c) || c.premium===true;
 }
 function estaBloqueada(c){
-  if(adminEfectivo()) return false;
+  if(adminEfectivo() || esBeneficiario()) return false;
   if(esPrivada(c)) return true;
   const tier = nivelEfectivo();
   if(esRestringida(c)) return tier!=="premium";
@@ -928,7 +952,7 @@ function estaBloqueada(c){
   return false;
 }
 function diagramaBloqueado(c){
-  if(adminEfectivo()) return false;
+  if(adminEfectivo() || esBeneficiario()) return false;
   return !!c.bloqueada && nivelEfectivo()!=="premium";
 }
 // Decide si una canción aparece en el listado (índice, alfabético, búsqueda,
@@ -937,7 +961,7 @@ function diagramaBloqueado(c){
 // marcó "demo" estando en modo Demo, no aparece en absoluto -- como si no
 // existiera para esa persona.
 function visibleParaListado(c){
-  if(adminEfectivo()) return true;
+  if(adminEfectivo() || esBeneficiario()) return true;
   if(esPrivada(c)) return false;
   const tier = nivelEfectivo();
   if(tier==="demo") return !!c.demo;
@@ -953,7 +977,7 @@ function visibleParaListado(c){
 // Claude "App cancionero".
 function necesitaLetraRemota(c){
   return !!c && esRestringida(c) && !c.letra &&
-    (adminEfectivo() || (nivelEfectivo()==="premium" && !esPrivada(c)));
+    (adminEfectivo() || esBeneficiario() || (nivelEfectivo()==="premium" && !esPrivada(c)));
 }
 async function ensureLetraDisponible(c){
   if(!necesitaLetraRemota(c)) return;
@@ -979,17 +1003,17 @@ async function ensureLetraDisponible(c){
 let precargaLetrasEnCurso=false;
 async function precargarLetrasRestringidas(){
   if(precargaLetrasEnCurso) return; // ya hay una corrida en curso, no solapar
-  if(!(adminEfectivo() || nivelEfectivo()==="premium")) return;
+  if(!(adminEfectivo() || esBeneficiario() || nivelEfectivo()==="premium")) return;
   const access=loadAccess();
   if(!access || !access.key || !access.token) return;
-  const pendientes=DATA.canciones.filter(c=>esRestringida(c) && !c.letra && (adminEfectivo() || !esPrivada(c)));
+  const pendientes=DATA.canciones.filter(c=>esRestringida(c) && !c.letra && (adminEfectivo() || esBeneficiario() || !esPrivada(c)));
   if(!pendientes.length) return;
   precargaLetrasEnCurso=true;
   for(const c of pendientes){
     // El rol pudo haber cambiado a mitad de la precarga (ej. entró a la
     // vista previa de Freemium/Demo): cortamos en vez de seguir pidiendo
     // contenido que ya no le corresponde ver en ese modo.
-    if(!(adminEfectivo() || nivelEfectivo()==="premium")) break;
+    if(!(adminEfectivo() || esBeneficiario() || nivelEfectivo()==="premium")) break;
     await ensureLetraDisponible(c);
   }
   precargaLetrasEnCurso=false;
@@ -1504,7 +1528,7 @@ function volverIndiceGeneral(){
   render(document.getElementById("q").value);
 }
 function pedirGuardarSeleccion(){
-  if(!(adminEfectivo() || nivelEfectivo()==="premium")){
+  if(!(adminEfectivo() || esBeneficiario() || nivelEfectivo()==="premium")){
     toast("Guardar selecciones es exclusivo del Plan Anual");
     return;
   }
@@ -1527,7 +1551,7 @@ function pedirGuardarSeleccion(){
   }
 }
 function openSavedSelections(){
-  if(!(adminEfectivo() || nivelEfectivo()==="premium")){
+  if(!(adminEfectivo() || esBeneficiario() || nivelEfectivo()==="premium")){
     toast("Selecciones guardadas es exclusivo del Plan Anual");
     return;
   }
@@ -1723,6 +1747,10 @@ function presentSize(d){
 // tenga que exigirle una clave a todo el mundo para poder mostrarse.
 function adminTap(){
   if(isAdmin){ openModal("adminModal"); return; }
+  // Rol "beneficiario de uso exclusivo" (28/9/2026): el engranaje queda
+  // inactivo -- nunca tiene acceso a configuración, así que no le abrimos
+  // el cuadro para intentar entrar con otra clave (ver .disabled-look arriba).
+  if(userTier==="beneficiario"){ toast("Esta clave no tiene acceso a configuración"); return; }
   showGate("Ingresá tu clave de acceso para activarla en este dispositivo.");
 }
 
