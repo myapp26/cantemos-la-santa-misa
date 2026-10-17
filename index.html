@@ -1364,12 +1364,29 @@ function nombreArchivoPdf(base){
 // Dibuja una canción empezando en la parte superior de la página actual del
 // doc (cada canción arranca en hoja nueva -- ver generarPdfCantos()). Pagina
 // sola si la letra no entra completa.
-function dibujarCancionPdf(doc, c, margenX, charW, semis, altoHoja){
+// yInicial: donde empieza esta canción (18 = arriba de hoja nueva; más que
+// eso = sigue justo abajo de la canción anterior, en el mismo documento).
+// Devuelve el y final, para que la próxima canción continúe desde ahí --
+// así "Descargar categoría/selección en PDF" arma un solo escrito corrido
+// (como pidió Gloria el 17/10/2026) en vez de una canción por hoja.
+function dibujarCancionPdf(doc, c, margenX, anchoUtil, charW, semis, altoHoja, yInicial){
   const margenInf=16, lineaAlto=5.2, filaAcorde=4.6;
-  let y=18;
+  let y=yInicial;
   function salto(filas){
-    if(y + filas*lineaAlto > altoHoja - margenInf){ doc.addPage(); y=18; }
+    if(y + filas*lineaAlto > altoHoja - margenInf){ doc.addPage(); y=18; return true; }
+    return false;
   }
+  // Separador entre una canción y la siguiente (si no arrancamos en el tope
+  // de una hoja nueva, esta no es la primera canción del documento).
+  if(y > 18){
+    if(!salto(2)){
+      y += 3;
+      doc.setDrawColor(195); doc.setLineWidth(0.2);
+      doc.line(margenX, y, margenX+anchoUtil, y);
+      y += 7;
+    }
+  }
+  salto(3);
   doc.setFont("helvetica","bold"); doc.setFontSize(14); doc.setTextColor(20);
   doc.text(c.titulo||"", margenX, y); y+=6;
   const meta=[c.autor,c.categoria].filter(Boolean).join("   ·   ");
@@ -1405,6 +1422,7 @@ function dibujarCancionPdf(doc, c, margenX, charW, semis, altoHoja){
       doc.text(text||" ", margenX, y); y+=lineaAlto;
     }
   });
+  return y;
 }
 
 // lista: array de canciones (objetos DATA.canciones). semis: transposición a
@@ -1427,14 +1445,18 @@ async function generarPdfCantos(lista, nombreArchivo, semis){
   const sinLetra = lista.length - listaFinal.length;
   if(!listaFinal.length){ toast("No se pudo cargar ninguna letra (revisá tu conexión)"); return; }
   const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({unit:"mm", format:"letter"});
+  const doc = new jsPDF({unit:"mm", format:"a4"});
   const margenX=18;
   const altoHoja = doc.internal.pageSize.getHeight();
+  const anchoUtil = doc.internal.pageSize.getWidth() - margenX*2;
   doc.setFont("courier","normal"); doc.setFontSize(10.5);
   const charW = doc.getTextWidth("0"); // Courier es monoespaciada: cada caracter mide lo mismo.
-  listaFinal.forEach((c,i)=>{
-    if(i>0) doc.addPage();
-    dibujarCancionPdf(doc, c, margenX, charW, semis||0, altoHoja);
+  // Escrito corrido: las canciones van una seguida de otra (separadas por una
+  // línea y su título/autor/tono), no una por hoja -- para que se pueda
+  // copiar/editar después como un solo documento continuo.
+  let y = 18;
+  listaFinal.forEach(c=>{
+    y = dibujarCancionPdf(doc, c, margenX, anchoUtil, charW, semis||0, altoHoja, y);
   });
   doc.save(nombreArchivo);
   if(sinLetra>0){
