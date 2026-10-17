@@ -162,6 +162,12 @@
   .transpose .val{font-family:"Courier New",monospace;font-size:15px;color:var(--accent);
     min-width:34px;text-align:center;font-weight:700}
 
+  /* ---------- Video de YouTube embebido (17/10/2026) ---------- */
+  #sv-youtube{margin:4px 0 18px}
+  .yt-embed-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#000;
+    border-radius:4px;overflow:hidden}
+  .yt-embed-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
   /* ---------- Letra con acordes ENCIMA ---------- */
   .lyrics{font-family:"SFMono-Regular","Consolas","Menlo","Roboto Mono","Courier New",monospace;
     font-size:calc(19px*var(--tscale,1));
@@ -1808,6 +1814,52 @@ window.addEventListener("popstate",function(){
   if(overlayStack.length) popOverlay();
 });
 
+// ---- Reproductor de YouTube embebido (17/10/2026) ----
+// Antes era un simple <a target="_blank">; ahora el video se ve adentro de
+// la app, para todos los roles (demo/freemium/premium/beneficiario/admin).
+// Extrae el id de video de los formatos comunes de link de YouTube
+// (watch?v=, youtu.be/, /embed/, /shorts/, /live/). Si no reconoce el
+// formato, devuelve null y se cae al link de siempre (no rompe nada).
+function extraerYoutubeId(url){
+  if(!url) return null;
+  let vid=null;
+  try{
+    const u = new URL(url.trim());
+    const host = u.hostname.replace(/^www\.|^m\./,"");
+    if(host==="youtu.be"){
+      vid = u.pathname.slice(1).split("/")[0];
+    } else if(host==="youtube.com" || host==="music.youtube.com"){
+      if(u.pathname==="/watch") vid = u.searchParams.get("v");
+      else if(u.pathname.startsWith("/embed/")) vid = u.pathname.split("/")[2];
+      else if(u.pathname.startsWith("/shorts/")) vid = u.pathname.split("/")[2];
+      else if(u.pathname.startsWith("/live/")) vid = u.pathname.split("/")[2];
+    }
+  }catch(e){ return null; }
+  // Validación defensiva: un id de video de YouTube siempre es así.
+  return (vid && /^[A-Za-z0-9_-]{6,15}$/.test(vid)) ? vid : null;
+}
+// No carga el iframe de una sola vez al abrir la canción (ahorra datos/batería
+// en wifi de iglesia) -- primero muestra un botón "Reproducir", y solo al
+// tocarlo arma el iframe real.
+function renderYoutube(c){
+  const cont = document.getElementById("sv-youtube");
+  if(!c.youtube){ cont.innerHTML=""; return; }
+  const vid = extraerYoutubeId(c.youtube);
+  if(!vid){
+    // Link con un formato no reconocido: se mantiene el comportamiento
+    // de siempre (abrir en una pestaña nueva) en vez de romper.
+    cont.innerHTML = `<a class="btn" href="${esc(c.youtube)}" target="_blank" rel="noopener">▶ Ver en YouTube</a>`;
+    return;
+  }
+  cont.innerHTML = `<button class="btn" onclick="reproducirYoutube('${vid}')">▶ Reproducir video</button>`;
+}
+function reproducirYoutube(vid){
+  document.getElementById("sv-youtube").innerHTML =
+    `<div class="yt-embed-wrap"><iframe src="https://www.youtube-nocookie.com/embed/${vid}?rel=0&autoplay=1" `+
+    `title="Video de YouTube" loading="lazy" allowfullscreen `+
+    `allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></div>`;
+}
+
 // ===================== Vista canción =====================
 async function openSong(id){
   current=DATA.canciones.find(c=>c.id===id);semis=0;
@@ -1816,8 +1868,7 @@ async function openSong(id){
     [current.autor,current.categoria].filter(Boolean).join("  ·  ");
   document.getElementById("editBtn").style.display=isAdmin?"":"none";
   document.getElementById("pdfSongBtn").style.display=adminEfectivo()?"":"none";
-  document.getElementById("sv-youtube").innerHTML=current.youtube
-    ?`<a class="btn" href="${esc(current.youtube)}" target="_blank" rel="noopener">▶ Ver en YouTube</a>`:"";
+  renderYoutube(current);
   document.getElementById("song-view").classList.add("open");
   document.querySelector(".sv-scroll").scrollTop=0;
   pushAppState("song");
