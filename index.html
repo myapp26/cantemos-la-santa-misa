@@ -1361,8 +1361,8 @@ function nombreArchivoPdf(base){
   return (limpio||"cancionero")+".pdf";
 }
 
-// Dibuja una canción empezando en la parte superior de la página actual del
-// doc (cada canción arranca en hoja nueva -- ver generarPdfCantos()). Pagina
+// Dibuja una canción en la página actual del doc, a partir de yInicial (las
+// canciones van seguidas, no una por hoja -- ver generarPdfCantos()). Pagina
 // sola si la letra no entra completa.
 // yInicial: donde empieza esta canción (18 = arriba de hoja nueva; más que
 // eso = sigue justo abajo de la canción anterior, en el mismo documento).
