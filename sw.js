@@ -4,7 +4,9 @@ const SELLO = "cantemos-la-santa-misa";
 const CACHE = SELLO;
 
 // Recursos que NO cambian: se sirven desde caché (rápido y offline).
-const STATIC = ["./icon-192.png","./icon-512.png","./icon-180.png","./manifest.json"];
+// vendor/jspdf.umd.min.js (17/10/2026): se precarga acá para que "Descargar
+// en PDF" funcione aunque no haya señal justo en el momento de usarlo.
+const STATIC = ["./icon-192.png","./icon-512.png","./icon-180.png","./manifest.json","./vendor/jspdf.umd.min.js"];
 
 self.addEventListener("install", e=>{
   e.waitUntil(caches.open(CACHE).then(c=>c.addAll(STATIC)).then(()=>self.skipWaiting()));
