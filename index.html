@@ -929,10 +929,15 @@ function updateFeatureGating(){
   const savedBtn=document.getElementById("selSavedBtn");
   const guardarBtn=document.getElementById("guardarSelBtn");
   const pdfSelBtn=document.getElementById("pdfSelBtn");
+  const pdfSongBtn=document.getElementById("pdfSongBtn");
   if(selBtn) selBtn.style.display = puedeSeleccionar ? "" : "none";
   if(savedBtn) savedBtn.style.display = puedeGuardar ? "" : "none";
   if(guardarBtn) guardarBtn.style.display = puedeGuardar ? "" : "none";
   if(pdfSelBtn) pdfSelBtn.style.display = puedePdf ? "" : "none";
+  // También acá (no solo en openSong()): si la canción ya estaba abierta y
+  // la administradora cambia a "Vista previa" de otro rol, el botón debe
+  // ocultarse al toque, sin esperar a que se abra otra canción.
+  if(pdfSongBtn) pdfSongBtn.style.display = puedePdf ? "" : "none";
   if(!puedeSeleccionar && typeof selectionMode!=="undefined" && selectionMode){
     selectionMode=false; selectedIds.clear();
     const bar=document.getElementById("selectionBar");
