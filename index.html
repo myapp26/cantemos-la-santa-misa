@@ -108,6 +108,9 @@
     font-family:"Courier New",monospace;color:var(--accent-deep);font-weight:700}
   .cat-head .rule{flex:1;height:1px;background:var(--rule)}
   .cat-head .count{font-family:"Courier New",monospace;font-size:11px;color:var(--ink-soft)}
+  .cat-pdf-btn{font-family:"Courier New",monospace;font-size:11px;color:var(--accent-deep);
+    background:none;border:1px solid var(--rule);border-radius:10px;padding:2px 9px;cursor:pointer;
+    white-space:nowrap}
   .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
     gap:12px;margin-top:18px}
   .cat-btn{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;
@@ -471,6 +474,7 @@
       <span class="sortbtn plain" id="selCount" style="cursor:default">0 seleccionados</span>
       <button class="sortbtn plain" onclick="verSeleccionActual()">Ver selección</button>
       <button class="sortbtn plain" id="guardarSelBtn" onclick="pedirGuardarSeleccion()">Guardar selección</button>
+      <button class="sortbtn plain" id="pdfSelBtn" style="display:none" onclick="descargarPdfSeleccionActual()">📄 PDF de la selección</button>
     </div>
   </header>
   <main id="index"></main>
@@ -482,6 +486,7 @@
     <button class="back" onclick="closeSong()">‹ Índice</button>
     <div class="spacer"></div>
     <button class="edit" id="editBtn" style="display:none" onclick="editCurrent()">Editar</button>
+    <button class="edit" id="pdfSongBtn" style="display:none" onclick="descargarPdfCancionActual()">📄 PDF</button>
     <button class="present" onclick="openPresent()">Presentación</button>
   </div>
   <div class="sv-scroll">
@@ -638,6 +643,10 @@
 </div>
 
 <script src="canciones.js"></script>
+<!-- jsPDF (MIT) vendorizado localmente -- no se puede cargar desde un CDN
+     porque el CSP del sitio (netlify.toml) solo permite script-src 'self'.
+     Se usa para "Descargar en PDF" (admin), ver más abajo. -->
+<script src="vendor/jspdf.umd.min.js"></script>
 <script>
 // ===================== Portada de bienvenida =====================
 // Se muestra solo la primera vez que se abre la app en este dispositivo
@@ -912,12 +921,18 @@ function updateFeatureGating(){
   const nivel = nivelEfectivo();
   const puedeSeleccionar = adminEfectivo() || nivel==="premium" || nivel==="freemium" || nivel==="beneficiario";
   const puedeGuardar = adminEfectivo() || nivel==="premium" || nivel==="beneficiario";
+  // Descargar en PDF: por ahora solo para la administradora real (no en
+  // vista previa de otro rol). Más adelante se habilitará también para
+  // Plan Anual/Premium -- ver claude/analisis-tecnico-cancionero.md.
+  const puedePdf = adminEfectivo();
   const selBtn=document.getElementById("selModeBtn");
   const savedBtn=document.getElementById("selSavedBtn");
   const guardarBtn=document.getElementById("guardarSelBtn");
+  const pdfSelBtn=document.getElementById("pdfSelBtn");
   if(selBtn) selBtn.style.display = puedeSeleccionar ? "" : "none";
   if(savedBtn) savedBtn.style.display = puedeGuardar ? "" : "none";
   if(guardarBtn) guardarBtn.style.display = puedeGuardar ? "" : "none";
+  if(pdfSelBtn) pdfSelBtn.style.display = puedePdf ? "" : "none";
   if(!puedeSeleccionar && typeof selectionMode!=="undefined" && selectionMode){
     selectionMode=false; selectedIds.clear();
     const bar=document.getElementById("selectionBar");
@@ -1304,6 +1319,138 @@ function lyricsHTML(letra, semis){
   }).join("");
 }
 
+// ===================== Descarga de cantos en PDF (admin) =====================
+// Por ahora solo disponible para la administradora real (ver updateFeatureGating()
+// y openSong() más abajo) -- más adelante se habilitará también para Plan Anual
+// (ver claude/analisis-tecnico-cancionero.md, 17/10/2026). Usa jsPDF, vendorizado
+// en vendor/jspdf.umd.min.js porque el CSP del sitio (netlify.toml) solo permite
+// script-src 'self', no CDNs externos.
+//
+// parseAcordesPdf() duplica a propósito el parseo de acordes de renderLine()
+// (en vez de reutilizarla) para no arriesgar esa función ya probada en
+// producción -- esta solo devuelve datos (texto + posiciones), no HTML.
+function parseAcordesPdf(line, semis){
+  const parts=[]; let re=/\[([^\]]+)\]/g, last=0, m;
+  while((m=re.exec(line))){
+    if(m.index>last) parts.push({chord:null,text:line.slice(last,m.index)});
+    parts.push({chord:m[1],text:""});
+    last=re.lastIndex;
+  }
+  if(last<line.length) parts.push({chord:null,text:line.slice(last)});
+  let text="", chords=[], nextPos=0;
+  parts.forEach(p=>{
+    if(p.chord){
+      const ch = semis?shiftChord(p.chord,semis):p.chord;
+      const pos = Math.max(text.length, nextPos);
+      chords.push({pos, ch});
+      nextPos = pos + ch.length + 1;
+    }
+    text+=p.text;
+  });
+  return {text, chords};
+}
+
+function nombreArchivoPdf(base){
+  const limpio=(base||"cancionero").normalize("NFD").replace(/[̀-ͯ]/g,"")
+    .replace(/[^a-zA-Z0-9]+/g,"-").replace(/^-+|-+$/g,"").toLowerCase();
+  return (limpio||"cancionero")+".pdf";
+}
+
+// Dibuja una canción empezando en la parte superior de la página actual del
+// doc (cada canción arranca en hoja nueva -- ver generarPdfCantos()). Pagina
+// sola si la letra no entra completa.
+function dibujarCancionPdf(doc, c, margenX, charW, semis, altoHoja){
+  const margenInf=16, lineaAlto=5.2, filaAcorde=4.6;
+  let y=18;
+  function salto(filas){
+    if(y + filas*lineaAlto > altoHoja - margenInf){ doc.addPage(); y=18; }
+  }
+  doc.setFont("helvetica","bold"); doc.setFontSize(14); doc.setTextColor(20);
+  doc.text(c.titulo||"", margenX, y); y+=6;
+  const meta=[c.autor,c.categoria].filter(Boolean).join("   ·   ");
+  if(meta){
+    doc.setFont("helvetica","normal"); doc.setFontSize(9); doc.setTextColor(110);
+    doc.text(meta, margenX, y); y+=5;
+  }
+  const tono = c.tono ? (semis?shiftChord(c.tono,semis):c.tono) : "";
+  if(tono){
+    doc.setFont("helvetica","normal"); doc.setFontSize(9); doc.setTextColor(110);
+    doc.text("Tono: "+tono, margenX, y); y+=7;
+  } else { y+=2; }
+  doc.setTextColor(20);
+  (c.letra||"").split("\n").forEach(line=>{
+    if(line.startsWith("#")){
+      salto(1.6);
+      doc.setFont("courier","bold"); doc.setFontSize(10.5); doc.setTextColor(150,55,35);
+      doc.text(line.replace(/^#\s*/,"").toUpperCase(), margenX, y);
+      doc.setTextColor(20); y+=lineaAlto;
+      return;
+    }
+    const {text, chords}=parseAcordesPdf(line, semis);
+    if(chords.length){
+      salto(2);
+      doc.setFont("courier","bold"); doc.setFontSize(10.5); doc.setTextColor(150,55,35);
+      chords.forEach(ch=>doc.text(ch.ch, margenX+ch.pos*charW, y));
+      doc.setTextColor(20); y+=filaAcorde;
+      doc.setFont("courier","normal"); doc.setFontSize(10.5);
+      doc.text(text||" ", margenX, y); y+=lineaAlto;
+    } else {
+      salto(1);
+      doc.setFont("courier","normal"); doc.setFontSize(10.5);
+      doc.text(text||" ", margenX, y); y+=lineaAlto;
+    }
+  });
+}
+
+// lista: array de canciones (objetos DATA.canciones). semis: transposición a
+// aplicar (solo tiene sentido para la canción actual en pantalla -- las
+// descargas por categoría/selección siempre usan el tono original, semis=0).
+async function generarPdfCantos(lista, nombreArchivo, semis){
+  if(!lista.length){ toast("No hay canciones para generar el PDF"); return; }
+  if(!(window.jspdf && window.jspdf.jsPDF)){ toast("No se pudo cargar el generador de PDF"); return; }
+  // Si alguna es restringida y su letra todavía no llegó a este dispositivo
+  // (la precarga en segundo plano no alcanzó, o falló), se intenta pedir
+  // ahora mismo antes de armar el PDF -- para no repetir en PDF el mismo
+  // problema de letra vacía sin aviso que tuvo la app en vivo el 22/9/2026
+  // (ver claude/analisis-tecnico-cancionero.md).
+  const faltantes = lista.filter(c=>esRestringida(c) && !c.letra);
+  if(faltantes.length){
+    toast("Completando letras antes de generar el PDF…");
+    for(const c of faltantes){ await ensureLetraDisponible(c); }
+  }
+  const listaFinal = lista.filter(c=>c.letra);
+  const sinLetra = lista.length - listaFinal.length;
+  if(!listaFinal.length){ toast("No se pudo cargar ninguna letra (revisá tu conexión)"); return; }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({unit:"mm", format:"letter"});
+  const margenX=18;
+  const altoHoja = doc.internal.pageSize.getHeight();
+  doc.setFont("courier","normal"); doc.setFontSize(10.5);
+  const charW = doc.getTextWidth("0"); // Courier es monoespaciada: cada caracter mide lo mismo.
+  listaFinal.forEach((c,i)=>{
+    if(i>0) doc.addPage();
+    dibujarCancionPdf(doc, c, margenX, charW, semis||0, altoHoja);
+  });
+  doc.save(nombreArchivo);
+  if(sinLetra>0){
+    toast(`PDF generado, pero faltaron ${sinLetra} canto${sinLetra===1?"":"s"} sin conexión`);
+  }
+}
+
+function descargarPdfCancionActual(){
+  if(!current) return;
+  generarPdfCantos([current], nombreArchivoPdf(current.titulo), semis);
+}
+function descargarPdfCategoria(cat){
+  const lista = DATA.canciones.filter(c=>c.categoria===cat && visibleParaListado(c));
+  generarPdfCantos(lista, nombreArchivoPdf(cat));
+}
+function descargarPdfSeleccionActual(){
+  if(!selectedIds.size){ toast("No hay cantos seleccionados"); return; }
+  const lista = DATA.canciones.filter(c=>selectedIds.has(c.id));
+  generarPdfCantos(lista, nombreArchivoPdf(editingSelectionName||"seleccion"));
+}
+
 // ===================== Render índice =====================
 let sortMode = "categoria"; // "categoria" | "alfabetico"
 let categoriaAbierta=null; // null = pantalla de categorías; string = nombre de categoría abierta
@@ -1466,6 +1613,7 @@ function render(filter=""){
       total+=list.length;
       const sec=document.createElement("section");sec.className="cat";
       sec.innerHTML=`<div class="cat-head"><h2>${esc(cat)}</h2><span class="rule"></span>
+        ${adminEfectivo()?`<button class="cat-pdf-btn" title="Descargar esta categoría en PDF" onclick="descargarPdfCategoria('${cat.replace(/'/g,"\\'")}')">📄 PDF</button>`:""}
         <span class="count">${list.length}</span></div>`;
       const ul=document.createElement("ul");ul.className="songs";
       list.forEach((c,i)=>ul.appendChild(songLi(c, String(i+1).padStart(2,"0"))));
@@ -1640,6 +1788,7 @@ async function openSong(id){
   document.getElementById("sv-meta").textContent=
     [current.autor,current.categoria].filter(Boolean).join("  ·  ");
   document.getElementById("editBtn").style.display=isAdmin?"":"none";
+  document.getElementById("pdfSongBtn").style.display=adminEfectivo()?"":"none";
   document.getElementById("sv-youtube").innerHTML=current.youtube
     ?`<a class="btn" href="${esc(current.youtube)}" target="_blank" rel="noopener">▶ Ver en YouTube</a>`:"";
   document.getElementById("song-view").classList.add("open");
