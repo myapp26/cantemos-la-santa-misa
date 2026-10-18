@@ -1866,7 +1866,8 @@ function renderYoutube(c){
 }
 function reproducirYoutube(vid){
   // El link "Ver completo" se arma con el id (no con la URL original del
-  // admin) para no arrastrar comillas/caracteres raros al atributo onclick.
+  // admin) para no depender del formato de esa URL -- siempre queda bien
+  // formado como https://youtu.be/<id>.
   document.getElementById("sv-youtube").innerHTML =
     `<div class="yt-mini"><div class="yt-embed-wrap"><iframe src="https://www.youtube-nocookie.com/embed/${vid}?rel=0&autoplay=1" `+
     `title="Video de YouTube" loading="lazy" allowfullscreen `+
