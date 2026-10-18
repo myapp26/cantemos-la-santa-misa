@@ -162,11 +162,22 @@
   .transpose .val{font-family:"Courier New",monospace;font-size:15px;color:var(--accent);
     min-width:34px;text-align:center;font-weight:700}
 
-  /* ---------- Video de YouTube embebido (17/10/2026) ---------- */
+  /* ---------- Video de YouTube en miniatura (17/10/2026, ajustado 18/10/2026) ----------
+     Chica a propósito: lo primero que se lee en la vista de canción es la letra,
+     el video solo ayuda a reconocer la canción por el oído -- quien quiera verlo
+     completo usa el link "Ver completo en YouTube" aparte. */
   #sv-youtube{margin:4px 0 18px}
-  .yt-embed-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#000;
-    border-radius:4px;overflow:hidden}
+  .yt-mini{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .yt-embed-wrap{position:relative;width:180px;max-width:45%;aspect-ratio:16/9;background:#000;
+    border-radius:4px;overflow:hidden;flex:0 0 auto}
   .yt-embed-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .yt-thumb-btn{width:180px;max-width:45%;aspect-ratio:16/9;flex:0 0 auto;display:flex;
+    align-items:center;justify-content:center;gap:6px;background:var(--paper-deep);
+    border:1px solid var(--rule);border-radius:4px;cursor:pointer;color:var(--accent-deep);
+    font-family:"Courier New",monospace;font-size:12px;letter-spacing:.03em}
+  .yt-full-link{font-family:"Courier New",monospace;font-size:12px;color:var(--accent-deep);
+    text-decoration:none;border-bottom:1px dashed var(--accent-deep);white-space:nowrap}
+  .yt-full-link:hover{opacity:.8}
 
   /* ---------- Letra con acordes ENCIMA ---------- */
   .lyrics{font-family:"SFMono-Regular","Consolas","Menlo","Roboto Mono","Courier New",monospace;
@@ -1851,13 +1862,16 @@ function renderYoutube(c){
     cont.innerHTML = `<a class="btn" href="${esc(c.youtube)}" target="_blank" rel="noopener">▶ Ver en YouTube</a>`;
     return;
   }
-  cont.innerHTML = `<button class="btn" onclick="reproducirYoutube('${vid}')">▶ Reproducir video</button>`;
+  cont.innerHTML = `<button class="yt-thumb-btn" onclick="reproducirYoutube('${vid}')">▶ Reproducir</button>`;
 }
 function reproducirYoutube(vid){
+  // El link "Ver completo" se arma con el id (no con la URL original del
+  // admin) para no arrastrar comillas/caracteres raros al atributo onclick.
   document.getElementById("sv-youtube").innerHTML =
-    `<div class="yt-embed-wrap"><iframe src="https://www.youtube-nocookie.com/embed/${vid}?rel=0&autoplay=1" `+
+    `<div class="yt-mini"><div class="yt-embed-wrap"><iframe src="https://www.youtube-nocookie.com/embed/${vid}?rel=0&autoplay=1" `+
     `title="Video de YouTube" loading="lazy" allowfullscreen `+
-    `allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></div>`;
+    `allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></div>`+
+    `<a class="yt-full-link" href="https://youtu.be/${vid}" target="_blank" rel="noopener">Ver completo en YouTube ↗</a></div>`;
 }
 
 // ===================== Vista canción =====================
