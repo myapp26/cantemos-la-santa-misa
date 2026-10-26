@@ -928,15 +928,17 @@ function updateTierBadge(){
   el.style.display="";
 }
 // Funciones "nuevas" (creadas después del lanzamiento original, no parte del
-// set base): "Seleccionar" está disponible desde Freemium en adelante, pero
-// "Guardar selección" y "Selecciones guardadas" siguen reservadas a Premium/
-// admin (definido con Gloria el 17/9/2026, como diferenciador de planes
-// Freemium mensual / Premium anual en Hotmart). El resto de la app (buscador,
-// tamaño de texto, transposición, orden por categoría/alfabético, YouTube)
-// sigue libre en Freemium sin tocar nada de esto.
+// set base): "Seleccionar" está disponible desde Demo en adelante (ampliado
+// el 26/10/2026 -- antes arrancaba en Freemium), pero "Guardar selección" y
+// "Selecciones guardadas" siguen reservadas a Premium/admin/beneficiario
+// (definido con Gloria el 17/9/2026, como diferenciador de planes Freemium
+// mensual / Premium anual en Hotmart -- Demo nunca tuvo acceso a guardar,
+// y sigue sin tenerlo). El resto de la app (buscador, tamaño de texto,
+// transposición, orden por categoría/alfabético, YouTube) sigue libre en
+// Freemium/Demo sin tocar nada de esto.
 function updateFeatureGating(){
   const nivel = nivelEfectivo();
-  const puedeSeleccionar = adminEfectivo() || nivel==="premium" || nivel==="freemium" || nivel==="beneficiario";
+  const puedeSeleccionar = adminEfectivo() || nivel==="premium" || nivel==="freemium" || nivel==="beneficiario" || nivel==="demo";
   const puedeGuardar = adminEfectivo() || nivel==="premium" || nivel==="beneficiario";
   // Descargar en PDF: por ahora solo para la administradora real (no en
   // vista previa de otro rol). Más adelante se habilitará también para
