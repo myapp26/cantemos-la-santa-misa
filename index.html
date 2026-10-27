@@ -1374,6 +1374,30 @@ function parseAcordesPdf(line, semis){
   return {text, chords};
 }
 
+// Calcula cuánto alto (mm) ocuparía una canción si se dibujara completa
+// arrancando en una hoja nueva (yInicial=18, sin separador previo) -- misma
+// secuencia de incrementos de "y" que dibujarCancionPdf(), pero sin dibujar
+// nada y sin pagina() (se asume espacio infinito). Se usa en
+// generarPdfCantos() para decidir, ANTES de dibujar, si hace falta saltar
+// de hoja entera para que la canción no quede partida a la mitad entre dos
+// hojas (pedido de Gloria, 26/10/2026) -- si la canción es más larga que
+// una hoja completa, igual va a paginar a mitad de letra dentro de
+// dibujarCancionPdf(), porque no hay hoja donde entre completa.
+function medirAltoCancionPdf(c, semis){
+  const lineaAlto=5.2, filaAcorde=4.6;
+  let y=18;
+  y+=6; // título
+  const meta=[c.autor,c.categoria].filter(Boolean).join("   ·   ");
+  if(meta) y+=5;
+  if(c.tono) y+=7; else y+=2;
+  (c.letra||"").split("\n").forEach(line=>{
+    if(line.startsWith("#")){ y+=lineaAlto; return; }
+    const {chords}=parseAcordesPdf(line, semis);
+    if(chords.length){ y+=filaAcorde+lineaAlto; } else { y+=lineaAlto; }
+  });
+  return y-18;
+}
+
 function nombreArchivoPdf(base){
   const limpio=(base||"cancionero").normalize("NFD").replace(/[̀-ͯ]/g,"")
     .replace(/[^a-zA-Z0-9]+/g,"-").replace(/^-+|-+$/g,"").toLowerCase();
@@ -1381,13 +1405,18 @@ function nombreArchivoPdf(base){
 }
 
 // Dibuja una canción en la página actual del doc, a partir de yInicial (las
-// canciones van seguidas, no una por hoja -- ver generarPdfCantos()). Pagina
-// sola si la letra no entra completa.
+// canciones van seguidas, no una por hoja -- ver generarPdfCantos()).
 // yInicial: donde empieza esta canción (18 = arriba de hoja nueva; más que
 // eso = sigue justo abajo de la canción anterior, en el mismo documento).
 // Devuelve el y final, para que la próxima canción continúe desde ahí --
 // así "Descargar categoría/selección en PDF" arma un solo escrito corrido
 // (como pidió Gloria el 17/10/2026) en vez de una canción por hoja.
+// Nota (26/10/2026): esta función en sí todavía puede paginar una canción a
+// mitad de la letra si no entra ni en una hoja completa -- es inevitable
+// para una canción muy larga. Lo que ya NO pasa es que una canción se corte
+// a la mitad solo porque quedaba poco espacio en la hoja anterior: eso lo
+// evita generarPdfCantos() saltando de hoja entera ANTES de llamar a esta
+// función, calculando el alto con medirAltoCancionPdf().
 function dibujarCancionPdf(doc, c, margenX, anchoUtil, charW, semis, altoHoja, yInicial){
   const margenInf=16, lineaAlto=5.2, filaAcorde=4.6;
   let y=yInicial;
@@ -1472,9 +1501,20 @@ async function generarPdfCantos(lista, nombreArchivo, semis){
   const charW = doc.getTextWidth("0"); // Courier es monoespaciada: cada caracter mide lo mismo.
   // Escrito corrido: las canciones van una seguida de otra (separadas por una
   // línea y su título/autor/tono), no una por hoja -- para que se pueda
-  // copiar/editar después como un solo documento continuo.
+  // copiar/editar después como un solo documento continuo. Eso sí, ninguna
+  // canción queda partida a la mitad solo por quedarle poco espacio a la
+  // hoja actual (pedido de Gloria, 26/10/2026): antes de dibujar cada una,
+  // se mide cuánto ocuparía completa (medirAltoCancionPdf()) y, si no entra
+  // en lo que queda de la hoja, se salta de hoja entera primero.
+  const margenInf = 16;
   let y = 18;
   listaFinal.forEach(c=>{
+    if(y > 18){
+      const altura = medirAltoCancionPdf(c, semis||0);
+      const separadorAlto = 10; // 3 + 7, ver el separador dentro de dibujarCancionPdf()
+      const espacioRestante = altoHoja - margenInf - y;
+      if(espacioRestante - separadorAlto < altura){ doc.addPage(); y = 18; }
+    }
     y = dibujarCancionPdf(doc, c, margenX, anchoUtil, charW, semis||0, altoHoja, y);
   });
   doc.save(nombreArchivo);
