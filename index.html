@@ -650,15 +650,22 @@
   </div>
 </div>
 
-<!-- Modal tamaño de letra del PDF (27/10/2026) -->
+<!-- Modal tamaño de letra + acordes del PDF (27/10/2026, extendido
+     28/10/2026 para agregar el paso "con acordes / solo letra" al mismo
+     cuadro -- pedido de Gloria: "mismo cuadro, un paso más" en vez de un
+     cuadro separado) -->
 <div class="modal" id="pdfTamanoModal">
   <div class="sheet">
-    <h2>Tamaño de letra del PDF</h2>
-    <div class="sub">Se aplica a toda la letra y los acordes del archivo que vas a generar.</div>
-    <div class="btn-row" style="flex-direction:column;align-items:stretch">
+    <h2 id="pdfModalTitulo">Tamaño de letra del PDF</h2>
+    <div class="sub" id="pdfModalSub">Se aplica a toda la letra y los acordes del archivo que vas a generar.</div>
+    <div class="btn-row" id="pdfPasoTamano" style="flex-direction:column;align-items:stretch">
       <button class="btn" onclick="elegirTamanoPdf('chico')">Chico</button>
       <button class="btn" onclick="elegirTamanoPdf('mediano')">Mediano (recomendado)</button>
       <button class="btn" onclick="elegirTamanoPdf('grande')">Grande</button>
+    </div>
+    <div class="btn-row" id="pdfPasoAcordes" style="display:none;flex-direction:column;align-items:stretch">
+      <button class="btn" onclick="elegirAcordesPdf(true)">Con acordes</button>
+      <button class="btn" onclick="elegirAcordesPdf(false)">Solo letra (sin acordes)</button>
     </div>
     <div class="btn-row">
       <button class="btn" onclick="cancelarTamanoPdf()">Cancelar</button>
@@ -1462,7 +1469,7 @@ function wrapTextoConAcordes(text, chords, maxChars){
 // dibujarCancionPdf(), porque no hay columna donde entre completa.
 // maxChars: caracteres que entran por renglón en la columna (para que la
 // altura contemple las líneas largas que se parten en varios renglones).
-function medirAltoCancionPdf(c, semis, tam, maxChars, anchoColMm){
+function medirAltoCancionPdf(c, semis, tam, maxChars, anchoColMm, conAcordes){
   const {lineaAlto, filaAcorde, tituloAlto, metaAlto, tonoAlto, sinTonoAlto} = metricasPdf(tam);
   let y=18;
   y += tituloAlto * Math.max(1, tituloLineas(c.titulo||"", tam, anchoColMm));
@@ -1471,7 +1478,8 @@ function medirAltoCancionPdf(c, semis, tam, maxChars, anchoColMm){
   if(c.tono) y+=tonoAlto; else y+=sinTonoAlto;
   (c.letra||"").split("\n").forEach(line=>{
     if(line.startsWith("#")){ y+=lineaAlto; return; }
-    const {text, chords}=parseAcordesPdf(line, semis);
+    const {text, chords: chordsRaw}=parseAcordesPdf(line, semis);
+    const chords = conAcordes===false ? [] : chordsRaw;
     const renglones = wrapTextoConAcordes(text, chords, maxChars);
     renglones.forEach(r=>{ y += r.chords.length ? (filaAcorde+lineaAlto) : lineaAlto; });
   });
@@ -1518,7 +1526,7 @@ function nombreArchivoPdf(base){
 // de su propio contenido -- inevitable, no hay ninguna hoja donde entre
 // completa (mismo caso ya documentado desde el 26/10/2026, ahora medido en
 // unidades de hoja completa en vez de columna).
-function dibujarCancionPdf(doc, c, colXs, anchoCol, charW, semis, altoHoja, estadoInicial, tam, maxChars){
+function dibujarCancionPdf(doc, c, colXs, anchoCol, charW, semis, altoHoja, estadoInicial, tam, maxChars, conAcordes){
   const margenInf=16;
   const {lineaAlto, filaAcorde, tituloAlto, metaAlto, tonoAlto, sinTonoAlto} = metricasPdf(tam);
   let colIdx = estadoInicial.colIdx, y = estadoInicial.y;
@@ -1569,7 +1577,8 @@ function dibujarCancionPdf(doc, c, colXs, anchoCol, charW, semis, altoHoja, esta
       doc.setTextColor(20); y+=lineaAlto;
       return;
     }
-    const {text, chords}=parseAcordesPdf(line, semis);
+    const {text, chords: chordsRaw}=parseAcordesPdf(line, semis);
+    const chords = conAcordes===false ? [] : chordsRaw;
     const renglones = wrapTextoConAcordes(text, chords, maxChars);
     renglones.forEach(r=>{
       if(r.chords.length){
@@ -1594,6 +1603,11 @@ function dibujarCancionPdf(doc, c, colXs, anchoCol, charW, semis, altoHoja, esta
 // descargas por categoría/selección siempre usan el tono original, semis=0).
 // tamanoKey: "chico"/"mediano"/"grande", elegido por Gloria en el modal
 // #pdfTamanoModal (27/10/2026) -- "mediano" si no se especifica.
+// conAcordes: true/false, elegido en el mismo modal (28/10/2026, pedido de
+// Gloria) -- false = "Solo letra": se omiten los acordes tanto al medir
+// (medirAltoCancionPdf) como al dibujar (dibujarCancionPdf), pasando un
+// array de acordes vacío a wrapTextoConAcordes en ambas. true (o cualquier
+// otro valor) si no se especifica, para no romper llamadas/tests viejos.
 //
 // Layout a dos columnas por hoja, margen angosto (28/10/2026, pedido de
 // Gloria). Se aplica a las tres descargas (canción actual, categoría y
@@ -1607,7 +1621,7 @@ function dibujarCancionPdf(doc, c, colXs, anchoCol, charW, semis, altoHoja, esta
 // siguiente: si no entra completa en lo que queda de la hoja actual (lo que
 // resta de la columna actual, más la columna siguiente si todavía no se
 // usó en esta hoja), se salta de hoja entera antes de empezarla.
-async function generarPdfCantos(lista, nombreArchivo, semis, tamanoKey){
+async function generarPdfCantos(lista, nombreArchivo, semis, tamanoKey, conAcordes){
   if(!lista.length){ toast("No hay canciones para generar el PDF"); return; }
   if(!(window.jspdf && window.jspdf.jsPDF)){ toast("No se pudo cargar el generador de PDF"); return; }
   // Si alguna es restringida y su letra todavía no llegó a este dispositivo
@@ -1640,7 +1654,7 @@ async function generarPdfCantos(lista, nombreArchivo, semis, tamanoKey){
 
   let estado = {colIdx: 0, y: 18};
   listaFinal.forEach(c=>{
-    const altura = medirAltoCancionPdf(c, semis||0, tam, maxChars, anchoCol);
+    const altura = medirAltoCancionPdf(c, semis||0, tam, maxChars, anchoCol, conAcordes);
     const separadorAlto = estado.y > 18 ? 10 : 0; // 3 + 7, ver el separador dentro de dibujarCancionPdf()
     const colsRestantesEnEstaHoja = (colXs.length - 1) - estado.colIdx; // columnas completas todavía sin usar en esta hoja
     const espacioRestanteHoja = (altoHoja - margenInf - estado.y) + colsRestantesEnEstaHoja * altoColCompleta;
@@ -1648,7 +1662,7 @@ async function generarPdfCantos(lista, nombreArchivo, semis, tamanoKey){
       doc.addPage();
       estado = {colIdx: 0, y: 18};
     }
-    estado = dibujarCancionPdf(doc, c, colXs, anchoCol, charW, semis||0, altoHoja, estado, tam, maxChars);
+    estado = dibujarCancionPdf(doc, c, colXs, anchoCol, charW, semis||0, altoHoja, estado, tam, maxChars, conAcordes);
   });
 
   // Línea divisoria angosta entre las dos columnas, en cada hoja del PDF.
@@ -1666,39 +1680,59 @@ async function generarPdfCantos(lista, nombreArchivo, semis, tamanoKey){
   }
 }
 
-// Antes de generar cualquier PDF, se pide el tamaño de letra con el modal
-// #pdfTamanoModal (27/10/2026, pedido de Gloria) -- pdfTamanoCallback guarda
-// qué PDF generar una vez que elige, y se limpia al elegir o al cancelar.
+// Antes de generar cualquier PDF, se pide el tamaño de letra y si va con
+// acordes o solo letra, en el mismo modal #pdfTamanoModal -- dos pasos
+// dentro del mismo cuadro (27/10/2026 el tamaño, extendido 28/10/2026 con
+// el paso de acordes, pedido de Gloria: "mismo cuadro, un paso más" en vez
+// de un cuadro separado antes o después). pdfTamanoCallback guarda qué PDF
+// generar una vez que se eligieron ambos; pdfTamanoElegido guarda el
+// tamaño ya elegido mientras se muestra el segundo paso. Todo se limpia al
+// terminar el segundo paso o al cancelar en cualquiera de los dos.
 let pdfTamanoCallback = null;
+let pdfTamanoElegido = null;
 function pedirTamanoPdf(callback){
   pdfTamanoCallback = callback;
+  pdfTamanoElegido = null;
+  document.getElementById("pdfModalTitulo").textContent = "Tamaño de letra del PDF";
+  document.getElementById("pdfModalSub").textContent = "Se aplica a toda la letra y los acordes del archivo que vas a generar.";
+  document.getElementById("pdfPasoTamano").style.display = "";
+  document.getElementById("pdfPasoAcordes").style.display = "none";
   openModal("pdfTamanoModal");
 }
 function elegirTamanoPdf(tamanoKey){
+  pdfTamanoElegido = tamanoKey;
+  document.getElementById("pdfModalTitulo").textContent = "¿Con acordes o solo letra?";
+  document.getElementById("pdfModalSub").textContent = "Elegí si el PDF incluye los acordes arriba de cada línea o solo el texto de la canción.";
+  document.getElementById("pdfPasoTamano").style.display = "none";
+  document.getElementById("pdfPasoAcordes").style.display = "";
+}
+function elegirAcordesPdf(conAcordes){
   closeModal("pdfTamanoModal");
-  const cb = pdfTamanoCallback; pdfTamanoCallback = null;
-  if(cb) cb(tamanoKey);
+  const cb = pdfTamanoCallback, tamanoKey = pdfTamanoElegido;
+  pdfTamanoCallback = null; pdfTamanoElegido = null;
+  if(cb) cb(tamanoKey, conAcordes);
 }
 function cancelarTamanoPdf(){
   pdfTamanoCallback = null;
+  pdfTamanoElegido = null;
   closeModal("pdfTamanoModal");
 }
 
 function descargarPdfCancionActual(){
   if(!current) return;
-  pedirTamanoPdf(tamanoKey=>generarPdfCantos([current], nombreArchivoPdf(current.titulo), semis, tamanoKey));
+  pedirTamanoPdf((tamanoKey, conAcordes)=>generarPdfCantos([current], nombreArchivoPdf(current.titulo), semis, tamanoKey, conAcordes));
 }
 function descargarPdfCategoria(cat){
-  pedirTamanoPdf(tamanoKey=>{
+  pedirTamanoPdf((tamanoKey, conAcordes)=>{
     const lista = DATA.canciones.filter(c=>c.categoria===cat && visibleParaListado(c));
-    generarPdfCantos(lista, nombreArchivoPdf(cat), 0, tamanoKey);
+    generarPdfCantos(lista, nombreArchivoPdf(cat), 0, tamanoKey, conAcordes);
   });
 }
 function descargarPdfSeleccionActual(){
   if(!selectedIds.size){ toast("No hay cantos seleccionados"); return; }
-  pedirTamanoPdf(tamanoKey=>{
+  pedirTamanoPdf((tamanoKey, conAcordes)=>{
     const lista = DATA.canciones.filter(c=>selectedIds.has(c.id));
-    generarPdfCantos(lista, nombreArchivoPdf(editingSelectionName||"seleccion"), 0, tamanoKey);
+    generarPdfCantos(lista, nombreArchivoPdf(editingSelectionName||"seleccion"), 0, tamanoKey, conAcordes);
   });
 }
 
