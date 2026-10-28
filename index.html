@@ -650,6 +650,22 @@
   </div>
 </div>
 
+<!-- Modal tamaño de letra del PDF (27/10/2026) -->
+<div class="modal" id="pdfTamanoModal">
+  <div class="sheet">
+    <h2>Tamaño de letra del PDF</h2>
+    <div class="sub">Se aplica a toda la letra y los acordes del archivo que vas a generar.</div>
+    <div class="btn-row" style="flex-direction:column;align-items:stretch">
+      <button class="btn" onclick="elegirTamanoPdf('chico')">Chico</button>
+      <button class="btn" onclick="elegirTamanoPdf('mediano')">Mediano (recomendado)</button>
+      <button class="btn" onclick="elegirTamanoPdf('grande')">Grande</button>
+    </div>
+    <div class="btn-row">
+      <button class="btn" onclick="cancelarTamanoPdf()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 <div id="avisoVersion" style="display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;background:#5C3017;color:#FBF8F5;border-radius:12px;padding:12px 14px;box-shadow:0 4px 16px rgba(0,0,0,.25);font-size:14px;line-height:1.35">
   📢 Hay una versión publicada más nueva que tu copia de trabajo en este dispositivo.
@@ -1374,6 +1390,30 @@ function parseAcordesPdf(line, semis){
   return {text, chords};
 }
 
+// Tamaños de letra elegibles antes de descargar un PDF (27/10/2026, pedido
+// de Gloria -- antes el tamaño venía fijo). "mediano" conserva los valores
+// originales del 17/10/2026. metricasPdf() deriva, a partir del tamaño del
+// texto/título elegido, todos los incrementos de alto que antes eran
+// constantes fijas, manteniendo las mismas proporciones de "mediano" -- así
+// dibujarCancionPdf() y medirAltoCancionPdf() miden exactamente lo mismo
+// sin importar el tamaño, y el salto de hoja entera del 26/10/2026 sigue
+// calculando bien.
+const TAMANOS_PDF = {
+  chico:   { titulo:12, meta:8,  texto:9    },
+  mediano: { titulo:14, meta:9,  texto:10.5 },
+  grande:  { titulo:16, meta:10, texto:12   }
+};
+function metricasPdf(tam){
+  return {
+    lineaAlto:   tam.texto * (5.2/10.5),
+    filaAcorde:  tam.texto * (4.6/10.5),
+    tituloAlto:  tam.titulo * (6/14),
+    metaAlto:    tam.meta * (5/9),
+    tonoAlto:    tam.meta * (7/9),
+    sinTonoAlto: tam.meta * (2/9)
+  };
+}
+
 // Calcula cuánto alto (mm) ocuparía una canción si se dibujara completa
 // arrancando en una hoja nueva (yInicial=18, sin separador previo) -- misma
 // secuencia de incrementos de "y" que dibujarCancionPdf(), pero sin dibujar
@@ -1383,13 +1423,13 @@ function parseAcordesPdf(line, semis){
 // hojas (pedido de Gloria, 26/10/2026) -- si la canción es más larga que
 // una hoja completa, igual va a paginar a mitad de letra dentro de
 // dibujarCancionPdf(), porque no hay hoja donde entre completa.
-function medirAltoCancionPdf(c, semis){
-  const lineaAlto=5.2, filaAcorde=4.6;
+function medirAltoCancionPdf(c, semis, tam){
+  const {lineaAlto, filaAcorde, tituloAlto, metaAlto, tonoAlto, sinTonoAlto} = metricasPdf(tam);
   let y=18;
-  y+=6; // título
+  y+=tituloAlto;
   const meta=[c.autor,c.categoria].filter(Boolean).join("   ·   ");
-  if(meta) y+=5;
-  if(c.tono) y+=7; else y+=2;
+  if(meta) y+=metaAlto;
+  if(c.tono) y+=tonoAlto; else y+=sinTonoAlto;
   (c.letra||"").split("\n").forEach(line=>{
     if(line.startsWith("#")){ y+=lineaAlto; return; }
     const {chords}=parseAcordesPdf(line, semis);
@@ -1417,8 +1457,9 @@ function nombreArchivoPdf(base){
 // a la mitad solo porque quedaba poco espacio en la hoja anterior: eso lo
 // evita generarPdfCantos() saltando de hoja entera ANTES de llamar a esta
 // función, calculando el alto con medirAltoCancionPdf().
-function dibujarCancionPdf(doc, c, margenX, anchoUtil, charW, semis, altoHoja, yInicial){
-  const margenInf=16, lineaAlto=5.2, filaAcorde=4.6;
+function dibujarCancionPdf(doc, c, margenX, anchoUtil, charW, semis, altoHoja, yInicial, tam){
+  const margenInf=16;
+  const {lineaAlto, filaAcorde, tituloAlto, metaAlto, tonoAlto, sinTonoAlto} = metricasPdf(tam);
   let y=yInicial;
   function salto(filas){
     if(y + filas*lineaAlto > altoHoja - margenInf){ doc.addPage(); y=18; return true; }
@@ -1435,23 +1476,23 @@ function dibujarCancionPdf(doc, c, margenX, anchoUtil, charW, semis, altoHoja, y
     }
   }
   salto(3);
-  doc.setFont("helvetica","bold"); doc.setFontSize(14); doc.setTextColor(20);
-  doc.text(c.titulo||"", margenX, y); y+=6;
+  doc.setFont("helvetica","bold"); doc.setFontSize(tam.titulo); doc.setTextColor(20);
+  doc.text(c.titulo||"", margenX, y); y+=tituloAlto;
   const meta=[c.autor,c.categoria].filter(Boolean).join("   ·   ");
   if(meta){
-    doc.setFont("helvetica","normal"); doc.setFontSize(9); doc.setTextColor(110);
-    doc.text(meta, margenX, y); y+=5;
+    doc.setFont("helvetica","normal"); doc.setFontSize(tam.meta); doc.setTextColor(110);
+    doc.text(meta, margenX, y); y+=metaAlto;
   }
   const tono = c.tono ? (semis?shiftChord(c.tono,semis):c.tono) : "";
   if(tono){
-    doc.setFont("helvetica","normal"); doc.setFontSize(9); doc.setTextColor(110);
-    doc.text("Tono: "+tono, margenX, y); y+=7;
-  } else { y+=2; }
+    doc.setFont("helvetica","normal"); doc.setFontSize(tam.meta); doc.setTextColor(110);
+    doc.text("Tono: "+tono, margenX, y); y+=tonoAlto;
+  } else { y+=sinTonoAlto; }
   doc.setTextColor(20);
   (c.letra||"").split("\n").forEach(line=>{
     if(line.startsWith("#")){
       salto(1.6);
-      doc.setFont("courier","bold"); doc.setFontSize(10.5); doc.setTextColor(150,55,35);
+      doc.setFont("courier","bold"); doc.setFontSize(tam.texto); doc.setTextColor(150,55,35);
       doc.text(line.replace(/^#\s*/,"").toUpperCase(), margenX, y);
       doc.setTextColor(20); y+=lineaAlto;
       return;
@@ -1459,14 +1500,14 @@ function dibujarCancionPdf(doc, c, margenX, anchoUtil, charW, semis, altoHoja, y
     const {text, chords}=parseAcordesPdf(line, semis);
     if(chords.length){
       salto(2);
-      doc.setFont("courier","bold"); doc.setFontSize(10.5); doc.setTextColor(150,55,35);
+      doc.setFont("courier","bold"); doc.setFontSize(tam.texto); doc.setTextColor(150,55,35);
       chords.forEach(ch=>doc.text(ch.ch, margenX+ch.pos*charW, y));
       doc.setTextColor(20); y+=filaAcorde;
-      doc.setFont("courier","normal"); doc.setFontSize(10.5);
+      doc.setFont("courier","normal"); doc.setFontSize(tam.texto);
       doc.text(text||" ", margenX, y); y+=lineaAlto;
     } else {
       salto(1);
-      doc.setFont("courier","normal"); doc.setFontSize(10.5);
+      doc.setFont("courier","normal"); doc.setFontSize(tam.texto);
       doc.text(text||" ", margenX, y); y+=lineaAlto;
     }
   });
@@ -1476,7 +1517,9 @@ function dibujarCancionPdf(doc, c, margenX, anchoUtil, charW, semis, altoHoja, y
 // lista: array de canciones (objetos DATA.canciones). semis: transposición a
 // aplicar (solo tiene sentido para la canción actual en pantalla -- las
 // descargas por categoría/selección siempre usan el tono original, semis=0).
-async function generarPdfCantos(lista, nombreArchivo, semis){
+// tamanoKey: "chico"/"mediano"/"grande", elegido por Gloria en el modal
+// #pdfTamanoModal (27/10/2026) -- "mediano" si no se especifica.
+async function generarPdfCantos(lista, nombreArchivo, semis, tamanoKey){
   if(!lista.length){ toast("No hay canciones para generar el PDF"); return; }
   if(!(window.jspdf && window.jspdf.jsPDF)){ toast("No se pudo cargar el generador de PDF"); return; }
   // Si alguna es restringida y su letra todavía no llegó a este dispositivo
@@ -1492,13 +1535,14 @@ async function generarPdfCantos(lista, nombreArchivo, semis){
   const listaFinal = lista.filter(c=>c.letra);
   const sinLetra = lista.length - listaFinal.length;
   if(!listaFinal.length){ toast("No se pudo cargar ninguna letra (revisá tu conexión)"); return; }
+  const tam = TAMANOS_PDF[tamanoKey] || TAMANOS_PDF.mediano;
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({unit:"mm", format:"a4"});
   const margenX=18;
   const altoHoja = doc.internal.pageSize.getHeight();
   const anchoUtil = doc.internal.pageSize.getWidth() - margenX*2;
-  doc.setFont("courier","normal"); doc.setFontSize(10.5);
-  const charW = doc.getTextWidth("0"); // Courier es monoespaciada: cada caracter mide lo mismo.
+  doc.setFont("courier","normal"); doc.setFontSize(tam.texto);
+  const charW = doc.getTextWidth("0"); // Courier es monoespaciada: cada caracter mide lo mismo (según el tamaño elegido).
   // Escrito corrido: las canciones van una seguida de otra (separadas por una
   // línea y su título/autor/tono), no una por hoja -- para que se pueda
   // copiar/editar después como un solo documento continuo. Eso sí, ninguna
@@ -1510,12 +1554,12 @@ async function generarPdfCantos(lista, nombreArchivo, semis){
   let y = 18;
   listaFinal.forEach(c=>{
     if(y > 18){
-      const altura = medirAltoCancionPdf(c, semis||0);
+      const altura = medirAltoCancionPdf(c, semis||0, tam);
       const separadorAlto = 10; // 3 + 7, ver el separador dentro de dibujarCancionPdf()
       const espacioRestante = altoHoja - margenInf - y;
       if(espacioRestante - separadorAlto < altura){ doc.addPage(); y = 18; }
     }
-    y = dibujarCancionPdf(doc, c, margenX, anchoUtil, charW, semis||0, altoHoja, y);
+    y = dibujarCancionPdf(doc, c, margenX, anchoUtil, charW, semis||0, altoHoja, y, tam);
   });
   doc.save(nombreArchivo);
   if(sinLetra>0){
@@ -1523,18 +1567,40 @@ async function generarPdfCantos(lista, nombreArchivo, semis){
   }
 }
 
+// Antes de generar cualquier PDF, se pide el tamaño de letra con el modal
+// #pdfTamanoModal (27/10/2026, pedido de Gloria) -- pdfTamanoCallback guarda
+// qué PDF generar una vez que elige, y se limpia al elegir o al cancelar.
+let pdfTamanoCallback = null;
+function pedirTamanoPdf(callback){
+  pdfTamanoCallback = callback;
+  openModal("pdfTamanoModal");
+}
+function elegirTamanoPdf(tamanoKey){
+  closeModal("pdfTamanoModal");
+  const cb = pdfTamanoCallback; pdfTamanoCallback = null;
+  if(cb) cb(tamanoKey);
+}
+function cancelarTamanoPdf(){
+  pdfTamanoCallback = null;
+  closeModal("pdfTamanoModal");
+}
+
 function descargarPdfCancionActual(){
   if(!current) return;
-  generarPdfCantos([current], nombreArchivoPdf(current.titulo), semis);
+  pedirTamanoPdf(tamanoKey=>generarPdfCantos([current], nombreArchivoPdf(current.titulo), semis, tamanoKey));
 }
 function descargarPdfCategoria(cat){
-  const lista = DATA.canciones.filter(c=>c.categoria===cat && visibleParaListado(c));
-  generarPdfCantos(lista, nombreArchivoPdf(cat));
+  pedirTamanoPdf(tamanoKey=>{
+    const lista = DATA.canciones.filter(c=>c.categoria===cat && visibleParaListado(c));
+    generarPdfCantos(lista, nombreArchivoPdf(cat), 0, tamanoKey);
+  });
 }
 function descargarPdfSeleccionActual(){
   if(!selectedIds.size){ toast("No hay cantos seleccionados"); return; }
-  const lista = DATA.canciones.filter(c=>selectedIds.has(c.id));
-  generarPdfCantos(lista, nombreArchivoPdf(editingSelectionName||"seleccion"));
+  pedirTamanoPdf(tamanoKey=>{
+    const lista = DATA.canciones.filter(c=>selectedIds.has(c.id));
+    generarPdfCantos(lista, nombreArchivoPdf(editingSelectionName||"seleccion"), 0, tamanoKey);
+  });
 }
 
 // ===================== Render índice =====================
