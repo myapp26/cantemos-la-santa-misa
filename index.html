@@ -1497,65 +1497,75 @@ function nombreArchivoPdf(base){
   return (limpio||"cancionero")+".pdf";
 }
 
-// Dibuja una canción en la columna actual del doc, a partir de yInicial (las
-// canciones van seguidas dentro de la misma columna, no una por hoja/columna
-// -- ver generarPdfCantos()). margenX/anchoUtil ahora son el x y el ancho de
-// UNA columna (desde el 28/10/2026 -- antes eran los de la hoja completa).
-// yInicial: donde empieza esta canción (18 = arriba de columna nueva; más
-// que eso = sigue justo abajo de la canción anterior, en la misma columna).
-// Devuelve el y final, para que la próxima canción continúe desde ahí --
-// así "Descargar categoría/selección en PDF" arma un escrito corrido por
-// columna (como pidió Gloria el 17/10/2026) en vez de una canción por hoja.
-// Nota (26/10/2026, vigente con columnas): esta función en sí todavía puede
-// paginar una canción a mitad de la letra si no entra ni en una columna
-// completa -- es inevitable para una canción muy larga. Lo que ya NO pasa
-// es que una canción se corte a la mitad solo porque quedaba poco espacio
-// en la columna anterior: eso lo evita generarPdfCantos() saltando de
-// columna/hoja entera ANTES de llamar a esta función, calculando el alto
-// con medirAltoCancionPdf().
-function dibujarCancionPdf(doc, c, margenX, anchoUtil, charW, semis, altoHoja, yInicial, tam, maxChars){
+// Dibuja una canción a partir de un estado {colIdx, y} (colIdx: 0=columna
+// izquierda, 1=columna derecha; y: dónde empieza, 18=arriba de una columna
+// nueva). colXs = [x de columna 0, x de columna 1]. Devuelve el estado
+// final {colIdx, y}, para que la próxima canción continúe justo ahí.
+//
+// Flujo tipo "diario" (28/10/2026, ajustado el mismo día tras aclaración de
+// Gloria): dentro de una misma hoja, una canción SÍ puede quedar partida
+// entre la columna izquierda y la derecha -- al llenarse la columna actual,
+// avanzar() pasa a la columna siguiente de la MISMA hoja sin separador ni
+// hoja nueva, igual que el texto de un diario sigue de una columna a la
+// otra. Recién cuando se llena también la última columna de la hoja,
+// avanzar() pasa a una hoja nueva (doc.addPage(), vuelve a la columna 0).
+// Lo que generarPdfCantos() evita ANTES de llamar a esta función (midiendo
+// con medirAltoCancionPdf()) es que una canción quede partida entre el
+// final de una hoja y el principio de la siguiente -- no entre columnas de
+// la misma hoja, que es el flujo normal y esperado.
+// Nota: una canción más larga que una hoja completa (las dos columnas)
+// sigue paginando a mitad de la letra, cruzando a una hoja nueva en medio
+// de su propio contenido -- inevitable, no hay ninguna hoja donde entre
+// completa (mismo caso ya documentado desde el 26/10/2026, ahora medido en
+// unidades de hoja completa en vez de columna).
+function dibujarCancionPdf(doc, c, colXs, anchoCol, charW, semis, altoHoja, estadoInicial, tam, maxChars){
   const margenInf=16;
   const {lineaAlto, filaAcorde, tituloAlto, metaAlto, tonoAlto, sinTonoAlto} = metricasPdf(tam);
-  let y=yInicial;
-  function salto(filas){
-    if(y + filas*lineaAlto > altoHoja - margenInf){ doc.addPage(); y=18; return true; }
+  let colIdx = estadoInicial.colIdx, y = estadoInicial.y;
+  function avanzar(filas){
+    if(y + filas*lineaAlto > altoHoja - margenInf){
+      if(colIdx < colXs.length-1){ colIdx++; y=18; }
+      else { doc.addPage(); colIdx=0; y=18; }
+      return true;
+    }
     return false;
   }
-  // Separador entre una canción y la siguiente (si no arrancamos en el tope
-  // de una columna nueva, esta no es la primera canción de la columna).
+  // Separador entre una canción y la siguiente, solo si seguimos en la
+  // misma columna donde terminó la anterior (si avanzar() nos pasó recién a
+  // una columna/hoja nueva, y ya quedó en 18 y no hace falta separador).
   if(y > 18){
-    if(!salto(2)){
+    if(!avanzar(2)){
       y += 3;
       doc.setDrawColor(195); doc.setLineWidth(0.2);
-      doc.line(margenX, y, margenX+anchoUtil, y);
+      doc.line(colXs[colIdx], y, colXs[colIdx]+anchoCol, y);
       y += 7;
     }
   }
-  const nLineasTitulo = Math.max(1, maxChars ? tituloLineas(c.titulo||"", tam, anchoUtil) : 1);
-  salto(2 + nLineasTitulo);
+  const nLineasTitulo = Math.max(1, maxChars ? tituloLineas(c.titulo||"", tam, anchoCol) : 1);
+  avanzar(2 + nLineasTitulo);
   doc.setFont("helvetica","bold"); doc.setFontSize(tam.titulo); doc.setTextColor(20);
   if(nLineasTitulo>1){
-    doc.text(c.titulo||"", margenX, y, {maxWidth: anchoUtil});
+    doc.text(c.titulo||"", colXs[colIdx], y, {maxWidth: anchoCol});
   } else {
-    doc.text(c.titulo||"", margenX, y);
+    doc.text(c.titulo||"", colXs[colIdx], y);
   }
   y += tituloAlto * nLineasTitulo;
   const meta=[c.autor,c.categoria].filter(Boolean).join("   ·   ");
   if(meta){
     doc.setFont("helvetica","normal"); doc.setFontSize(tam.meta); doc.setTextColor(110);
-    doc.text(meta, margenX, y); y+=metaAlto;
+    doc.text(meta, colXs[colIdx], y); y+=metaAlto;
   }
   const tono = c.tono ? (semis?shiftChord(c.tono,semis):c.tono) : "";
   if(tono){
     doc.setFont("helvetica","normal"); doc.setFontSize(tam.meta); doc.setTextColor(110);
-    doc.text("Tono: "+tono, margenX, y); y+=tonoAlto;
+    doc.text("Tono: "+tono, colXs[colIdx], y); y+=tonoAlto;
   } else { y+=sinTonoAlto; }
   doc.setTextColor(20);
   (c.letra||"").split("\n").forEach(line=>{
     if(line.startsWith("#")){
-      salto(1.6);
+      avanzar(1.6);
       doc.setFont("courier","bold"); doc.setFontSize(tam.texto); doc.setTextColor(150,55,35);
-      doc.text(line.replace(/^#\s*/,"").toUpperCase(), margenX, y);
+      doc.text(line.replace(/^#\s*/,"").toUpperCase(), colXs[colIdx], y);
       doc.setTextColor(20); y+=lineaAlto;
       return;
     }
@@ -1563,20 +1573,20 @@ function dibujarCancionPdf(doc, c, margenX, anchoUtil, charW, semis, altoHoja, y
     const renglones = wrapTextoConAcordes(text, chords, maxChars);
     renglones.forEach(r=>{
       if(r.chords.length){
-        salto(2);
+        avanzar(2);
         doc.setFont("courier","bold"); doc.setFontSize(tam.texto); doc.setTextColor(150,55,35);
-        r.chords.forEach(ch=>doc.text(ch.ch, margenX+ch.pos*charW, y));
+        r.chords.forEach(ch=>doc.text(ch.ch, colXs[colIdx]+ch.pos*charW, y));
         doc.setTextColor(20); y+=filaAcorde;
         doc.setFont("courier","normal"); doc.setFontSize(tam.texto);
-        doc.text(r.text||" ", margenX, y); y+=lineaAlto;
+        doc.text(r.text||" ", colXs[colIdx], y); y+=lineaAlto;
       } else {
-        salto(1);
+        avanzar(1);
         doc.setFont("courier","normal"); doc.setFontSize(tam.texto);
-        doc.text(r.text||" ", margenX, y); y+=lineaAlto;
+        doc.text(r.text||" ", colXs[colIdx], y); y+=lineaAlto;
       }
     });
   });
-  return y;
+  return {colIdx, y};
 }
 
 // lista: array de canciones (objetos DATA.canciones). semis: transposición a
@@ -1586,18 +1596,17 @@ function dibujarCancionPdf(doc, c, margenX, anchoUtil, charW, semis, altoHoja, y
 // #pdfTamanoModal (27/10/2026) -- "mediano" si no se especifica.
 //
 // Layout a dos columnas por hoja, margen angosto (28/10/2026, pedido de
-// Gloria -- antes una sola columna con margen de 18mm). Se aplica a las tres
-// descargas (canción actual, categoría y selección), porque algunas
-// canciones individuales vienen muy largas y también se benefician de
-// aprovechar mejor el ancho de la hoja. Relleno de columnas tipo "diario":
-// se llena la columna izquierda de arriba a abajo, después la derecha, y
-// recién ahí se pasa a una hoja nueva -- nunca se parte una canción entre
-// columnas/hojas solo porque quedaba poco espacio (medirAltoCancionPdf()
-// calcula el alto completo ANTES de dibujar). Si una canción es más larga
-// que una columna entera, se le da una hoja nueva completa para que
-// arranque en la columna izquierda y pueda paginar internamente sin mezclar
-// contenido con la canción anterior; la próxima canción sigue en la columna
-// derecha de esa misma última hoja.
+// Gloria). Se aplica a las tres descargas (canción actual, categoría y
+// selección), porque algunas canciones individuales también vienen muy
+// largas. Flujo tipo "diario", ajustado el mismo 28/10/2026 tras aclaración
+// de Gloria: una canción SÍ puede quedar partida entre la columna izquierda
+// y la derecha de una misma hoja (dibujarCancionPdf() lo hace solo, vía
+// avanzar() -- ver su comentario arriba). Lo que generarPdfCantos() evita
+// acá, midiendo con medirAltoCancionPdf() ANTES de dibujar, es que una
+// canción quede partida entre el final de una hoja y el principio de la
+// siguiente: si no entra completa en lo que queda de la hoja actual (lo que
+// resta de la columna actual, más la columna siguiente si todavía no se
+// usó en esta hoja), se salta de hoja entera antes de empezarla.
 async function generarPdfCantos(lista, nombreArchivo, semis, tamanoKey){
   if(!lista.length){ toast("No hay canciones para generar el PDF"); return; }
   if(!(window.jspdf && window.jspdf.jsPDF)){ toast("No se pudo cargar el generador de PDF"); return; }
@@ -1622,40 +1631,24 @@ async function generarPdfCantos(lista, nombreArchivo, semis, tamanoKey){
   const altoHoja = doc.internal.pageSize.getHeight();
   const pageWidth = doc.internal.pageSize.getWidth();
   const anchoCol = (pageWidth - margenX*2 - gapCols) / 2;
+  const colXs = [margenX, margenX+anchoCol+gapCols];
   doc.setFont("courier","normal"); doc.setFontSize(tam.texto);
   const charW = doc.getTextWidth("0"); // Courier es monoespaciada: cada caracter mide lo mismo (según el tamaño elegido).
   const maxChars = Math.floor(anchoCol / charW); // caracteres de letra que entran en el ancho de una columna
   const margenInf = 16;
   const altoColCompleta = altoHoja - margenInf - 18; // alto disponible en una columna arrancando desde el tope
 
-  const cols = [ {x: margenX, y: 18}, {x: margenX+anchoCol+gapCols, y: 18} ];
-  let colIdx = 0;
-
+  let estado = {colIdx: 0, y: 18};
   listaFinal.forEach(c=>{
     const altura = medirAltoCancionPdf(c, semis||0, tam, maxChars, anchoCol);
-    if(altura > altoColCompleta){
-      // No entra ni en una columna completa: le damos una hoja nueva entera
-      // (si ya estábamos al tope de una hoja recién empezada y sin usar,
-      // evitamos una hoja en blanco de más).
-      if(!(colIdx===0 && cols[0].y<=18 && cols[1].y<=18)){
-        doc.addPage();
-      }
-      cols[0].y = 18; cols[1].y = 18; colIdx = 0;
-      cols[0].y = dibujarCancionPdf(doc, c, cols[0].x, anchoCol, charW, semis||0, altoHoja, cols[0].y, tam, maxChars);
-      colIdx = 1; // la próxima canción sigue en la columna derecha de esta misma hoja
-      return;
+    const separadorAlto = estado.y > 18 ? 10 : 0; // 3 + 7, ver el separador dentro de dibujarCancionPdf()
+    const colsRestantesEnEstaHoja = (colXs.length - 1) - estado.colIdx; // columnas completas todavía sin usar en esta hoja
+    const espacioRestanteHoja = (altoHoja - margenInf - estado.y) + colsRestantesEnEstaHoja * altoColCompleta;
+    if(espacioRestanteHoja - separadorAlto < altura){
+      doc.addPage();
+      estado = {colIdx: 0, y: 18};
     }
-    let col = cols[colIdx];
-    if(col.y > 18){
-      const separadorAlto = 10; // 3 + 7, ver el separador dentro de dibujarCancionPdf()
-      const espacioRestante = altoHoja - margenInf - col.y;
-      if(espacioRestante - separadorAlto < altura){
-        colIdx++;
-        if(colIdx > 1){ doc.addPage(); cols[0].y=18; cols[1].y=18; colIdx=0; }
-        col = cols[colIdx];
-      }
-    }
-    col.y = dibujarCancionPdf(doc, c, col.x, anchoCol, charW, semis||0, altoHoja, col.y, tam, maxChars);
+    estado = dibujarCancionPdf(doc, c, colXs, anchoCol, charW, semis||0, altoHoja, estado, tam, maxChars);
   });
 
   // Línea divisoria angosta entre las dos columnas, en cada hoja del PDF.
