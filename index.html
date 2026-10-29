@@ -1652,6 +1652,7 @@ async function generarPdfCantos(lista, nombreArchivo, semis, tamanoKey, conAcord
   const margenInf = 16;
   const altoColCompleta = altoHoja - margenInf - 18; // alto disponible en una columna arrancando desde el tope
 
+  const {lineaAlto, filaAcorde, tituloAlto, metaAlto, tonoAlto, sinTonoAlto} = metricasPdf(tam);
   let estado = {colIdx: 0, y: 18};
   listaFinal.forEach(c=>{
     const altura = medirAltoCancionPdf(c, semis||0, tam, maxChars, anchoCol, conAcordes);
@@ -1661,6 +1662,33 @@ async function generarPdfCantos(lista, nombreArchivo, semis, tamanoKey, conAcord
     if(espacioRestanteHoja - separadorAlto < altura){
       doc.addPage();
       estado = {colIdx: 0, y: 18};
+    }
+    // Título "huérfano" al final de una columna (29/10/2026, pedido de Gloria): si
+    // el título de este tema entraría en lo que queda de la columna actual pero
+    // dejaría tan poco espacio que ni una sola línea de letra entraría junto a él
+    // (quedaría solo, con toda la letra recién empezando en la columna siguiente),
+    // se evita ese corte feo. Si el tema completo entra en una columna entera, se
+    // lo manda derecho a la columna siguiente (arranca limpio ahí, título y letra
+    // juntos); si no entra en una columna entera, se lo manda a una hoja nueva en
+    // vez de usar el resto de esta -- porque empezarlo en la última columna de
+    // todas formas lo dejaría necesitando seguir en la hoja siguiente, lo que
+    // rompe la garantía de "nunca partido entre hojas" del 28/10/2026.
+    if(estado.y > 18 && estado.colIdx < colXs.length - 1){
+      const nLineasTitulo = Math.max(1, maxChars ? tituloLineas(c.titulo||"", tam, anchoCol) : 1);
+      const metaTxt = [c.autor, c.categoria].filter(Boolean).join("   ·   ");
+      let cabecera = tituloAlto * nLineasTitulo;
+      if(metaTxt) cabecera += metaAlto;
+      cabecera += c.tono ? tonoAlto : sinTonoAlto;
+      const minimoSinHuerfano = cabecera + (filaAcorde + lineaAlto); // cabecera + 1 línea de letra (caso más exigente, con acorde)
+      const espacioColumnaActual = (altoHoja - margenInf - estado.y) - separadorAlto;
+      if(espacioColumnaActual < minimoSinHuerfano){
+        if(altura <= altoColCompleta){
+          estado = {colIdx: estado.colIdx + 1, y: 18};
+        } else {
+          doc.addPage();
+          estado = {colIdx: 0, y: 18};
+        }
+      }
     }
     estado = dibujarCancionPdf(doc, c, colXs, anchoCol, charW, semis||0, altoHoja, estado, tam, maxChars, conAcordes);
   });
