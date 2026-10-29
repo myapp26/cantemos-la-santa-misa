@@ -1130,6 +1130,40 @@ async function submitGateKey(){
   btn.disabled=false; btn.textContent="Activar";
 }
 
+// Revalida la clave activada contra Supabase, sin bloquear la app mientras
+// tanto (se sigue confiando en el último estado conocido si no hay señal).
+// Separada de initAccessGate() el 29/10/2026 para poder llamarla también
+// cada vez que la app vuelve a primer plano (ver el bloque de
+// "visibilitychange" más abajo) -- antes el rol/nivel solo se revalidaba en
+// la carga inicial de la página. Un celular que reabre el ícono de la PWA
+// muchas veces NO hace una recarga completa (retoma la misma pestaña
+// suspendida en segundo plano), así que ese celular podía quedarse
+// mostrando un rol/nivel viejo (ej. "Freemium" en vez de admin, tras una
+// reactivación o un cambio de tier en Supabase) hasta un cierre y apertura
+// completos de la app -- Gloria lo notó en su propio celular de
+// administradora. El contenido (canciones.js) ya se revisaba en cada
+// primer plano desde antes (ver revisarCancionesActualizado()); esto aplica
+// el mismo criterio al rol de acceso.
+async function revalidarAcceso(){
+  const access = loadAccess();
+  if(!access) return; // nadie activó ninguna clave en este dispositivo -- nada que revalidar
+  try{
+    const result = await callValidate(access.key, access.token);
+    if(!result.ok){
+      clearAccess();
+      aplicarRolAdmin();
+      showGate(GATE_MESSAGES[result.reason] || "Se perdió el acceso. Ingresá tu clave de nuevo.");
+    } else {
+      // El servidor solo manda token nuevo en la primera activación/revinculación;
+      // si no vino, conservamos el que ya teníamos guardado.
+      saveAccess({key: access.key, token: result.token || access.token, is_admin: result.is_admin===true, tier: result.tier || access.tier});
+      aplicarRolAdmin();
+    }
+  }catch(e){
+    // Sin conexión: no bloqueamos, seguimos con el último estado válido.
+  }
+}
+
 async function initAccessGate(){
   const params = new URLSearchParams(location.search);
   const prefill = params.get("key");
@@ -1155,21 +1189,7 @@ async function initAccessGate(){
   // el último estado válido conocido (incluido el rol de admin cacheado).
   hideGate();
   aplicarRolAdmin();
-  try{
-    const result = await callValidate(access.key, access.token);
-    if(!result.ok){
-      clearAccess();
-      aplicarRolAdmin();
-      showGate(GATE_MESSAGES[result.reason] || "Se perdió el acceso. Ingresá tu clave de nuevo.");
-    } else {
-      // El servidor solo manda token nuevo en la primera activación; si no
-      // vino, conservamos el que ya teníamos guardado.
-      saveAccess({key: access.key, token: result.token || access.token, is_admin: result.is_admin===true, tier: result.tier || access.tier});
-      aplicarRolAdmin();
-    }
-  }catch(e){
-    // Sin conexión: no bloqueamos, seguimos con el último estado válido.
-  }
+  await revalidarAcceso();
 }
 document.getElementById("gate-key").addEventListener("keydown", e=>{ if(e.key==="Enter") submitGateKey(); });
 
@@ -2638,6 +2658,7 @@ if("serviceWorker" in navigator){
       if(document.visibilityState==="visible"){
         reg.update().catch(()=>{});
         revisarCancionesActualizado();
+        revalidarAcceso();
         precargarLetrasRestringidas();
       }
     });
@@ -2653,6 +2674,7 @@ if("serviceWorker" in navigator){
   document.addEventListener("visibilitychange", ()=>{
     if(document.visibilityState==="visible"){
       revisarCancionesActualizado();
+      revalidarAcceso();
       precargarLetrasRestringidas();
     }
   });
