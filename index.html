@@ -1776,10 +1776,22 @@ function descargarPdfCategoria(cat){
     generarPdfCantos(lista, nombreArchivoPdf(cat), 0, tamanoKey, conAcordes);
   });
 }
+// Orden litúrgico para el PDF de selección (armar el repertorio de la misa en orden de uso).
+// Lo que no está en esta lista cae al final, conservando su orden relativo original.
+const ORDEN_MISA_PDF = ["Entrada","Piedad","Aclamación del Evangelio","Ofertorio","Santo","Cordero de Dios","Cantos de Comunión","Cantos a la Virgen María"];
+function posMisa(categoria){
+  const i = ORDEN_MISA_PDF.indexOf(categoria);
+  return i===-1 ? ORDEN_MISA_PDF.length : i;
+}
+function ordenarParaMisa(lista){
+  return lista.map((c,i)=>({c,i}))
+    .sort((a,b)=> posMisa(a.c.categoria)-posMisa(b.c.categoria) || a.i-b.i)
+    .map(x=>x.c);
+}
 function descargarPdfSeleccionActual(){
   if(!selectedIds.size){ toast("No hay cantos seleccionados"); return; }
   pedirTamanoPdf((tamanoKey, conAcordes)=>{
-    const lista = DATA.canciones.filter(c=>selectedIds.has(c.id));
+    const lista = ordenarParaMisa(DATA.canciones.filter(c=>selectedIds.has(c.id)));
     generarPdfCantos(lista, nombreArchivoPdf(editingSelectionName||"seleccion"), 0, tamanoKey, conAcordes);
   });
 }
