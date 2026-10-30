@@ -1490,12 +1490,13 @@ function wrapTextoConAcordes(text, chords, maxChars){
 // maxChars: caracteres que entran por renglón en la columna (para que la
 // altura contemple las líneas largas que se parten en varios renglones).
 function medirAltoCancionPdf(c, semis, tam, maxChars, anchoColMm, conAcordes){
-  const {lineaAlto, filaAcorde, tituloAlto, metaAlto, tonoAlto, sinTonoAlto} = metricasPdf(tam);
+  const {lineaAlto, filaAcorde, tituloAlto, metaAlto} = metricasPdf(tam);
   let y=18;
   y += tituloAlto * Math.max(1, tituloLineas(c.titulo||"", tam, anchoColMm));
-  const meta=[c.autor,c.categoria].filter(Boolean).join("   ·   ");
+  // Sin autor ni tono en el PDF (30/10/2026, pedido de Gloria): solo título,
+  // categoría (si tiene) y letra -- ver dibujarCancionPdf() para el detalle.
+  const meta=c.categoria||"";
   if(meta) y+=metaAlto;
-  if(c.tono) y+=tonoAlto; else y+=sinTonoAlto;
   (c.letra||"").split("\n").forEach(line=>{
     if(line.startsWith("#")){ y+=lineaAlto; return; }
     const {text, chords: chordsRaw}=parseAcordesPdf(line, semis);
@@ -1548,7 +1549,7 @@ function nombreArchivoPdf(base){
 // unidades de hoja completa en vez de columna).
 function dibujarCancionPdf(doc, c, colXs, anchoCol, charW, semis, altoHoja, estadoInicial, tam, maxChars, conAcordes){
   const margenInf=16;
-  const {lineaAlto, filaAcorde, tituloAlto, metaAlto, tonoAlto, sinTonoAlto} = metricasPdf(tam);
+  const {lineaAlto, filaAcorde, tituloAlto, metaAlto} = metricasPdf(tam);
   let colIdx = estadoInicial.colIdx, y = estadoInicial.y;
   function avanzar(filas){
     if(y + filas*lineaAlto > altoHoja - margenInf){
@@ -1578,16 +1579,15 @@ function dibujarCancionPdf(doc, c, colXs, anchoCol, charW, semis, altoHoja, esta
     doc.text(c.titulo||"", colXs[colIdx], y);
   }
   y += tituloAlto * nLineasTitulo;
-  const meta=[c.autor,c.categoria].filter(Boolean).join("   ·   ");
+  // Sin autor ni tono en el PDF (30/10/2026, pedido de Gloria): solo título,
+  // categoría (si tiene) y letra. El transporte (semis) se sigue aplicando
+  // a los acordes de la letra más abajo -- solo se dejó de mostrar la línea
+  // "Tono: X".
+  const meta=c.categoria||"";
   if(meta){
     doc.setFont("helvetica","normal"); doc.setFontSize(tam.meta); doc.setTextColor(110);
     doc.text(meta, colXs[colIdx], y); y+=metaAlto;
   }
-  const tono = c.tono ? (semis?shiftChord(c.tono,semis):c.tono) : "";
-  if(tono){
-    doc.setFont("helvetica","normal"); doc.setFontSize(tam.meta); doc.setTextColor(110);
-    doc.text("Tono: "+tono, colXs[colIdx], y); y+=tonoAlto;
-  } else { y+=sinTonoAlto; }
   doc.setTextColor(20);
   (c.letra||"").split("\n").forEach(line=>{
     if(line.startsWith("#")){
@@ -1672,7 +1672,7 @@ async function generarPdfCantos(lista, nombreArchivo, semis, tamanoKey, conAcord
   const margenInf = 16;
   const altoColCompleta = altoHoja - margenInf - 18; // alto disponible en una columna arrancando desde el tope
 
-  const {lineaAlto, filaAcorde, tituloAlto, metaAlto, tonoAlto, sinTonoAlto} = metricasPdf(tam);
+  const {lineaAlto, filaAcorde, tituloAlto, metaAlto} = metricasPdf(tam);
   let estado = {colIdx: 0, y: 18};
   listaFinal.forEach(c=>{
     const altura = medirAltoCancionPdf(c, semis||0, tam, maxChars, anchoCol, conAcordes);
@@ -1695,10 +1695,9 @@ async function generarPdfCantos(lista, nombreArchivo, semis, tamanoKey, conAcord
     // rompe la garantía de "nunca partido entre hojas" del 28/10/2026.
     if(estado.y > 18 && estado.colIdx < colXs.length - 1){
       const nLineasTitulo = Math.max(1, maxChars ? tituloLineas(c.titulo||"", tam, anchoCol) : 1);
-      const metaTxt = [c.autor, c.categoria].filter(Boolean).join("   ·   ");
+      const metaTxt = c.categoria||""; // sin autor ni tono en el PDF desde el 30/10/2026
       let cabecera = tituloAlto * nLineasTitulo;
       if(metaTxt) cabecera += metaAlto;
-      cabecera += c.tono ? tonoAlto : sinTonoAlto;
       const minimoSinHuerfano = cabecera + (filaAcorde + lineaAlto); // cabecera + 1 línea de letra (caso más exigente, con acorde)
       const espacioColumnaActual = (altoHoja - margenInf - estado.y) - separadorAlto;
       if(espacioColumnaActual < minimoSinHuerfano){
