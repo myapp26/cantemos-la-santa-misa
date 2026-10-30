@@ -2,7 +2,7 @@
 //  CANCIONES — Generado automáticamente desde la app.
 //  Este archivo es la "semilla" que reciben todos los que
 //  instalan la app desde tu enlace de Netlify.
-//  Generado: 30/10/2026, 3:51:01 p.m.
+//  Generado: 30/10/2026, 5:10:14 p.m.
 // ============================================================
 
 const CATEGORIAS = ["Entrada","Piedad","Aclamación del Evangelio","Ofertorio","Santo","Cordero de Dios","Cantos de Comunión","Cantos a la Virgen María","Evangelio - sin Aleluya","Vocacionales y Mision","Alabanzas","De Adoración","Fiestas/ Solemnidades","Temas Biblicos","Adviento","Cuaresma","Semana Santa","Pascua y Resurrección","Pentecostés","Cantos para Niños","Misa por los Difuntos","Evangelio - Aleluya"];
@@ -3054,7 +3054,7 @@ const CANCIONES = [
     "id": "aleluya-al-senor",
     "titulo": "Aleluya al Señor",
     "autor": "Música Católica",
-    "categoria": "Evangelio - Aleluya",
+    "categoria": "Aclamación del Evangelio",
     "tono": "Re",
     "letra": "[Re][La]/Aleluya al Señor, [Sol][Re]aleluya./\n\n# Estrofa\nOh Señor que los pueblos te celebren\nque los pueblos te aclamen todos juntos\n/Aleluya al Señor, Aleluya./",
     "youtube": "",
@@ -3096,6 +3096,19 @@ const CANCIONES = [
     "categoria": "Cantos a la Virgen María",
     "tono": "",
     "letra": "A María, Hija de Dios Padre\na María, Madre del Señor\na María, Esposa del Espíritu,\nalabanzas, honor y bendición.\nNueva Eva, desde antes figurada,\nanunciada y proclamada en la escala de Jacob.\nDe verdad, arca nueva de la alianza,\nSagrario inmaculado que lleva al Redentor\nEl Espíritu Santo poderoso\nviniendo sobre Ti, con su amor te fecundó.\nTe llenó de sus dones y carismas\ne hizo de su esclava la gran Madre de Dios.\nEres Madre de Cristo y de la Iglesia,\nmodelo sin mancilla donde se mira Dios.\nQue nosotros al soplo del Espíritu,\nseamos como Tú, espejos del Señor.",
+    "youtube": "",
+    "restriccion": "",
+    "premium": false,
+    "bloqueada": false,
+    "demo": false
+  },
+  {
+    "id": "cordero-de-dios-83",
+    "titulo": "Cordero de Dios",
+    "autor": "Tradicional",
+    "categoria": "Cordero de Dios",
+    "tono": "Do",
+    "letra": "Cordero de Dios que quitas\nel pecado del mundo, el pecado del mundo.\n\nTen piedad, Señor, ten piedad\nde nosotros Señor, ten piedad\n\nTen piedad, Señor, ten piedad\nde nosotros y danos la paz\n",
     "youtube": "",
     "restriccion": "",
     "premium": false,
