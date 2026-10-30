@@ -2525,13 +2525,25 @@ function importMergeData(ev){
       const items=Array.isArray(parsed)?parsed:parsed.canciones;
       if(!Array.isArray(items)) throw 0;
       let updates=0, nuevos=0;
+      // Categorías que traería este archivo y que HOY no están en DATA.categorias
+      // -- puede ser una categoría legítimamente nueva, o una que Gloria borró a
+      // propósito desde el editor de categorías (ver saveCats()) y que, sin este
+      // aviso, el merge resucitaría en silencio. Avisar antes de fusionar (30/10/2026,
+      // bug real: una categoría duplicada que Gloria había eliminado volvió a
+      // aparecer sola tras fusionar un canto que la mencionaba).
+      const categoriasNuevas=[...new Set(
+        items.filter(item=>item && item.id && !DATA.canciones.some(c=>c.id===item.id) && item.titulo && item.categoria && !DATA.categorias.includes(item.categoria))
+          .map(item=>item.categoria)
+      )];
       items.forEach(item=>{
         if(!item||!item.id) return;
         if(DATA.canciones.some(c=>c.id===item.id)) updates++;
         else if(item.titulo) nuevos++;
       });
       if(updates===0 && nuevos===0){toast("Nada para fusionar en ese archivo");ev.target.value="";return;}
-      if(!confirm(`Se actualizarán ${updates} cantos existentes (acordes/tono) y se agregarán ${nuevos} cantos nuevos. ¿Continuar?`)){ev.target.value="";return;}
+      let msg=`Se actualizarán ${updates} cantos existentes (acordes/tono) y se agregarán ${nuevos} cantos nuevos.`;
+      if(categoriasNuevas.length) msg+=`\n\n⚠ Esto también va a CREAR estas categorías (no están en tu lista actual -- si borraste alguna a propósito, cancelá y revisá el archivo antes de fusionar): ${categoriasNuevas.join(", ")}`;
+      if(!confirm(`${msg}\n\n¿Continuar?`)){ev.target.value="";return;}
       items.forEach(item=>{
         if(!item||!item.id) return;
         const existing=DATA.canciones.find(c=>c.id===item.id);
