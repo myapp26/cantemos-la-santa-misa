@@ -642,9 +642,12 @@
 <div class="modal" id="selectionsModal">
   <div class="sheet">
     <h2>Selecciones guardadas</h2>
-    <div class="sub">Guarda y recupera listas de cantos, por ejemplo para armar una misa.</div>
+    <div class="sub">Guarda y recupera listas de cantos, por ejemplo para armar una misa. Las selecciones quedan guardadas solo en este dispositivo/navegador -- exportalas para tener una copia o para pasarlas a otro dispositivo.</div>
     <div class="cat-editor" id="selectionsList"></div>
+    <input type="file" id="selectionsImportFile" accept="application/json,.json" style="display:none" onchange="onImportarSeleccionesFile(event)">
     <div class="btn-row">
+      <button class="btn" onclick="exportarSelecciones()" title="Descargar un archivo con todas tus selecciones guardadas">⬇ Exportar</button>
+      <button class="btn" onclick="document.getElementById('selectionsImportFile').click()" title="Cargar selecciones desde un archivo exportado antes">⬆ Importar</button>
       <button class="btn" onclick="closeModal('selectionsModal')">Cerrar</button>
     </div>
   </div>
@@ -2098,6 +2101,66 @@ function eliminarSeleccionGuardada(i){
   list.splice(i,1);
   saveSelecciones(list);
   renderSavedSelectionsList();
+}
+
+// Exportar/importar selecciones guardadas (30/10/2026, pedido de Gloria):
+// las selecciones viven solo en el localStorage de ESTE dispositivo/origen
+// (ver nota de diseño en LS_SELECCIONES más arriba) -- no se sincronizan
+// entre el celular, el localhost y producción, a diferencia del catálogo de
+// canciones. Esto le pasó factura a Gloria el 30/10/2026: perdió de vista
+// sus selecciones guardadas al pasar de un origen de prueba a otro. Esta
+// exportación/importación es la forma de tener una copia de respaldo y de
+// llevar las selecciones de un dispositivo/origen a otro a mano, ya que no
+// hay (ni está previsto) un backend para esto.
+function exportarSelecciones(){
+  const list=loadSelecciones();
+  if(!list.length){ toast("No hay selecciones guardadas para exportar"); return; }
+  const payload={version:1, exportado:Date.now(), selecciones:list};
+  const blob=new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  const fecha=new Date().toISOString().slice(0,10);
+  a.href=url; a.download=`selecciones-cantemos-${fecha}.json`;
+  document.body.appendChild(a); a.click(); a.remove();
+  URL.revokeObjectURL(url);
+  toast(`${list.length} selección${list.length===1?"":"es"} exportada${list.length===1?"":"s"}`);
+}
+async function onImportarSeleccionesFile(event){
+  const file=event.target.files && event.target.files[0];
+  event.target.value=""; // permite reimportar el mismo archivo más adelante si hace falta
+  if(!file) return;
+  let datos;
+  try{
+    const texto=await file.text();
+    const parsed=JSON.parse(texto);
+    datos = Array.isArray(parsed) ? parsed : (Array.isArray(parsed.selecciones) ? parsed.selecciones : null);
+    if(!datos) throw new Error("formato inesperado");
+  }catch(e){
+    toast("No se pudo leer el archivo: no es un JSON de selecciones válido");
+    return;
+  }
+  // No destructivo (mismo criterio que "Importar y fusionar cantos" del admin,
+  // 16/9/2026): nunca pisa una selección existente sin avisar. Si el nombre ya
+  // existe en este dispositivo, se agrega con un sufijo en vez de sobrescribir.
+  const idsCatalogo=new Set(DATA.canciones.map(c=>c.id));
+  const listActual=loadSelecciones();
+  const nombresActuales=new Set(listActual.map(s=>s.nombre));
+  let importadas=0, idsOmitidos=0;
+  datos.forEach(sel=>{
+    if(!sel || !sel.nombre || !Array.isArray(sel.ids)) return;
+    const idsValidos=sel.ids.filter(id=>idsCatalogo.has(id));
+    idsOmitidos += sel.ids.length - idsValidos.length;
+    if(!idsValidos.length) return;
+    let nombre=sel.nombre, n=2;
+    while(nombresActuales.has(nombre)){ nombre=`${sel.nombre} (${n++})`; }
+    nombresActuales.add(nombre);
+    listActual.push({nombre, ids:idsValidos, creado:Date.now()});
+    importadas++;
+  });
+  if(!importadas){ toast("El archivo no tenía selecciones válidas para importar"); return; }
+  saveSelecciones(listActual);
+  renderSavedSelectionsList();
+  toast(`${importadas} selección${importadas===1?"":"es"} importada${importadas===1?"":"s"}`+(idsOmitidos?` (se omitieron ${idsOmitidos} canto${idsOmitidos===1?"":"s"} que no están en este catálogo)`:""));
 }
 
 // ===================== Botón "atrás" del celular =====================
