@@ -119,7 +119,12 @@ Deno.serve(async (req) => {
   // ve el catalogo completo igual que el admin, incluidas las "privada"
   // (ver el chequeo de solo_admin mas abajo). Ver
   // claude/analisis-tecnico-cancionero.md en el proyecto de Claude.
-  const autorizado = row.is_admin === true || row.tier === "premium" || row.tier === "beneficiario";
+  // "freemium" (2/11/2026): Freemium paso a tener el mismo acceso a
+  // contenido restringido (candado/oculta/premium) que Premium, a pedido
+  // de Gloria -- ver estaBloqueada()/necesitaLetraRemota() en index.html.
+  // "privada" sigue sin incluir a freemium (se filtra aparte mas abajo con
+  // solo_admin, igual que para premium).
+  const autorizado = row.is_admin === true || row.tier === "premium" || row.tier === "freemium" || row.tier === "beneficiario";
   if (!autorizado) {
     return json({ ok: false, reason: "forbidden" }, 403, origin);
   }
