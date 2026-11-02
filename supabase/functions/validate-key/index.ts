@@ -65,6 +65,28 @@ function newToken(): string {
   return crypto.randomUUID().replace(/-/g, "") + crypto.randomUUID().replace(/-/g, "");
 }
 
+// Re-vinculo automatico para claves normales (2/11/2026): un cliente real
+// perdio el acceso en un celular donde ya tenia la clave activada porque el
+// navegador le borro el localStorage (reinstalo la app, limpio datos, el
+// sistema libero espacio) -- el token local desaparecio, pero la persona
+// seguia sabiendo su codigo de clave de memoria. Sin esto, la unica forma
+// de recuperar el acceso era que Gloria corriera `node keys.js unbind` a
+// mano por cada caso, uno por uno, para siempre.
+// Se permite re-vincular sola una clave normal a un dispositivo nuevo, pero
+// como maximo una vez cada REBIND_COOLDOWN_DIAS dias desde el ultimo
+// vinculo -- no se decide por la huella del dispositivo (dos telefonos del
+// mismo modelo pueden compartirla, ver mas abajo), sino por tiempo. Esto no
+// vuelve las claves libremente compartibles: alguien que comparta una clave
+// filtrada solo podria "turnarse" el acceso una vez por ese periodo, no a
+// demanda -- sigue siendo fuerte disuasion sin dejar a un cliente legitimo
+// varado a la espera de que Gloria libere la clave a mano.
+const REBIND_COOLDOWN_DIAS = 30;
+function puedeRevincularSolo(row: { bound_at: string | null }): boolean {
+  if (!row.bound_at) return true; // por si algun dato viejo no tiene fecha
+  const diasDesdeVinculo = (Date.now() - new Date(row.bound_at).getTime()) / (1000 * 60 * 60 * 24);
+  return diasDesdeVinculo >= REBIND_COOLDOWN_DIAS;
+}
+
 Deno.serve(async (req) => {
   const origin = req.headers.get("origin");
 
@@ -115,11 +137,13 @@ Deno.serve(async (req) => {
     if (token && (await sha256Hex(token)) === row.device_token_hash) {
       return json({ ok: true, is_admin: row.is_admin === true, tier: row.tier }, 200, origin);
     }
-    // Sin token valido: se rechaza, aunque la huella "parezca" la misma
-    // (dos telefonos del mismo modelo pueden tener huellas identicas, asi
-    // que la huella nunca alcanza sola para probar que es el mismo aparato).
-    // Si el dueno legitimo perdio sus datos locales, el admin puede liberar
-    // la clave con `node keys.js unbind` y reactivarla desde el celular.
+    // Sin token valido: por defecto se rechaza, aunque la huella "parezca"
+    // la misma (dos telefonos del mismo modelo pueden tener huellas
+    // identicas, asi que la huella nunca alcanza sola para probar que es el
+    // mismo aparato). Las claves normales tienen una salida automatica mas
+    // abajo (puedeRevincularSolo) para cuando el dueno legitimo perdio sus
+    // datos locales; si todavia esta dentro del periodo de espera, el admin
+    // puede liberar la clave a mano con `node keys.js unbind`.
     //
     // Excepcion: las claves is_admin son de la propia dueña de la app, no
     // de un cliente final. Ella sí necesita usarlas desde varios contextos
@@ -145,6 +169,24 @@ Deno.serve(async (req) => {
         return json({ ok: false, reason: "server_error" }, 500, origin);
       }
       return json({ ok: true, token: freshToken, is_admin: true, tier: row.tier }, 200, origin);
+    }
+    if (puedeRevincularSolo(row)) {
+      const freshToken = newToken();
+      const freshHash = await sha256Hex(freshToken);
+      const { data: rebound, error: rebindError } = await supabase
+        .from("access_keys")
+        .update({
+          device_fingerprint: fingerprint,
+          device_token_hash: freshHash,
+          bound_at: new Date().toISOString(),
+        })
+        .eq("id", row.id)
+        .select()
+        .maybeSingle();
+      if (rebindError || !rebound) {
+        return json({ ok: false, reason: "server_error" }, 500, origin);
+      }
+      return json({ ok: true, token: freshToken, is_admin: false, tier: row.tier }, 200, origin);
     }
     return json({ ok: false, reason: "in_use" }, 403, origin);
   }
