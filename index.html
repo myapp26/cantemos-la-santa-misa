@@ -1076,20 +1076,29 @@ function updateFeatureGating(){
   }
 }
 // ===================== Compuerta por nivel (Demo/Freemium/Premium) =====================
-// Reglas (ver claude/plan-versiones-cancionero.md, definidas con Gloria el 8/9 y
-// refinadas el 11/9):
-//  - "premium" en la canción: solo la ve completa quien tiene tier premium (o admin).
-//  - Sin "premium": la ven freemium y premium enteras; en Demo (sin clave o sin
-//    tier reconocido) solo se ven las marcadas "demo" -- el resto queda con candado.
-//  - "bloqueada" (diagramas de acordes): se ocultan para Demo y Freemium por igual,
-//    solo se ven con tier premium (o admin). No depende de si la canción es "demo".
-// "candado" y "oculta" restringen la canción entera igual -- la diferencia
-// entre las dos es si aparece o no en el listado (ver visibleParaListado()).
-// c.premium===true queda solo por compatibilidad con datos viejas.
+// Reglas vigentes desde el 2/11/2026 (ver claude/plan-versiones-cancionero.md
+// y claude/analisis-tecnico-cancionero.md, definidas con Gloria):
+//  - Freemium y Premium ven TODO el catálogo completo (letra + acordes),
+//    salvo "privada". La única diferencia entre ambos son las FUNCIONES, no
+//    el contenido: Freemium no ve diagramas de acordes (diagramaBloqueado,
+//    automático, ya no depende de marcar canción por canción) ni tiene PDF
+//    (puedePdf). "candado"/"oculta" (restriccion) y el viejo c.premium===true
+//    ya NO bloquean nada visualmente para nadie -- Gloria los puede seguir
+//    marcando en el editor, pero no generan candados ni mensajes de bloqueo
+//    en ninguna versión. Lo que SÍ siguen haciendo en silencio: mantener la
+//    letra completa fuera del archivo público canciones.js y exigir una
+//    clave válida (cualquier tier) para traerla bajo demanda -- ver
+//    necesitaLetraRemota()/publishFile() más abajo. c.premium===true queda
+//    solo por compatibilidad con datos viejas.
+//  - Demo (sin clave, o clave sin tier reconocido): ve únicamente las
+//    canciones que Gloria marcó "Incluir en catálogo Demo" -- el resto no
+//    aparece en absoluto (no es un candado, simplemente no existe para esa
+//    vista). Sobre esas canciones que sí ve, Demo tiene las mismas funciones
+//    que Premium (diagramas, guardar selección) -- nunca acceso de admin.
 // "privada" (25/9/2026): canto de uso personal de Gloria (p.ej. autores con
-// derechos protegidos). Nadie lo ve salvo el admin -- ni Premium. Su letra
-// tampoco viaja en canciones.js, y get-letra se la niega a todo el que no sea
-// admin (columna solo_admin en letras_restringidas).
+// derechos protegidos). Nadie lo ve salvo admin/beneficiario -- ni Premium.
+// Su letra tampoco viaja en canciones.js, y get-letra se la niega a quien no
+// sea admin/beneficiario (columna solo_admin en letras_restringidas).
 function esPrivada(c){
   return !!c && c.restriccion==="privada";
 }
@@ -1107,9 +1116,16 @@ function esRestringida(c){
 function estaBloqueada(c){
   if(adminEfectivo() || esBeneficiario()) return false;
   if(esPrivada(c)) return true;
-  const tier = nivelEfectivo();
-  if(esRestringida(c)) return tier!=="premium" && tier!=="freemium";
-  if(tier==="demo") return !c.demo;
+  // "candado"/"oculta" (restricción de contenido) ya NO bloquean a nadie
+  // visualmente (2/11/2026, a pedido de Gloria): siguen existiendo como
+  // campo y casillero en el editor -- Gloria los puede seguir marcando --
+  // pero ningún tier ve candados ni mensajes de bloqueo por esta causa,
+  // ni siquiera Demo. El único bloqueo de contenido real que queda visible
+  // es "privada" (arriba) y el catálogo curado de Demo (abajo). La marca
+  // candado/oculta SÍ sigue teniendo un efecto invisible: mantiene la letra
+  // completa fuera del archivo público y exige una clave válida para
+  // traerla (ver necesitaLetraRemota()/publishFile()) -- eso no cambia.
+  if(nivelEfectivo()==="demo") return !c.demo;
   return false;
 }
 // Diagramas de acordes: exclusivos de quien NO sea Freemium (2/11/2026 --
@@ -1118,9 +1134,12 @@ function estaBloqueada(c){
 // eligió mostrarle, así que solo Freemium queda afuera).
 function diagramaBloqueado(c){
   if(adminEfectivo() || esBeneficiario()) return false;
-  const tier = nivelEfectivo();
-  if(tier==="demo") return false;
-  return !!c.bloqueada && tier!=="premium";
+  // Automático para toda Freemium desde el 2/11/2026 (a pedido de Gloria):
+  // ya no depende del casillero "Bloquear diagramas" por canción -- el
+  // casillero sigue en el editor por si hace falta más adelante, pero hoy
+  // no se usa para esta decisión. Demo/Premium/admin/beneficiario siempre
+  // ven el diagrama.
+  return nivelEfectivo()==="freemium";
 }
 // Decide si una canción aparece en el listado (índice, alfabético, búsqueda,
 // "últimos subidos"). Desde el 2/11/2026, Freemium ve lo mismo que Premium
