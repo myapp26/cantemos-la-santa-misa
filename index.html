@@ -853,8 +853,90 @@ async function fingerprintHash(){
 function loadAccess(){
   try{ return JSON.parse(localStorage.getItem(LS_ACCESS)||"null"); }catch(e){ return null; }
 }
-function saveAccess(obj){ localStorage.setItem(LS_ACCESS, JSON.stringify(obj)); }
-function clearAccess(){ localStorage.removeItem(LS_ACCESS); }
+// Respaldo de la clave activada en IndexedDB, además de localStorage
+// (2/11/2026). Un cliente real perdió el acceso a su clave en un celular
+// ya activado porque el navegador le borró el localStorage (reinstaló la
+// app / limpió datos / el sistema liberó espacio) -- el servidor seguía
+// pensando que la clave estaba en ese mismo dispositivo (por el token, ver
+// supabase/functions/validate-key), así que al reescribirla a mano
+// rechazaba con "ya está activada en otro dispositivo". IndexedDB es un
+// almacenamiento separado del navegador: no siempre se borra junto con
+// localStorage, así que guardar ahí una copia es una red de contención
+// extra, sin reemplazar a localStorage (que sigue siendo la fuente que lee
+// el resto de la app sin tener que volverse async). Ver
+// claude/analisis-tecnico-cancionero.md para el resto de la mitigación
+// (storage persistente + re-vínculo automático con cooldown en el
+// servidor).
+const IDB_BACKUP_DB = "cantemos_backup";
+const IDB_BACKUP_STORE = "kv";
+function idbBackupOpen(){
+  return new Promise((resolve,reject)=>{
+    if(!("indexedDB" in window)){ reject(new Error("sin-indexeddb")); return; }
+    const req = indexedDB.open(IDB_BACKUP_DB, 1);
+    req.onupgradeneeded = ()=>{ req.result.createObjectStore(IDB_BACKUP_STORE); };
+    req.onsuccess = ()=> resolve(req.result);
+    req.onerror = ()=> reject(req.error);
+  });
+}
+async function idbBackupSet(clave, valor){
+  try{
+    const db = await idbBackupOpen();
+    await new Promise((resolve,reject)=>{
+      const tx = db.transaction(IDB_BACKUP_STORE, "readwrite");
+      tx.objectStore(IDB_BACKUP_STORE).put(valor, clave);
+      tx.oncomplete = resolve; tx.onerror = ()=>reject(tx.error);
+    });
+  }catch(e){ /* IndexedDB no disponible: no es crítico, localStorage sigue siendo la fuente principal */ }
+}
+async function idbBackupGet(clave){
+  try{
+    const db = await idbBackupOpen();
+    return await new Promise((resolve,reject)=>{
+      const tx = db.transaction(IDB_BACKUP_STORE, "readonly");
+      const req = tx.objectStore(IDB_BACKUP_STORE).get(clave);
+      req.onsuccess = ()=> resolve(req.result===undefined ? null : req.result);
+      req.onerror = ()=> reject(req.error);
+    });
+  }catch(e){ return null; }
+}
+async function idbBackupDel(clave){
+  try{
+    const db = await idbBackupOpen();
+    await new Promise((resolve,reject)=>{
+      const tx = db.transaction(IDB_BACKUP_STORE, "readwrite");
+      tx.objectStore(IDB_BACKUP_STORE).delete(clave);
+      tx.oncomplete = resolve; tx.onerror = ()=>reject(tx.error);
+    });
+  }catch(e){ /* no crítico */ }
+}
+// Le pide al navegador que no borre los datos de este sitio bajo presión de
+// espacio (no tiene efecto en Safari/iOS, que no soporta esta API -- ahí no
+// hace daño, simplemente no hace nada). Se llama cada vez que se guarda una
+// clave activada: es el momento en que más importa que ese dato sobreviva.
+async function pedirAlmacenamientoPersistente(){
+  try{
+    if(navigator.storage && navigator.storage.persist) await navigator.storage.persist();
+  }catch(e){ /* no crítico */ }
+}
+function saveAccess(obj){
+  localStorage.setItem(LS_ACCESS, JSON.stringify(obj));
+  idbBackupSet(LS_ACCESS, obj);
+  pedirAlmacenamientoPersistente();
+}
+function clearAccess(){
+  localStorage.removeItem(LS_ACCESS);
+  idbBackupDel(LS_ACCESS);
+}
+// Si este origen se quedó sin nada en localStorage pero el respaldo de
+// IndexedDB sobrevivió, lo restauramos antes de que initAccessGate() decida
+// si hay o no una clave activada -- así una persona que ya había activado
+// su clave no se encuentra con la compuerta de nuevo solo porque el
+// navegador limpió localStorage puntualmente.
+async function restaurarAccesoDesdeRespaldo(){
+  if(localStorage.getItem(LS_ACCESS)) return;
+  const respaldo = await idbBackupGet(LS_ACCESS);
+  if(respaldo) localStorage.setItem(LS_ACCESS, JSON.stringify(respaldo));
+}
 
 // El rol de administrador no es una sesión local: sale directo de la clave
 // de acceso validada contra Supabase (columna is_admin de access_keys).
@@ -1168,6 +1250,7 @@ async function revalidarAcceso(){
 }
 
 async function initAccessGate(){
+  await restaurarAccesoDesdeRespaldo();
   const params = new URLSearchParams(location.search);
   const prefill = params.get("key");
   if(prefill) document.getElementById("gate-key").value = prefill.trim().toUpperCase();
