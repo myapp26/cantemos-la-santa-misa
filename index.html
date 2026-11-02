@@ -2841,10 +2841,24 @@ updateFeatureGating();
 render();
 initAccessGate();
 revisarVersionPublicadaAdmin();
-// ===== Auto-actualización silenciosa: detecta si canciones.js cambió en el
-// servidor (aunque sw.js no haya cambiado) y recarga sola, sin pedirle nada
-// al usuario. Se revisa cada vez que la app vuelve a primer plano.
-let cancionesFirma=null, recargandoPorDatos=false;
+// ===== Auto-actualización silenciosa: detecta si canciones.js (los datos)
+// o index.html (el código de la app) cambiaron en el servidor -- aunque
+// sw.js no haya cambiado -- y recarga sola, sin pedirle nada al usuario.
+// Se revisa cada vez que la app vuelve a primer plano.
+// IMPORTANTE (2/11/2026): hasta esta fecha, esta auto-actualización solo
+// vigilaba canciones.js (los datos de las canciones). Un cambio de CÓDIGO
+// en index.html (ej. una regla de niveles/candados nueva) no disparaba
+// ningún chequeo -- si la app ya estaba abierta/en segundo plano desde
+// antes del deploy (lo típico en un celular: el sistema operativo
+// "suspende" la pestaña en vez de cerrarla), seguía corriendo el JS viejo
+// en memoria indefinidamente, aunque el servidor ya tuviera la versión
+// nueva -- sin que ni la actualización del Service Worker (que solo
+// detecta cambios en sw.js, no en index.html) ni el chequeo de
+// canciones.js (datos, no código) lo notaran. `firmarIndexHtml()` y
+// `revisarIndexActualizado()`, más abajo, cierran ese hueco: comparan el
+// propio index.html contra el del servidor con la misma técnica que ya
+// usa firmarCanciones() para los datos.
+let cancionesFirma=null, indexFirma=null, recargandoPorDatos=false;
 async function firmarCanciones(){
   try{
     const r=await fetch("canciones.js",{cache:"no-store"});
@@ -2867,7 +2881,30 @@ async function revisarCancionesActualizado(){
     location.reload();
   }
 }
+// Mismo mecanismo que firmarCanciones()/revisarCancionesActualizado(), pero
+// sobre index.html en vez de canciones.js -- detecta un cambio de CÓDIGO
+// (ej. una regla de niveles nueva) aunque no haya cambiado ningún dato ni
+// sw.js, y recarga sola sin pedirle nada al usuario.
+async function firmarIndexHtml(){
+  try{
+    const r=await fetch("index.html",{cache:"no-store"});
+    if(!r.ok) return null;
+    if(r.headers.get("X-Cantemos-Origen")==="cache") return null;
+    const t=await r.text();
+    return t.length+":"+t.slice(-200);
+  }catch(e){ return null; }
+}
+async function revisarIndexActualizado(){
+  const firma=await firmarIndexHtml();
+  if(firma===null) return;
+  if(indexFirma===null){ indexFirma=firma; return; }
+  if(firma!==indexFirma && !recargandoPorDatos){
+    recargandoPorDatos=true;
+    location.reload();
+  }
+}
 revisarCancionesActualizado();
+revisarIndexActualizado();
 
 if("serviceWorker" in navigator){
   navigator.serviceWorker.register("sw.js").then(reg=>{
@@ -2875,6 +2912,7 @@ if("serviceWorker" in navigator){
       if(document.visibilityState==="visible"){
         reg.update().catch(()=>{});
         revisarCancionesActualizado();
+        revisarIndexActualizado();
         revalidarAcceso();
         precargarLetrasRestringidas();
       }
@@ -2891,6 +2929,7 @@ if("serviceWorker" in navigator){
   document.addEventListener("visibilitychange", ()=>{
     if(document.visibilityState==="visible"){
       revisarCancionesActualizado();
+      revisarIndexActualizado();
       revalidarAcceso();
       precargarLetrasRestringidas();
     }
