@@ -592,15 +592,16 @@
       <div class="lock-box">
         <div class="lock-title">🔒 Bloqueos de esta canción</div>
         <div style="margin-bottom:10px">
-          <label for="se-restriccion">Acceso en Freemium (Premium y admin ven todo, salvo "Privada": solo admin)</label>
+          <label for="se-restriccion">Restricción de contenido (afecta solo a Demo — Freemium, Premium, admin y beneficiario ven todo salvo "Privada")</label>
           <select id="se-restriccion" onchange="updateDemoCount()">
-            <option value="">Abierta para todos</option>
-            <option value="candado">Bloqueada con candado (aparece en la lista, pide clave)</option>
-            <option value="oculta">Oculta (no aparece en la lista)</option>
-            <option value="privada">🔐 Privada (solo la administradora la ve, ni siquiera Premium)</option>
+            <option value="">Sin restricción</option>
+            <option value="candado">Bloqueada con candado para Demo (aparece en la lista, pide clave)</option>
+            <option value="oculta">Oculta para Demo (no aparece en la lista)</option>
+            <option value="privada">🔐 Privada (solo la administradora y beneficiario la ven)</option>
           </select>
         </div>
-        <label class="check-line"><input type="checkbox" id="se-bloqueada"> Bloquear los diagramas de acordes salvo para premium (la letra se sigue viendo)</label>
+        <label class="check-line"><input type="checkbox" id="se-bloqueada"> Bloquear los diagramas de acordes para Freemium (Demo, Premium y admin los ven igual; la letra se sigue viendo)</label>
+        <label class="check-line"><input type="checkbox" id="se-oculta-youtube-freemium"> Ocultar el video de YouTube para Freemium (Demo, Premium y admin lo ven igual; sin ningún aviso de que está oculto)</label>
         <label class="check-line"><input type="checkbox" id="se-demo" onchange="updateDemoCount()"> Incluir en el catálogo Demo (si no la marcás, no aparece para nadie en modo Demo)</label>
         <div class="hint" id="se-demo-count"></div>
       </div>
@@ -1037,17 +1038,20 @@ function updateTierBadge(){
 }
 // Funciones "nuevas" (creadas después del lanzamiento original, no parte del
 // set base): "Seleccionar" está disponible desde Demo en adelante (ampliado
-// el 26/10/2026 -- antes arrancaba en Freemium), pero "Guardar selección" y
+// el 26/10/2026 -- antes arrancaba en Freemium). "Guardar selección" y
 // "Selecciones guardadas" siguen reservadas a Premium/admin/beneficiario
 // (definido con Gloria el 17/9/2026, como diferenciador de planes Freemium
-// mensual / Premium anual en Hotmart -- Demo nunca tuvo acceso a guardar,
-// y sigue sin tenerlo). El resto de la app (buscador, tamaño de texto,
-// transposición, orden por categoría/alfabético, YouTube) sigue libre en
-// Freemium/Demo sin tocar nada de esto.
+// mensual / Premium anual en Hotmart). Desde el 2/11/2026, Demo también las
+// tiene -- a pedido de Gloria, Demo pasó a tener las mismas funciones que
+// Premium sobre el catálogo curado que ella elige mostrarle; la única
+// diferencia de Demo frente a Premium es que las canciones vienen elegidas
+// por Gloria ("demo":true), no por tier. El resto de la app (buscador,
+// tamaño de texto, transposición, orden por categoría/alfabético, YouTube)
+// sigue libre en Freemium/Demo sin tocar nada de esto.
 function updateFeatureGating(){
   const nivel = nivelEfectivo();
   const puedeSeleccionar = adminEfectivo() || nivel==="premium" || nivel==="freemium" || nivel==="beneficiario" || nivel==="demo";
-  const puedeGuardar = adminEfectivo() || nivel==="premium" || nivel==="beneficiario";
+  const puedeGuardar = adminEfectivo() || nivel==="premium" || nivel==="beneficiario" || nivel==="demo";
   // Descargar en PDF: por ahora solo para la administradora real (no en
   // vista previa de otro rol). Más adelante se habilitará también para
   // Plan Anual/Premium -- ver claude/analisis-tecnico-cancionero.md.
@@ -1092,29 +1096,40 @@ function esPrivada(c){
 function esRestringida(c){
   return c.restriccion==="candado" || c.restriccion==="oculta" || esPrivada(c) || c.premium===true;
 }
+// Freemium pasó a tener el mismo acceso a contenido que Premium (2/11/2026,
+// a pedido explícito de Gloria): ambos ven todas las canciones con sus
+// acordes y letra completa, incluidas candado/oculta/premium -- la única
+// restricción de contenido real que queda es "privada" (solo admin/
+// beneficiario) y el catálogo curado de Demo (ver visibleParaListado() y
+// claude/analisis-tecnico-cancionero.md). Lo que SÍ sigue diferenciando a
+// Freemium de Premium son las FUNCIONES, no el contenido: diagramas de
+// acordes (diagramaBloqueado) y PDF (puedePdf, ver updateFeatureGating).
 function estaBloqueada(c){
   if(adminEfectivo() || esBeneficiario()) return false;
   if(esPrivada(c)) return true;
   const tier = nivelEfectivo();
-  if(esRestringida(c)) return tier!=="premium";
+  if(esRestringida(c)) return tier!=="premium" && tier!=="freemium";
   if(tier==="demo") return !c.demo;
   return false;
 }
+// Diagramas de acordes: exclusivos de quien NO sea Freemium (2/11/2026 --
+// antes era "quien no sea Premium", bloqueando también a Demo; ahora Demo
+// tiene las mismas funciones que Premium sobre las canciones que Gloria
+// eligió mostrarle, así que solo Freemium queda afuera).
 function diagramaBloqueado(c){
   if(adminEfectivo() || esBeneficiario()) return false;
-  return !!c.bloqueada && nivelEfectivo()!=="premium";
+  const tier = nivelEfectivo();
+  if(tier==="demo") return false;
+  return !!c.bloqueada && tier!=="premium";
 }
 // Decide si una canción aparece en el listado (índice, alfabético, búsqueda,
-// "últimos subidos"). Distinto de estaBloqueada(): una canción "candado" sigue
-// apareciendo (con el 🔒), pero una "oculta" en Freemium, o una que Gloria no
-// marcó "demo" estando en modo Demo, no aparece en absoluto -- como si no
-// existiera para esa persona.
+// "últimos subidos"). Desde el 2/11/2026, Freemium ve lo mismo que Premium
+// (incluida "oculta") -- la única exclusión real de listado es "privada"
+// (todos salvo admin/beneficiario) y el catálogo curado de Demo.
 function visibleParaListado(c){
   if(adminEfectivo() || esBeneficiario()) return true;
   if(esPrivada(c)) return false;
-  const tier = nivelEfectivo();
-  if(tier==="demo") return !!c.demo;
-  if(tier==="freemium") return c.restriccion!=="oculta";
+  if(nivelEfectivo()==="demo") return !!c.demo;
   return true;
 }
 
@@ -1123,10 +1138,12 @@ function visibleParaListado(c){
 // publishFile()). Si hace falta mostrarla/editarla y no la tenemos en
 // memoria todavia, se pide bajo demanda a get-letra. Ver
 // claude/analisis-tecnico-cancionero.md (16/9/2026) en el proyecto de
-// Claude "App cancionero".
+// Claude "App cancionero". Desde el 2/11/2026 Freemium también puede
+// pedirla (igual que Premium) -- ver también el cambio equivalente en
+// supabase/functions/get-letra.
 function necesitaLetraRemota(c){
   return !!c && esRestringida(c) && !c.letra &&
-    (adminEfectivo() || esBeneficiario() || (nivelEfectivo()==="premium" && !esPrivada(c)));
+    (adminEfectivo() || esBeneficiario() || ((nivelEfectivo()==="premium" || nivelEfectivo()==="freemium") && !esPrivada(c)));
 }
 async function ensureLetraDisponible(c){
   if(!necesitaLetraRemota(c)) return;
@@ -2295,12 +2312,20 @@ function extraerYoutubeId(url){
   // Validación defensiva: un id de video de YouTube siempre es así.
   return (vid && /^[A-Za-z0-9_-]{6,15}$/.test(vid)) ? vid : null;
 }
+// Oculta el video de YouTube para Freemium cuando Gloria lo marcó por
+// canción (2/11/2026): sin ningún aviso de que existe o de que se ocultó --
+// se comporta exactamente como si la canción no tuviera link de YouTube.
+// Demo, Premium, admin y beneficiario lo ven igual que siempre.
+function youtubeOcultoParaMi(c){
+  if(adminEfectivo() || esBeneficiario()) return false;
+  return !!c.ocultarYoutubeFreemium && nivelEfectivo()==="freemium";
+}
 // No carga el iframe de una sola vez al abrir la canción (ahorra datos/batería
 // en wifi de iglesia) -- primero muestra un botón "Reproducir", y solo al
 // tocarlo arma el iframe real.
 function renderYoutube(c){
   const cont = document.getElementById("sv-youtube");
-  if(!c.youtube){ cont.innerHTML=""; return; }
+  if(!c.youtube || youtubeOcultoParaMi(c)){ cont.innerHTML=""; return; }
   const vid = extraerYoutubeId(c.youtube);
   if(!vid){
     // Link con un formato no reconocido: se mantiene el comportamiento
@@ -2459,6 +2484,7 @@ function newSong(){
   document.getElementById("se-letra").value="";
   document.getElementById("se-restriccion").value="";
   document.getElementById("se-bloqueada").checked=false;
+  document.getElementById("se-oculta-youtube-freemium").checked=false;
   document.getElementById("se-demo").checked=false;
   fillCatSelect(document.getElementById("se-categoria"));
   updatePreview();
@@ -2478,6 +2504,7 @@ async function editSong(id){
   document.getElementById("se-youtube").value=c.youtube||"";
   document.getElementById("se-restriccion").value = c.restriccion || (c.premium?"candado":"");
   document.getElementById("se-bloqueada").checked=!!c.bloqueada;
+  document.getElementById("se-oculta-youtube-freemium").checked=!!c.ocultarYoutubeFreemium;
   document.getElementById("se-demo").checked=!!c.demo;
   fillCatSelect(document.getElementById("se-categoria"));
   document.getElementById("se-categoria").value=c.categoria;
@@ -2511,6 +2538,7 @@ function saveSong(){
     youtube:document.getElementById("se-youtube").value.trim(),
     restriccion:document.getElementById("se-restriccion").value,
     bloqueada:document.getElementById("se-bloqueada").checked,
+    ocultarYoutubeFreemium:document.getElementById("se-oculta-youtube-freemium").checked,
     demo:document.getElementById("se-demo").checked
   };
   if(editingId){
@@ -2666,7 +2694,8 @@ function publishFile(){
   const cancionesLimpias=DATA.canciones.map(c=>({
     id:c.id, titulo:c.titulo, autor:c.autor||"", categoria:c.categoria,
     tono:c.tono, letra: esRestringida(c) ? "" : c.letra, youtube:c.youtube||"",
-    restriccion:c.restriccion||"", premium:!!c.premium, bloqueada:!!c.bloqueada, demo:!!c.demo
+    restriccion:c.restriccion||"", premium:!!c.premium, bloqueada:!!c.bloqueada, demo:!!c.demo,
+    ocultarYoutubeFreemium:!!c.ocultarYoutubeFreemium
   }));
   // Firma de lo que se está publicando: cuando este canciones.js llegue al
   // sitio, la copia de trabajo del admin no mostrará el aviso de "versión
