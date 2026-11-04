@@ -2425,9 +2425,13 @@ function updateSong(){
     premiumEl.style.display="none";
   }
   document.getElementById("sv-tono").textContent=semis?shiftChord(current.tono,semis):current.tono;
+  // Freemium sin diagramas: desde el 4/11/2026, a pedido de Gloria, ya no se
+  // muestra ningun candado ni mensaje de "Plan Anual" -- la seccion de
+  // acordes simplemente queda vacia, igual que ya se hizo con candado/oculta
+  // en el PR #60. diagramaBloqueado() sigue decidiendo quien no ve el
+  // diagrama (solo Freemium); lo unico que cambio es que ya no se avisa.
   document.getElementById("sv-chords").innerHTML = diagramaBloqueado(current)
-    ? `<div class="chords-row"><span class="lbl">Acordes de este tema</span>`+
-      `<div class="chords-lock">🔒 Diagramas disponibles en el Plan Anual</div></div>`
+    ? ""
     : chordDiagramsHTML(current.letra,semis);
   document.getElementById("sv-lyrics").innerHTML=lyricsHTML(current.letra,semis);
 }
