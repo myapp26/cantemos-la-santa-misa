@@ -1,0 +1,23 @@
+name: Supabase keep-alive
+
+# Una consulta al día para que Supabase no pause el proyecto por inactividad.
+on:
+  schedule:
+    - cron: "17 13 * * *"   # todos los días 8:17 a. m. hora Colombia (13:17 UTC)
+  workflow_dispatch:        # permite ejecutarlo a mano desde la pestaña Actions
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Consulta ligera a Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          code=$(curl -sS -o /dev/null -w "%{http_code}" \
+            "$SUPABASE_URL/rest/v1/access_keys?select=id&limit=1" \
+            -H "apikey: $SUPABASE_ANON_KEY")
+          echo "Respuesta de Supabase: $code"
+          # 200 o 401/403 (tabla protegida) cuentan como actividad; solo falla si no hay conexión o error 5xx
+          if [ "$code" = "000" ] || [ "$code" -ge 500 ]; then exit 1; fi
