@@ -87,6 +87,29 @@ function puedeRevincularSolo(row: { bound_at: string | null }): boolean {
   return diasDesdeVinculo >= REBIND_COOLDOWN_DIAS;
 }
 
+// Periodo de prueba para "beneficiario de uso exclusivo" (13/11/2026, a
+// pedido de Gloria): una clave beneficiario funciona con paridad de admin
+// (incluida "privada") solo durante TRIAL_BENEFICIARIO_DIAS desde que se
+// generó (created_at) -- no desde que se activa en el dispositivo. Pasado
+// ese plazo, en vez de bloquear la clave (como "revoked"), baja sola a
+// Demo: se le devuelve tier:"demo" en la respuesta sin tocar la fila en la
+// base (el admin editor/`keys.js list` la sigue viendo como "beneficiario"
+// para que Gloria pueda identificarla y, si quiere, extenderla a mano
+// cambiando created_at o generando una clave nueva). El dispositivo ya
+// vinculado lo ve solo en su próxima revalidación automática
+// (revalidarAcceso() en index.html, cada vez que la app vuelve a primer
+// plano) -- no hace falta tocar nada del lado del cliente ni republicar el
+// sitio para que esto se propague.
+const TRIAL_BENEFICIARIO_DIAS = 30;
+function tierEfectivo(row: { tier: string; is_admin: boolean; created_at: string }): string {
+  if (row.is_admin) return row.tier; // un admin nunca expira, el tier no le aplica igual
+  if (row.tier === "beneficiario") {
+    const diasDesdeCreacion = (Date.now() - new Date(row.created_at).getTime()) / (1000 * 60 * 60 * 24);
+    if (diasDesdeCreacion >= TRIAL_BENEFICIARIO_DIAS) return "demo";
+  }
+  return row.tier;
+}
+
 Deno.serve(async (req) => {
   const origin = req.headers.get("origin");
 
@@ -135,7 +158,7 @@ Deno.serve(async (req) => {
 
   if (row.status === "bound") {
     if (token && (await sha256Hex(token)) === row.device_token_hash) {
-      return json({ ok: true, is_admin: row.is_admin === true, tier: row.tier }, 200, origin);
+      return json({ ok: true, is_admin: row.is_admin === true, tier: tierEfectivo(row) }, 200, origin);
     }
     // Sin token valido: por defecto se rechaza, aunque la huella "parezca"
     // la misma (dos telefonos del mismo modelo pueden tener huellas
@@ -168,7 +191,7 @@ Deno.serve(async (req) => {
       if (rebindError || !rebound) {
         return json({ ok: false, reason: "server_error" }, 500, origin);
       }
-      return json({ ok: true, token: freshToken, is_admin: true, tier: row.tier }, 200, origin);
+      return json({ ok: true, token: freshToken, is_admin: true, tier: tierEfectivo(row) }, 200, origin);
     }
     if (puedeRevincularSolo(row)) {
       const freshToken = newToken();
@@ -186,7 +209,7 @@ Deno.serve(async (req) => {
       if (rebindError || !rebound) {
         return json({ ok: false, reason: "server_error" }, 500, origin);
       }
-      return json({ ok: true, token: freshToken, is_admin: false, tier: row.tier }, 200, origin);
+      return json({ ok: true, token: freshToken, is_admin: false, tier: tierEfectivo(row) }, 200, origin);
     }
     return json({ ok: false, reason: "in_use" }, 403, origin);
   }
@@ -223,5 +246,5 @@ Deno.serve(async (req) => {
     return json({ ok: false, reason: "in_use" }, 403, origin);
   }
 
-  return json({ ok: true, token: freshToken, is_admin: row.is_admin === true, tier: row.tier }, 200, origin);
+  return json({ ok: true, token: freshToken, is_admin: row.is_admin === true, tier: tierEfectivo(row) }, 200, origin);
 });

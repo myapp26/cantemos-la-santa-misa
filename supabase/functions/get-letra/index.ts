@@ -1,6 +1,7 @@
 // Edge Function: entrega la letra completa de una cancion restringida
 // (candado/oculta/premium) solo si la clave ya validada (validate-key) es
-// premium o admin. Desplegar con: supabase functions deploy get-letra --no-verify-jwt
+// premium, freemium, admin, o beneficiario dentro de su periodo de prueba
+// (ver TRIAL_BENEFICIARIO_DIAS mas abajo). Desplegar con: supabase functions deploy get-letra --no-verify-jwt
 // (es un endpoint publico anonimo, no hay sesiones de usuario en esta app,
 // igual que validate-key).
 //
@@ -64,6 +65,20 @@ async function sha256Hex(input: string): Promise<string> {
     .join("");
 }
 
+// Version de prueba de "beneficiario de uso exclusivo" (13/11/2026, mismo
+// criterio y misma constante que supabase/functions/validate-key/index.ts
+// -- deben coincidir). Una clave beneficiario tiene paridad de contenido
+// con Premium (candado/oculta, nunca "privada") solo durante
+// TRIAL_BENEFICIARIO_DIAS desde que se generó (created_at). Pasado ese
+// plazo, se la trata como si no tuviera ningun tier reconocido (igual que
+// Demo): sin acceso a ningun contenido restringido via esta funcion.
+const TRIAL_BENEFICIARIO_DIAS = 30;
+function beneficiarioVigente(row: { tier: string; created_at: string }): boolean {
+  if (row.tier !== "beneficiario") return false;
+  const diasDesdeCreacion = (Date.now() - new Date(row.created_at).getTime()) / (1000 * 60 * 60 * 24);
+  return diasDesdeCreacion < TRIAL_BENEFICIARIO_DIAS;
+}
+
 Deno.serve(async (req) => {
   const origin = req.headers.get("origin");
 
@@ -115,16 +130,17 @@ Deno.serve(async (req) => {
     return json({ ok: false, reason: "invalid" }, 403, origin);
   }
 
-  // "beneficiario" (28/9/2026): rol de "beneficiario de uso exclusivo" --
-  // ve el catalogo completo igual que el admin, incluidas las "privada"
-  // (ver el chequeo de solo_admin mas abajo). Ver
-  // claude/analisis-tecnico-cancionero.md en el proyecto de Claude.
   // "freemium" (2/11/2026): Freemium paso a tener el mismo acceso a
   // contenido restringido (candado/oculta/premium) que Premium, a pedido
   // de Gloria -- ver estaBloqueada()/necesitaLetraRemota() en index.html.
   // "privada" sigue sin incluir a freemium (se filtra aparte mas abajo con
   // solo_admin, igual que para premium).
-  const autorizado = row.is_admin === true || row.tier === "premium" || row.tier === "freemium" || row.tier === "beneficiario";
+  // "beneficiario" (28/9/2026, ajustado el 13/11/2026): version de PRUEBA
+  // del Plan Anual -- tiene el mismo acceso a contenido restringido que
+  // premium/freemium (nunca "privada", ver solo_admin mas abajo) solo
+  // mientras beneficiarioVigente(row) de true (dentro de los primeros
+  // TRIAL_BENEFICIARIO_DIAS desde que se genero la clave).
+  const autorizado = row.is_admin === true || row.tier === "premium" || row.tier === "freemium" || beneficiarioVigente(row);
   if (!autorizado) {
     return json({ ok: false, reason: "forbidden" }, 403, origin);
   }
@@ -141,12 +157,12 @@ Deno.serve(async (req) => {
   if (!letraRow) {
     return json({ ok: false, reason: "not_found" }, 404, origin);
   }
-  // Cantos "privada" (25/9/2026): solo el admin, nunca premium. Ver
-  // migracion 0005_solo_admin.sql y esPrivada() en index.html.
-  // Excepcion agregada el 28/9/2026: el rol "beneficiario" tambien puede
-  // verlas -- es la unica diferencia real de contenido que tiene frente a
-  // "premium" (ver claude/analisis-tecnico-cancionero.md).
-  if (letraRow.solo_admin === true && row.is_admin !== true && row.tier !== "beneficiario") {
+  // Cantos "privada" (25/9/2026): solo el admin, nunca premium/freemium.
+  // Ver migracion 0005_solo_admin.sql y esPrivada() en index.html.
+  // Desde el 13/11/2026, tampoco beneficiario (quedo con paridad de
+  // contenido con Premium, no con admin -- ver claude/
+  // analisis-tecnico-cancionero.md en el proyecto de Claude).
+  if (letraRow.solo_admin === true && row.is_admin !== true) {
     return json({ ok: false, reason: "forbidden" }, 403, origin);
   }
 

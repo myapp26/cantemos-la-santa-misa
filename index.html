@@ -592,12 +592,12 @@
       <div class="lock-box">
         <div class="lock-title">🔒 Bloqueos de esta canción</div>
         <div style="margin-bottom:10px">
-          <label for="se-restriccion">Restricción de contenido (afecta solo a Demo — Freemium, Premium, admin y beneficiario ven todo salvo "Privada")</label>
+          <label for="se-restriccion">Restricción de contenido (afecta solo a Demo — Freemium, Premium y admin ven todo salvo "Privada"; beneficiario también, mientras dure su prueba)</label>
           <select id="se-restriccion" onchange="updateDemoCount()">
             <option value="">Sin restricción</option>
             <option value="candado">Bloqueada con candado para Demo (aparece en la lista, pide clave)</option>
             <option value="oculta">Oculta para Demo (no aparece en la lista)</option>
-            <option value="privada">🔐 Privada (solo la administradora y beneficiario la ven)</option>
+            <option value="privada">🔐 Privada (solo la administradora la ve)</option>
           </select>
         </div>
         <label class="check-line"><input type="checkbox" id="se-bloqueada"> Bloquear los diagramas de acordes para Freemium (Demo, Premium y admin los ven igual; la letra se sigue viendo)</label>
@@ -753,12 +753,12 @@ function loadLetras(){
   try{ const o=JSON.parse(localStorage.getItem(LS_LETRAS)||"{}"); return (o&&typeof o==="object")?o:{}; }catch(e){ return {}; }
 }
 // ¿Esta persona (no admin) puede tener guardada la letra de este canto?
-// "beneficiario" ve incluso las "privada" (igual que el admin); "premium"
-// ve todo lo restringido menos las "privada".
+// Desde el 13/11/2026, "beneficiario" quedó con el mismo criterio que
+// "premium": ve todo lo restringido (candado/oculta) menos las "privada"
+// -- ver el cambio completo de ese día más abajo en estaBloqueada().
 function letraPermitidaCliente(c, tier){
   if(!esRestringida(c)) return false;
-  if(tier==="beneficiario") return true;
-  return !esPrivada(c) && tier==="premium";
+  return !esPrivada(c) && (tier==="premium" || tier==="beneficiario");
 }
 function load(){
   const acc=accesoAlCargar();
@@ -1004,10 +1004,17 @@ function nivelEfectivo(){
 function adminEfectivo(){
   return isAdmin && !previewTier;
 }
-// Rol "beneficiario de uso exclusivo" (28/9/2026): ve todo el catálogo igual
-// que el admin (incluidas las canciones "privada"), pero no tiene sesión de
-// admin real -- nunca puede llegar al panel de configuración/edición, que
-// depende exclusivamente de esAdmin()/adminEfectivo(), un mecanismo aparte.
+// Rol "beneficiario de uso exclusivo" (28/9/2026, ajustado el 13/11/2026):
+// versión de PRUEBA del Plan Anual (Premium) -- ve el catálogo completo
+// como Premium (candado/oculta con letra y acordes), pero NO las canciones
+// "privada" (eso quedó exclusivo de admin, ver estaBloqueada()/
+// visibleParaListado() más arriba). Nunca tiene sesión de admin real --
+// nunca puede llegar al panel de configuración/edición, que depende
+// exclusivamente de esAdmin()/adminEfectivo(), un mecanismo aparte. Dura
+// como máximo TRIAL_BENEFICIARIO_DIAS desde que Gloria generó la clave
+// (ver supabase/functions/validate-key) -- pasado ese plazo, el servidor
+// empieza a devolver tier:"demo" y esta función deja de dar true sola,
+// sin tocar nada de este archivo.
 function esBeneficiario(){
   return nivelEfectivo()==="beneficiario";
 }
@@ -1096,9 +1103,10 @@ function updateFeatureGating(){
 //    vista). Sobre esas canciones que sí ve, Demo tiene las mismas funciones
 //    que Premium (diagramas, guardar selección) -- nunca acceso de admin.
 // "privada" (25/9/2026): canto de uso personal de Gloria (p.ej. autores con
-// derechos protegidos). Nadie lo ve salvo admin/beneficiario -- ni Premium.
-// Su letra tampoco viaja en canciones.js, y get-letra se la niega a quien no
-// sea admin/beneficiario (columna solo_admin en letras_restringidas).
+// derechos protegidos). Nadie lo ve salvo admin -- ni Premium, ni
+// beneficiario (ver cambio del 13/11/2026 más abajo). Su letra tampoco
+// viaja en canciones.js, y get-letra se la niega a quien no sea admin
+// (columna solo_admin en letras_restringidas).
 function esPrivada(c){
   return !!c && c.restriccion==="privada";
 }
@@ -1108,13 +1116,19 @@ function esRestringida(c){
 // Freemium pasó a tener el mismo acceso a contenido que Premium (2/11/2026,
 // a pedido explícito de Gloria): ambos ven todas las canciones con sus
 // acordes y letra completa, incluidas candado/oculta/premium -- la única
-// restricción de contenido real que queda es "privada" (solo admin/
-// beneficiario) y el catálogo curado de Demo (ver visibleParaListado() y
+// restricción de contenido real que queda es "privada" (solo admin) y el
+// catálogo curado de Demo (ver visibleParaListado() y
 // claude/analisis-tecnico-cancionero.md). Lo que SÍ sigue diferenciando a
 // Freemium de Premium son las FUNCIONES, no el contenido: diagramas de
 // acordes (diagramaBloqueado) y PDF (puedePdf, ver updateFeatureGating).
+// IMPORTANTE (13/11/2026): "beneficiario" pasó a tener el mismo criterio de
+// CONTENIDO que Premium -- ya no ve "privada". Deja de ser una paridad con
+// admin: es una versión de prueba de Plan Anual, con fecha de vencimiento
+// (ver TRIAL_BENEFICIARIO_DIAS en supabase/functions/validate-key). Pasados
+// esos días, el propio servidor le devuelve tier:"demo" en la próxima
+// revalidación -- sin tocar nada de este archivo.
 function estaBloqueada(c){
-  if(adminEfectivo() || esBeneficiario()) return false;
+  if(adminEfectivo()) return false;
   if(esPrivada(c)) return true;
   // "candado"/"oculta" (restricción de contenido) ya NO bloquean a nadie
   // visualmente (2/11/2026, a pedido de Gloria): siguen existiendo como
@@ -1144,9 +1158,10 @@ function diagramaBloqueado(c){
 // Decide si una canción aparece en el listado (índice, alfabético, búsqueda,
 // "últimos subidos"). Desde el 2/11/2026, Freemium ve lo mismo que Premium
 // (incluida "oculta") -- la única exclusión real de listado es "privada"
-// (todos salvo admin/beneficiario) y el catálogo curado de Demo.
+// (solo admin la ve, desde el 13/11/2026 ni beneficiario) y el catálogo
+// curado de Demo.
 function visibleParaListado(c){
-  if(adminEfectivo() || esBeneficiario()) return true;
+  if(adminEfectivo()) return true;
   if(esPrivada(c)) return false;
   if(nivelEfectivo()==="demo") return !!c.demo;
   return true;
@@ -1158,11 +1173,13 @@ function visibleParaListado(c){
 // memoria todavia, se pide bajo demanda a get-letra. Ver
 // claude/analisis-tecnico-cancionero.md (16/9/2026) en el proyecto de
 // Claude "App cancionero". Desde el 2/11/2026 Freemium también puede
-// pedirla (igual que Premium) -- ver también el cambio equivalente en
+// pedirla (igual que Premium). Desde el 13/11/2026, beneficiario entra en
+// el mismo grupo que premium/freemium (no un bypass aparte) -- nunca
+// privada, igual que ellos -- ver también el cambio equivalente en
 // supabase/functions/get-letra.
 function necesitaLetraRemota(c){
   return !!c && esRestringida(c) && !c.letra &&
-    (adminEfectivo() || esBeneficiario() || ((nivelEfectivo()==="premium" || nivelEfectivo()==="freemium") && !esPrivada(c)));
+    (adminEfectivo() || ((nivelEfectivo()==="premium" || nivelEfectivo()==="freemium" || nivelEfectivo()==="beneficiario") && !esPrivada(c)));
 }
 async function ensureLetraDisponible(c){
   if(!necesitaLetraRemota(c)) return;
@@ -1191,7 +1208,7 @@ async function precargarLetrasRestringidas(){
   if(!(adminEfectivo() || esBeneficiario() || nivelEfectivo()==="premium")) return;
   const access=loadAccess();
   if(!access || !access.key || !access.token) return;
-  const pendientes=DATA.canciones.filter(c=>esRestringida(c) && !c.letra && (adminEfectivo() || esBeneficiario() || !esPrivada(c)));
+  const pendientes=DATA.canciones.filter(c=>esRestringida(c) && !c.letra && (adminEfectivo() || !esPrivada(c)));
   if(!pendientes.length) return;
   precargaLetrasEnCurso=true;
   for(const c of pendientes){
