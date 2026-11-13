@@ -88,24 +88,31 @@ function puedeRevincularSolo(row: { bound_at: string | null }): boolean {
 }
 
 // Periodo de prueba para "beneficiario de uso exclusivo" (13/11/2026, a
-// pedido de Gloria): una clave beneficiario funciona con paridad de admin
-// (incluida "privada") solo durante TRIAL_BENEFICIARIO_DIAS desde que se
-// generó (created_at) -- no desde que se activa en el dispositivo. Pasado
-// ese plazo, en vez de bloquear la clave (como "revoked"), baja sola a
-// Demo: se le devuelve tier:"demo" en la respuesta sin tocar la fila en la
-// base (el admin editor/`keys.js list` la sigue viendo como "beneficiario"
-// para que Gloria pueda identificarla y, si quiere, extenderla a mano
-// cambiando created_at o generando una clave nueva). El dispositivo ya
-// vinculado lo ve solo en su próxima revalidación automática
-// (revalidarAcceso() en index.html, cada vez que la app vuelve a primer
-// plano) -- no hace falta tocar nada del lado del cliente ni republicar el
-// sitio para que esto se propague.
+// pedido de Gloria): una clave beneficiario funciona con paridad de
+// Premium (nunca "privada", ver letraPermitidaCliente/beneficiarioVigente)
+// solo durante TRIAL_BENEFICIARIO_DIAS. Ese plazo corre desde
+// first_bound_at -- el momento en que el beneficiario activó la clave en
+// su celular la primera y única vez -- y no desde created_at (cuando
+// Gloria generó la clave) ni desde bound_at (que se pisa en cada
+// re-vinculo por perdida de datos o re-vinculo de admin, ver
+// REBIND_COOLDOWN_DIAS mas arriba). Aclarado explícitamente por Gloria el
+// 13/11/2026 tras una corrección sobre su primera elección. Si la clave
+// todavia no se activó en ningun dispositivo (first_bound_at es null), la
+// prueba todavia no empezó y se trata como no vencida. Pasado el plazo, en
+// vez de bloquear la clave (como "revoked"), baja sola a Demo: se le
+// devuelve tier:"demo" en la respuesta sin tocar la fila en la base (el
+// admin editor/`keys.js list` la sigue viendo como "beneficiario" para que
+// Gloria pueda identificarla y, si quiere, extenderla a mano generando una
+// clave nueva). El dispositivo ya vinculado lo ve solo en su próxima
+// revalidación automática (revalidarAcceso() en index.html, cada vez que
+// la app vuelve a primer plano) -- no hace falta tocar nada del lado del
+// cliente ni republicar el sitio para que esto se propague.
 const TRIAL_BENEFICIARIO_DIAS = 30;
-function tierEfectivo(row: { tier: string; is_admin: boolean; created_at: string }): string {
+function tierEfectivo(row: { tier: string; is_admin: boolean; first_bound_at: string | null }): string {
   if (row.is_admin) return row.tier; // un admin nunca expira, el tier no le aplica igual
-  if (row.tier === "beneficiario") {
-    const diasDesdeCreacion = (Date.now() - new Date(row.created_at).getTime()) / (1000 * 60 * 60 * 24);
-    if (diasDesdeCreacion >= TRIAL_BENEFICIARIO_DIAS) return "demo";
+  if (row.tier === "beneficiario" && row.first_bound_at) {
+    const diasDesdeActivacion = (Date.now() - new Date(row.first_bound_at).getTime()) / (1000 * 60 * 60 * 24);
+    if (diasDesdeActivacion >= TRIAL_BENEFICIARIO_DIAS) return "demo";
   }
   return row.tier;
 }
@@ -232,6 +239,7 @@ Deno.serve(async (req) => {
       device_fingerprint: fingerprint,
       device_token_hash: freshHash,
       bound_at: new Date().toISOString(),
+      first_bound_at: new Date().toISOString(),
     })
     .eq("id", row.id)
     .eq("status", "unused")

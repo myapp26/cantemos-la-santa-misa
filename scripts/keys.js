@@ -22,11 +22,13 @@
 // pero nunca tiene acceso al panel de configuración/edición.
 //
 // Desde el 13/11/2026, toda clave beneficiario funciona con paridad de
-// admin solo por TRIAL_BENEFICIARIO_DIAS desde que se generó (no desde que
-// se activa) -- pasado ese plazo baja sola a Demo en la próxima
-// revalidación del dispositivo, sin que Gloria tenga que hacer nada (ver
+// Premium (nunca "privada") solo por TRIAL_BENEFICIARIO_DIAS desde
+// first_bound_at -- el momento en que se activó en el celular la primera y
+// única vez (corregido el mismo día: no desde que se generó la clave) --
+// pasado ese plazo baja sola a Demo en la próxima revalidación del
+// dispositivo, sin que Gloria tenga que hacer nada (ver
 // supabase/functions/validate-key/index.ts, misma constante). `list` marca
-// cuántos días quedan o hace cuánto venció.
+// cuántos días quedan, hace cuánto venció, o si todavía no se activó.
 //
 // set-tier cambia el nivel de una clave que ya existe (por ejemplo, subir
 // a alguien de freemium a premium) sin que el usuario tenga que reactivar
@@ -211,7 +213,7 @@ async function cmdSetTier(args) {
 async function cmdList() {
   const { data, error } = await supabase
     .from("access_keys")
-    .select("key_code, status, is_admin, tier, note, created_at, bound_at, revoked_at")
+    .select("key_code, status, is_admin, tier, note, created_at, bound_at, first_bound_at, revoked_at")
     .order("created_at", { ascending: false });
   if (error) {
     console.error("Error listando:", error.message);
@@ -225,11 +227,15 @@ async function cmdList() {
     const tag = k.is_admin ? "[admin]" : `[${k.tier}]`;
     let extra = "";
     if (!k.is_admin && k.tier === "beneficiario") {
-      const dias = Math.floor((Date.now() - new Date(k.created_at).getTime()) / (1000 * 60 * 60 * 24));
-      const restantes = TRIAL_BENEFICIARIO_DIAS - dias;
-      extra = restantes > 0
-        ? ` (prueba: quedan ${restantes}d)`
-        : ` (prueba vencida hace ${-restantes}d -- ve Demo)`;
+      if (!k.first_bound_at) {
+        extra = " (prueba: aun no activada en ningun celular)";
+      } else {
+        const dias = Math.floor((Date.now() - new Date(k.first_bound_at).getTime()) / (1000 * 60 * 60 * 24));
+        const restantes = TRIAL_BENEFICIARIO_DIAS - dias;
+        extra = restantes > 0
+          ? ` (prueba: quedan ${restantes}d desde su activacion)`
+          : ` (prueba vencida hace ${-restantes}d -- ve Demo)`;
+      }
     }
     console.log(`${k.key_code}  [${k.status}] ${tag}${extra}  ${k.note || ""}`.trim());
   }

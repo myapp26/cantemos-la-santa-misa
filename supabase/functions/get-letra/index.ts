@@ -69,14 +69,19 @@ async function sha256Hex(input: string): Promise<string> {
 // criterio y misma constante que supabase/functions/validate-key/index.ts
 // -- deben coincidir). Una clave beneficiario tiene paridad de contenido
 // con Premium (candado/oculta, nunca "privada") solo durante
-// TRIAL_BENEFICIARIO_DIAS desde que se generó (created_at). Pasado ese
-// plazo, se la trata como si no tuviera ningun tier reconocido (igual que
-// Demo): sin acceso a ningun contenido restringido via esta funcion.
+// TRIAL_BENEFICIARIO_DIAS desde first_bound_at -- el momento en que se
+// activó en el celular la primera y única vez, aclarado por Gloria el
+// 13/11/2026 (no desde created_at, que fue su primera elección). Si
+// first_bound_at todavia es null la prueba no empezó y se trata como
+// vigente. Pasado el plazo, se la trata como si no tuviera ningun tier
+// reconocido (igual que Demo): sin acceso a ningun contenido restringido
+// via esta funcion.
 const TRIAL_BENEFICIARIO_DIAS = 30;
-function beneficiarioVigente(row: { tier: string; created_at: string }): boolean {
+function beneficiarioVigente(row: { tier: string; first_bound_at: string | null }): boolean {
   if (row.tier !== "beneficiario") return false;
-  const diasDesdeCreacion = (Date.now() - new Date(row.created_at).getTime()) / (1000 * 60 * 60 * 24);
-  return diasDesdeCreacion < TRIAL_BENEFICIARIO_DIAS;
+  if (!row.first_bound_at) return true;
+  const diasDesdeActivacion = (Date.now() - new Date(row.first_bound_at).getTime()) / (1000 * 60 * 60 * 24);
+  return diasDesdeActivacion < TRIAL_BENEFICIARIO_DIAS;
 }
 
 Deno.serve(async (req) => {
@@ -139,7 +144,7 @@ Deno.serve(async (req) => {
   // del Plan Anual -- tiene el mismo acceso a contenido restringido que
   // premium/freemium (nunca "privada", ver solo_admin mas abajo) solo
   // mientras beneficiarioVigente(row) de true (dentro de los primeros
-  // TRIAL_BENEFICIARIO_DIAS desde que se genero la clave).
+  // TRIAL_BENEFICIARIO_DIAS desde que se activo en el celular).
   const autorizado = row.is_admin === true || row.tier === "premium" || row.tier === "freemium" || beneficiarioVigente(row);
   if (!autorizado) {
     return json({ ok: false, reason: "forbidden" }, 403, origin);
