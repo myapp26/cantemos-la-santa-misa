@@ -2885,48 +2885,91 @@ revisarVersionPublicadaAdmin();
 // `revisarIndexActualizado()`, más abajo, cierran ese hueco: comparan el
 // propio index.html contra el del servidor con la misma técnica que ya
 // usa firmarCanciones() para los datos.
-let cancionesFirma=null, indexFirma=null, recargandoPorDatos=false;
-async function firmarCanciones(){
-  try{
-    const r=await fetch("canciones.js",{cache:"no-store"});
-    if(!r.ok) return null;
-    // Si el Service Worker sirvió esto desde su caché de emergencia (fallo de
-    // red justo en este chequeo), no es un dato fresco -- se ignora este
-    // chequeo en vez de compararlo, para no confundir "hubo un bache de señal"
-    // con "no hay canciones nuevas publicadas".
-    if(r.headers.get("X-Cantemos-Origen")==="cache") return null;
-    const t=await r.text();
-    return t.length+":"+t.slice(-200);
-  }catch(e){ return null; }
+// IMPORTANTE (14/11/2026): hasta esta fecha, cancionesFirma/indexFirma
+// vivían solo en memoria (se perdían al cerrar la app del todo). Eso dejaba
+// un hueco: en un arranque en frío (app recién abierta, incluso después de
+// reiniciar el celular) la primera lectura se adoptaba como "la verdad" sin
+// comparar contra nada -- si justo en ese primer pedido de red hubo un
+// bache y el Service Worker cayó a su copia de emergencia, esa copia vieja
+// quedaba aceptada para toda la sesión, sin volver a dudar de ella hasta el
+// próximo ciclo de segundo-plano/primer-plano DENTRO de esa misma sesión.
+// Reiniciar el celular repetía el mismo riesgo desde cero -- un dispositivo
+// con algo de inestabilidad de red justo en ese instante podía quedarse
+// "pegado" en una versión vieja indefinidamente. Ahora la firma se guarda en
+// localStorage (sí persiste entre arranques en frío) y el chequeo reintenta
+// un par de veces antes de resignarse; si aun así nunca logra confirmar una
+// versión fresca mientras el navegador reporta que SÍ hay conexión, se
+// muestra un aviso chico para no depender solo de la detección silenciosa
+// (nunca se muestra si el dispositivo está realmente sin señal -- la app
+// sigue pensada para usarse offline en la iglesia). Ver
+// claude/analisis-tecnico-cancionero.md.
+const LS_FIRMA_CANCIONES="cantemos_firma_canciones_v1";
+const LS_FIRMA_INDEX="cantemos_firma_index_v1";
+let cancionesFirma=localStorage.getItem(LS_FIRMA_CANCIONES);
+let indexFirma=localStorage.getItem(LS_FIRMA_INDEX);
+let recargandoPorDatos=false;
+
+// Pide `url` hasta `intentos` veces (con una pausa corta entre cada una),
+// descartando cualquier respuesta marcada como servida desde la caché de
+// emergencia del Service Worker (bache de red, no dato fresco real) -- en
+// vez de resignarse apenas la primera falla. Devuelve la firma de contenido
+// o null si ninguno de los intentos logró una respuesta fresca.
+async function firmarConReintento(url, intentos){
+  for(let i=0;i<intentos;i++){
+    try{
+      const r=await fetch(url,{cache:"no-store"});
+      if(r.ok && r.headers.get("X-Cantemos-Origen")!=="cache"){
+        const t=await r.text();
+        return t.length+":"+t.slice(-200);
+      }
+    }catch(e){ /* sigue intentando */ }
+    if(i<intentos-1) await new Promise(res=>setTimeout(res,1200));
+  }
+  return null;
 }
+function firmarCanciones(){ return firmarConReintento("canciones.js", 3); }
+// Mismo mecanismo, pero sobre index.html en vez de canciones.js -- detecta
+// un cambio de CÓDIGO (ej. una regla de niveles nueva) aunque no haya
+// cambiado ningún dato ni sw.js, y recarga sola sin pedirle nada al usuario.
+function firmarIndexHtml(){ return firmarConReintento("index.html", 3); }
+
+// Aviso no invasivo, de última instancia: solo aparece si ya existía una
+// versión confirmada antes (no es la primera vez que se abre la app) y el
+// navegador cree que SÍ hay conexión -- si está realmente sin señal, nunca
+// se muestra.
+function avisarActualizacionDisponible(){
+  if(document.getElementById("cantemos-aviso-actualizacion")) return;
+  const d=document.createElement("div");
+  d.id="cantemos-aviso-actualizacion";
+  d.style.cssText="position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#2d6a4f;color:#fff;padding:10px 14px;text-align:center;font-size:14px;cursor:pointer;font-family:inherit";
+  d.textContent="📥 Hay una actualización disponible — tocá para aplicarla";
+  d.onclick=()=>location.reload();
+  document.body.appendChild(d);
+}
+
 async function revisarCancionesActualizado(){
   const firma=await firmarCanciones();
-  if(firma===null) return;
-  if(cancionesFirma===null){ cancionesFirma=firma; return; }
+  if(firma===null){
+    if(cancionesFirma!==null && navigator.onLine) avisarActualizacionDisponible();
+    return;
+  }
+  if(cancionesFirma===null){ cancionesFirma=firma; localStorage.setItem(LS_FIRMA_CANCIONES, firma); return; }
   if(firma!==cancionesFirma && !recargandoPorDatos){
     recargandoPorDatos=true;
+    localStorage.setItem(LS_FIRMA_CANCIONES, firma);
     location.reload();
   }
 }
-// Mismo mecanismo que firmarCanciones()/revisarCancionesActualizado(), pero
-// sobre index.html en vez de canciones.js -- detecta un cambio de CÓDIGO
-// (ej. una regla de niveles nueva) aunque no haya cambiado ningún dato ni
-// sw.js, y recarga sola sin pedirle nada al usuario.
-async function firmarIndexHtml(){
-  try{
-    const r=await fetch("index.html",{cache:"no-store"});
-    if(!r.ok) return null;
-    if(r.headers.get("X-Cantemos-Origen")==="cache") return null;
-    const t=await r.text();
-    return t.length+":"+t.slice(-200);
-  }catch(e){ return null; }
-}
 async function revisarIndexActualizado(){
   const firma=await firmarIndexHtml();
-  if(firma===null) return;
-  if(indexFirma===null){ indexFirma=firma; return; }
+  if(firma===null){
+    if(indexFirma!==null && navigator.onLine) avisarActualizacionDisponible();
+    return;
+  }
+  if(indexFirma===null){ indexFirma=firma; localStorage.setItem(LS_FIRMA_INDEX, firma); return; }
   if(firma!==indexFirma && !recargandoPorDatos){
     recargandoPorDatos=true;
+    localStorage.setItem(LS_FIRMA_INDEX, firma);
     location.reload();
   }
 }
