@@ -21,6 +21,13 @@
 // todo el catálogo igual que el admin (incluidas las canciones "privada"),
 // pero nunca tiene acceso al panel de configuración/edición.
 //
+// Desde el 13/11/2026, toda clave beneficiario funciona con paridad de
+// admin solo por TRIAL_BENEFICIARIO_DIAS desde que se generó (no desde que
+// se activa) -- pasado ese plazo baja sola a Demo en la próxima
+// revalidación del dispositivo, sin que Gloria tenga que hacer nada (ver
+// supabase/functions/validate-key/index.ts, misma constante). `list` marca
+// cuántos días quedan o hace cuánto venció.
+//
 // set-tier cambia el nivel de una clave que ya existe (por ejemplo, subir
 // a alguien de freemium a premium) sin que el usuario tenga que reactivar
 // nada -- el dispositivo ya vinculado sigue funcionando igual.
@@ -44,6 +51,7 @@ const supabase = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);
 
 const ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // sin I, O, 0, 1
 const TIERS_VALIDOS = ["freemium", "premium", "beneficiario"];
+const TRIAL_BENEFICIARIO_DIAS = 30; // debe coincidir con validate-key/index.ts
 
 function randomGroup(len) {
   let out = "";
@@ -215,7 +223,15 @@ async function cmdList() {
   }
   for (const k of data) {
     const tag = k.is_admin ? "[admin]" : `[${k.tier}]`;
-    console.log(`${k.key_code}  [${k.status}] ${tag}  ${k.note || ""}`.trim());
+    let extra = "";
+    if (!k.is_admin && k.tier === "beneficiario") {
+      const dias = Math.floor((Date.now() - new Date(k.created_at).getTime()) / (1000 * 60 * 60 * 24));
+      const restantes = TRIAL_BENEFICIARIO_DIAS - dias;
+      extra = restantes > 0
+        ? ` (prueba: quedan ${restantes}d)`
+        : ` (prueba vencida hace ${-restantes}d -- ve Demo)`;
+    }
+    console.log(`${k.key_code}  [${k.status}] ${tag}${extra}  ${k.note || ""}`.trim());
   }
 }
 
