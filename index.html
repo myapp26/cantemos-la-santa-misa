@@ -1059,10 +1059,12 @@ function updateFeatureGating(){
   const nivel = nivelEfectivo();
   const puedeSeleccionar = adminEfectivo() || nivel==="premium" || nivel==="freemium" || nivel==="beneficiario" || nivel==="demo";
   const puedeGuardar = adminEfectivo() || nivel==="premium" || nivel==="beneficiario" || nivel==="demo";
-  // Descargar en PDF: por ahora solo para la administradora real (no en
-  // vista previa de otro rol). Más adelante se habilitará también para
-  // Plan Anual/Premium -- ver claude/analisis-tecnico-cancionero.md.
-  const puedePdf = adminEfectivo();
+  // Descargar en PDF: administradora real, y desde el 14/11/2026 también
+  // Plan Anual/Premium -- a pedido explícito de Gloria, excluyendo Demo y
+  // beneficiario (que sigue siendo una prueba de Plan Anual, no el plan en
+  // sí). Freemium sigue sin PDF, es la diferencia real con Premium. Ver
+  // claude/analisis-tecnico-cancionero.md.
+  const puedePdf = adminEfectivo() || nivel==="premium";
   const selBtn=document.getElementById("selModeBtn");
   const savedBtn=document.getElementById("selSavedBtn");
   const guardarBtn=document.getElementById("guardarSelBtn");
@@ -1089,7 +1091,8 @@ function updateFeatureGating(){
 //    salvo "privada". La única diferencia entre ambos son las FUNCIONES, no
 //    el contenido: Freemium no ve diagramas de acordes (diagramaBloqueado,
 //    automático, ya no depende de marcar canción por canción) ni tiene PDF
-//    (puedePdf). "candado"/"oculta" (restriccion) y el viejo c.premium===true
+//    (puedePdf, que desde el 14/11/2026 sí incluye a Premium -- ver abajo).
+//    "candado"/"oculta" (restriccion) y el viejo c.premium===true
 //    ya NO bloquean nada visualmente para nadie -- Gloria los puede seguir
 //    marcando en el editor, pero no generan candados ni mensajes de bloqueo
 //    en ninguna versión. Lo que SÍ siguen haciendo en silencio: mantener la
@@ -1120,7 +1123,9 @@ function esRestringida(c){
 // catálogo curado de Demo (ver visibleParaListado() y
 // claude/analisis-tecnico-cancionero.md). Lo que SÍ sigue diferenciando a
 // Freemium de Premium son las FUNCIONES, no el contenido: diagramas de
-// acordes (diagramaBloqueado) y PDF (puedePdf, ver updateFeatureGating).
+// acordes (diagramaBloqueado) y, hasta el 14/11/2026, también PDF -- ahora
+// Premium sí lo tiene (puedePdf, ver updateFeatureGating); Freemium sigue
+// sin ninguno de los dos.
 // IMPORTANTE (13/11/2026): "beneficiario" pasó a tener el mismo criterio de
 // CONTENIDO que Premium -- ya no ve "privada". Deja de ser una paridad con
 // admin: es una versión de prueba de Plan Anual, con fecha de vencimiento
@@ -2095,8 +2100,9 @@ function render(filter=""){
       if(!list.length) return;
       total+=list.length;
       const sec=document.createElement("section");sec.className="cat";
+      const puedePdfCat = adminEfectivo() || nivelEfectivo()==="premium";
       sec.innerHTML=`<div class="cat-head"><h2>${esc(cat)}</h2><span class="rule"></span>
-        ${adminEfectivo()?`<button class="cat-pdf-btn" title="Descargar esta categoría en PDF" onclick="descargarPdfCategoria('${cat.replace(/'/g,"\\'")}')">📄 PDF</button>`:""}
+        ${puedePdfCat?`<button class="cat-pdf-btn" title="Descargar esta categoría en PDF" onclick="descargarPdfCategoria('${cat.replace(/'/g,"\\'")}')">📄 PDF</button>`:""}
         <span class="count">${list.length}</span></div>`;
       const ul=document.createElement("ul");ul.className="songs";
       list.forEach((c,i)=>ul.appendChild(songLi(c, String(i+1).padStart(2,"0"))));
@@ -2389,7 +2395,7 @@ async function openSong(id){
   document.getElementById("sv-meta").textContent=
     [current.autor,current.categoria].filter(Boolean).join("  ·  ");
   document.getElementById("editBtn").style.display=isAdmin?"":"none";
-  document.getElementById("pdfSongBtn").style.display=adminEfectivo()?"":"none";
+  document.getElementById("pdfSongBtn").style.display=(adminEfectivo()||nivelEfectivo()==="premium")?"":"none";
   renderYoutube(current);
   document.getElementById("song-view").classList.add("open");
   document.querySelector(".sv-scroll").scrollTop=0;
