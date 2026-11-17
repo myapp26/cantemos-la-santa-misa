@@ -131,6 +131,14 @@
   li.song .tono{font-family:"Courier New",monospace;font-size:12px;color:var(--accent);
     border:1px solid var(--rule);border-radius:2px;padding:1px 6px}
   li.song .lock-tag{font-size:12px;opacity:.65}
+  /* Etiqueta de riesgo de derechos de autor: SOLO la ve la administradora
+     (ver riesgoTag()); nunca viaja en canciones.js */
+  li.song .riesgo-tag{font-size:10px;font-weight:700;letter-spacing:.3px;border-radius:9px;padding:1px 7px;margin-left:6px;white-space:nowrap;vertical-align:middle;border:1px solid transparent}
+  li.song .riesgo-tag.libre{background:#e3f4e6;color:#1f6b2e;border-color:#b7dfbe}
+  li.song .riesgo-tag.contactar{background:#fff4d6;color:#8a6200;border-color:#ecd48a}
+  li.song .riesgo-tag.licencia{background:#fde3e1;color:#a3231a;border-color:#f1b3ae}
+  li.song .riesgo-tag.pendiente{background:#eceae6;color:#5f5a52;border-color:#cfcac1}
+  li.song .riesgo-tag.sin{background:#fff;color:#8a857c;border-color:#cfcac1;border-style:dashed}
   .empty{padding:40px 10px;text-align:center;color:var(--ink-soft);font-style:italic}
 
   /* ---------- Vista canción ---------- */
@@ -1055,6 +1063,7 @@ function aplicarRolAdmin(){
   // dispositivo y no dependen de la conexión de ese momento. Ver
   // claude/analisis-tecnico-cancionero.md (22/9/2026).
   precargarLetrasRestringidas();
+  cargarRiesgo();
 }
 // Vista previa de nivel, solo para administradora: le permite ver la app
 // como la vería un usuario en Demo/Freemium/Premium/Beneficiario, sin tocar
@@ -1288,6 +1297,51 @@ async function precargarLetrasRestringidas(){
     await ensureLetraDisponible(c);
   }
   precargaLetrasEnCurso=false;
+}
+
+// ===================== Riesgo de derechos de autor (solo admin) =====================
+// Clasificacion LIBRE/CONTACTAR/LICENCIA/PENDIENTE de cada canto, para que
+// Gloria decida si lo deja restringido. Vive en la tabla riesgo_derechos de
+// Supabase y se pide a la funcion get-riesgo, que SOLO responde a la clave
+// admin. Nunca va en canciones.js y nunca se guarda en el dispositivo: solo
+// en memoria mientras la app esta abierta. Se oculta en "Vista previa".
+const GET_RIESGO_URL = "https://zhxtoublmvrghmnpwxoj.supabase.co/functions/v1/get-riesgo";
+const RIESGO_UI = {
+  LIBRE:{ico:"🟢", cls:"libre", nombre:"Libre"},
+  CONTACTAR:{ico:"🟡", cls:"contactar", nombre:"Contactar"},
+  LICENCIA:{ico:"🔴", cls:"licencia", nombre:"Licencia"},
+  PENDIENTE:{ico:"⚪", cls:"pendiente", nombre:"Pendiente"}
+};
+let RIESGO = null;          // null = aun no cargado; objeto { id: {c,v,a,f} }
+let riesgoEnCurso = false;
+async function cargarRiesgo(){
+  if(!isAdmin){ RIESGO = null; return; }   // solo la admin real (no depende de la vista previa)
+  if(RIESGO || riesgoEnCurso) return;
+  const access = loadAccess();
+  if(!access || !access.key || !access.token) return;
+  riesgoEnCurso = true;
+  try{
+    const res = await fetch(GET_RIESGO_URL, {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({key:access.key, token:access.token})
+    });
+    const data = await res.json();
+    if(data.ok && data.riesgo && typeof data.riesgo==="object"){
+      RIESGO = data.riesgo;
+      render(document.getElementById("q").value);
+    }
+  }catch(e){ /* sin conexion: simplemente no se muestran etiquetas */ }
+  riesgoEnCurso = false;
+}
+function riesgoTag(c){
+  if(!adminEfectivo() || !RIESGO) return "";
+  const r = RIESGO[c.id];
+  if(!r) return ` <span class="riesgo-tag sin" title="Sin clasificar">sin clasificar</span>`;
+  const u = RIESGO_UI[r.c];
+  if(!u) return "";
+  const tip = [r.a && ("Autor: "+r.a), r.v && ("Verificado: "+r.v), r.f && ("Fuente: "+r.f)].filter(Boolean).join(" · ");
+  return ` <span class="riesgo-tag ${u.cls}" title="${esc(tip).replace(/"/g,"&quot;")}">${u.ico} ${u.nombre}</span>`;
 }
 
 async function callValidate(key, token){
@@ -2414,7 +2468,7 @@ function songLi(c, n){
     : "";
   const bloqueada = estaBloqueada(c);
   li.innerHTML=`${checkHTML}<span class="num">${n}</span>
-    <span class="t">${esc(c.titulo)}${c.autor?` <span class="a">· ${esc(c.autor)}</span>`:""}${bloqueada?` <span class="lock-tag">🔒</span>`:""}</span>
+    <span class="t">${esc(c.titulo)}${c.autor?` <span class="a">· ${esc(c.autor)}</span>`:""}${bloqueada?` <span class="lock-tag">🔒</span>`:""}${riesgoTag(c)}</span>
     <span class="tono">${esc(c.tono)}</span>`;
   li.onclick=()=>openSong(c.id);
   return li;
