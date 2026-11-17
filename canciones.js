@@ -2,7 +2,7 @@
 //  CANCIONES — Generado automáticamente desde la app.
 //  Este archivo es la "semilla" que reciben todos los que
 //  instalan la app desde tu enlace de Netlify.
-//  Generado: 30/10/2026, 5:10:14 p.m.
+//  Generado: 16/11/2026, 2:28:18 p.m.
 // ============================================================
 
 const CATEGORIAS = ["Entrada","Piedad","Aclamación del Evangelio","Ofertorio","Santo","Cordero de Dios","Cantos de Comunión","Cantos a la Virgen María","Evangelio - sin Aleluya","Vocacionales y Mision","Alabanzas","De Adoración","Fiestas/ Solemnidades","Temas Biblicos","Adviento","Cuaresma","Semana Santa","Pascua y Resurrección","Pentecostés","Cantos para Niños","Misa por los Difuntos","Evangelio - Aleluya"];
@@ -19,7 +19,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "juntos-como-hermanos",
@@ -32,7 +33,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "santa-maria-del-camino",
@@ -45,7 +47,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "el-profeta",
@@ -58,7 +61,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "sois-semilla",
@@ -71,7 +75,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ten-piedad-senor",
@@ -84,7 +89,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "aleluya-el-senor-resucito",
@@ -97,7 +103,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "una-espiga",
@@ -110,7 +117,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "a-edificar-la-iglesia",
@@ -123,7 +131,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "abran-las-puertas",
@@ -136,7 +145,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "alabare",
@@ -149,7 +159,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "el-amor-del-senor",
@@ -162,7 +173,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "jesus-esta-pasando",
@@ -175,7 +187,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "mi-dios-esta-vivo",
@@ -188,7 +201,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "no-hay-dios-tan-grande-como-tu",
@@ -201,7 +215,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "si-tuvieras-fe",
@@ -214,7 +229,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "estamos-de-fiesta-con-jesus",
@@ -227,7 +243,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "que-alegria-cuando-me-dijeron",
@@ -240,7 +257,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "jesucristo-me-dejo-inquieto",
@@ -253,7 +271,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "hoy-vengo-a-decirte-gracias",
@@ -266,7 +285,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "yo-te-alabo-con-el-corazon",
@@ -279,7 +299,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "alzad-las-manos",
@@ -292,7 +313,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "que-alegria-es-venir",
@@ -305,7 +327,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "venimos-hoy-a-tu-altar",
@@ -318,7 +341,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ven-a-celebrar",
@@ -331,7 +355,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "vamos-cantando-al-senor",
@@ -344,20 +369,22 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ten-piedad-de-mi",
     "titulo": "Ten piedad de mí",
     "autor": "Tradicional",
     "categoria": "Piedad",
-    "tono": "Do",
-    "letra": "# Estrofa 1\nTen piedad de mi, Señor,\nten piedad, ten piedad.\nTen piedad de mi, Señor,\nten piedad de mí.\n\n# Estrofa 2\nCristo, Cristo, ten piedad,\nten piedad, ten piedad.\nCristo, Cristo, ten piedad,\nten piedad de mí.\n\n# Estrofa 3\nTen piedad de mi, Señor,\nten piedad, ten piedad.\nTen piedad de mi, Señor,\nten piedad de mí.",
+    "tono": "Lam",
+    "letra": "# Estrofa 1                 \nT[Lam]en piedad de mi, Señor,\nte[Mi7]n piedad, te[Lam]n piedad.\nTe[Lam]n piedad de mi, Señor,\nte[Mi]n piedad de mí[Lam].\n\n# Estrofa 2\nCr[Lam]isto, Cristo, ten piedad,\nt[Mi7]en piedad, ten pied[Lam]ad.\nCr[Lam]isto, Cristo, ten piedad,\n[Mi7]ten piedad de m[Lam]í.\n\n# Estrofa 3\nTen piedad de mi, Señor,\nten piedad, ten piedad.\nTen piedad de mi, Señor,\nten piedad de mí.",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "tu-que-siempre-nos-perdonas",
@@ -370,20 +397,22 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "cuantas-veces-senor-yo-peque",
     "titulo": "Cuantas veces, Señor, yo peque",
     "autor": "Tradicional",
     "categoria": "Piedad",
-    "tono": "",
-    "letra": "# Estrofa 1\nCuantas veces, Señor, yo pequé\nCuantas veces, Señor, yo pequé!\nMi Jesús, mi Jesús,\nyo te pido mil veces perdón.\n\n# Estrofa 2\nTe he clavado, Señor, en la Cruz (2)\nMi Jesús, mi Jesús,\nte he clavado, Señor, en la Cruz.\n\n# Estrofa 3\nTe prometo Señor, ser mejor\nMi Jesús, mi Jesús, (2)\nte prometo Señor, ser mejor.",
+    "tono": "Lam",
+    "letra": "# Estrofa 1\nCu[Lam]antas veces, Señor, yo peq[Mi7]ué\nCuantas veces, Señor, yo pe[Lam]qué!\n[La7]Mi J[Rem]esús, mi Jesú[Lam]s,\nyo te pid[Mi7]o mil veces perd[Lam]ón.\n\n# Estrofa 2\nTe he clavado, Señor, en la Cruz (2)\nMi Jesús, mi Jesús,\nte he clavado, Señor, en la Cruz.\n\n# Estrofa 3\nTe prometo Señor, ser mejor\nMi Jesús, mi Jesús, (2)\nte prometo Señor, ser mejor.",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "por-el-mundo-y-por-la-paz",
@@ -396,7 +425,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "jesus-es-senor",
@@ -409,7 +439,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "canta-aleluya",
@@ -422,7 +453,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "busca-primero",
@@ -435,7 +467,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ale-aleluya",
@@ -443,12 +476,13 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Aclamación del Evangelio",
     "tono": "Do",
-    "letra": "# Estrofa 1\nAle Ale Ale, luuuya\nAle Ale Ale, luuuya aa\nAle Ale Ale, luuuya\nAleluya\nAleluuuuyaa\nAleluya  Aleluuuuyaa",
+    "letra": "# Estrofa 1\nAl[Do]e Ale Ale, luuuya\nAl[Fa]e Ale Ale, luuu[Sol7]ya aa\nAl[Do]e Ale Ale, luuuya\nAle[Fa]luya\nAle[Sol7]luuuuya[Do]a\nAle[Fa]luya  Al[Sol]eluuuuya[Do]a",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "el-senor-es-nuestro-rey",
@@ -456,12 +490,13 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Aclamación del Evangelio",
     "tono": "Do",
-    "letra": "# Estrofa 1\n/ Aleluya, Aleluya,\nEl Señor Es Nuestro Rey. / (2)",
+    "letra": "# Estrofa 1\n/ Alelu[Do]ya[Fa], Aleluya[Do],\nEl Señor E[Fa]s Nuestro Re[Sol7]y. / (2)",
     "youtube": "https://youtu.be/4iWMjgRvoTI?si=fgwJi0JCmbiiVvLV",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "aleluya-cfones",
@@ -474,20 +509,22 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "gloria-aleluya",
     "titulo": "Gloria, Aleluya",
     "autor": "Tradicional",
     "categoria": "Aclamación del Evangelio",
-    "tono": "Do",
-    "letra": "# Estrofa 1\nGloria, gloria, aleluya,\ngloria, gloria, aleluya,\ngloria, gloria, alelu-ya,\nJesús es resucitó.\n\n# Estrofa 2\nEl Espíritu Divino\nque a la tierra Cristo envió,\ncomo viento huracanado,\ncomo fuego abrasador,\nseptiforme don del cielo\ny consuelo en la aflicción,\n¡poder renovador!",
+    "tono": "La",
+    "letra": "# Estrofa 1\nGl[La]oria, gloria, aleluya,\ngl[Re]oria, gloria, aleluy[La]a,\ngloria, gloria, al[Do#]elu-y[Fa#m]a,\nJes[Sim]ús   r[Mi7]esucit[La]ó.\n\n# Estrofa 2\nEl Espí[La]ritu Divino\nque a la tier[Do#]ra Cristo envi[Fa#m]ó,\ncomo vi[Re]ento huracanado,\ncomo fu[La]ego abrasador,\nseptiforme don del cielo\ny cons[Do#]uelo en la aflicci[Fa#m]ón,\n¡pod[Sim]er reno[Mi7]vador[La]!",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "un-nino-se-te-acerco",
@@ -500,7 +537,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "te-presentamos-la-vida-senor",
@@ -513,7 +551,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "te-presentamos-el-vino-y-el-pan",
@@ -526,7 +565,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "reunidos-senor-marco-lopez",
@@ -539,7 +579,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "en-su-mesa-hay-amor",
@@ -552,7 +593,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "padre-bendito",
@@ -565,7 +607,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ofrenda-de-amor",
@@ -578,7 +621,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "santo-es-el-senor",
@@ -591,7 +635,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "santo-dicen-los-querubines",
@@ -604,20 +649,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
-  },
-  {
-    "id": "santo-es-el-senor-cfones",
-    "titulo": "Santo Es El Señor  C.Fones",
-    "autor": "Cristóbal Fones",
-    "categoria": "Santo",
-    "tono": "Do",
-    "letra": "# Estrofa 1\nSanto, Santo, Santoes el Señor\nDios del Universo, Santoes el Señor\n\n# Estrofa 2\nEl cielo y la tierra están llenos de tu gloria\nHosanna en el cielo\n\n# Estrofa 3\nBendito es el que viene en el nombre del Señor\nHosanna en el cielo",
-    "youtube": "https://youtu.be/87yOdDpoSFs?si=7sN8EJ4y8AUI8ZK-",
-    "restriccion": "",
-    "premium": false,
-    "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "cordero-panamericano",
@@ -630,20 +663,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
-  },
-  {
-    "id": "cordero-de-dios-1-a-mejia",
-    "titulo": "Cordero de Dios 1 –A. Mejía",
-    "autor": "Alejandro Mejía",
-    "categoria": "Cordero de Dios",
-    "tono": "Lam",
-    "letra": "[Lam]CORDERO DE DIOS QUE [Rem]QUITAS [Mi7]EL PECADO DEL [Lam]MUNDO\nTEN PIEDAD, [Mi7]TEN PIEDAD, TEN PIEDAD DE [Lam]NOSOTROS\n[Lam]CORDERO DE DIOS QUE [Rem]QUITAS [Mi7]EL PECADO DEL [Lam]MUNDO\nTEN PIEDAD, [Mi7]TEN PIEDAD, TEN PIEDAD DE [Lam]NOSOTROS\n[Lam]CORDERO DE DIOS QUE [Rem]QUITAS [Mi7]EL PECADO DEL [Lam]MUNDO\nDANOS LA [Rem]PAZ, DANOS LA [Lam]PAZ, DANOS LA PAZ, [Mi7]DANOS LA [Lam]PAZ",
-    "youtube": "",
-    "restriccion": "",
-    "premium": false,
-    "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "cordero-de-dios-leiva",
@@ -656,7 +677,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "yo-tengo-un-amigo",
@@ -669,7 +691,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "eucaristia",
@@ -682,20 +705,22 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "milagro-de-amor",
     "titulo": "Milagro de Amor",
     "autor": "Betsaida",
     "categoria": "Cantos de Comunión",
-    "tono": "Do",
+    "tono": "Sol",
     "letra": "",
     "youtube": "https://youtu.be/e-sTTcgWDi8?si=Xk_9UW-zDZKpFwXN",
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "tu-nos-invitas-jesus",
@@ -708,7 +733,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ya-no-eres-pan-y-vino",
@@ -721,7 +747,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "jesus-amigo",
@@ -734,7 +761,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "eucaristia-estacion-cero",
@@ -747,7 +775,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "jesus-esta-vivo",
@@ -760,7 +789,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ante-tu-presencia",
@@ -773,7 +803,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "eucaristia-kairy-marquez",
@@ -786,7 +817,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "al-recibirte-en-comunion",
@@ -799,7 +831,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "el-amor-se-hizo-pan-y-vino",
@@ -812,7 +845,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "jesus-tu-eres-rey-de-reyes",
@@ -825,7 +859,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "no-me-habeis-elegido",
@@ -838,7 +873,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "lo-mas-grande",
@@ -851,7 +887,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "eucaristia-pablo-sanchez",
@@ -864,7 +901,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ahi-en-la-eucaristia",
@@ -877,7 +915,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "bendita-eucaristia",
@@ -890,7 +929,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "maria-mirame",
@@ -903,7 +943,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "virgen-del-rosario",
@@ -916,7 +957,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "el-angelus",
@@ -929,7 +971,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "oh-maria-madre-mia",
@@ -942,7 +985,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "te-vengo-a-decir",
@@ -955,7 +999,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "maria-de-mi-ninez",
@@ -968,7 +1013,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "madre-mia",
@@ -981,7 +1027,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "madre-eres-ternura",
@@ -994,7 +1041,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "junto-a-ti-maria",
@@ -1007,7 +1055,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "quiero-decir-que-si",
@@ -1020,7 +1069,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "santa-maria-del-amen",
@@ -1033,7 +1083,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "contigo-maria",
@@ -1046,7 +1097,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "la-fe-de-maria",
@@ -1059,7 +1111,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "acaso-no-estoy-yo-aqui",
@@ -1072,7 +1125,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "viva-maria-viva-el-carmelo",
@@ -1085,7 +1139,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ella-es-maria",
@@ -1098,7 +1153,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "la-rosa-mas-bella",
@@ -1111,7 +1167,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "maria-madre-de-la-iglesia-sarai-r",
@@ -1124,7 +1181,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "como-no-amarte-j-cabrera",
@@ -1137,7 +1195,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "hoy-te-quiero-cantar",
@@ -1150,7 +1209,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "bajo-tu-manto-f-gomez",
@@ -1163,7 +1223,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "oh-mi-maria",
@@ -1176,7 +1237,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "el-hijo-prodigo",
@@ -1189,7 +1251,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "aleluya-por-esa-gente",
@@ -1202,7 +1265,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "el-joven-rico",
@@ -1215,7 +1279,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "aqui-hay-un-muchacho-jesed",
@@ -1228,7 +1293,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "os-anunciamos-betsaida",
@@ -1241,7 +1307,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ven-senor-nuestra-esperanza",
@@ -1254,7 +1321,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "no-tardes-mas-msp",
@@ -1267,7 +1335,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ven-jesus-msp",
@@ -1280,7 +1349,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "alegria-de-esperar-luis-elizalde-ochoa",
@@ -1293,7 +1363,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "presentamos-todos-juntos-msp",
@@ -1306,7 +1377,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "si-tu-no-vienes-jesus",
@@ -1319,7 +1391,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "vamos-a-preparar-el-camino-del-senor",
@@ -1332,7 +1405,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "esperaba-esperaba",
@@ -1345,7 +1419,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "santa-maria-de-la-esperanza",
@@ -1358,7 +1433,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "virgen-de-la-esperanza",
@@ -1371,7 +1447,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "nos-has-llamado-al-desierto",
@@ -1384,7 +1461,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "caminare-francisco-palazon",
@@ -1397,7 +1475,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "peque-peque-dios-mio",
@@ -1410,7 +1489,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "dejame-nacer-ariel-glaser",
@@ -1423,7 +1503,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "nacer-de-nuevo",
@@ -1436,7 +1517,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "arriba-nuestros-ramos",
@@ -1449,7 +1531,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "preciosa-sangre-padre-miguel",
@@ -1462,7 +1545,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "el-buen-ladron-felipe-gomez",
@@ -1475,7 +1559,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "saname-mi-senor-felipe-gomez",
@@ -1488,7 +1573,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "dolorosa",
@@ -1501,7 +1587,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "resucito-el-senor",
@@ -1514,7 +1601,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "regina-caeli",
@@ -1527,7 +1615,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "te-conocimos-al-partir-el-pan",
@@ -1540,7 +1629,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "se-siente-aqui",
@@ -1553,7 +1643,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ya-llego",
@@ -1566,7 +1657,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "derramare-sobre-vosotros",
@@ -1579,7 +1671,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "danos-senor-tu-espiritu-msp",
@@ -1592,7 +1685,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ven-espiritu-santo-u-arcodaci",
@@ -1605,7 +1699,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ante-tu-presencia-jaime-chacua",
@@ -1618,7 +1713,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ven-espiritu-santoj-lopez",
@@ -1631,7 +1727,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "espiritu-santo-guianos-antonio-alcalde",
@@ -1644,7 +1741,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ven-espiritu-divino",
@@ -1657,7 +1755,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "preparate-para-que-sientas",
@@ -1670,7 +1769,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "a-que-tu-no-sabes",
@@ -1683,7 +1783,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "algo-esta-descendiendo",
@@ -1696,7 +1797,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "bautizame-senor",
@@ -1709,7 +1811,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "como-corren-rios",
@@ -1722,7 +1825,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "es-un-rio",
@@ -1735,7 +1839,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "este-avivamiento",
@@ -1748,7 +1853,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "este-gozo",
@@ -1761,7 +1867,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "muevete-en-mi",
@@ -1774,7 +1881,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "te-doy-gracias-jesus",
@@ -1787,7 +1895,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "asi-se-alaba-a-dios",
@@ -1800,7 +1909,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "aqui-se-alaba",
@@ -1813,7 +1923,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "los-que-esperan",
@@ -1826,7 +1937,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "cuando-el-pueblo-alaba",
@@ -1839,7 +1951,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "pon-aceite-en-mi-lampara",
@@ -1852,7 +1965,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "viva-la-fe",
@@ -1865,7 +1979,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "yo-edifique-una-casa",
@@ -1878,7 +1993,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "solamente-en-cristo",
@@ -1891,7 +2007,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "esta-es-la-gente",
@@ -1904,7 +2021,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "no-hay-nadie-como-mi-dios",
@@ -1917,7 +2035,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "delante-del-rey-w-alencar",
@@ -1930,7 +2049,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "rey-de-reyes",
@@ -1943,7 +2063,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "bendito-bendito",
@@ -1956,7 +2077,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "te-alabo-en-verdad",
@@ -1969,7 +2091,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "yo-quiero-ser-johan-sanchez",
@@ -1982,7 +2105,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "quema-mi-vida",
@@ -1995,7 +2119,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "jesus-esta-vivo-marco-lopez",
@@ -2008,7 +2133,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "aqui-en-tu-presencia-m-lopez",
@@ -2021,7 +2147,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "el-rey-de-mi-vida",
@@ -2034,7 +2161,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "hazme-como-tu",
@@ -2047,7 +2175,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "nadie-te-ama-como-yo",
@@ -2060,7 +2189,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "viva-cristo-rey-jesed",
@@ -2073,7 +2203,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "canto-a-san-jose",
@@ -2086,7 +2217,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "himno-al-senor-de-los-milagros-de-buga",
@@ -2099,7 +2231,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "cancion-al-senor-de-los-milagros",
@@ -2112,7 +2245,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "oh-senor-de-los-milagros",
@@ -2125,7 +2259,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "aunque-marche",
@@ -2138,7 +2273,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "el-senor-es-mi-pastor-alejandro-mejia",
@@ -2151,7 +2287,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "iglesia-peregrina",
@@ -2164,7 +2301,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "nueva-creacion",
@@ -2177,7 +2315,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "pueblo-de-reyes",
@@ -2190,7 +2329,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "vine-a-alabar-a-dios",
@@ -2203,7 +2343,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "mira-nuestra-ofrenda",
@@ -2216,7 +2357,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "recibe-oh-dios",
@@ -2229,7 +2371,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "saber-que-vendras",
@@ -2242,7 +2385,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "santo-i",
@@ -2255,7 +2399,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "santo-iii",
@@ -2268,7 +2413,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "si-yo-no-tengo-amor",
@@ -2281,7 +2427,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "yo-soy-el-camino",
@@ -2294,7 +2441,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "alma-misionera",
@@ -2307,7 +2455,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "alabado-sea-el-santisimo",
@@ -2320,7 +2469,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "cantemos-al-amor-de-los-amores",
@@ -2333,7 +2483,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "digno-de-alabar",
@@ -2346,7 +2497,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "gloria-martin-valverde",
@@ -2359,7 +2511,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "vive-jesus",
@@ -2372,7 +2525,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "maria-musica-de-dios",
@@ -2385,7 +2539,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "alma-de-cristo",
@@ -2398,7 +2553,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "hacia-ti-morada-santa",
@@ -2411,7 +2567,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "yo-soy-el-pan-de-vida",
@@ -2424,7 +2581,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "no-se-han-ido-del-todo",
@@ -2437,7 +2595,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "mas-alla-del-sol",
@@ -2450,7 +2609,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "pescador-de-hombres-49",
@@ -2463,7 +2623,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "caminare-en-presencia-del-senor",
@@ -2476,7 +2637,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "entre-tus-manos",
@@ -2489,20 +2651,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
-  },
-  {
-    "id": "aleluya-el-senor-es-nuestro-rey",
-    "titulo": "Aleluya el Señor es nuestro rey",
-    "autor": "Tradicional",
-    "categoria": "Aclamación del Evangelio",
-    "tono": "La",
-    "letra": "[La]Aleluya, [Re][Re][La]Aleluya\nEl [La]señor es nuestro [Mi]Rey (2x)\n[La]Cantad al Señor un [Re]cantico [La]nuevo\n[Re]Porque ha hecho [La]maravillas\nSu [La]diestra le ha [Re]dado la [La]victoria\nSu [Re]santo [Mi][La]brazo\n[La][Re]Aleluya...",
-    "youtube": "",
-    "restriccion": "",
-    "premium": false,
-    "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "cordero-de-dios",
@@ -2515,7 +2665,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "cordero-de-dios-1",
@@ -2528,7 +2679,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "cordero-de-dios-cumbia",
@@ -2541,7 +2693,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "como-el-ciervo",
@@ -2554,7 +2707,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "juntos-cantando-la-alegria",
@@ -2567,7 +2721,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "quiero-cantar-una-linda-cancion",
@@ -2580,7 +2735,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "hoy-nos-presentamos-ante-ti-senor",
@@ -2593,7 +2749,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "tomad-senor-y-recibid",
@@ -2606,7 +2763,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "oh-senor-ten-piedad",
@@ -2619,7 +2777,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "aleluya-7-de-taize",
@@ -2632,11 +2791,12 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "santo",
-    "titulo": "Santo",
+    "titulo": "Santo II",
     "autor": "Tradicional",
     "categoria": "Santo",
     "tono": "Lam",
@@ -2645,7 +2805,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "aun-en-la-tormenta",
@@ -2658,7 +2819,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "cancion-al-corazon-de-jesus",
@@ -2671,7 +2833,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "comunion-cada-vez-que-te-recibo",
@@ -2684,7 +2847,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "descansare",
@@ -2697,7 +2861,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "presente-vivo-y-real",
@@ -2710,7 +2875,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "tuyo-soy",
@@ -2723,7 +2889,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "alabare-2",
@@ -2736,7 +2903,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "jesus-esta-pasando-2",
@@ -2749,7 +2917,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "si-tuvieras-fe-2",
@@ -2762,7 +2931,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "senor-ten-piedad",
@@ -2775,7 +2945,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "senor-ten-piedad-2",
@@ -2788,7 +2959,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "de-nosotros-piedad-senor",
@@ -2801,7 +2973,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "senor-ten-piedad-3",
@@ -2814,7 +2987,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "perdon-senor-guabina",
@@ -2827,7 +3001,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "ten-piedad-soy-pecador",
@@ -2840,7 +3015,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "oh-senor-ten-piedad-2",
@@ -2853,7 +3029,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "aleluya-gloria-al-senor",
@@ -2866,20 +3043,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
-  },
-  {
-    "id": "santo-es-el-senor-mi-dios",
-    "titulo": "Santo es el señor, mi Dios",
-    "autor": "Tradicional",
-    "categoria": "Santo",
-    "tono": "Solm",
-    "letra": "[Solm]1. /Santo es [Fa]el Señor, mi [Dom]Dios, digno de [Re]alabanza.\nA Él [Solm]el [Fa]poder, el honor [Dom]y la [Re]gloria./\n[Solm]/Hosanna (hosanna),\n[Fa]hosanna (hosanna),\n[Mim]hosanna, [Re]oh [Re7]Se-ñor./\n2. [Solm]/Bendito el que [Fa]viene en [Dom]nombre del [Re]Señor.\nCon [Solm]todos tus [Fa]santos [Dom]cantamos para [Re]Ti./",
-    "youtube": "",
-    "restriccion": "",
-    "premium": false,
-    "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "cordero-de-dios-2",
@@ -2892,7 +3057,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "es-mi-cuerpo",
@@ -2905,7 +3071,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "yo-soy-el-trigo",
@@ -2918,7 +3085,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "donde-hay-caridad-y-amor",
@@ -2931,7 +3099,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "un-mandamiento-nuevo",
@@ -2944,7 +3113,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "amemonos-de-corazon",
@@ -2957,7 +3127,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": true
+    "demo": true,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "con-vosotros-esta-y-no-le-conoceis",
@@ -2970,7 +3141,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "danos-un-corazon",
@@ -2983,7 +3155,8 @@ const CANCIONES = [
     "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "jesus-esta-entre-nosotros",
@@ -2996,7 +3169,8 @@ const CANCIONES = [
     "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "si-me-falta-el-amor",
@@ -3009,7 +3183,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "me-has-seducido-senor",
@@ -3022,7 +3197,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "senor-tu-eres-la-luz",
@@ -3035,7 +3211,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "tu-palabra-me-da-vida",
@@ -3048,7 +3225,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "aleluya-al-senor",
@@ -3061,7 +3239,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "este-pan-y-vino",
@@ -3074,7 +3253,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "santo-y-eterno",
@@ -3087,7 +3267,8 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "a-maria",
@@ -3100,19 +3281,21 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   },
   {
     "id": "cordero-de-dios-83",
     "titulo": "Cordero de Dios",
     "autor": "Tradicional",
     "categoria": "Cordero de Dios",
-    "tono": "Do",
-    "letra": "Cordero de Dios que quitas\nel pecado del mundo, el pecado del mundo.\n\nTen piedad, Señor, ten piedad\nde nosotros Señor, ten piedad\n\nTen piedad, Señor, ten piedad\nde nosotros y danos la paz\n",
+    "tono": "Am",
+    "letra": "Corde[Lam]ro de Di[Mi7]os que qu[Lam]itas\nel pec[La7]ado del m[Rem]undo, el pec[Sol7]ado del m[Do]undo.\n\nTen pie[Rem]dad, Señor, ten pie[Lam]dad\nde nos[Mi7]otros Señor, ten pied[Lam]ad\n\nTen pie[Rem]dad, Señor, ten pie[Lam]dad\nde nos[Mi7]otros y danos la p[Lam]az\n",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false
+    "demo": false,
+    "ocultarYoutubeFreemium": false
   }
 ];

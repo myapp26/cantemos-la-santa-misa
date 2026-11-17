@@ -9,3 +9,6 @@ manual-administracion.html
 
 Claude outputs/
 .claude/
+
+# Letras completas de cantos restringidos (se sincronizan a Supabase, nunca al repo)
+letras-restringidas.json
