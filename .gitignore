@@ -12,3 +12,6 @@ Claude outputs/
 
 # Letras completas de cantos restringidos (se sincronizan a Supabase, nunca al repo)
 letras-restringidas.json
+
+# Clasificacion de riesgo de derechos de autor (se sincroniza a Supabase, nunca al repo)
+riesgo.json
