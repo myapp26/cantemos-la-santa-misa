@@ -134,6 +134,7 @@
   /* Etiqueta de riesgo de derechos de autor: SOLO la ve la administradora
      (ver riesgoTag()); nunca viaja en canciones.js */
   li.song .riesgo-tag{font-size:10px;font-weight:700;letter-spacing:.3px;border-radius:9px;padding:1px 7px;margin-left:6px;white-space:nowrap;vertical-align:middle;border:1px solid transparent}
+  li.song .acordes-tag{font-size:10px;font-weight:700;letter-spacing:.3px;border-radius:9px;padding:1px 7px;margin-left:6px;white-space:nowrap;vertical-align:middle;background:#fff0e0;color:#9a4a00;border:1px solid #f0c89a}
   li.song .riesgo-tag.libre{background:#e3f4e6;color:#1f6b2e;border-color:#b7dfbe}
   li.song .riesgo-tag.contactar{background:#fff4d6;color:#8a6200;border-color:#ecd48a}
   li.song .riesgo-tag.licencia{background:#fde3e1;color:#a3231a;border-color:#f1b3ae}
@@ -539,6 +540,7 @@
         <span id="selModeLabel">☑ Seleccionar</span>
       </button>
       <button class="sortbtn plain" id="selSavedBtn" onclick="openSavedSelections()" title="Ver selecciones guardadas">📁 Selecciones</button>
+      <button class="sortbtn plain" id="sinAcordesBtn" onclick="toggleSoloSinAcordes()" style="display:none" title="Ver solo los cantos sin acordes (solo admin)"><span id="sinAcordesLabel">⚠ Sin acordes</span></button>
       <div class="textsize-ctl" title="Tamaño de letra">
         <span class="a-sm">A</span>
         <input type="range" class="textsize-slider" min="70" max="200" step="5" value="100"
@@ -1369,6 +1371,29 @@ function riesgoTag(c){
   if(!u) return "";
   const tip = [r.a && ("Autor: "+r.a), r.v && ("Verificado: "+r.v), r.f && ("Fuente: "+r.f)].filter(Boolean).join(" · ");
   return ` <span class="riesgo-tag ${u.cls}" title="${esc(tip).replace(/"/g,"&quot;")}">${u.ico} ${u.nombre}</span>`;
+}
+
+// Etiqueta solo para admin: canto pendiente de acordes (invisible para el resto).
+function acordesTag(c){
+  if(!adminEfectivo() || !pendienteDeAcordes(c)) return "";
+  return ` <span class="acordes-tag" title="Sin acordes: solo tú lo ves hasta que le pongas acordes y publiques">⚠ sin acordes</span>`;
+}
+// Filtro solo para admin: ver juntos todos los cantos pendientes de acordes.
+let soloSinAcordes=false;
+function actualizarBotonSinAcordes(){
+  const btn=document.getElementById("sinAcordesBtn");
+  if(!btn) return;
+  if(!adminEfectivo()){ btn.style.display="none"; soloSinAcordes=false; return; }
+  const n=DATA.canciones.filter(pendienteDeAcordes).length;
+  btn.style.display="";
+  btn.classList.toggle("on", soloSinAcordes);
+  document.getElementById("sinAcordesLabel").textContent="⚠ Sin acordes ("+n+")";
+}
+function toggleSoloSinAcordes(){
+  soloSinAcordes=!soloSinAcordes;
+  categoriaAbierta=null;
+  verTodas=soloSinAcordes;
+  render(document.getElementById("q").value);
 }
 
 async function callValidate(key, token){
@@ -2495,7 +2520,7 @@ function songLi(c, n){
     : "";
   const bloqueada = estaBloqueada(c);
   li.innerHTML=`${checkHTML}<span class="num">${n}</span>
-    <span class="t">${esc(c.titulo)}${c.autor?` <span class="a">· ${esc(c.autor)}</span>`:""}${bloqueada?` <span class="lock-tag">🔒</span>`:""}${riesgoTag(c)}</span>
+    <span class="t">${esc(c.titulo)}${c.autor?` <span class="a">· ${esc(c.autor)}</span>`:""}${bloqueada?` <span class="lock-tag">🔒</span>`:""}${riesgoTag(c)}${acordesTag(c)}</span>
     <span class="tono">${esc(c.tono)}</span>`;
   li.onclick=()=>openSong(c.id);
   return li;
@@ -2509,6 +2534,7 @@ function abrirCategoria(cat){
 function volverACategorias(){
   categoriaAbierta=null;
   verTodas=false;
+  soloSinAcordes=false;
   render(document.getElementById("q").value);
 }
 function salirDeBusqueda(){
@@ -2517,6 +2543,7 @@ function salirDeBusqueda(){
   q.blur();
   categoriaAbierta=null;
   verTodas=false;
+  soloSinAcordes=false;
   render("");
   window.scrollTo(0,0);
 }
@@ -2563,6 +2590,7 @@ function render(filter=""){
   const cont=document.getElementById("index");
   const f=filter.trim().toLowerCase();
   cont.innerHTML="";
+  actualizarBotonSinAcordes();
 
   if(viewFilterIds){
     const bar=document.createElement("div");bar.className="filterbar";
@@ -2607,6 +2635,7 @@ function render(filter=""){
     if(!visibleParaListado(c)) return false;
     if(viewFilterIds && !viewFilterIds.has(c.id)) return false;
     if(categoriaAbierta && c.categoria!==categoriaAbierta) return false;
+    if(soloSinAcordes && !pendienteDeAcordes(c)) return false;
     return !f||(c.titulo+" "+(c.autor||"")+" "+c.categoria).toLowerCase().includes(f);
   };
   let total=0;
