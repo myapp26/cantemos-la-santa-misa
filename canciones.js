@@ -2,7 +2,7 @@
 //  CANCIONES — Generado automáticamente desde la app.
 //  Este archivo es la "semilla" que reciben todos los que
 //  instalan la app desde tu enlace de Netlify.
-//  Generado: 18/11/2026, 12:58:50 p.m.
+//  Generado: 18/11/2026, 1:16:15 p.m.
 // ============================================================
 
 const CATEGORIAS = ["Entrada","Piedad","Aclamación del Evangelio","Ofertorio","Santo","Cordero de Dios","Cantos de Comunión","Cantos a la Virgen María","Evangelio - sin Aleluya","Vocacionales y Mision","Alabanzas","De Adoración","Fiestas/ Solemnidades","Temas Biblicos","Adviento","Cuaresma","Semana Santa","Pascua y Resurrección","Pentecostés","Cantos para Niños","Misa por los Difuntos","Evangelio - Aleluya"];
@@ -1039,7 +1039,7 @@ const CANCIONES = [
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
-    "demo": false,
+    "demo": true,
     "ocultarYoutubeFreemium": false,
     "pendienteAcordes": false
   },
