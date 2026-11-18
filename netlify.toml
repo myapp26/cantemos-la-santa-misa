@@ -29,24 +29,100 @@
 # de la funcion validate-key en Supabase porque si no, el CSP bloquearia el
 # login.
 
-# Oculta documentacion interna de /seguridad/ (no son parte de la app que se
-# sirve al usuario, solo quedarian publicas por estar en la misma carpeta).
+# Oculta archivos internos que NO son parte de la app (documentacion, scripts de
+# administracion, codigo y migraciones de Supabase, atajos .bat/.vbs). Todos
+# viven en la misma carpeta que se publica, asi que sin estas reglas quedarian
+# abiertos al publico. IMPORTANTE: cada regla lleva force = true; sin eso Netlify
+# NO aplica una redireccion cuando el archivo existe (asi se filtraron hasta el
+# 18/11/2026). Las rutas van completas (sin comodin en medio) para que no haya
+# dudas. Los scripts 01, 02 y 03 de /seguridad/ SI se sirven (los usa la app).
+
+[[redirects]]
+  from = "/ADMIN.md"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/scripts/*"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/supabase/*"
+  to = "/index.html"
+  status = 404
+  force = true
+
 [[redirects]]
   from = "/seguridad/*.md"
   to = "/index.html"
   status = 404
+  force = true
 
 [[redirects]]
-  from = "/seguridad/06-build/*"
+  from = "/seguridad/CLAUDE.md"
   to = "/index.html"
   status = 404
+  force = true
 
 [[redirects]]
-  from = "/seguridad/08-clave-acceso-serverless/*"
+  from = "/seguridad/README.md"
   to = "/index.html"
   status = 404
+  force = true
+
+[[redirects]]
+  from = "/seguridad/05-cabeceras-http.md"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/seguridad/07-aviso-legal-derechos.md"
+  to = "/index.html"
+  status = 404
+  force = true
 
 [[redirects]]
   from = "/seguridad/04-service-worker-integridad.js"
   to = "/index.html"
   status = 404
+  force = true
+
+[[redirects]]
+  from = "/seguridad/06-build/*"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/seguridad/08-clave-acceso-serverless/*"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/iniciar-servidor.bat"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/iniciar-servidor-oculto.vbs"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/iniciar-servidor-tarea.bat"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/detener-servidor.bat"
+  to = "/index.html"
+  status = 404
+  force = true
