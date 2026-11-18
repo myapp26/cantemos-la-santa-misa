@@ -2,7 +2,7 @@
 //  CANCIONES — Generado automáticamente desde la app.
 //  Este archivo es la "semilla" que reciben todos los que
 //  instalan la app desde tu enlace de Netlify.
-//  Generado: 17/11/2026, 9:33:56 p.m.
+//  Generado: 17/11/2026, 10:55:20 p.m.
 // ============================================================
 
 const CATEGORIAS = ["Entrada","Piedad","Aclamación del Evangelio","Ofertorio","Santo","Cordero de Dios","Cantos de Comunión","Cantos a la Virgen María","Evangelio - sin Aleluya","Vocacionales y Mision","Alabanzas","De Adoración","Fiestas/ Solemnidades","Temas Biblicos","Adviento","Cuaresma","Semana Santa","Pascua y Resurrección","Pentecostés","Cantos para Niños","Misa por los Difuntos","Evangelio - Aleluya"];
@@ -1783,10 +1783,10 @@ const CANCIONES = [
     "titulo": "Derramaré sobre vosotros",
     "autor": "",
     "categoria": "Pentecostés",
-    "tono": "",
+    "tono": "Do",
     "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
     "demo": false,
@@ -2836,7 +2836,7 @@ const CANCIONES = [
     "tono": "Re",
     "letra": "",
     "youtube": "",
-    "restriccion": "oculta",
+    "restriccion": "privada",
     "premium": false,
     "bloqueada": true,
     "demo": false,
@@ -2896,7 +2896,7 @@ const CANCIONES = [
     "tono": "Re",
     "letra": "",
     "youtube": "",
-    "restriccion": "oculta",
+    "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
     "demo": false,
@@ -3301,7 +3301,7 @@ const CANCIONES = [
     "tono": "Do",
     "letra": "",
     "youtube": "",
-    "restriccion": "oculta",
+    "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
     "demo": false,
