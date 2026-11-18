@@ -1184,7 +1184,21 @@ function updateFeatureGating(){
 // viaja en canciones.js, y get-letra se la niega a quien no sea admin
 // (columna solo_admin en letras_restringidas).
 function esPrivada(c){
-  return !!c && c.restriccion==="privada";
+  // También es "privada" para los clientes un canto marcado pendienteAcordes
+  // (lo marca publishFile al publicar: canto sin acordes, solo lo ve admin).
+  return !!c && (c.restriccion==="privada" || c.pendienteAcordes===true);
+}
+// ¿La letra trae al menos un acorde entre corchetes, p. ej. [Do] o [Lam]?
+function tieneAcordes(c){
+  return /\[[^\]\n]+\]/.test((c && c.letra) || "");
+}
+// Canto pendiente de acordes: tiene letra pero ningún acorde. Si es restringido
+// y el admin aún no bajó su letra, no se puede saber: conserva la marca que ya
+// tenía (así nunca se libera por error un canto con la letra vacía).
+function pendienteDeAcordes(c){
+  if(!c) return false;
+  if(esRestringida(c) && !c.letra) return c.pendienteAcordes===true;
+  return !tieneAcordes(c);
 }
 function esRestringida(c){
   return c.restriccion==="candado" || c.restriccion==="oculta" || esPrivada(c) || c.premium===true;
@@ -3250,9 +3264,10 @@ function publishFile(){
   // claude/analisis-tecnico-cancionero.md (16/9/2026).
   const cancionesLimpias=DATA.canciones.map(c=>({
     id:c.id, titulo:c.titulo, autor:c.autor||"", categoria:c.categoria,
-    tono:c.tono, letra: esRestringida(c) ? "" : c.letra, youtube:c.youtube||"",
+    tono:c.tono, letra: (esRestringida(c) || pendienteDeAcordes(c)) ? "" : c.letra, youtube:c.youtube||"",
     restriccion:c.restriccion||"", premium:!!c.premium, bloqueada:!!c.bloqueada, demo:!!c.demo,
-    ocultarYoutubeFreemium:!!c.ocultarYoutubeFreemium
+    ocultarYoutubeFreemium:!!c.ocultarYoutubeFreemium,
+    pendienteAcordes: pendienteDeAcordes(c)
   }));
   // Firma de lo que se está publicando: cuando este canciones.js llegue al
   // sitio, la copia de trabajo del admin no mostrará el aviso de "versión
@@ -3280,8 +3295,8 @@ const CANCIONES = ${JSON.stringify(cancionesLimpias,null,2)};
   // subir a Supabase con `node sync-letras.js letras-restringidas.json`
   // (solo hace falta correrlo si alguna cambio desde la ultima publicacion).
   const restringidas=DATA.canciones
-    .filter(c=>esRestringida(c) && c.letra)
-    .map(c=>({id:c.id, letra:c.letra, solo_admin:esPrivada(c)}));
+    .filter(c=>(esRestringida(c) || pendienteDeAcordes(c)) && c.letra)
+    .map(c=>({id:c.id, letra:c.letra, solo_admin:(esPrivada(c) || pendienteDeAcordes(c))}));
   if(restringidas.length){
     const blob2=new Blob([JSON.stringify(restringidas,null,2)],{type:"application/json"});
     const a2=document.createElement("a");

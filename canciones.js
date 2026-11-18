@@ -2,7 +2,7 @@
 //  CANCIONES — Generado automáticamente desde la app.
 //  Este archivo es la "semilla" que reciben todos los que
 //  instalan la app desde tu enlace de Netlify.
-//  Generado: 16/11/2026, 10:10:10 p.m.
+//  Generado: 17/11/2026, 9:33:56 p.m.
 // ============================================================
 
 const CATEGORIAS = ["Entrada","Piedad","Aclamación del Evangelio","Ofertorio","Santo","Cordero de Dios","Cantos de Comunión","Cantos a la Virgen María","Evangelio - sin Aleluya","Vocacionales y Mision","Alabanzas","De Adoración","Fiestas/ Solemnidades","Temas Biblicos","Adviento","Cuaresma","Semana Santa","Pascua y Resurrección","Pentecostés","Cantos para Niños","Misa por los Difuntos","Evangelio - Aleluya"];
@@ -20,7 +20,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "juntos-como-hermanos",
@@ -34,7 +35,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "santa-maria-del-camino",
@@ -48,7 +50,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "el-profeta",
@@ -62,7 +65,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "sois-semilla",
@@ -76,7 +80,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "ten-piedad-senor",
@@ -85,12 +90,13 @@ const CANCIONES = [
     "categoria": "Piedad",
     "tono": "Lam",
     "letra": "[Lam]Ten piedad, [Rem]Señor, ten [Lam]piedad\nSoy [Fa]pecador, [Mi]ten [Lam]piedad\n[Lam]Ten piedad, [Rem]Señor, ten [Lam]piedad\nSoy [Fa]pecador, [Mi]ten [Lam]piedad [Mi7]\n\nY de [Fa]mí, Cristo apiádate\nContra [Sol]ti, yo [Do]pequé [Mi7]\nY de [Fa]mí, Cristo apiádate\nContra [Sol]ti, yo [Do]pequé [Mi]\n\n[Lam]Ten piedad, [Rem]Señor, ten [Lam]piedad\nSoy [Fa]pecador, [Mi]ten [Lam]piedad\n[Lam]Ten piedad, [Rem]Señor, ten [Lam]piedad\nSoy [Fa]pecador, [Mi]ten [Lam]piedad",
-    "youtube": "",
+    "youtube": "https://youtu.be/hZnpZ_CI2H8?si=gwq1YDmQkpPDrmYb",
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "aleluya-el-senor-resucito",
@@ -104,7 +110,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "una-espiga",
@@ -118,7 +125,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "a-edificar-la-iglesia",
@@ -132,7 +140,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "abran-las-puertas",
@@ -146,7 +155,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "alabare",
@@ -160,7 +170,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "el-amor-del-senor",
@@ -174,7 +185,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "jesus-esta-pasando",
@@ -188,7 +200,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "mi-dios-esta-vivo",
@@ -202,7 +215,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "no-hay-dios-tan-grande-como-tu",
@@ -216,7 +230,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "si-tuvieras-fe",
@@ -225,12 +240,13 @@ const CANCIONES = [
     "categoria": "Entrada",
     "tono": "Lam",
     "letra": "Si tuvieras [Lam]fe como un [Fa]grano de [Mi]mostaza,\n[Mi]eso lo dijo el [Lam]Señor\n\n[Rem]Tu le [Lam]dirías a esa [Mi]montaña, muévete, [Lam]muévete\n\n[Mi]Esa montaña se moverá, se moverá, se [Lam]moverá",
-    "youtube": "",
+    "youtube": "https://youtu.be/l_-HzKnCZWQ?si=L28-Ti-qEvBv8_Xs",
     "restriccion": "",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "estamos-de-fiesta-con-jesus",
@@ -244,7 +260,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "que-alegria-cuando-me-dijeron",
@@ -258,7 +275,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "jesucristo-me-dejo-inquieto",
@@ -272,7 +290,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "hoy-vengo-a-decirte-gracias",
@@ -280,13 +299,14 @@ const CANCIONES = [
     "autor": "Música Católica",
     "categoria": "Entrada",
     "tono": "Re",
-    "letra": "[Re]Hoy vengo a decirte [La]gracias, [La7]gracias por todo, [Re]Señor,\nhoy [Sol]vengo a [La]decirte [Re]gracias, [Mim]gracias por [La7]todo, [Re]Señor.\n1. [Re]Gracias, Señor, por la vida, gracias, Señor, por tu [La]amor;\ngracias , Señor, por mis [Re]padres, [La7]gracias por todo, [Re]Señor.\n2. Gracias, Señor, por el agua, gracias, Señor, por el sol;\ngracias, Señor, por el viento, gracias por todo, Señor.\n3. Gracias, Señor, por las manos, gracias, Señor, por la voz;\ngracias, Señor, por los ojos, gracias por todo, Señor.\n4. Gracias, Señor, por llamarme a ser amigo de Dios;\ngracias, Señor, por María, gracias por todo, Señor.",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "yo-te-alabo-con-el-corazon",
@@ -300,7 +320,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "alzad-las-manos",
@@ -308,13 +329,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Cantos para Niños",
     "tono": "Do",
-    "letra": "# Estrofa 1\nAlzad las manos\nY dadle la gloria a Dios. (bis)\nAlzad las manos\nY alabarle como niños\nDel Señor.\n\n# Estrofa 2\nDios dijo a Noé construye una barca; (2)\ntoda ella hecha de madera\ncomo niños del Señor.\n\n# Estrofa 3\nLos animalitos subieron de dos en dos; (2)\nelefantes y pingüinos\ncomo niños del Señor.\n\n# Estrofa 4\nLos animalitos subieron de dos en dos; (2)\ncocodrilos y gorilas\ncomo niños del Señor.\n\n# Estrofa 5\nSi subes al cielo primero que yo\ndile a todos esos angelitos\nque también iré yo.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "que-alegria-es-venir",
@@ -328,7 +350,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "venimos-hoy-a-tu-altar",
@@ -342,7 +365,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "ven-a-celebrar",
@@ -356,7 +380,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "vamos-cantando-al-senor",
@@ -370,7 +395,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "ten-piedad-de-mi",
@@ -384,7 +410,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "tu-que-siempre-nos-perdonas",
@@ -398,7 +425,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "cuantas-veces-senor-yo-peque",
@@ -412,7 +440,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "por-el-mundo-y-por-la-paz",
@@ -420,13 +449,14 @@ const CANCIONES = [
     "autor": "Música Católica",
     "categoria": "Piedad",
     "tono": "Do",
-    "letra": "[Do]Por el [Lam]mundo y por la [Rem]paz, Señor, ten [Sol7]piedad.\nPor el [Do]sol y las [Lam]estrellas, [Rem]Señor, ten [Sol7]piedad.\nPor los [Do]hombres y los [Fa]niños, [Rem]Padre, ten [Sol7]piedad.\nPor [Do]aquellos que no [Fa]aman, [Rem]Padre, ten [Sol7]piedad.\n[Do]Señor, [Lam]piedad, [Rem]piedad, de [Sol7]nosotros, [Do]piedad.",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "jesus-es-senor",
@@ -434,13 +464,14 @@ const CANCIONES = [
     "autor": "José Miguel Cubeles",
     "categoria": "Aclamación del Evangelio",
     "tono": "Sol",
-    "letra": "[Do]Jesús es, [Fa]Jesús es [Do][Sol]Señoooor,\n[Fa]Jesús es, [Sol]Jesús es [Do][Lam]Señoooor,\n[Fa]Jesús es, [Sol]Jesús es [Do][Sol]Señooooor...\n(bis)\n[Do]Aleluya, [Fa][Do][Sol]aleluuuyaaaaa,\n[Fa]Aleluya, [Sol][Do][Lam]aleluuuyaaaaa,\n[Fa]Aleluya, [Sol][Do][La]aleluuuyaaaaa...\n(Sube tono)\n[Re]Gloria a Dios, [Sol]gloria, gloria a [Re][La]Diooos,\n[Sol]gloria a Dios, [La]gloria, gloria a [Re][Sim]Diooos,\n[Sol]gloria a Dios, [La]gloria, gloria a [Re][La]Dios...",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "canta-aleluya",
@@ -454,7 +485,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "busca-primero",
@@ -468,7 +500,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "ale-aleluya",
@@ -482,7 +515,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "el-senor-es-nuestro-rey",
@@ -496,7 +530,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "aleluya-cfones",
@@ -510,7 +545,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "gloria-aleluya",
@@ -524,7 +560,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "un-nino-se-te-acerco",
@@ -538,7 +575,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "te-presentamos-la-vida-senor",
@@ -552,7 +590,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "te-presentamos-el-vino-y-el-pan",
@@ -566,7 +605,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "reunidos-senor-marco-lopez",
@@ -580,7 +620,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "en-su-mesa-hay-amor",
@@ -588,13 +629,14 @@ const CANCIONES = [
     "autor": "Miguel Ángel Pujol",
     "categoria": "Ofertorio",
     "tono": "Re",
-    "letra": "[Re]El [Fa#m]Señor [Sol]nos [Solm]ha reunido junto a Él,\n[Re]el [Sol]Señor [La7]nos ha invitado a estar con Él.\n[Sim]En [Fa#m]su mesa hay amor,\n[Sol]la [Re]promesa del perdón,\n[Mim]y en [La7]el [Re]vino y pan, su corazón.\n[Sim]En [Fa#m]su mesa hay amor,\n[Sol]la [Re]promesa del perdón,\n[Mim]y en [La7]el [Re]vino y pan, su corazón.\n[Re][La7]Cuando,Señor, tu voz,\n[Sol7]llega [Re]en silencio a mí,\n[Sol]y mis [La7][Re]hermanos me hablan de Ti,\n[Re]sé [La7]que a mi lado estás,\n[Fa#m]te [Sim]sientas junto a mí,\n[Sol]acoges [La7][Re]mi vida y mi oración.\nEl Señor nos ha reunido junto a Él...",
+    "letra": "",
     "youtube": "https://youtu.be/Ura2GrCdqm8?si=ad2zd2Ikzp-LGMkW",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "padre-bendito",
@@ -608,7 +650,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "ofrenda-de-amor",
@@ -616,13 +659,14 @@ const CANCIONES = [
     "autor": "Gregorio Fernández",
     "categoria": "Ofertorio",
     "tono": "Re",
-    "letra": "[Re]Por los niños que [La]empiezan la vida,\npor los [Re]hombres sin [Sol]techo ni [La7]hogar,\npor los [Re]pueblos que sufren la [La]guerra,\nte [Sol]ofrecemos el [La7]vino y el [Re][Re7]pan\n# Coro\n[Sol]Pan y vino sobre el [La]altar\n[Sol]son ofrendas de [Re]amor.\n[Sim]Pan y Vino serán [Mim]después\ntu [La]Cuerpo y [La7]Sangre [Re]Señor.\nPor los hombres que viven unidos,\npor los hombres que buscan la paz, (igual que la premera estrofa)\npor los pueblos que no te conocen,\nte ofrecemos el vino y el pan.\n# Coro\nPor aquellos a quienes queremos,\npor nosotros y nuestra amistad,\npor los vivos y por los difuntos,\nte ofrecemos el vino y el pan.",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "santo-es-el-senor",
@@ -636,7 +680,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "santo-dicen-los-querubines",
@@ -650,7 +695,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "cordero-panamericano",
@@ -664,7 +710,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "cordero-de-dios-leiva",
@@ -672,13 +719,14 @@ const CANCIONES = [
     "autor": "Leiva",
     "categoria": "Cordero de Dios",
     "tono": "Do",
-    "letra": "# Estrofa 1\nCordero de Dios,\nTú que quitas el pecado del mundo,\nten piedad de nosotros, \nCordero de Dios.",
+    "letra": "",
     "youtube": "https://youtu.be/rKzFCiduK-c?si=AgjC0KX9D-98yzE8",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "yo-tengo-un-amigo",
@@ -686,13 +734,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Cantos para Niños",
     "tono": "Do",
-    "letra": "# Estrofa 1\nYo tengo un amigo que me ama,\nme ama, me ama.\nYo tengo un amigo que me ama,\nsu nombre es Jesús.\nQue me ama, que me ama,\nque me ama con su tierno Amor (2)\n\n# Estrofa 2\nTú tienes un amigo…\nTenemos un amigo…",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "eucaristia",
@@ -700,13 +749,14 @@ const CANCIONES = [
     "autor": "Música Católica",
     "categoria": "Cantos de Comunión",
     "tono": "Do",
-    "letra": "[Do]Pan transformado [Lam]en [Fa]cuerpo de [Sol]Cristo;\n[Do]vino transformado [Lam]en la [Fa]sangre del [Sol]Señor.\n[Fa]EUCARISTÍA, [Mim][Fa]MILAGRO DE [Do]AMOR,\n[Fa]EUCARISTÍA, [Do][Sol]PRESENCIA DEL [Do]SEÑOR.\n[Do]Cristo nos [Lam]dice: [Fa]tomen y [Sol]coman,\n[Do]este es mi [Lam]cuerpo que ha [Fa]sido [Sol]entregado.\n[Do]Cristo en [Lam]persona, nos [Fa]viene a [Sol]liberar\n[Do]de nuestro [Lam]egoísmo y la [Fa]división [Sol]fatal.\n[Do]Oh gran [Lam]invento de [Fa]Cristo sabio y [Sol]bueno,\n[Do]para [Lam]alimentarnos con su [Fa]Sangre y con su [Sol]Cuerpo.\n[Do]Este [Lam]alimento [Fa]renueva nuestras [Sol]fuerzas,\n[Do]para caminar [Lam]a la [Fa]gran [Sol]liberación.\n[Do]Con este [Lam]Pan [Fa]tenemos vida [Sol]eterna,\n[Do]Cristo nos [Lam]invita a la [Fa]gran [Sol]resurrección.\n[Do]En la [Lam]familia de [Fa]todos los [Sol]cristianos,\n[Do]Cristo quiere [Lam]unirnos en la [Fa]paz y en el [Sol]amor.\n[Do]Cuando [Lam]comulgamos nos [Fa]unimos al [Sol]Señor,\n[Do]formamos entre [Lam]todos la [Fa]familia del [Sol]Amor",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "milagro-de-amor",
@@ -720,7 +770,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "tu-nos-invitas-jesus",
@@ -734,7 +785,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "ya-no-eres-pan-y-vino",
@@ -742,13 +794,14 @@ const CANCIONES = [
     "autor": "Jorge Luis Bohórquez",
     "categoria": "Cantos de Comunión",
     "tono": "Re",
-    "letra": "[Re]Ya no eres [Sol]pan y [Re]vino,\nahora que eres [Sol]cuerpo y [Re]sangre, vives en [La]mí\nde [Sol]rodillas yo caigo al [Re]contemplar tu bondad,\n[Mi]como no te voy a [La]adorar\nMientras te pierdes en mis labios,\ntu gracia va inundando todo mi corazón\npor esa paz que me llena de alegría mi ser\ncomo no te voy a adorar\n# Coro\nSeñor [Re]Jesús, mi [La]salvador,\namor [Sim]eterno, [Sol]amor [Re]divino\n[Sol]ya no falta [Re]nada, lo tengo [La]todo, te tengo a [Re]tí (bis)\nDueño y Rey del universo\ncomo puede ser posible que busques mi amor\nTú tan grande y yo pequeño y te fijas en mi\ncomo no te voy a adorar\nDe rodillas yo te pido\nque el día cuando tu me llames sea como hoy\npara mirarte a los ojos y poderte decir\nque como no te voy a adorar",
+    "letra": "",
     "youtube": "https://youtu.be/vNAIk2XCVUQ?si=CL0oKxtIEdgDIRkj",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "jesus-amigo",
@@ -756,13 +809,14 @@ const CANCIONES = [
     "autor": "Dei Verbum",
     "categoria": "Cantos de Comunión",
     "tono": "Sol",
-    "letra": "# Introducción\n[Lam][Sol][Fa][Sol][Lam][Sol][Rem][Mi]\nHoy te quiero [Lam]contar Jesús [Sol]amigo\nQue [Fa]contigo estoy [Sol]feliz\nSi tengo tu [Lam]amistad lo tengo [Sol]todo\nPues [Fa]estas dentro de [Sol]mi\nDespués de comulgar [Do]me haces [Sol]como tú,\nMe [Fa]llenas con tu [Sol]paz\nEn cada [Do]pedacito de ese [Sol]pan\nCompleto [Fa]estas y así te [Sol]das\nEstas ahí por [Lam]mí porque [Sol]conoces\nQue sin [Fa]ti pequeño [Sol]soy\nDe ahora en [Do]adelante nada [Sol]nos separara [Fa]ya lo [Sol]veras\n# Coro\nTe escondes en el [Do]pan\nY [Fa]aunque no te puedo [Sol]ver\nTe [Mim]puedo acompañar [Lam]es mi [Fa]lugar [Sol]preferido\nHoy quiero comulgar [Do][Fa]abrirte mi [Sol]corazón\n[Mim]Así de par en [Lam]par\nEres mi [Fa]mejor [Sol]amigo\n[Fa][Sol][Lam][Fa][Mi]\nDos mil años [Lam]atrás a tus [Sol]amigos\n[Fa]Invitaste a [Sol]cenar\nY ahí les [Lam]prometiste que con [Sol]ellos\nPor [Fa]siempre ibas a [Sol]estar\nY ahora cada [Do]vez que el [Sol]sacerdote\nEleva el [Fa]pan sobre el [Sol]altar\nMe pongo de [Do]rodillas porque [Sol]sé que en esa [Fa]hostia tu [Sol]estas\n# Coro\nTe escondes en el [Do]pan\nY [Fa]aunque no te puedo [Sol]ver\nTe [Mim]puedo acompañar [Lam]es mi [Fa]lugar [Sol]preferido\nHoy quiero comulgar [Do][Fa]abrirte mi [Sol]corazón\n[Mim]Así de par en [Lam]par\nEres mi [Fa]mejor [Sol]amigo\nMe vuelves a [Do]salvar\nComo [Fa]lo hiciste en la [Sol]cruz\nY en [Mim]cada misa [Lam]tú me sirves [Fa]tu [Sol]sacrificio\nHoy quiero [Re]comulgar [Sol]abrirte mi [La]corazón\n[Sim]Así de par en [Fa#m]par\nEres mi [Sol]mejor [La]amigo [Sol][Re]JESUS",
+    "letra": "",
     "youtube": "https://youtu.be/ZZirsgUO9Fs?si=NiGeq2R6195LgARA",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "eucaristia-estacion-cero",
@@ -776,7 +830,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "jesus-esta-vivo",
@@ -784,13 +839,14 @@ const CANCIONES = [
     "autor": "Marco López",
     "categoria": "Cantos de Comunión",
     "tono": "Re",
-    "letra": "[Sol]Tanto [Re]amó Dios al [Mim]mundo\nque a su único [Do]hijo, [Lam7]él [Re]entregó\n[Si7]Para que todo [Mim]aquel que [Re]crea en [Do]Él\nno [Re]muera mas [Lam7]tenga vida [Re]eterna\n[Lam7][Re7]Jesús está [Sol]vivo\n[Re]Jesús está [Mim]vivo\nEs [Re]el pan de [Do]vida, [Lam7]bajado del [Re]Cielo\n[Re]Jesús está [Sol]vivo\n[Re]Jesús está [Mim]vivo\nSu [Re]sangre me [Do]sana, y sacia mi [Re]alma\nEstá [Lam7]vivo, está [Sim7]presente, mi [Do]Dios es [Lam7]real\ny yo le [Re]adoro [Sol]reverente",
+    "letra": "",
     "youtube": "https://youtu.be/c6uKRLNcheo?si=AbACXOzvajCTs5pi",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "ante-tu-presencia",
@@ -804,7 +860,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "eucaristia-kairy-marquez",
@@ -818,7 +875,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "al-recibirte-en-comunion",
@@ -826,13 +884,14 @@ const CANCIONES = [
     "autor": "Música Religiosa",
     "categoria": "Cantos de Comunión",
     "tono": "La",
-    "letra": "[Mi]Señor, [Sol#m][Do#m]Jesús, dulce bien de [Si]mi alma;\nAl [Mi]recibirte [Sol#m]en [La][Si]comunión (Bis)\nEn [Mi]lugar de sentirte [Sol#m]a Ti dentro [Do#m]de mi,\nMe [La]siento yo dentro de [Fa#m][La]Ti,\nEn tu mismo [Si]cuerpo. (Bis)\nMe [Mi]parece que mi alma [Sol#m]duerme en brazos del [Do#m]amor,\n[La]Se desvanece en [Fa#m][La]suavidad y sólo sabe [Si]amar.\nMe [Mi]parece que mi alma [Sol#m]duerme en brazos del [Do#m]amor,\nSe [La]desvanece en [Fa#m]suavidad\nY ya no [Re]sabe otra [Si]cosa más que [La]amar,\nYa no [Lam]sabe otra cosa más que [Mi]amar.",
+    "letra": "",
     "youtube": "https://youtu.be/cZNuio5CijQ?si=M6A0Z_YYpxvTQnG4",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "el-amor-se-hizo-pan-y-vino",
@@ -840,13 +899,14 @@ const CANCIONES = [
     "autor": "Música Religiosa",
     "categoria": "Cantos de Comunión",
     "tono": "Mim",
-    "letra": "# Intro\n[Mim][Do][Re][Mim][Do][Re][Mim] - - - - - -\n[Mim]El [Do]amor se [Re]hizo pan y [Mim]vino,\n[Mim]y su emblema [Do][Re]es una [Mim]cruz,\n[Do]hubo un [Sol]hombre [Re]hace mucho [Mim]tiempo\nla [Do]gente [Re]lo llamó [Mim]Jesús.\n[Mim]Sus [Do]palabras [Re]son como [Mim]semilla\n[Mim]canto [Do]nuevo [Re]de [Mim]libertad,\n[Do]vida [Sol]que se [Re]construye día a [Mim]día\n[Do]entregando el [Re]pan de la [Mim]unidad.\n[Sol]ESE ES EL [Mim]HOMBRE, TÚ LO [Do]DEBES [Lam]DE [Re]SEGUIR,\n[Sol]ESE ES EL [Mim]HOMBRE, ES EL [Do]HOMBRE [Re]DE LA [Mim]PAZ.(Bis)\n[Mim]Nos habló [Do]de [Re]justicia y de [Mim]paz\n[Mim]se entregó [Do][Re]para los [Mim]pobres,\n[Do]vio [Sol]dolor y [Re][Mim]desesperación\ny [Do]nos [Re]dejó la [Mim]esperanza.\n[Mim]Rompe [Do]las [Re]cadenas del [Mim]odio\n[Mim]con [Do]palabras [Re]de [Mim]libertad,\n[Do]liberando [Sol][Re]a los [Mim]oprimidos\ny [Do]construyendo [Re]la [Mim]paz.\n[Sol]ESE ES EL [Mim]HOMBRE, TÚ LO [Do]DEBES [Lam]DE [Re]SEGUIR,\n[Sol]ESE ES EL [Mim]HOMBRE, ES EL [Do]HOMBRE [Re]DE LA [Mim]PAZ.(Bis)",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "jesus-tu-eres-rey-de-reyes",
@@ -860,7 +920,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "no-me-habeis-elegido",
@@ -868,13 +929,14 @@ const CANCIONES = [
     "autor": "Música Católica",
     "categoria": "Cantos de Comunión",
     "tono": "Re",
-    "letra": "[Re]1. No me habéis [La]vosotros [Sim]elegido,\n[Sol]fui yo mismo [Mim]quien os [La]elegí;\n[Re]ya no os llamo [Fa#7]siervos sino [Sim]amigos,\npermaneceréis, [Re]para [Sol]siempre, junto a [Re]mí.\n2. Recordad mi nuevo mandamiento,\npor el que os reconocerán;\nque os améis los unos a los otros,\ncomo yo os amé, para siempre, hasta el final.\n3. Tomad y comed, esto es mi Cuerpo,\nque se entrega por vuestra salud;\ntomad y bebed, esta es mi Sangre,\nque yo derramé por vosotros en la cruz.\n4. Yo soy la verdad, soy el camino,\nsoy la vida y la resurrección;\nquien me sigue no andará perdido,\npues yo soy la luz, yo soy vuestra salvación.",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "lo-mas-grande",
@@ -882,13 +944,14 @@ const CANCIONES = [
     "autor": "P. Juan Andrés Barrera",
     "categoria": "Cantos de Comunión",
     "tono": "Re",
-    "letra": "Lo mas [Sol]grande, lo mas [Do]sublime (x2)\n[Fa#m7b5]Jesús [Si7][Mim7]Eucaristía, [Re][Do]Jesús [Re][Sol]Eucaristía\nSu [Sol][Re/Fa#][Mim]Cuerpo,\nsu [Do][Re][Mim]Sangre,\nsu [Do]presencia [Re][Mim]viva (x2)",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "eucaristia-pablo-sanchez",
@@ -896,13 +959,14 @@ const CANCIONES = [
     "autor": "Pablo Sánchez",
     "categoria": "Cantos de Comunión",
     "tono": "",
-    "letra": "# Estrofa 1\nEs un misterio tenerte,\nen tan sencilla apariencia.\nQue gran regalo nos diste\ncon tu sublime presencia.\n\n# Estrofa 2\nAquí te quedas para estar.\nAquí te ofreces para dar.\nEucaristía presencial real.\nCuerpo, Sangre, alma y divinidad.\n\n# Estrofa 3\nVen y sacia nuestra hambre y sed.\nPan de Vida danos de comer.\nTu Reino se hace banquete\ny así en torno a tu mesa.\nTu gracia nos hace parte,\ny anticipa tu fiesta.\n\n# Estrofa 4\nAquí te quedas, para estar.\nAquí te ofreces para dar.\nEucaristía presencial real.\n\n# Estrofa 5\nCuerpo, Sangre, alma y divinidad.\nVen y sacia nuestra hambre y sed.\nPan de Vida danos de comer.\nTú, Jesús, Pan de Vida.\nTú, Jesús, Pan de vida.\nTú, Jesús, Pan de Vida.\nTú, Jesús, Pan de vida.\nEucaristía presencial real.\nCuerpo, Sangre, alma y divinidad.\nEucaristía presencial real.\nCuerpo, Sangre, alma y divinidad.\nEucaristía presencial real.\nCuerpo, Sangre, alma y divinidad.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "ahi-en-la-eucaristia",
@@ -910,13 +974,14 @@ const CANCIONES = [
     "autor": "Kairy Márquez",
     "categoria": "Cantos de Comunión",
     "tono": "",
-    "letra": "# Estrofa 1\nAhí en la Eucaristía\nEstá tu presencia, Señor\nAhí en la Eucaristía\nEstá la prueba de que tú vives, Cristo\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\nAhí en la Eucaristía\nEstá nuestra comunión\nOh, ahí en la Eucaristía\nEsta nuestra reconciliación\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\nY no puedo esperar\nHasta que estés aquí en mí\nPorque es tu Cuerpo vivo, Cristo\nQue estoy apunto de adquirir\nNo, no, no puedo esperar\nHasta que estés aquí en mí\nPues es el caliz de tu Sangre\nQue me ayuda a vivir\nTu Cuerpo, tu Sangre\nMe da vida, Señor, me da vida\nTu Cuerpo (vivo Cristo), tu Sangre\nMe da vida, Señor, me da vida\nOh, pan de vida\nEres tú, Jesús",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "bendita-eucaristia",
@@ -930,7 +995,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "maria-mirame",
@@ -938,13 +1004,14 @@ const CANCIONES = [
     "autor": "Betsaida",
     "categoria": "Cantos a la Virgen María",
     "tono": "La",
-    "letra": "[La]María, mírame [Mi]María, [Fa#m]mírame\nSi [Re]Tú me miras [La][Re]Él también me [Mi]mirara\nMadre mía, [Fa#m]mírame [Re]De la mano [La][Re]llévame\nMuy cerca de [La]Él Que [Mi]ahí me quiero [La]quedar\nMaría, cúbreme [Fa#m]con [Mi]tu [Fa#m]manto\nQue tengo [Re]miedo, no [Mi]sé [La][La7]rezar\n[Re]Que por tus [Mi]ojos [La]misericordiosos\n[Fa#m]Tendré la fuerza, [Re]tendré [Mi]la [La]paz\n[La]María, mírame [Mi]María, [Fa#m]mírame\nSi [Re]Tú me miras [La][Re]Él también me [Mi]mirara\nMadre mía, [Fa#m]mírame [Re]De la mano [La][Re]llévame\nMuy cerca de [La]Él Que [Mi]ahí me quiero [La]quedar\nMadre, [Fa#m]consuélame [Mi]de mis [Fa#m]penas\nEs que no [Re]quiero [Mi]ofenderle [La][La7]más\n[Re]Que por tus [Mi]ojos [La]misericordiosos\n[Fa#m]Quiero ir al [Re]cielo y [Mi]verlos [La]ya\n[La]María, mírame [Mi]María, [Fa#m]mírame\nSi [Re]Tú me miras [La][Re]Él también me [Mi]mirara\nMadre mía, [Fa#m]mírame [Re]De la mano [La][Re]llévame\nMuy cerca de [La]Él Que [Mi]ahí me quiero [La]quedar",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "virgen-del-rosario",
@@ -952,13 +1019,14 @@ const CANCIONES = [
     "autor": "Música católica",
     "categoria": "Cantos a la Virgen María",
     "tono": "Sol",
-    "letra": "[Sol]Madre nuestra [Re]que diste [Mim]valor,\n[Do]madre tierna [Lam]que diste [Re7]perdón\n[Sol]Virgen del [Re]Rosario, eres [Mim]amor\n[Do]vive siempre en [Re7]nuestro [Sol][Sol7]corazón.\n[Do]En las luchas [Re7]Tú siempre [Sol][Mim]estarás\n[Do]dando aliento, [Re7]calma, dando [Sol][Sol7]paz\n[Do]Tú derramas [Re7]semillas de [Sol][Mim]amor\n[Do]en nuestra oración [Re7]siempre [Sol][Sol7]estarás.\n[Do]Madre nuestra, [Re7]madre tierna, [Sol]vive [Si7]siempre en [Mim]mí\n[Do]Tú me llevas [Re7]siempre a la [Sol][Sol7]verdad\n[Do]Mi camino y [Re7]oración, siempre [Sol]a Ti [Si7][Mim]llegará,\n[Do]Virgen nuestra [Re7]tu eres la [Sol]bondad.\n[Sol]Con gran fe yo he [Re]de [Mim]evangelizar\ny [Do]hasta el fin [Lam]vivir en [Re7]hermandad\n[Sol]Con esfuerzo yo [Re]he de [Mim]conquistar\n[Do]que nuestra alma [Re7]tenga [Sol][Sol7]libertad.",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "el-angelus",
@@ -972,7 +1040,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "oh-maria-madre-mia",
@@ -980,13 +1049,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
-    "letra": "# Estrofa 1\n¡Oh María,    Madre mía,\noh consuelo    del mortal,\namparadme    y guiadme\na la Patria    Celestial!\n\n# Estrofa 2\nCon el Angel de María\nlas grandezas celebrad,\ntransportados de alegría\nsus finezas publicad.\n\n# Estrofa 3\nQuien a Ti ferviente clama\nhalla alivio en el pesar,\npues tu nombre luz derrama,\ngozo y bálsamo sin par.\n\n# Estrofa 4\nPues te llamo con fe viva,\nmuestra, oh Madre, tu bondad;\na mí vuelve compasiva,\nesos ojos de piedad.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "te-vengo-a-decir",
@@ -994,13 +1064,14 @@ const CANCIONES = [
     "autor": "",
     "categoria": "Cantos a la Virgen María",
     "tono": "Do",
-    "letra": "# Estrofa 1\n/Te vengo a decir,/ (bis)\noh Madre de Dios,\n/que ruegues por mí/ (bis)\na nuestro Señor.\n\n# Estrofa 2\n/Te vengo a pedir,/ (bis)\npor tu intercesión,\namar como Tú, llevar a Jesús\nen mi corazón.\n\n# Estrofa 3\n/Yo quiero crecer/ (bis)\nen fe y oración;\n/yo quiero vivir/ (bis)\nla vida de Dios.\n\n# Estrofa 4\n/Te vengo a pedir,/ (bis)\npor tu intercesión,\namar como Tú, llevar a Jesús\nen mi corazón.",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "maria-de-mi-ninez",
@@ -1014,7 +1085,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "madre-mia",
@@ -1022,13 +1094,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Cantos a la Virgen María",
     "tono": "Do",
-    "letra": "# Estrofa 1\nMadre mía, que estas en los cielos,\nEnvía consuelo a mi corazón.\nCuando, triste, llorando te llame,\nTu mano derrame feliz bendición.\n\n# Estrofa 2\nLuna bella de eternos fulgores,\nmanojo de flores de aroma inmortal.\nEmbalsame mi pecho tu ambiente\ny alumbra mi mente y alumbra mi mente  tu luz celestial.\n\n# Estrofa 3\nEn Ti sola, abrigue confianza,\ntoda mi esperanza la puse yo en Ti.\nSiempre, oh Madre, tu amparo reciba\nen tanto que viva, en tanto que viva amándote a Ti.\n\n# Estrofa 4\nA tus manos, oh Madre, me llego,\nRecógeme luego contigo a vivir.\nQue del mundo la gloria ha dejado,\ny estoy empeñado, y estoy empeñado a Cristo en seguir.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "madre-eres-ternura",
@@ -1036,13 +1109,14 @@ const CANCIONES = [
     "autor": "",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
-    "letra": "# Estrofa 1\nMadre, eres ternura\nEres una flor\nBlanca y preciosa\nLlena de amor\nSí, Señora, ven a mí\nVen, ven a mí\nCúbreme con tu manto\nLleno de amor\nMadre, eres ternura\nEres una flor\nBlanca y preciosa\nLlena de amor\nSí, Señora, ven a mí\nVen, ven a mí\nCúbreme con tu manto\nLleno de amor\nSí, Señora, ven a mí\nVen, ven a mí\nCúbreme con tu manto\nLleno de amor",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "junto-a-ti-maria",
@@ -1050,13 +1124,14 @@ const CANCIONES = [
     "autor": "Música Religiosa",
     "categoria": "Cantos a la Virgen María",
     "tono": "Re",
-    "letra": "[Re]Junto a ti [La]María,\nComo [Sim]niño quiero [Fa#m]estar,\n[Sol]Tómame en tus [Re]manos,\n[Mi]Guiame en mi [La]caminar.\n[Re]Quiero que me [La]eduques,\nQue me [Sim]enseñes a [Fa#m]orar,\n[Sol]Hazme [Re]transparente,\nLlename [La]de [Re]paz.\n[Re][La]MADRE, [Sim][Fa#m]MADRE,\n[Sol][Re]MADRE, [Mi][La]MADRE.\n[Re][La]MADRE, [Sim][Fa#m]MADRE,\n[Sol][Re]MADRE, [Mi/La][Re]MADRE.\nGracias Madre mía,\nPor llevarnos a Jesús,\nHaznos más humildes,\nTan sencillos como tú.\nGracias Madre mía,\nPor abrir tu corazón,\nPorque nos congregas\nY nos das tu amor.\nMADRE, MADRE,\nMADRE, MADRE. (2 VECES)",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "quiero-decir-que-si",
@@ -1064,13 +1139,14 @@ const CANCIONES = [
     "autor": "Salvador Gómez",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
-    "letra": "# Estrofa 1\nQuiero decir que sí,\ncomo tú, María,\nComo tú, un día, como tú, María.\nQuiero decir que sí,.. (4)\nQuiero negarme a mi,\ncomo tú, María,...\nQuiero negarme a mí,...(4)\nQuiero seguirle a Él,\ncomo tú, María,....\nQuiero seguirle a Él,.. (4)",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "santa-maria-del-amen",
@@ -1084,7 +1160,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "contigo-maria",
@@ -1098,7 +1175,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "la-fe-de-maria",
@@ -1112,7 +1190,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "acaso-no-estoy-yo-aqui",
@@ -1126,7 +1205,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "viva-maria-viva-el-carmelo",
@@ -1134,13 +1214,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
-    "letra": "# Estrofa 1\nViva María, viva el Carmelo,\nviva el escapulario,\nprenda del cielo.\nviva el escapulario,\nprenda del cielo.\n\n# Estrofa 2\nEs la Virgen del Carmen nuestra abogada\nque en penas y peligros\ngloriosa ampara.\nque en penas y peligros\ngloriosa ampara.\n\n# Estrofa 3\nEs el escapulario sol refulgente\nque alumbra con sus rayos hasta la muerte.\n\n# Estrofa 4\nLa Virgen del Carmen…\npresta su amparo\nal devoto que viste su escapulario.\n\n# Estrofa 5\nA la Virgen del Carmen\nquiero y adoro, (venero)\nporque saca las almas,\ndel purgatorio.\n\n# Estrofa 6\nEs la Virgen del Carmen\nnuestra patrona\nTiene un niño en los brazos\nque nos perdona\n\n# Estrofa 7\nDe la Virgen del Carmen s\ned fieles hijos\nY ella hará amorosa mil beneficios.\n\n# Estrofa 8\nLa tentación más fuerte\nse desvanece\nCon el escapulario que nos ofrece.\n\n# Estrofa 9\nLos hijos del Carmelo\nsiempre han vencido\nCon el escapulario al enemigo.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "ella-es-maria",
@@ -1154,7 +1235,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "la-rosa-mas-bella",
@@ -1162,13 +1244,14 @@ const CANCIONES = [
     "autor": "Jaime Chacua",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
-    "letra": "# Estrofa 1\nComo no cantarte oh María\nComo no acordarme cada diiiia\nsi eres tu mi Madre tan queriiiida\nLlenas tu mi vida de alegria\n\n# Estrofa 2\nComo no amarte oh María\nComo no rezarte cada dio\nllena eres de gracia y elegida\nMadre de Dios y esperanza mía\n\n# Coro\nY eres la rosa mas bella\nLa rosa mas bella de mi corazón\nY eres luminosa estrella\nluminosa estrella que Dios nos dejo  X2\n\n# Estrofa 3\nMe llenas de amor cada mañana\nY un abrazo tuyo me da vida\nCampesina hermosa y artesana\nllenas de amor, mi vida cada dia\n\n# Estrofa 4\nBienaventurada intercesora\nNunca me abandones Madre Mia\nCon tus bendiciones, cada dia\nruega por mi para encontrar la vida.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "maria-madre-de-la-iglesia-sarai-r",
@@ -1176,13 +1259,14 @@ const CANCIONES = [
     "autor": "Sarai R.",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
-    "letra": "# Estrofa 1\nMaría, Madre de la Iglesia\nMaría, Madre de la Iglesia Eres Tú\nNuestra Madre y Señora Tú (Bis)\n\n# Estrofa 2\nQuiero cantar para ti\nCon gratitud\nPor todo el Amor que me das\nMe llevas hacia Jesús\nCamino perfecto Tú\nCamino seguro al Cielo Tú.\nCoro:  María Madre de la Iglesia…",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "como-no-amarte-j-cabrera",
@@ -1190,13 +1274,14 @@ const CANCIONES = [
     "autor": "J. Cabrera",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
-    "letra": "# Estrofa 1\nFue tu humildad lo que agradó a Dios, Fue tu sencillez y tu devoción\nFue el siempre estar dispuesta, Por practicar la obediencia\nEncontraste gracia delante de Dios\n\n# Estrofa 2\nFue tu humildad lo que agradó a Dios, Fue el siempre estar dispuesta a servir\n\n# Estrofa 3\nFue tu humildad la que te hizo, La Madre de Jesucristo\nDiste al mundo un Salvador\n\n# Estrofa 4\nCómo no amarte, cómo no amarte\nSi llevaste nueve meses , En tu vientre a mi Señor\nCómo no amarte, cómo no amarte\nSi en tí estuvo tanto tiempo, Recibiendo de tu amor\nCómo no amarte\n\n# Estrofa 5\nFue tu humildad lo que agradó al Señor\nFue tu sí para las cosas de Dios\nEso hizo que te escogiera\nY por un tiempo proveyeras\nAlimento al niño Dios\n\n# Estrofa 6\nDios te salve María\nLlena eres de gracia\nEl Señor es contigo\nBendita tu\nEntre todas las mujeres\nY bendito es el fruto\nY bendito es el fruto\nDe tu vientre\n\n# Estrofa 7\nJesús (8)",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "hoy-te-quiero-cantar",
@@ -1210,7 +1295,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "bajo-tu-manto-f-gomez",
@@ -1218,13 +1304,14 @@ const CANCIONES = [
     "autor": "Felipe Gómez",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
-    "letra": "# Estrofa 1\nYa no tengo que temer\nYa no hay cosas, que me asusten,\n¡no me da miedo el ayer!\nY tampoco mi mirada quiere ver el porvenir\nNi saber a dónde ir, por un mañana\nNi lo que pueda pasar\nSi de las preocupaciones, yo no me puedo encargar\nSi no tengo más razones o si me voy a quebrar\nDios me dice hay que esperar, ¡bajo tu manto!\nBajo tu manto\nNo hay tempestades, que me azoten contra el viento\nNi esclavitudes amarradas por el tiempo\nLo tengo todo, te tengo a ti\nBajo tu manto\nLleno de estrellas, que iluminarán mi noche\nYa no habrá juicios, fariseos o reproches\nPues soy tu hijo, cuidas de mí\nYa no tengo que temer\nEres Madre, eres reina y la más santa mujer\nEres rosa inmaculada, eres todo mi querer\nLos susurros y mi llanto, mis palabras y mi canto\nBajo tu manto\nLleno de estrellas, que iluminarán mi noche\nYa no habrá juicios, fariseos o reproches\nPues soy tu hijo, cuidas de mí\nYa no tengo que temer",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "oh-mi-maria",
@@ -1232,13 +1319,14 @@ const CANCIONES = [
     "autor": "",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
-    "letra": "# Estrofa 1\nQuisiera Madre mía en este día recitar\nUna dulce poesía que te haga suspirar\nHoy mi corazón es tuyo como nunca lo será\nY mis manos son tus manos instrumentos de tu paz\nTe regalo mi sonrisa, mis sentidos, mi oración\ny la dulce melodía que desborda ésta canción\n\n# Estrofa 2\nComo un niño quiero amarte por toda la eternidad\nY así juntito a Jesús, en tu regazo quiero estar\n\n# Estrofa 3\n¡Oh mi María, no me sueltes de la mano por favor\nOh Madre mía, soy pequéño más entiendo de tu amor\nOh mi María, oh Madre mía, mi compañía,\nLa luz que mi vida guía!.\n\n# Estrofa 4\nNo permitas que de grande yo me aleje de tu amor\nCubre siempre con tu manto éste tierno corazón\nPues Jesús me ha redimido con su Sangre en el altar\nVida nueva hoy respiro, en su gracia quiero estar.\n\n# Estrofa 5\n¡Oh mi María, …",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "el-hijo-prodigo",
@@ -1246,13 +1334,14 @@ const CANCIONES = [
     "autor": "",
     "categoria": "Temas Biblicos",
     "tono": "",
-    "letra": "# Estrofa 1\nComo el hijo pródigo\nYo andaba por este mundo\nEntre vanidades\nY placeres vanos\nLos falsos amigos\nPronto se marcharon\nY la soledad\nMi vida entera entristeció\n\n# Estrofa 2\nPadre perdóname\nSolo contra ti pequé\nNo merezco llamarme\nHijo de un Dios tan bueno\nLíbrame de mis pecados\nPor favor acéptame\nQuiero volver a ser libre\nSé que contigo, me regocijaré\n\n# Estrofa 3\nNuevamente ocurre\nQue volvemos a caer\nEn los mismos pecados\nEs difícil ascender\nPero la misericordia\nDe nuestro Padre Dios\nViene en nuestro auxilio\nY nos levanta con su amor\n\n# Estrofa 4\nPadre  perdóname…",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "aleluya-por-esa-gente",
@@ -1266,7 +1355,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "el-joven-rico",
@@ -1280,7 +1370,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "aqui-hay-un-muchacho-jesed",
@@ -1288,13 +1379,14 @@ const CANCIONES = [
     "autor": "Jésed",
     "categoria": "Temas Biblicos",
     "tono": "",
-    "letra": "# Estrofa 1\nAquí hay un muchacho\nQue solamente tiene cinco panes y dos peces\nMás ¿Qué es eso para tanta gente?\nAquí hay un muchacho\nQue solamente tiene un corazón dispuesto a dar\nMás, ¿Qué es eso para tanta gente?\nAquí esta este corazón\nQue quiere serte fiel\nMás, ¿Qué es eso si no tiene a ti?\n¿Si no te tiene a ti?\nToma este corazón\nToma cuanto tengo y cuanto soy\nToma mi pasado, mi presente y mi futuro\n¡Todo cuanto tengo tómalo!\nMi corazón tomaste\nMis panes bendijiste\nA la gente repartiste, y a todos alcanzó\nMi vida está en tus manos\nY quieres repartirla\nComo hiciste con mis panes\nAquel día, ¡Oh Señor!\nAquí están mis palabras\nAquí están mis acciones, aquí están mis ilusiones\nMás, ¿Qué es eso sin tu amor Señor?\nAquí esta este corazón que quiere serte fiel\nMás, ¿Qué es eso si no te tiene a ti?\n¿Si no te tiene a ti?\nAquí está este corazón, con mis panes y mis peces\nToma todo y ¡repártelo Señor!\nToma este corazón\nToma cuanto tengo y cuanto soy\nToma mi pasado, mi presente y mi futuro\n¡Todo cuanto tengo tómalo!\n(Tómalo)\nToma este corazón\nToma cuanto tengo y cuanto soy\nToma mi pasado, mi presente y mi futuro\n¡Todo cuanto tengo tómalo!\n¡Todo cuanto tengo tómalo!\nAquí hay un muchacho",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "os-anunciamos-betsaida",
@@ -1302,13 +1394,14 @@ const CANCIONES = [
     "autor": "Betsaida",
     "categoria": "Adviento",
     "tono": "",
-    "letra": "# Estrofa 1\nOs anunciamos el gozo de adviento\ncon la primera llama ardiendo.\nSe acerca ya el tiempo de salvación,\nabre las puertas de tu corazón.\n\n# Coro\nCanten con gozo, con ilusión,\nya se acerca el Señor.\n\n# Estrofa 2\nOs anunciamos el gozo de adviento\ncon la segunda llama ardiendo.\nDios Padre en su gloria\nmuestra su amor,\nabre tu alma a Jesús Salvador.\nCanten con gozo...\n\n# Estrofa 3\nOs anunciamos el gozo de adviento\nCon la tercera llama ardiendo.\nEl tiempo se acorta,\nya viene el Señor,\nel mundo se alegra en tan buen redentor\nCanten con gozo…\nOs anunciamos el gozo de adviento,\nmiren la cuarta llama ardiendo.\nluz de la estrella nos lleva a Belén,\nacoge a Dios Niño que ahí va a nacer.\n/Canten con gozo.. con ilusión,\nya se acerca el Señor/",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "ven-senor-nuestra-esperanza",
@@ -1316,13 +1409,14 @@ const CANCIONES = [
     "autor": "Mariano Fuertes",
     "categoria": "Adviento",
     "tono": "",
-    "letra": "# Estrofa 1\nVen, Señor, nuestra esperanza,\nven, Señor, no tardes más\nVen, Señor, a redimirnos,\nven, Señor, ven Señor.\nVen, Señor, nuestra alegría\nVen, Señor, no tardes más\nVen, Señor, a nuestro mundo,\nven, Señor, ven Señor.\n\nAnunciaron los profetas tu primera venida\ny tu pueblo Santoesperó a su Señor.\nAnunciaste a los pueblos tu segunda venida;\ny tu Pueblo Santoesperó a su Señor.\n\nVigilantes esperamos con la luz encendida;\ny tu pueblo Santoesperó a su Señor.\nEl Rocío de los cielos va a nacer hecho niño;\ny tu Pueblo Santoesperó a su Señor.\nSon dichosos los que esperan ver tu rostro de nuevo;\ny tu Pueblo Santoesperó a su Señor.\nCaminemos todos juntos al encuentro de Cristo;\ny tu Pueblo Santoesperó a su Señor.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "no-tardes-mas-msp",
@@ -1330,13 +1424,14 @@ const CANCIONES = [
     "autor": "Misioneros Servidores de la Palabra",
     "categoria": "Adviento",
     "tono": "",
-    "letra": "# Estrofa 1\n¡Ven, Señor Jesús!\n¡Ven, Señor Jesús!\nVen, Señor, no tardes más!\n¡Ven, Señor Jesús!\n\n# Estrofa 2\nUna clara voz resuena\nque las tinieblas repudia,\nel sueño pesado ahuyentase,\nCristo en el cielo fulgura.\nDespierte el alma adormida\ny sus torpezas sacuda,\nque para borrar los males\nun astro nuevo relumbra.\nDe arriba llega el Cordero\nque ha de lavar nuestras culpas;\ncon lágrimas imploremos\nel perdón que nos depura.\nPorque en su nueva venida\nque aterroriza y conturba,\nno tenga que castigarnos\nmas con piedad nos acuda.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "ven-jesus-msp",
@@ -1344,13 +1439,14 @@ const CANCIONES = [
     "autor": "Misioneros Servidores de la Palabra",
     "categoria": "Adviento",
     "tono": "",
-    "letra": "# Estrofa 1\nVen, Señor, Dios de justicia;\nven, Señor, Dios del amor.\nVen, Señor, de fidelidad;\nven, Señor, ven, ven , Jesús.\n\n# Estrofa 2\nSeñor, a ti dirijo mi oración;\nmi Dios, en ti confío:\nno dejes que me hunda en la vergüenza.\n¡En ti confío a todas horas!\nSeñor, muéstrame tus caminos;\nguíame por tus senderos;\nencamíname en tu verdad,\npues tú eres mi Dios y Salvador.\nSeñor, acuérdate del amor y la ternura\nque siempre nos has manifestado,\npero no te acuerdes de mis pecados\nni del mal de mi juventud.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "alegria-de-esperar-luis-elizalde-ochoa",
@@ -1358,13 +1454,14 @@ const CANCIONES = [
     "autor": "Luis Elizalde Ochoa",
     "categoria": "Adviento",
     "tono": "",
-    "letra": "# Estrofa 1\nAlegría de esperar\nQue está muy cercano el día.\nEn la carne de una Virgen\namanecerás, Señor.\nEn la carne de una Virgen\nAmanecerás, Señor.\n\n# Estrofa 2\nNos va a brotar un renuevo\nque hará florecer la tierra.\nSe encuentran dolor y gracia.\nVen, Señor, ven, Señor Jesús\nAlegría de esperar…\n\n# Estrofa 3\nAmanecerá tu luz\ny romperá las tinieblas.\nDanos, Dios, tu claridad.\nVen, Señor, ven, Señor Jesús.\nAlegría de…\n\n# Estrofa 4\nCuidaremos el camino\npara cuando al fin tú vengas,\nvestido de nuestra carne.\nVen, Señor, ven, Señor Jesús.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "presentamos-todos-juntos-msp",
@@ -1372,13 +1469,14 @@ const CANCIONES = [
     "autor": "Misioneros Servidores de la Palabra",
     "categoria": "Adviento",
     "tono": "",
-    "letra": "# Estrofa 1\nPresentamos, oh Señor,\ntodos juntos, como hermanos,\nen el vino y en el pan.- (2)\nFa ¡Vengan todos,\ncaminemos hacia el monte del Señor!\nQue su luz nos ilumina\npara darle el corazón.\nDespojados de las sombras, revestidos de la luz,\npara ser ofrenda al Padre nos unimos a Jesús.\nVigilantes avanzamos en espera del Señor.\nQue esta ofrenda purifique y reconforte en la misión.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "si-tu-no-vienes-jesus",
@@ -1386,13 +1484,14 @@ const CANCIONES = [
     "autor": "Pbro. Máximo SJ",
     "categoria": "Adviento",
     "tono": "",
-    "letra": "# Estrofa 1\n/Si tú no vienes, Jesú\ns, seguirán nuestros pecados /2\n\n# Estrofa 2\n¿Cómo seremos los hombres\nuna familia de hermanos,\n/si desde el fondo del alma,\nSeñor, no nos amamos /2\n\n# Estrofa 3\nA ti se elevan hoy nuestras manos,\nnuestra pobreza te presentamos.\nJesús que salvas, no tardes tanto,\ntu pueblo somos, ya te esperamos.\n\n# Estrofa 4\n/Si tú no vienes, Jesús,\nseguirán nuestros pecados /2\n\n# Estrofa 5\n¿Cómo podremos los hombre\ns a la verdad abrir pasos,\n/si de apariencias vivimos, Señor,\nilusionados /2\n\n# Estrofa 6\nA ti se elevan hoy nuestras manos,\nnuestra pobreza te presentamos.\nJesús que salvas, no tardes tanto,\ntu pueblo somos, ya te esperamos.\n\n# Estrofa 7\n/Si tú no vienes, Jesús, seguirán nuestros pecados /2\n\n# Estrofa 8\n¿Cómo podremos los hombres dar a tu Cruz un abrazo,\n/si todo lo que nos duele, Señor, lo rechazamos /2\n\n# Estrofa 9\nA ti se elevan…",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "vamos-a-preparar-el-camino-del-senor",
@@ -1406,7 +1505,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "esperaba-esperaba",
@@ -1414,13 +1514,14 @@ const CANCIONES = [
     "autor": "Pbro. Máximo Pérez",
     "categoria": "Adviento",
     "tono": "",
-    "letra": "# Estrofa 1\nEsperaba, esperaba la niña de Nazaret.\nEsperaba, esperaba y no conocía qué.\nSabía que su dueño siempre era fiel\ny por eso esperaba, esperaba con fe.\n\n# Estrofa 2\nDios que a la puerta llama, ¿quién abrirá?\ntodos los hombres callan dormidos ya.\nLa Virgen vigilante despierta está:\npuso aceite en la lámpara que brilla más.\n\n# Estrofa 3\nEsperaba, esperaba la niña de Nazaret.\nEsperaba, esperaba y no conocía qué.\nSabía que su dueño siempre era fiel\ny por eso esperaba, esperaba con fe.\n\n# Estrofa 4\nDios que a los hombres dice: «Quiero venir».\nLos hombres que contestan: «No hay sitio aquí».\nPero la Virgen niña responde así:\n«Que esa palabra tuya se cumpla en mí».\n\n# Estrofa 5\nEsperaba, esperaba la niña de Nazaret.\nEsperaba, esperaba y no conocía qué.\nSabía que su dueño siempre era fiel\ny por eso esperaba, esperaba con fe.\n\n# Estrofa 6\n«Cuando mi niño venga ¿qué haré con Él?\nÉl se me ha dado todo y yo a Él también.\nQuiero darlo a los hombres, para ellos es:\nsalgamos de camino hacia Belén».\n\n# Estrofa 7\nEsperaba, esperaba la niña de Nazaret….",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "santa-maria-de-la-esperanza",
@@ -1434,7 +1535,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "virgen-de-la-esperanza",
@@ -1442,13 +1544,14 @@ const CANCIONES = [
     "autor": "P. Osvaldo Catena",
     "categoria": "Adviento",
     "tono": "",
-    "letra": "# Estrofa 1\nVirgen de la esperanza,\nen nuestra marcha danos tu luz.\nQueremos ir contigo por el camino\nque abre la Cruz.\n\n# Estrofa 2\nMadre del pueblo condúcenos\npor el camino de salvación,\nque en nuestra patria reine la paz,\nen la justicia y la libertad.\n\n# Estrofa 3\nCielo y tierra nueva,\nesa es la meta de nuestro andar,\nsomos la Iglesia en marcha,\nque hacia la Pascua cantando va.\n\n# Estrofa 4\nSobre cerros y pampas\ndespunta el alba de nuestra luz,\nes la luz que trajiste cuando\nnos diste a tu Hijo Jesús.\n\n# Estrofa 5\nAfirma nuestros pasos,\ndá a nuestros brazos fuerza y valor,\npara luchar unidos\ncomo instrumentos de salvación.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "nos-has-llamado-al-desierto",
@@ -1462,7 +1565,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "caminare-francisco-palazon",
@@ -1470,13 +1574,14 @@ const CANCIONES = [
     "autor": "Francisco Palazón",
     "categoria": "Cuaresma",
     "tono": "",
-    "letra": "# Estrofa 1\nCaminaré en presencia del Señor(2)\nAmo al Señor porque escucha\nmi voz suplicante\nporque inclina su oído hacia mí\nel día que lo invocó.\n\n# Estrofa 2\nMe envolvían redes de muerte\ncaí en tristeza y en angustia\ninvoqué el nombre del Señor:\nSeñor, salva mi vida!\n\n# Estrofa 3\nEl Señor es benigno y justo\nnuestro Dios es compasivo\nel Señor guarda a los sencillos;\nestando yo sin fuerzas, me salvó!\n\n# Estrofa 4\nAlma mía, recobra tu calma\nque el Señor fue bueno contigo:\narrancó mi alma de la muerte,\nmis ojos de las lágrimas,\nmis pies de la caída",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "peque-peque-dios-mio",
@@ -1484,13 +1589,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Cuaresma",
     "tono": "",
-    "letra": "# Estrofa 1\nPequé, pequé Dios mío\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 2\nPor tu corona santa\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 3\nPor tus profundas  llagas\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 4\nPor tus heridas crueles\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 5\nPor tu preciosa Sangre\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 6\nPor tu costado  abierto\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 7\nPor tu agonía  santa\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//\n\n# Estrofa 8\nPor tu Madre  afligida\nPiedad, Señor, piedad\n//si grandes son mis culpas\nmayor es tu bondad//",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "dejame-nacer-ariel-glaser",
@@ -1498,13 +1604,14 @@ const CANCIONES = [
     "autor": "Ariel Glaser",
     "categoria": "Cuaresma",
     "tono": "",
-    "letra": "# Estrofa 1\nTú conoces la dureza en mi sentir\ny la terquedad que hay en mi corazón.\nSon las cosas que me alejaron de Ti, Señor,\ndame vida nueva con tu amor.\n\n# Estrofa 2\nDéjame nacer de nuevo,\nDéjame nacer de nuevo,\nDéjame nacer de nuevo, oh Señor.\nNo importa la edad que tenga,\nTú no la tienes en cuenta.\nDéjame nacer de nuevo, oh Señor.\n\n# Estrofa 3\nTú conoces el pecado que hay en mí\ny el dolor que dejo en mi corazón.\nPor la muerte que he causado vuelvo a Ti, Señor,\nDame nueva vida en tu amor.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "nacer-de-nuevo",
@@ -1512,13 +1619,14 @@ const CANCIONES = [
     "autor": "",
     "categoria": "Cuaresma",
     "tono": "",
-    "letra": "# Estrofa 1\n//Hay cosas en mi corazón\nque necesitan ser transformadas\ny ser llenas del amor de Dios\nHoy hago un alto en el camino\npara entregarle a Dios\ntodo aquello que necesita de su amor//\n\n# Estrofa 2\n//Quiero morir y nacer de nuevo en ti Señor\nrestáurame y transfórmame\nhe decidido morir a mi\ny dar paso a que Tú reines en mi//",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "arriba-nuestros-ramos",
@@ -1526,13 +1634,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Semana Santa",
     "tono": "",
-    "letra": "# Estrofa 1\nArriba nuestros ramos\ncantando al Señor\narriba nuestros ramos\ncantando al Señor\n\n# Estrofa 2\nBendito el que viene\nen nombre del Señor\nJesús nuestra esperanza\nJesús liberador\n\n# Estrofa 3\nEra un domingo allá en Jerusalén\ncuando en un burrito\nJesús entra apadecer\n\n# Estrofa 4\nTodo el pueblo humilde\nlo salió arecibir\ny con entusiasmo\ncomenzaron a decir;\n\n# Estrofa 5\nArriba nuestros ramos…\nPero el mejor canto\nque Jesús quiso escuchar\nfue el canto puro\nde los niños del lugar.\n\n# Estrofa 6\nEllos saludaban\na Jesús liberador\nCristo el esperado\nde los pobres del Señor\nArriba nuestros ramos…\n\n# Estrofa 7\nHoy también nosotros\nte queremos recibir\ny por tu camino\nserte  fieles  hasta el fin.\nCristo nos conduces\nhacia el reino de la luz\nmarcas nuestra huella\ncon la Sangre de tu Cruz.\n\n# Estrofa 8\nLlegan ya los días\nde la Pascua del Señor,\nCristo con su muerte\nnos da vida y salvación.\n\n# Estrofa 9\nJuntos revivamos\nel misterio de la Cruz\ny  compartiremos\nel gran triunfo de Jesús.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "preciosa-sangre-padre-miguel",
@@ -1540,13 +1649,14 @@ const CANCIONES = [
     "autor": "Padre Miguel",
     "categoria": "Semana Santa",
     "tono": "",
-    "letra": "# Estrofa 1\nPreciosa Sangre derramada en la Cruz\nvenció el Cordero que entregó su corazón\nAlianza eterna que sellaste con tu amor\ntu mi defensa, mi refugio y mi Dios.\n\n# Estrofa 2\nPrecioso Jesús.\nPrecioso Jesús.\n\n# Estrofa 3\nAdoremos, Adoremos en la Cruz\nal Cordero, que entregó su corazón.\nAdoremos, Adoremos en la Cruz\nal Cordero que nos dió su corazón.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "el-buen-ladron-felipe-gomez",
@@ -1554,13 +1664,14 @@ const CANCIONES = [
     "autor": "Felipe Gómez",
     "categoria": "Semana Santa",
     "tono": "",
-    "letra": "# Estrofa 1\nCon su mirada serena, desde el cielo me miró\nBorrando toda condena mi maldad el perdonó\nTenía sus manos clavadas, flagelado el corazón\nPagaba todas mis penas con su Sangre y su dolor\nCon su Sangre y su dolor\n\n# Estrofa 2\nCrucificado a mi lado y muriendo por mi mal\nPero el no tuvo pecado, fue la Cruz su pedestal\nPorque si solo sus labios se teñían de verdad\nMientras mi boca perdida en blasfemias y maldad\nEn blasfemias y maldad\n\n# Estrofa 3\nPorque si solo sus labios se teñían de verdad\nMientras mi boca perdida en blasfemias y maldad\nEn blasfemias y maldad\n\n# Estrofa 4\n“Padre que vas a los cielos no pido bajar de aquí\nPero al llegar a tu reino Señor acuérdate de mí\nSeñor acuérdate de mí”\n\n# Estrofa 5\nPero unas solas palabras y en la Cruz yo fui ladrón\nPorque aún clavado y muriendo me robé su corazón\nMe robé su corazón, me robé su corazón.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "saname-mi-senor-felipe-gomez",
@@ -1568,13 +1679,14 @@ const CANCIONES = [
     "autor": "Felipe Gómez",
     "categoria": "Semana Santa",
     "tono": "",
-    "letra": "# Estrofa 1\nSeñor mío, no entiendo tus designios,\nlos dolores de la dura enfermedad,\nTú que estabas cubierto por la llagas,\nhoy te pido que de mí tengas piedad.\nDevolviste la vida al moribundo,\ny los ciegos te pudieron contemplar,\nmira el llanto que cubre mis mejillas,\ny me azota tanta debilidad.\n\n# Estrofa 2\nSáname, mi Señor,\npor piedad, por amor,\npor los meritos de tus preciosas llagas.\nSáname, mi Señor,\npor piedad, por amor,\ny devuélvele la paz a mi alma.\n\n# Estrofa 3\nCuando veo que pendes del madero,\ny tu Sangre lo tiñe por amor,\nsiento que mis heridas son cobardes\ny mis quejas ya no tienen razón.\nHoy enfermo, Señor, voy a buscarte,\nsi Tú quieres te alabaré en la Cruz,\nyo te ruego cambies mi cobardía,\nal decirte lo aceptaré Jesús\n\n# Estrofa 4\nFúndeme en tu dolor,\ndame fuerza y valor,\nsé que sufro, pero Tú eres mi calma.\nQuiero ser, oh Señor,\nuna llama de amor\nque consuele el dolor de las almas.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "dolorosa",
@@ -1588,7 +1700,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "resucito-el-senor",
@@ -1596,13 +1709,14 @@ const CANCIONES = [
     "autor": "Seminario Pontificio Mayor de Santiago",
     "categoria": "Pascua y Resurrección",
     "tono": "",
-    "letra": "# Estrofa 1\nLlorando en silencio de soledad\nSe escucha el viento cantar\nEl alba y su luz tocan mi dolor\nMi Señor ya duerme en paz\nEl que hubo amado la vida dio\nAbrazándose a una Cruz\nEl sepulcro es un lugar sin luz\nMi Señor ya despertará\nLlegando al final de mi caminar\nSentí resonar su voz\nMe llamó a vivir, me llamó a anunciar\nMi Señor ya resucitó\nResucitó, resucitó el Señor, aleluya\nUna luz se ha encendido en la oscuridad\nUna luz que no se apagará\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nHoy la muerte se queda clavada en la Cruz\nEs vencida por el amor\nCon mucho sentido de gratitud\nTe alabo yo, mi Señor\nPor haber cambiado mi corazón\nPor haberme devuelto la paz\nLa gracia es un don de Dios que está en ti\nLa puedes ya despertar\nCon él llegarás hasta el Padre Dios\nCon él viviremos en paz\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nUna luz se ha encendido en la oscuridad\nUna luz que no se apagará\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nHoy la muerte se queda clavada en la Cruz\nEs vencida por el amor\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nUna luz se ha encendido en la oscuridad\nUna luz que no se apagará\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nHoy la muerte se queda clavada en la Cruz\nEs vencida por el amor\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nHoy la muerte se queda clavada en la Cruz\nEs vencida por el amor\nResucitó (resucitó), resucitó (resucitó)\nel Señor, aleluya\nHoy la muerte se queda clavada en la Cruz\nEs vencida por el amor",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "regina-caeli",
@@ -1610,13 +1724,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Pascua y Resurrección",
     "tono": "",
-    "letra": "# Estrofa 1\nRegina Caeli, laetáre\nAlleluia\nQuia quem meruisti portare\nAlleluia\nResurréxit, sicut dixit\nAlleluia\nOra pro nobis Deum\nAlleluia",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "te-conocimos-al-partir-el-pan",
@@ -1630,7 +1745,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "se-siente-aqui",
@@ -1638,13 +1754,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\nSe siente aquí (3)\nel Espíritu de Dios se siente aqui\nsi los hombres de la tierra glorifican al Señor\nel Espíritu de Dios se siente aqui.\n\n# Estrofa 2\n(se alaba . . . se mueve)\n\n# Estrofa 3\nPrepárate para que sientas (3)\nel Espíritu de Dios\ny déjalo que se mueva (3)\ndentro de tu corazón.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "ya-llego",
@@ -1652,13 +1769,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\n// Ya llego, ya llego\nel Espíritu Santo, ya llego. //\n// Lo siento en mis manos,\nlo siento en mis pies,\nlo siento en mi alma\ny en todo mi ser. //\n\n# Estrofa 2\n// Aquel que camino sobre las aguas. //\n// Esta aqui, esta a mi lado. //\n// Como un rayo cayendo sobre mi.\n// Que quema, que quema, que quema,\nque quema, que quema, que quema. //",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "derramare-sobre-vosotros",
@@ -1666,13 +1784,14 @@ const CANCIONES = [
     "autor": "",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\n/ Derramaré sobre vosotros,\nun agua pura que os purificará. / \n\nPondré mi Espíritu sobre vosotros\ny os renovaré el corazón.\n\nOs reuniré, entre las naciones\ny os llevaré a vuestra tierra.\n\nDe vuestras inmundicias os purificaré.\nDe vuestras idolatrías os liberaré.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "danos-senor-tu-espiritu-msp",
@@ -1680,13 +1799,14 @@ const CANCIONES = [
     "autor": "Misioneros Servidores de la Palabra",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\nDanos, Señor, tu Espíritu en este Pan celestial,\npara renovar nuestra vida. Aleluya.\n(Danos, danos...)2a\nDanos, Señor, tu Espíritu\n(en este Pan celestial)\nes este Pan celestial Re Sol La\n(...para renovar nuestra vida. Aleluya.)\npara renovar nuestra vida. Aleluya\n\n# Estrofa 2\nBendice al Señor, alma mía,\nDios mío, qué grande eres!\nSon muchas tus obras, Señor, inmensa tu majestad.\nSi retiras tu aliento todo vuelve al polvo.\nEnvías tu aliento de vida y renuevas la faz de la tierra.\nGloria a Dios para siempre,\ngoce el Señor con sus obras.\nQue le agrade mi poema,\ny me alegraré en el Señor.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "ven-espiritu-santo-u-arcodaci",
@@ -1694,13 +1814,14 @@ const CANCIONES = [
     "autor": "U. Arcodaci",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\nVen Espíritu Santo, ven a este lugar\nVen en nuestra ayuda,\ntu gran amor\nven a derramar (Bis)\n\n# Estrofa 2\nVen divino amigo\nsopla con tu poder\nVen enciende tu fuego\nen tu amor quiero renacer\nVen Espíritu Santo, ven a este lugar\nVen en nuestra ayuda,\ntu gran amor\nven a derramar (Bis)\nVen luz de lo alto\nVen a iluminar\nVen dulce consuelo\nen mis angustias ven a habitar\nVen Espíritu Santo, ven a este lugar\nVen en nuestra ayuda,\ntu gran amor\nven a derramar (Bis)",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "ante-tu-presencia-jaime-chacua",
@@ -1708,13 +1829,14 @@ const CANCIONES = [
     "autor": "Jaime Chacua",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\nSeñor me tienes ante tu presencia\nCon dulce voz a ti yo clamaré\nEscucha buen Señor mi oración\nQue te ofrezco\nEn ti me gozaré Señor, Jesús\nA ti mi vida entera rendiré\nTu gloria y tu poder me alegrará\nPara siempre\nOh, Señor, Jesús úngeme\nY hazme dócil como tu quieras\nTómame y dame fuerzas\nPara seguir tu camino\nOh, Señor, Jesús úngeme\nY hazme dócil como tu quieras\nTómame y dame fuerzas\nPara seguir tu camino\nSeñor, me tienes ante tu presencia\nCon dulce voz a ti yo clamaré\nEscucha buen Señor mi oración\nQue te ofrezco\nEn Ti me gozaré Señor Jesús\nA ti mi vida entera rendiré\nTu gloria y tu poder me alegrará\nPara siempre\nOh, Señor, Jesús úngeme\nY hazme dócil como tu quieras\nTómame y dame fuerzas\nPara seguir tu camino\nOh, Señor Jesús úngeme\nY hazme dócil como tu quieras\nTómame y dame fuerzas\nPara seguir tu camino",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "ven-espiritu-santoj-lopez",
@@ -1722,13 +1844,14 @@ const CANCIONES = [
     "autor": "J. López",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\nVen, Espíritu Santo,\nven a iluminar nuestra inteligencia\ny a defendernos del mal.\n\n# Estrofa 2\nTú, Promesa del Padre,\nDon de Cristo Jesús,\nven y danos tu fuerza\npara llevar nuestra Cruz.\n\n# Estrofa 3\nTú, llamado paráclito,\nnuestro confortador,\nven y habita en nosotros\npor la fe y por el amor.\n\n# Estrofa 4\nHaz que cada cristiano,\nbajo tu inspiración,\nsea testigo de Cristo\ncon la palabra y la acción.\n\n# Estrofa 5\nGuiados por el Espíritu\nhacia Cristo Jesús,\ncaminamos con júbilo\na la patria de la luz.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "espiritu-santo-guianos-antonio-alcalde",
@@ -1736,13 +1859,14 @@ const CANCIONES = [
     "autor": "Antonio Alcalde",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\nVen Espíritu Santo\nVen Espíritu Santo\nVen Espíritu Santo\n\nAlúmbranos y guíanos,\nalúmbranos y guíanos,\nconviértenos y alégranos,\nconviértenos y alégranos.\n\nEnciéndenos, transfórmanos,\nenciéndenos, transfórmanos;\nconfórtanos, reúnenos,\nconfórtanos, reúnenos.\n\nEnvíanos y guárdanos,\nenvíanos y guárdanos;\ninspíranos y aliéntanos,\ninspíranos y aliéntanos.\n\nVisítanos, consuélanos,\nvisítanos, consuélanos;\nconfírmanos y sálvanos,\nconfírmanos y sálvanos.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "ven-espiritu-divino",
@@ -1750,13 +1874,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\n/Ven, ven, ven, Espíritu Divino\nven, ven, ven, acércate de mí/\n\n# Estrofa 2\n/Apodérate, apodérate, apodérate de todo mi ser/\n\n# Estrofa 3\n/Aquí se siente la presencia de Dios/\n/Siento el fuego del Espíritu Santo/\n\n# Estrofa 4\n/Siento gozo, siento paz,\nsiento el amor que mi Dios me da/",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "preparate-para-que-sientas",
@@ -1764,13 +1889,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\n/Prepárate para que sientas/\nPrepárate para que sientas\nEl Espíritu de Dios\nDéjalo que se mueva x 3\nDentro de tu corazón\n\n# Estrofa 2\nOh gloria, aleluya\nAleluya Gloria a Dios\nOh gloria, aleluya\nAleluya Gloria a Dios",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "a-que-tu-no-sabes",
@@ -1778,13 +1904,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\nA que tu no sabes\nlo que en Damasco pasó x3\n\n# Estrofa 2\nFue el Espiritu Santo\nFue el Espiritu Santo\nFue el Espiritu Santo\nlo que en mi vida se derramo. (bis)\n\n# Estrofa 3\nA que tu no sabes…\n…lo que en ... en mi vida ... en la Iglesia ...",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "algo-esta-descendiendo",
@@ -1792,13 +1919,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\n/ Algo está descendiendo,\nalgo está descendiendo, / (2)\n\n# Estrofa 2\n/ Eso es el Espíritu Santo. / (2)\n\n# Estrofa 3\n/ Con gloria, Aleluya,\naleluya, gloria a Dios. / (2)\n\n# Estrofa 4\n/ Si quieres sentir el gozo\nque da el Espíritu Santo. / (2)\n\n# Estrofa 5\n/ Alábalo, alábalo,\nalábalo de corazón. / (2)\n\n# Estrofa 6\n/ Algo está descendiendo,...\n\n# Estrofa 7\n/ Eso es el Espíritu Santo,...\n\n# Estrofa 8\n/ Con gloria, Aleluya,...\n\n# Estrofa 9\n/ Si quieres sentir el gozo...\n\n# Estrofa 10\n/ Alábalo, ...",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "bautizame-senor",
@@ -1806,13 +1934,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\nBautizame, Senor, con tu Espiritu,\nTransformame, Senor, con tu Espiritu.\n\n# Estrofa 2\nBautizame, Senor, con tu Espiritu,\nBautizame y transformame, Senor.\n\n# Estrofa 3\nY dejame sentir el fuego de tu amor\nAqui en mi corazon, Senor. (bis)",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "como-corren-rios",
@@ -1820,13 +1949,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\nComo corren rios dentro de mi ser (bis)\nes que yo confío en Cristo, mi Rey (bis).\n\n# Estrofa 2\nComo río de agua viva que salta pa' arriba  Que llevo dentro;\nconfirma, confirma\nEn este momento, el Espíritu Santo\ny su derramamiento (bis).\n\n# Estrofa 3\nDame del agua del brota para la vida eterna (bis)\nel agua que le diste a la mujer samaritana (bis)\n\n# Estrofa 4\nAlzando las palmas con gozo asi te quiero alabar\nel gozo que hay en mi alma nadie lo podra quitar",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "es-un-rio",
@@ -1834,13 +1964,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\nEs un rio, es la lluvia,\nes un soplo, es un fuego,\nes el Espiritu de Dios\nque quiere actuar.\n\n# Estrofa 2\nAhi va bajando, va cayendo\nva soplando, va ardiendo,\nes el Espiritu de Dios\nque esta aqui.\n\n# Estrofa 3\nBajando en ti, cayendo en mi,\nsoplando en ti, ardiendo en mi,\nes el Espiritu de Dios\nque esta aqui.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "este-avivamiento",
@@ -1848,13 +1979,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\nEste avivamiento\nquien lo apagara, quien\nquien lo apagara, quien\nquien lo apagara, quien\n\n# Estrofa 2\nsi el Senor lo ha dado\npermanecera, si\npermanecera, si\npermanecera.\n\n# Estrofa 3\nNi en las pruebas ni en las luchas\nno me lo podran quitar.\nManda el fuego y santificame Señor\nno vivo yo mas Cristo vive en mi.\n\n# Estrofa 4\nPara mi el morir es vivir\npara mi el morir es vivir\npara mi el morir es vivir\npara mi el vivir es Cristo.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "este-gozo",
@@ -1862,13 +1994,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\nEste gozo no va a pasar (no va a pasar),\neste gozo no va a pasar (no va a pasar),\neste gozo no va a pasar,\nporque está en mi corazón.\n\n# Estrofa 2\n/El fuego cae, cae, cae,\nlos males salen, salen, salen,\ny los creyentes alaban al Señor./\n\n# Estrofa 3\nEsta obra no va a parar (no va a parar),\nesta obra no va a parar (no va a parar),\nesta obra no va a parar,\nporque está en mi corazón.\n\n# Estrofa 4\nEsta alegría no va a salir (no va a salir),\nesta alegría no va a salir (no va a salir),\nesta alegría no va a salir,\nporque está en mi corazón.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "muevete-en-mi",
@@ -1876,13 +2009,14 @@ const CANCIONES = [
     "autor": "",
     "categoria": "Pentecostés",
     "tono": "",
-    "letra": "# Estrofa 1\nEl Espíritu de Dios está en este lugar\nEl Espíritu de Dios se mueve en este lugar\nEstá aquí para consolar, está aquí para liberar\nEstá aquí para guiar, El Espíritu de Dios está aquí\n// Muévete en mi, muévete en mi\nToma mi mente y mi corazón\nLlena mi vida de tu amor\nMuévete en mi, Dios Espíritu, muévete en mi//",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "te-doy-gracias-jesus",
@@ -1896,7 +2030,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "asi-se-alaba-a-dios",
@@ -1910,7 +2045,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "aqui-se-alaba",
@@ -1918,13 +2054,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
-    "letra": "# Estrofa 1\n/Aquí se alaba al Señor\ncon mucha alegría y gozo./\n\n# Estrofa 2\nAlabemos al Señor, con mucha alegría y gozo\nAlabemos al Señor, alegres y muy gozosos.\n\n# Estrofa 3\nAlábenlo, alábenlo, alábenlo.\n\n# Estrofa 4\n/Con la mano arriba, con la mano arriba/\nAlabemos al Señor…\n\n# Estrofa 5\nCon el pie derecho...\nAlabemos al Señor…\n\n# Estrofa 6\nCon una sonrisa...\nAlabemos al Señor…",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "los-que-esperan",
@@ -1938,7 +2075,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "cuando-el-pueblo-alaba",
@@ -1946,13 +2084,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
-    "letra": "# Estrofa 1\n// Cuando el pueblo alaba a Dios, suceden cosas,\nsuceden cosas maravillosas. //\n\n# Estrofa 2\n// Hay sanacion,    liberacion\ny se siente la bendicion. //",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "pon-aceite-en-mi-lampara",
@@ -1960,13 +2099,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
-    "letra": "# Estrofa 1\nPon aceite en mi lámpara, Señor\nPon aceite en mi lámpara, Señor\nQue yo quiero servirte con amor\nPon aceite en mi lámpara, Señor\n\n# Estrofa 2\nSeñor Jesús, Tú eres mi vida\nSeñor Jesús, Tú eres amor\nSalvaste mi alma perdida\nPor eso te alabo con el corazón\nSalvaste mi alma perdida\nPor eso te alabo con el corazón\n\n# Estrofa 3\nCon el corazón, con el corazón…",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "viva-la-fe",
@@ -1974,13 +2114,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
-    "letra": "# Estrofa 1\nViva la fe, viva la esperanza, viva el amor (3)\nQue viva Cristo, que viva Cristo, que viva Él\nQue viva Cristo, que viva, que viva Cristo\nQue viva, que viva Cristo. Que viva Él (bis)",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "yo-edifique-una-casa",
@@ -1988,13 +2129,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
-    "letra": "# Estrofa 1\n// Yo edifique una casa,\nyo edifique una casa,\nsobre la roca edifique,\ny era Cristo esa roca,\n\n# Estrofa 2\ny era Cristo esa roca\nsobre la que yo edifique. //\n\n# Estrofa 3\n// Y esa casa no se cae porque esta sobre la roca. //\n\n# Estrofa 4\n// Paseate Nazareno, Nazareno paseate,                                                            paseate Nazareno, Nazareno paseate. //",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "solamente-en-cristo",
@@ -2002,13 +2144,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
-    "letra": "# Estrofa 1\nSolamente en Cristo\nsolamente en El\nla salvacion podras tener.\nNo hay otro nombre\ndado a los hombres.\nSolamente en Cristo\nsolamente en El.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "esta-es-la-gente",
@@ -2016,13 +2159,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
-    "letra": "# Estrofa 1\n/Esta es la gente que alaba al Señor/\nEsta es la gente que tiene gozo,\nque tiene fe y que alaba al Senor. (Bis)\n\n# Estrofa 2\nManos arriba, manos abajo, moviendo de lado a lado (bis)",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "no-hay-nadie-como-mi-dios",
@@ -2030,13 +2174,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Alabanzas",
     "tono": "Do",
-    "letra": "# Estrofa 1\n//No hay nadie como mi Dios, no hay nadie//\nYo le amo, Éll me ama\nYo le pido, Él me da\nYo le llamó, Él me responde, contesta mis peticiones",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "delante-del-rey-w-alencar",
@@ -2044,13 +2189,14 @@ const CANCIONES = [
     "autor": "W. Alencar",
     "categoria": "De Adoración",
     "tono": "",
-    "letra": "# Estrofa 1\nVen Señor Jesús\nEl corazón ya late fuerte\nal verte a ti\ntu gracia quiero en mi vida recibir,\ncon tu bendición Señor,\npodré vivir.\n\n# Estrofa 2\nVen Señor Jesús,\nMirar el pueblo entorno a ti me hace acordar,\nla multitud que aguardaba tu llegar,\nVen Oh Santode Israel, pasa también en este lugar.\n\n# Estrofa 3\nEs el Rey, y al frente nuestro está\nes feliz quien le adora\nEs Jesús el gran maestro y Rey,\nque aquí, muy cerca se deja encontrar\ndelante del Rey de Reyes,\nlas rodillas se han de doblar.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "rey-de-reyes",
@@ -2058,13 +2204,14 @@ const CANCIONES = [
     "autor": "",
     "categoria": "De Adoración",
     "tono": "",
-    "letra": "# Estrofa 1\nEl que toca a los leprosos\nel que ilumina a los ciegos\nel que comparte la mesa\ncon los que hacemos de menos\ncon los que hacemos de menos\n\n# Estrofa 2\nEl que sale a los caminos\npara ir a nuestro encuentro\nel que regala su vida\nel que comparte su tiempo\nel que comparte su tiempo\n\n# Coro\nRey descalzo, Rey sin trono\nRey de Reyes, Rey de todos\nsin herencias, sin tesoros\ncodo a codo entre nosotros\nRey mendigo, Rey amigo\nsólo con amor vestido\nsólo con amor vestido\nsólo con amor vestido\n\n# Estrofa 3\nEl que conoce las leyes,\npero antepone a los hombres\nel que derrama sus lágrimas\ncuando el corazón se rompe\ncuando el corazón se rompe\nEl que confía en el Padre\ny se hace, de su Amor, testigo\nel que crece con María,\ny nos enseña a estar vivos\ny nos enseña a estar vivos\n\n# Coro\nRey descalzo, Rey sin trono\nRey de Reyes, Rey de todos\nsin herencias, sin tesoros\ncodo a codo entre nosotros\nRey mendigo, Rey amigo\nsólo con amor vestido\nsólo con amor vestido\nsólo con amor vestido\nsólo con amor vestido\npara mí, mas Rey que nunca\nencarnándose en un niño",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "bendito-bendito",
@@ -2072,13 +2219,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "De Adoración",
     "tono": "",
-    "letra": "# Estrofa 1\nYo creo Jesús mio que estas en el altar\noculto en la hostia te vengo a adorar (BIS)\nBendito bendito bendito sea Dios\nLos Angeles cantan y alaban a Dios\nPor amor al hombre moriste en una Cruz\ny al cáliz desciendes por nuestra salud",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "te-alabo-en-verdad",
@@ -2092,7 +2240,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "yo-quiero-ser-johan-sanchez",
@@ -2100,13 +2249,14 @@ const CANCIONES = [
     "autor": "Johan Sánchez",
     "categoria": "De Adoración",
     "tono": "",
-    "letra": "# Estrofa 1\nNo quiero solamente hablar yo quiero ser adorador\nY que la ofrenda que te agrade sea mi vida\nYo no quiero solo cantar yo quiero ser adorador\nQuiero quedarme en tu presencia todo el día\n\n# Estrofa 2\n// Amándote más y más buscando tu rostro\nSirviéndote en santidad quiero llegar hasta tu trono //",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "quema-mi-vida",
@@ -2120,7 +2270,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "jesus-esta-vivo-marco-lopez",
@@ -2128,13 +2279,14 @@ const CANCIONES = [
     "autor": "Marco López",
     "categoria": "De Adoración",
     "tono": "",
-    "letra": "# Estrofa 1\nTanto amo Dios al mundo\nQue a su único hijo Él entregó\nPara que todo aquel que crea en Él\nNo muera más tenga vida eterna.\n\n# Estrofa 2\n// Jesús está vivo, Jesús está vivo\nEs el pan de vida bajado del cielo\nJesús está vivo, Jesús está vivo\nSu Sangre me sana y sacia mi alma//\n\n# Estrofa 3\nEstá vivo está presente\nMi Dios es real\nYo le adoro reverente",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "aqui-en-tu-presencia-m-lopez",
@@ -2142,13 +2294,14 @@ const CANCIONES = [
     "autor": "Marco López",
     "categoria": "De Adoración",
     "tono": "",
-    "letra": "# Estrofa 1\nAquí en tu presencia\nQuiero darte gracias\nAquí en tu presencia\nQuiero regalarte esta canción\nAquí en tu presencia\nQuiero darte gracias\nAquí en tu presencia\nQuiero regalarte esta canción\nPor haberme salvado\nPor haber resucitado\nPor haberle dado alas a mi corazón\n\n# Estrofa 2\nPor haberme salvado\nPor haber resucitado\nPor haberle dado alas a mi corazón\n\n# Estrofa 3\nAquí en tu presencia…",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "el-rey-de-mi-vida",
@@ -2156,13 +2309,14 @@ const CANCIONES = [
     "autor": "Joan Sánchez & Río Poderoso",
     "categoria": "De Adoración",
     "tono": "",
-    "letra": "# Estrofa 1\nQuiero alabarte sin parar todo los días\nQue tu presencia sea el anhelo de mi vida\nYo quiero hacer tu voluntad\nSeñor yo te quiero agradar\nY quiero darte siempre el primer lugar\nYo quiero darte siempre el primer lugar\nSi tu eres el rey\nEl rey de mi vida\nEl número uno en mi corazón\nA ti yo te rindo todo lo que soy\nSi tu eres el rey\nEl rey de mi vida\nEl número uno en mi corazón\nA ti yo te rindo todo lo que soy\nQuiero adorarte sin parar todo los días\nQue tu presencia sea el anhelo de mi vida\nYo quiero hacer tu voluntad\nSeñor yo te quiero agradar\nY quiero darte siempre el primer lugar\nYo quiero darte siempre el primer lugar\nSi tu eres el rey\nEl rey de mi vida\nEl número uno en mi corazón\nA ti yo rindo todo lo que soy",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "hazme-como-tu",
@@ -2170,13 +2324,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "De Adoración",
     "tono": "",
-    "letra": "# Estrofa 1\nhazme como tu\nhazme como tu Jesús\n/hazme como tu/\n\n# Estrofa 2\n/hazme como tu/\nhazme como tu Jesús\n/hazme como tu/\n\n# Estrofa 3\nmanso y humilde de corazon\npuro en intencion\nhacerlo el rey de mi corazon\nque quiero ser mas como tu",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "nadie-te-ama-como-yo",
@@ -2190,7 +2345,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "viva-cristo-rey-jesed",
@@ -2198,13 +2354,14 @@ const CANCIONES = [
     "autor": "Jésed",
     "categoria": "Fiestas/ Solemnidades",
     "tono": "",
-    "letra": "# Estrofa 1\nUn grito de guerra se escucha\nen la faz de la Tierra y en todo lugar\nLos prestos guerreros empuñan su espada\ny se enlistan para pelear\nPara eso han sido entrenados,\ndefenderán la verdad\nY no les será arrebatado\nel fuego que en su Sangre está\n\n# Coro\nViva Cristo Rey, viva Cristo Rey\nEl grito de guerra que enciende la Tierra\nViva Cristo Rey\nNuestro soberano Señor\nNuestro capitán y campeón\nPelear por Él, es todo un honor\n\n# Estrofa 2\nSabemos que esta batalla no es fácil\ny muchos se acobardarán\nY bajo los dardos de nuestro enemigo,\nsin duda perecerán\nYo tendré mi espada en alto\ncomo la usa mi Señor\nA Él nada lo ha derrotado,\nsu fuerza es la de Dios\nViva Cristo Rey…\n\n# Estrofa 3\nNo conocemos mayor alegría,\nno existe más honroso afán\nQue con mis hermanos estar en la línea\ny juntos la vida entregar\nA Él, que merece la gloria\ny nos reclutó por amor\nAnte Él, la rodilla se dobla\ny se postra el corazón\nViva Cristo Rey…,\n\n# Estrofa 4\nViva Cristo Rey\nEl grito de guerra que enciende la tierra\nViva Cristo Rey\nNuestro soberano Señor\nNuestro capitán y campeón\nPelear por Él es todo un honor\nPelear por Él es todo un honor",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "canto-a-san-jose",
@@ -2212,13 +2369,14 @@ const CANCIONES = [
     "autor": "",
     "categoria": "Fiestas/ Solemnidades",
     "tono": "",
-    "letra": "# Estrofa 1\nSan José eres el esposo bueno\nel Padre perfecto el amigo fiel\nSan jose eres hombre casto y puro\nvaliente y muy justo lleno de gran fe\nPues tu confiaste en María\nsabiendo lo que vendría\npues era obra divina del cual\ntu serias Padre del redentor.\nSan jose es oficio carpintero\npatrono de obreros protector Universal\nSan jose amante de la pobreza\nespejo de paciencia jefe del hogar\nEsperanza del enfermo\nejemplo de Padre bueno\nFuiste hombre elegido\ndel Padre nutricio del hijo de Dios\n\n# Estrofa 2\nCuídanos como a María como al mesías\nEdúcanos en la fe\nGuíanos como lo hacías con tu sagrada familia\nY danos tu amoorrr\nSan jose en el taller laboraste\ny ahi forjaste a Cristo en su niñez\nSan jose tu sufriste con María\ncuando lo perdias en el templo aquel\n\n# Estrofa 3\nPero después lo entendiste\ncuando su misión supiste\nY como Padre amoroso\nsiempre fervoroso oraste por El\n\n# Estrofa 4\nSan José ahora que estas en el cielo\ndame el consuelo intercede ante Dios por mi\nPídele, que me dé su fortaleza\nen cualquier flaqueza lléname de ti.\nEnseñame a ser sumiso a la voluntad de El.\nCamina siempre conmigo\nque quiero por Cristo serle siempre fiel.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "himno-al-senor-de-los-milagros-de-buga",
@@ -2226,13 +2384,14 @@ const CANCIONES = [
     "autor": "",
     "categoria": "Fiestas/ Solemnidades",
     "tono": "",
-    "letra": "# Estrofa 1\nGloria a ti, gloria a ti, Milagroso,\nque diste a esta tierra un tesoro en la Cruz;\ny en tus llagas, y en tus llagas a todos\nabriste manantiales de gracia y salud.\n\n# Estrofa 2\nMira, oh Cristo, con cuánta ternura\ntodo un pueblo te viene a buscar\ny entusiasta te adora y te jura\ncon su amor tus bondades pagar.\n\n# Estrofa 3\nDe la Cruz has estado vertiendo\na esta tierra torrentes de amor\ny en tus fuentes seguimos\nbebiendo gracias mil, Milagroso Señor.\n\n# Estrofa 4\nVarios siglos, Jesús, has estado\nremediándonos culpa y dolor\n\n# Estrofa 5\ny si siempre ves llanto a tu lado\nsiempre en Cruz te verán, Rey de amor.\n\n# Estrofa 6\nEn la Cruz te han mirado los siglos\ntú has querido desde ella reinar\ny si a Buga te trajo su río\nhecho Cristo quisiste llegar.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "cancion-al-senor-de-los-milagros",
@@ -2240,13 +2399,14 @@ const CANCIONES = [
     "autor": "",
     "categoria": "Fiestas/ Solemnidades",
     "tono": "",
-    "letra": "# Estrofa 1\nHay un pueblo que te mira\nq camina tras de ti\nHay una esperanza viva\nque ha crecido en torno a ti\nhay unas manos q ofrecen\nsu cansancio a ti Señor\ncorazones que tu inundas\nde alegría y de calor\n\n# Estrofa 2\nno hay milagro sin amor\nno hay amor sin ti Jesús\nla grandeza de tu Cruz\nnos abrió a tu corazón\nSeñor de los Milagros\ndanos tu bendición Cristo Moreno\ncrucificado llenanos de tu amor\n\n# Estrofa 3\nhay un niño q te reza q te pide con fervor\npor sus padres y hermanitos q los cuides tu Señor\nhay una pobre Señora q te ruega en tu Altar\npor sus hijos q se amen y q reine la unidad\n\n# Estrofa 4\nno hay milagro sin amor..\n\n# Estrofa 5\nhay un hombre adolorido\nq te implora estar mejor\nq padese y te ha ofrecido s\nu dolor a ti Señor\nhay un joven q se a ido\nq ha gastado su vivir q te pide\nlo perdones y lo abraces junto a ti\n\n# Estrofa 6\nno hay milagro sin amor…\n\n# Estrofa 7\nhay un grupo de tus fieles\nq te pide en oración\nq los llenes de tu fuerza\npara anunciarte mejor\n\n# Estrofa 8\nhay una patria querida\nq ponemos a  tus pies\nte pedimos reine en ella\nla justicia y la paz\n\n# Estrofa 9\nno hay milagro sin amor…",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "oh-senor-de-los-milagros",
@@ -2254,13 +2414,14 @@ const CANCIONES = [
     "autor": "P. Aicardo Alzate",
     "categoria": "Fiestas/ Solemnidades",
     "tono": "",
-    "letra": "# Estrofa 1\nOh Señor de los Milagros,\nhe venido para adorarte;\ncaminante y peregrino,\nme has traído solo ante Ti.\n\n# Estrofa 2\nOh Señor de los Milagros,\ntu rostro herido, veo tus llagas;\ncuánto has sufrido por mis pecados,\ny así me has dado la salvación.\n\n# Estrofa 3\nOh Señor, de los Milagros,\na tus pies yo me inclino;\nquiero entregarte mi vida entera,\ntodo, todo mi ser.\n\n# Estrofa 4\nOh Señor,\nque de las aguas has venido;\ny Milagroso te han llamado,\nhoy solo pido, Señor, tu bendición.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "aunque-marche",
@@ -2268,13 +2429,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Fiestas/ Solemnidades",
     "tono": "",
-    "letra": "# Estrofa 1\nAunque marche por la oscuridad\nNada he de temer,\nPorque tú conmigo vas,\nMi pastor que me hace sosegar (2)\n\n# Estrofa 2\nTú que me conduces\nA tus fuentes de paz,\nTú me has bautizado,\nPor tu senda voy.\n\n# Estrofa 3\nAunque marche por la oscuridad\nNada he de temer,\nPorque tú conmigo vas,\nMi pastor que me hace sosegar.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "el-senor-es-mi-pastor-alejandro-mejia",
@@ -2282,13 +2444,14 @@ const CANCIONES = [
     "autor": "Alejandro Mejía",
     "categoria": "Fiestas/ Solemnidades",
     "tono": "",
-    "letra": "# Estrofa 1\nEl Señor es mi Pastor\nsu vida ha dado por mí\nyo su voz he de escuchar\ny suyo siempre seré.\n\n# Estrofa 2\nYo soy el buen Pastor\ndoy la vida a mis ovejas\npor su nombre Yo las llamo\ny con gran amor me siguen.\n\n# Estrofa 3\nYo no soy el mercenario\nque abandona las ovejas\ncuando ve venir al lobo\nque las mata y las dispersa.\n\n# Estrofa 4\nYo conozco mis ovejas\ny ellas también me conocen\ncomo el Padre me conoce\ny también conozco al Padre.\n\n# Estrofa 5\nTengo otras ovejas lejos\ny es preciso que las traiga\nmi llamada escucharán\ny se hará solo un rebaño.\n\n# Estrofa 6\nMis ovejas mi voz oyen\ny me siguen por doquiera\nYo les doy la vida eterna\nellas no verán la muerte.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "iglesia-peregrina",
@@ -2302,7 +2465,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "nueva-creacion",
@@ -2316,7 +2480,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "pueblo-de-reyes",
@@ -2330,7 +2495,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "vine-a-alabar-a-dios",
@@ -2344,7 +2510,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "mira-nuestra-ofrenda",
@@ -2352,13 +2519,14 @@ const CANCIONES = [
     "autor": "",
     "categoria": "Ofertorio",
     "tono": "Lam",
-    "letra": "# Estrofa 1\n[Lam]Mira [Mi7]nuestra o[Lam]frend[Rem]a, m[Mi7]írala[Lam], Señor.\nTodo te ofre[Rem]cemos p[Sol]ara unirnos m[Do]ás.\n\n# Coro\n[Lam]Porq[La7]ue tu[Rem] Mis[Sol]a es nuestra [Do]Misa\n[Lam]porque tu vi[Rem]da es n[Mi7]uestra vi[Lam]da. (bis)\n\n# Estrofa 2\n¿Qué podemos darte, nuestro Creador?\nSólo nuestra nada, tómala, Señor.",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "recibe-oh-dios",
@@ -2366,13 +2534,14 @@ const CANCIONES = [
     "autor": "",
     "categoria": "Ofertorio",
     "tono": "Do",
-    "letra": "# Estrofa 1\n[Do]Recibe, oh Dios, el [Fa]pan que te ofrec[Sol]emos[Lam],\nluego será [Do]el cuerp[Fa]o de Jesús.[Sol][Sol7]\nTambién acept[Do]a nuestr[Fa]o sacrificio[Sol],[Lam]\nnuestra oración,[Do] y nuest[Fa]ro c[Sol]orazó[Do]n.\n\n# Estrofa 2\nRecibe, oh Dios, el vino que ofrecemos,\nluego será la sangre de Jesús.\nTambién acepta nuestro sacrificio,\nnuestra oración y nuestro corazón.\n\n# Estrofa 3\nRecíbelos, Señor, por nuestras faltas,\npor los que están aquí junto al altar,\npor los cristianos vivos y difuntos,\npor todo el mundo, por su salvación.",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "saber-que-vendras",
@@ -2386,7 +2555,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "santo-i",
@@ -2400,7 +2570,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "santo-iii",
@@ -2414,7 +2585,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "si-yo-no-tengo-amor",
@@ -2428,11 +2600,12 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "yo-soy-el-camino",
-    "titulo": "Yo soy el camino",
+    "titulo": "Yo Soy el Camino Firme",
     "autor": "B. Aguilera / L. González",
     "categoria": "Temas Biblicos",
     "tono": "Lam",
@@ -2442,7 +2615,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "alma-misionera",
@@ -2450,13 +2624,14 @@ const CANCIONES = [
     "autor": "",
     "categoria": "Vocacionales y Mision",
     "tono": "Sol",
-    "letra": "# Estrofa 1\n[Sol]Señor [Re]toma mi vida [Mim]nueva\n[Do]antes de que la [Sol]espera\n[Do]desgaste años [Re]en mí.\nEstoy dispuesto a los que quieras\nno importa lo que sea\n[Do]Tú [Re]llámame a [Sol]servir.\n\n# Coro\n[Sol]Llévame donde los [Re]hombres\n[Mim]necesiten tus [Do]palabras, necesiten [Sol]\n[La]mis ganas de [Re]vivir.\nDonde falte la esperanza,\ndonde todo sea triste, simplemente\n[Do]por no [Re]saber de [Sol]Ti.\n\n# Estrofa 2\nTe doy mi corazón sincero,\npara gritar sin miedo\nlo hermoso que es tu amor.\nSeñor, tengo alma misionera,\ncondúceme a la tierra\nque tenga sed de vos.\n\n# Estrofa 3\nY así, en marcha iré cantando\npor pueblos, predicando\ntu grandeza, Señor.\nTendré mis manos sin cansancio,\ntu historia entre mis labios,\ntu fuerza en la oración.",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "alabado-sea-el-santisimo",
@@ -2470,7 +2645,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "cantemos-al-amor-de-los-amores",
@@ -2478,13 +2654,14 @@ const CANCIONES = [
     "autor": "Restituto del Valle / J. I. Busca Sagastizábal",
     "categoria": "De Adoración",
     "tono": "Do",
-    "letra": "",
+    "letra": "# Estrofa 1\n[Do]Cantemos al [Sol]Amor de l[Lam]os amores,\ncan[Rem]temos al Seño[Sol]r.\n¡Di[Do]os está [Lam]aquí:[Rem]\n[Fa]venid, adora[Sol]dores, ad[Lam]orem[Mim]os\n[Si7]a Cristo [Mim]Redentor!\n\n# Coro\n[Do]¡Gloria [La]a Cristo[Rem] Jesús!\nCielos y tie[Do]rra, ben[Lam]decid al Señor.[Sol]\n¡Honor[Fa] y glori[Sol]a a Ti,  [Do]Rey[Mi7] de la gloria[Fa];\namor por sie[Do]mpre a T[Lam]i, Dios d[Rem]el A[Do]mor[Sol]![Do]\n\n# Estrofa 2\nUnamos nuestra voz a los cantares\ndel coro celestial.\n¡Dios está aquí:\nal Dios de los altares alabemos,\ncon gozo angelical!\n\n# Estrofa 3\nCantemos al amor de los amores,\ncantemos sin cesar.\n¡Dios está aquí:\nvenid, adoradores, adoremos\na Cristo en el altar!",
     "youtube": "",
-    "restriccion": "oculta",
+    "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "digno-de-alabar",
@@ -2498,7 +2675,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "gloria-martin-valverde",
@@ -2512,7 +2690,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "vive-jesus",
@@ -2526,7 +2705,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "maria-musica-de-dios",
@@ -2534,13 +2714,14 @@ const CANCIONES = [
     "autor": "Kairoi",
     "categoria": "Cantos a la Virgen María",
     "tono": "Mi",
-    "letra": "# Estrofa 1\n[Mi]Me quedé sin voz,[Si7]\n[La]  con qu[Si7]e can[Mi]tar.[Sol#][Do#m]\nY mi alma va[Fa#m]cía, dormida se quedab[Si7]a.\nY pensé para mí:\n\"me pondré en sus manos,\nmanos de madre,\nme dejaré en tu am[Re7]or\".\n\n# Coro\n[Sol] Y tu Mar[Mim]ía,\n[Do] hazme m[Re]úsica de Dio[Sol]s.\nY tu, [Mim]María,\n[Do] an[Re]ima Tú las c[Sol]uerdas de mi [Mim]alma,\n[Do]Aaaalelu[Re]ya, [Do]Aaa[Dom]aaam[Sol]én.\n\n# Estrofa 2\nMaría acompaña\ntú mi caminar\nyo sólo no puedo,\nayúdame a andar.\nY pensé para mí...\n\"me pondré en sus manos,\nmanos de madre,\nme dejaré en tu amor\".",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "alma-de-cristo",
@@ -2554,7 +2735,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "hacia-ti-morada-santa",
@@ -2568,7 +2750,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "yo-soy-el-pan-de-vida",
@@ -2582,7 +2765,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "no-se-han-ido-del-todo",
@@ -2596,7 +2780,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "mas-alla-del-sol",
@@ -2610,7 +2795,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "pescador-de-hombres-49",
@@ -2624,7 +2810,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "caminare-en-presencia-del-senor",
@@ -2632,13 +2819,14 @@ const CANCIONES = [
     "autor": "Francisco Palazón",
     "categoria": "Misa por los Difuntos",
     "tono": "Mim",
-    "letra": "# Estribillo\n[Mim][Re]Caminaré\nen [Do]presencia [Si7]del [Mim]señor. (2)\n\n# Estrofa 1\n[Mim]Amo al Señor\nporque [Re]escucha\nmi voz\n[Mim]suplicante.\n[Mim]Porque inclina\nsu [Re]oido\nhacia [Do]mi\nel [Si7]dia que lo [Mim]invoco.\n\n# Estribillo\n[Mim][Re]Caminaré\nen [Do]presencia [Si7]del [Mim]señor. (2)\n",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "entre-tus-manos",
@@ -2646,13 +2834,14 @@ const CANCIONES = [
     "autor": "Música Católica",
     "categoria": "Misa por los Difuntos",
     "tono": "Re",
-    "letra": "# Estribillo\n[Re]Entre Tus [Mim]manos [La7]está mi [Re]vida, [Fa#m]Señor.\n[Sim]Entre Tus [Mim]manos [La7]pongo mi [Re]existir.\n[Re7]Hay que [Sol]morir, [La7]para [Re][Fa#m]vivir.\n[Sim]Entre Tus [Mim]manos [La7]confío mi [Re][Sol][Re]ser\n\n# Estrofas\n[Re7]Si el [Mim]grano [La7]de trigo no [Re][Fa#m]muere,\n[Sim]si [Mim]no [La]muere solo [Fa#m]quedará,\n[Sim]pero si [Mim][La7]muere en [Re]abundancia [Fa#m]dará\n[Sim]un fruto [Mim][La7]eterno que no [Re][Sol]morirá.\n\n[Re7]Es mi [Mim]anhelo [La7]mi hanelo [Re][Fa#m]creciente,\n[Sim]en el [Mim]surco [La]contigo [Fa#m]morir,\n[Sim]y [Mim][La7]fecunda sera la [Re]simiente, [Fa#m]Señor,\n[Sim][Mim][La7]revestida de eterno [Re][Sol]vivir.\n\n[Re]Y si [Mim][La7]vivimos, para el [Re][Sol]vivimos;\n[Sim]y si [Mim][La7]morimos, para el [Re]morimos;\n[Re7]Sea que [Sol]vivamos [La7]o que [Re][Fa#m]muramos,\n[Sim]somos del [Mim]Señor, [La7]somos del [Re][Sol]Señor.\n\n[Re7]Cuando [Mim]diere [La7]por fruto [Re]una [Fa#m]espiga,\n[Sim]a los [Mim]rayos [La]de ardiente [Fa#m]calor,\n[Sim]tu [Mim][La7]reinado tendra nueva [Re]vida de [Fa#]amor,\n[Sim]en una [Mim]Hostia [La7]de eterno [Re][Sol]esplendor.",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "cordero-de-dios",
@@ -2666,7 +2855,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "cordero-de-dios-1",
@@ -2680,7 +2870,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "cordero-de-dios-cumbia",
@@ -2694,7 +2885,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "como-el-ciervo",
@@ -2702,13 +2894,14 @@ const CANCIONES = [
     "autor": "",
     "categoria": "De Adoración",
     "tono": "Re",
-    "letra": "[Re]Como el ciervo al [La]agua [Re]va,\nvamos hacia Ti, [La][Re]Señor;\npues de Ti tenemos [La][Re]sed,\nFuente del Eterno [La][Re]amor.\n[Mim][La]Caminamos hacia [Re]Ti\n[Mim]con [La]alegres [Re]cánticos,\n[Mim]hoy [La]venimos a tu [Re]altar,\n[Mim]para [La]amarte más, [Re]Señor.\n[Re]Quien escucha mi [La][Re]gemir,\ndice ¿dónde está [La]tu [Re]Dios?\nEl Señor se encuentra [La][Re]aquí,\nen la voz de [La][Re]júbilo.\n[Mim]Ya mi [La]llanto ha de [Re]cesar,\n[Mim]El [La]Señor es [Re]salvador;\n[Mim]cuando [La]tenga que [Re]sufrir,\n[Mim]en Ti [La]pensaré, [Re]Señor.\n[Re]Gloria al Padre [La][Re]eterno,\ngloria al Hijo [La][Re]redentor,\ngloria al [La][Re]Espíritu\nque nos une en [La]el [Re]amor.\n[Mim]¡Ven, [La]Señor, [Re]Maranathá!\n[Mim]Amén, [La][Re]aleluya.\n[Mim]¡Ven, [La]Señor, [Re]Maranathá!\n[Mim]Amén, [La][Re]aleluya.",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "juntos-cantando-la-alegria",
@@ -2722,7 +2915,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "quiero-cantar-una-linda-cancion",
@@ -2736,7 +2930,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "hoy-nos-presentamos-ante-ti-senor",
@@ -2750,7 +2945,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "tomad-senor-y-recibid",
@@ -2764,7 +2960,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "oh-senor-ten-piedad",
@@ -2772,13 +2969,14 @@ const CANCIONES = [
     "autor": "Tradicional",
     "categoria": "Piedad",
     "tono": "La",
-    "letra": "",
+    "letra": "[Re]Oh Señor, [La]ten piedad, [Sim]de nosotros [Sol]ten [La]piedad.\n[Re]Oh Señor, [La]ten piedad, [Sim]de nosotros [Sol]ten [La][Re]piedad.\n[Re]Cristo [La]ten piedad, [Sim]de nosotros [Sol]ten [La]piedad.\n[Re]Cristo [La]ten piedad, [Sim]de nosotros [Sol]ten [La][Re]piedad.\n[Re]Oh Señor, [La]ten piedad, [Sim]de nosotros [Sol]ten [La]piedad.\n[Re]Oh Señor, [La]ten piedad, [Sim]de nosotros [Sol]ten [La][Re]piedad.",
     "youtube": "",
-    "restriccion": "oculta",
+    "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "aleluya-7-de-taize",
@@ -2792,7 +2990,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "santo",
@@ -2806,7 +3005,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "aun-en-la-tormenta",
@@ -2820,7 +3020,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "cancion-al-corazon-de-jesus",
@@ -2834,7 +3035,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "comunion-cada-vez-que-te-recibo",
@@ -2848,7 +3050,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "descansare",
@@ -2862,7 +3065,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "presente-vivo-y-real",
@@ -2876,7 +3080,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "tuyo-soy",
@@ -2884,13 +3089,14 @@ const CANCIONES = [
     "autor": "Luis Alfredo Díaz",
     "categoria": "De Adoración",
     "tono": "Do",
-    "letra": "[Do]Yo no soy nada y del [Lam]polvo nací,\n[Sol]pero Tú me amas y moriste por mí;\n[Do]ante la cruz sólo [Lam]puedo exclamar:\n¡tuyo [Sol]soy, tuyo [Do][Sol]soy!\nToma mis [Do]manos, te pido,\ntoma mis [Sol]labios, te amo,\ntoma mi [Do]vida, oh Padre,\ntuyo [Sol]soy, tuyo [Do]soy.\n[Do]Cuando de rodillas te [Lam]miro, Jesús,\n[Sol]veo tu grandeza y mi pequeñez.\n[Do]¿Qué puedo darte yo?, tan [Lam]sólo mi ser;\n¡tuyo [Sol]soy, tuyo [Do][Sol]soy!",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "alabare-2",
@@ -2904,7 +3110,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "jesus-esta-pasando-2",
@@ -2918,7 +3125,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "si-tuvieras-fe-2",
@@ -2932,7 +3140,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "senor-ten-piedad",
@@ -2940,13 +3149,14 @@ const CANCIONES = [
     "autor": "Alejandro Mejía",
     "categoria": "Piedad",
     "tono": "Mim",
-    "letra": "",
+    "letra": "[Mim]Señor ten [Si7]piedad [Mim]de nosotros\n[Si7](Señor ten [Mim]piedad de [Mi7]nosotros)\nde [Lam]nosotros [Re7]Señor ten [Sol][Mim]piedad\nde [Lam]nosotros [Si7]Señor ten [Mim]piedad\n[Sol]Cristo ten [Si7]piedad de [Mim]nosotros\n[Sol](Cristo ten [Si7]piedad de [Mim][Mi7]nosotros)\nde [Lam]nosotros [Re7]señor ten [Sol][Mim]piedad\nde [Lam]nosotros [Si7]señor ten [Mim]piedad\n[Mim]Señor ten [Si7]piedad de [Mim]nosotros...",
     "youtube": "",
-    "restriccion": "oculta",
+    "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "senor-ten-piedad-2",
@@ -2960,7 +3170,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "de-nosotros-piedad-senor",
@@ -2974,7 +3185,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "senor-ten-piedad-3",
@@ -2988,7 +3200,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "perdon-senor-guabina",
@@ -2996,13 +3209,14 @@ const CANCIONES = [
     "autor": "Música Católica",
     "categoria": "Piedad",
     "tono": "Rem",
-    "letra": "# Intro\nDm,A7,Dm,Gm,Dm,A7,Dm.\nperdon [La7]señor\nde tu pueblo te [Rem]piedad\n[Solm]perdon [Rem]señor\n[La7]enseñanos a [Rem]perdonar (BIS)\npor el pecado del [La7]mundo\npadre ten [Rem]piedad\npor [Solm]tanta [Rem]desigualdad\nen la [La7]reparticion del [Rem]pan\ny por nuestra [La7]indiferencia\npadre ten [Rem]piedad\n[Solm]ante el dolor del que [Rem]sufre\nsin [La7]amor techo ni [Rem]hogar\nperdon señor\nde tu pueblo ten piedad\nperdon señor\nenseñanos a perdonar  (BIS).",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "ten-piedad-soy-pecador",
@@ -3016,7 +3230,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "oh-senor-ten-piedad-2",
@@ -3030,7 +3245,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "aleluya-gloria-al-senor",
@@ -3044,7 +3260,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "cordero-de-dios-2",
@@ -3058,7 +3275,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "es-mi-cuerpo",
@@ -3072,7 +3290,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "yo-soy-el-trigo",
@@ -3080,13 +3299,14 @@ const CANCIONES = [
     "autor": "Música Católica",
     "categoria": "Cantos de Comunión",
     "tono": "Do",
-    "letra": "[Do]1. Yo soy el trigo que [Fa]crece en tus [Do]campos,\nyo soy la vid que [Fa]crece en tu [Sol7]huerto,\nyo soy el [Fa]agua que corre por tus [Do]ríos,\nyo soy el [Sol]aire que [Fa]da vida a [Sol7]tu [Do]cuerpo.\n[Do]Yo soy el [Fa]pan que [Sol7]partes en tu [Do][Do7]mesa,\nyo soy el [Fa]vino que [Sol7]bebes en tu [Do]fiesta,\nyo te he [Sol]invitado [Fa]para celebrar [Sol]nuestra\n[Fa][Do]amistad.\n2. Soy el amigo que te tiende su mano,\nsoy el mendigo que encuentras a tu paso,\nsoy el hambriento que coge tus migajas,\ny espera el pan, si quieres hacer caso.\n3. Soy el hermano que vive a tu lado,\nestoy desnudo, abriga tú mi cuerpo,\ncomo a los muertos me has abandonado,\nsi estoy contigo ¿por qué me has olvidado?\n4. Escúchame, te llamo a cada instante,\nsi tú me oyeras, si sólo comprendieras\nque cada día nos vamos acercando,\ny en esta mesa yo te estoy esperando.",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "donde-hay-caridad-y-amor",
@@ -3100,7 +3320,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "un-mandamiento-nuevo",
@@ -3114,7 +3335,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "amemonos-de-corazon",
@@ -3128,7 +3350,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": true,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "con-vosotros-esta-y-no-le-conoceis",
@@ -3142,7 +3365,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "danos-un-corazon",
@@ -3156,7 +3380,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "jesus-esta-entre-nosotros",
@@ -3170,7 +3395,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "si-me-falta-el-amor",
@@ -3178,13 +3404,14 @@ const CANCIONES = [
     "autor": "Francisco Palazón",
     "categoria": "Temas Biblicos",
     "tono": "La",
-    "letra": "[La]Aunque yo dominara las lenguas arcanas\nY el lenguaje del cielo del cielo supiera [Mi]expresar\n[Re]Solamente sería una hueca [La]campana\n[Mi]Si me falta el [La]amor\nSI ME FALTA EL [Mi]AMOR\nNO ME SIRVE DE [La]NADA\nSI ME FALTA EL [Mi]AMOR NADA [La]SOY. (BIS)\nAunque todos mis bienes pasara a los pobres\nY mi cuerpo en el fuego quisiera inmolar\nTodo aquello sería una inútil hazaña\nSi me falta el amor\nAunque yo revelara los grandes misterios\nY mi fe las montañas pudiera mover\nNo tendría valor ni me sirve de nada\nSi me falta el amor",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "me-has-seducido-senor",
@@ -3192,13 +3419,14 @@ const CANCIONES = [
     "autor": "Kairoi",
     "categoria": "Cantos de Comunión",
     "tono": "Sim",
-    "letra": "[Sim]Señor, [Mim]no soy nada,\n[Sol]¿por [Fa#7]qué me has llamado?\n[Mim]Has [La][Re]pasado por mi puerta y bien sabes\n[Fa#]que [Sim]soy pobre y soy débil.\n[Sol]¿por [Fa#]qué te has fijado en mí?\n[Sim]ME HAS SEDUCIDO SEÑOR,\n[Sol]CON TU MIRADA\n[La]ME HAS HABLADO AL CORAZÓN\n[Re]Y ME HAS QUERIDO\n[Fa#]ES IMPOSIBLE CONOCERTE\n[Sim]Y NO AMARTE,\n[Mim]ES [Fa#]IMPOSIBLE AMARTE Y NO SEGUIRTE,\n[Sim]ME HAS SEDUCIDO, SEÑOR.\nSeñor, yo te sigo,\ny quiero darte lo que pides,\naunque hay veces que me cuesta darlo todo\nTú lo sabes, yo soy tuyo.\nCamina, Señor, junto a mí.\nSeñor, hoy tu nombre\nes más que una palabra,\nes tu voz que hoy resuena en mi interior\ny me habla en el silencio\n¿qué quieres que haga por ti?",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": true,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "senor-tu-eres-la-luz",
@@ -3206,13 +3434,14 @@ const CANCIONES = [
     "autor": "Música Católica",
     "categoria": "Piedad",
     "tono": "La",
-    "letra": "# Estrofa 1\n[La]Señor, tú eres [Mi]la luz\ny [Re]nosotros te [La][La7]ocultamos\npor [Re]eso, [Mi]Señor ten [La]piedad\n[Fam]Señor, ten [Mi]piedad [Re]de [La]nosotros.\n\n# Estrofa 2\n[La]Señor, tú eres [Mi]camino\ny [Re]nosotros no te [La][La7]seguimos\npor [Re]eso, [Mi]Señor ten [La]piedad\n[Fam]Cristo, ten [Mi]piedad [Re]de [La]nosotros.\n\n# Estrofa 3\n[La]Señor, tú eres la [Mi]vida\ny [Re]nosotros la [La][La7]destruimos\npor [Re]eso, [Mi]Señor ten [La]piedad\n[Fam]Señor, ten [Mi]piedad [Re]de [La]nosotros.",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "tu-palabra-me-da-vida",
@@ -3226,7 +3455,8 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "aleluya-al-senor",
@@ -3234,13 +3464,14 @@ const CANCIONES = [
     "autor": "Música Católica",
     "categoria": "Aclamación del Evangelio",
     "tono": "Re",
-    "letra": "[Re][La]/Aleluya al Señor, [Sol][Re]aleluya./\n\n# Estrofa\nOh Señor que los pueblos te celebren\nque los pueblos te aclamen todos juntos\n/Aleluya al Señor, Aleluya./",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "este-pan-y-vino",
@@ -3248,13 +3479,14 @@ const CANCIONES = [
     "autor": "Música Católica",
     "categoria": "Ofertorio",
     "tono": "Mi",
-    "letra": "[Mi]Este pan [La]y vino [Mi]Señor se [Si7][Mi]transformarán\nen tu cuerpo [La]y sangre [Mi]Señor\nen [Si7]nuestro [Mi]manjar.\n\n[Mi]Gracias al sol [Si7]y al [Mi]labrador\nen el altar [La]florecen [Mi]hoy\n[La]las [Si7]espigas, [Do#m]los [Mi]racimos,\nque presentamos a [Si7]Dios.\n\n[Mi]Lo que sembré [Si7]con mi [Mi]dolor,\nlo que pedí [La]en mi [Mi]oración,\n[La]hoy son [Si7]fruto, [Do#m]son [Mi]ofrendas\nque presentamos a [Si7]Dios.",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "oculta",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "santo-y-eterno",
@@ -3262,13 +3494,14 @@ const CANCIONES = [
     "autor": "Música Católica",
     "categoria": "Santo",
     "tono": "Re",
-    "letra": "[La]/Santo, [Re]santo,\n[Sol]santo y [Re]eterno [La]es el Señor./\n[Re]Que [Re7]todo el [Sol][Re][Sol]universo\ncante [Mim]tus [La]maravillas.\nOh [Re]Señor, [La]nuestro [Re][La]Dios.\nTu [Fa#m]poder [Sim]creador y [Fa#m][Sim]salvador,\ntu [Sol][Sol#m]incomparable [La]amor\noh [Sol]gran [Re]Señor. Santo...",
+    "letra": "",
     "youtube": "",
-    "restriccion": "",
+    "restriccion": "privada",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   },
   {
     "id": "a-maria",
@@ -3276,13 +3509,14 @@ const CANCIONES = [
     "autor": "Música Católica",
     "categoria": "Cantos a la Virgen María",
     "tono": "",
-    "letra": "A María, Hija de Dios Padre\na María, Madre del Señor\na María, Esposa del Espíritu,\nalabanzas, honor y bendición.\nNueva Eva, desde antes figurada,\nanunciada y proclamada en la escala de Jacob.\nDe verdad, arca nueva de la alianza,\nSagrario inmaculado que lleva al Redentor\nEl Espíritu Santo poderoso\nviniendo sobre Ti, con su amor te fecundó.\nTe llenó de sus dones y carismas\ne hizo de su esclava la gran Madre de Dios.\nEres Madre de Cristo y de la Iglesia,\nmodelo sin mancilla donde se mira Dios.\nQue nosotros al soplo del Espíritu,\nseamos como Tú, espejos del Señor.",
+    "letra": "",
     "youtube": "",
     "restriccion": "",
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": true
   },
   {
     "id": "cordero-de-dios-83",
@@ -3296,6 +3530,7 @@ const CANCIONES = [
     "premium": false,
     "bloqueada": false,
     "demo": false,
-    "ocultarYoutubeFreemium": false
+    "ocultarYoutubeFreemium": false,
+    "pendienteAcordes": false
   }
 ];
