@@ -395,9 +395,15 @@
     background:var(--accent);color:#fff;border:none;padding:13px 28px;border-radius:24px;
     cursor:pointer;box-shadow:0 2px 0 var(--accent-deep)}
   .portada-enter:active{transform:translateY(1px);box-shadow:0 1px 0 var(--accent-deep)}
+  /* ---------- Pantalla de carga (portada del producto) ---------- */
+  .splash{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(#E8883F,#C9593A);cursor:pointer;opacity:1;transition:opacity .5s ease}
+  .splash.out{opacity:0;pointer-events:none}
+  .splash img{width:min(100vw,100vh,800px);height:min(100vw,100vh,800px);object-fit:contain;display:block}
 </style>
 </head>
 <body>
+<div class="splash" id="splash" onclick="cerrarSplash()"><img src="portada-splash.png" alt="Cantemos la Santa Misa"></div>
 <div class="portada" id="portada">
   <div class="portada-card">
     <div class="portada-loading" id="portadaLoading">
@@ -783,6 +789,15 @@
 // Se muestra solo la primera vez que se abre la app en este dispositivo
 // (queda guardado en localStorage). Las siguientes veces entra directo
 // al índice, sin mostrarla de nuevo.
+// Pantalla de carga: se muestra al abrir la app y se desvanece sola a los 2 s (o con un toque).
+function cerrarSplash(){
+  const sp=document.getElementById("splash");
+  if(!sp||sp.classList.contains("out")) return;
+  sp.classList.add("out");
+  setTimeout(()=>{ sp.remove(); },600);
+}
+setTimeout(cerrarSplash,2000);
+
 const LS_PORTADA="cantemos_portada_vista";
 (function initPortada(){
   const portada=document.getElementById("portada");
